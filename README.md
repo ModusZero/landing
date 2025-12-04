@@ -41,6 +41,7 @@ El producto final es un conjunto de archivos estáticos que se sirven fácilment
 | Variable | Propósito |
 | :--- | :--- |
 | `PUBLIC_STUDIO_APP_URL` | URL de la aplicación Studio para el botón CTA ("Launch App"). |
+| `PUBLIC_MARKETPLACE_APP_URL` | URL de la aplicación Marketplace para el botón CTA ("Go to Marketplace"). |
 | `API_SIGNUP_ENDPOINT` | URL del endpoint de registro del servicio IAM (usado por el formulario). |
 
 ### 2\. Comandos de Compilación (Build)
