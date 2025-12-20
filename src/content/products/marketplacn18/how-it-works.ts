@@ -1,6 +1,6 @@
 import type { HowItWorksConfig } from "@/types/how-it-works-config";
 
-export const SDK_CLI_HOW_IT_WORKS: HowItWorksConfig = {
+export const MARKETPLACN18_HOW_IT_WORKS: HowItWorksConfig = {
   title: 'How It Works',
   subtitle: 'Get started in minutes with our simple 5-step process',
   steps: [

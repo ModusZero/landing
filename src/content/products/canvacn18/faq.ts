@@ -1,6 +1,6 @@
 import type { FAQConfig } from '@/types/faq-config';
 
-export const GUARDCN18_FAQ: FAQConfig = {
+export const CANVACN18_FAQ: FAQConfig = {
   title: 'Frequently Asked Questions',
   subtitle: 'Everything you need to know about AI Agent Platform',
   items: [
