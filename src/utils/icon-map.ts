@@ -15,11 +15,18 @@ export const iconMap: Record<IconName, string> = {
   'slack': 'simple-icons:slack',
   'reddit': 'simple-icons:reddit',
   'pinterest': 'simple-icons:pinterest',
-  'producthunt': 'simple-icons:product-hunt',
+  'producthunt': 'simple-icons:producthunt',
   'opencollective': 'simple-icons:opencollective',
-  'thanks.dev': 'simple-icons:thanksdev',
+  
+  // Company logos
+  'stripe': 'simple-icons:stripe',
+  'shopify': 'simple-icons:shopify',
+  'notion': 'simple-icons:notion',
+  'hubspot': 'simple-icons:hubspot',
+  'intercom': 'simple-icons:intercom',
+  'linear': 'simple-icons:linear',
 
-  // General icons
+    // General icons
   'lightning': 'heroicons:bolt',
   'code': 'heroicons:code-bracket',
   'chart': 'heroicons:chart-bar',
@@ -31,12 +38,13 @@ export const iconMap: Record<IconName, string> = {
   'zap': 'heroicons:arrow-trending-up',
   'star': 'heroicons:star',
   'heart': 'heroicons:heart',
-  
-  // Company logos
-  'stripe': 'simple-icons:stripe',
-  'shopify': 'simple-icons:shopify',
-  'notion': 'simple-icons:notion',
-  'hubspot': 'simple-icons:hubspot',
-  'intercom': 'simple-icons:intercom',
-  'linear': 'simple-icons:linear',
+  'bolt': 'heroicons:bolt',
+  'users': 'heroicons:user-group',
+  'cloud': 'heroicons:cloud',
+  'globe': 'heroicons:globe-alt',
+  'lock': 'heroicons:lock-closed',
+  'shield-x': 'heroicons:shield-exclamation',
+  'shield-check': 'heroicons:shield-check',
+  'paperplane': 'heroicons:paper-airplane',
+  'chevron-right': 'heroicons:chevron-right',
 };

@@ -1,1 +1,23 @@
-<!-- obtiene el param resource y dependiendo del que sea, mediante un map muestra el componente asociado, ya sea la doc, el foro, etc -->
+---
+import Forum from "@/components/resources/Forum.astro"
+import Blog from "@/components/resources/Blog.astro"
+import Changelog from "@/components/resources/Changelog.astro"
+import Collaborate from "@/components/resources/Collaborate.astro"
+import Documentation from "@/components/resources/Documentation.astro"
+import FirstSteps from "@/components/resources/FirstSteps.astro"
+import GetProduct from "@/components/resources/GetProduct.astro"
+
+const resourceMap: Record<string, HTMLElement> = {
+    'blog': <Blog />,
+    'changelog': <Changelog />,
+    'collaborate': <Collaborate />,
+    'docs': <Documentation />,
+    'first-steps': <FirstSteps />,
+    'forum': <Forum />,
+    'get-product': <GetProduct />,
+}
+
+const { resource } = Astro.params
+---
+
+{ resource && resourceMap[resource] }

@@ -1,0 +1,71 @@
+{
+    "site": {
+        "title": "MyCn18 Home",
+        "description": "Powerful Next-Gen Solutions"
+    },
+    "layout": {
+        "header": {
+            "products": "Products",
+            "resources": "Resources",
+            "product_list": {
+                "canvacn18": "CanvaCn18",
+                "canvacn18_description": "Advanced design canvas for creators",
+                "sdk_cli": "SDK CLI Tool",
+                "sdk_cli_description": "Powerful command-line interface for SDKs",
+                "guardcn18": "GuardCn18",
+                "guardcn18_description": "Next-gen security and monitoring",
+                "marketplacn18": "MarketPlaCn18",
+                "marketplacn18_description": "Integrated digital marketplace"
+            },
+            "resource_list": {
+                "blog": "Blog",
+                "blog_description": "Latest updates and insights",
+                "changelog": "Changelog",
+                "changelog_description": "Project history and updates",
+                "collaborate": "Collaborate",
+                "collaborate_description": "Join our contributor network",
+                "forum": "Forum",
+                "forum_description": "Discuss with the community",
+                "docs": "Documentation",
+                "docs_description": "Full technical guides",
+                "first_steps": "Quick Start",
+                "first_steps_description": "Get up and running in minutes",
+                "get_product": "Get Product",
+                "get_product_description": "Access the full version",
+                "learn": "Learn",
+                "community": "Community",
+                "news": "News"
+            },
+            "enterprise": "Enterprise Edition",
+            "help": "Help",
+            "get_demo": "Request a Demo",
+            "login": "Sign In"
+        },
+        "footer": {
+            "tagline": "Building the future of modern engineering.",
+            "copyright": "All rights reserved.",
+            "columns": {
+                "company": "Company",
+                "support": "Support",
+                "legal": "Legal"
+            }
+        }
+    },
+    "home": {
+        "hero": {
+            "headline": "Innovate Faster",
+            "subheadline": "Precision engineering for modern teams.",
+            "description": "Our platform provides the tools you need to build, scale, and secure your next big project without friction."
+        },
+        "why_use_it": {
+            "title": "Why Choose MyCn18?",
+            "subtitle": "Efficiency and power combined in one ecosystem."
+        },
+        "go_see_it": {
+            "title": "Ready to Start?",
+            "description": "Discover why thousands of developers trust our core technology.",
+            "primary_cta": "Get Started",
+            "secondary_cta": "Documentation"
+        }
+    }
+}

@@ -8,7 +8,6 @@ const { href, class: className, ...props } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 
 const pathname = Astro.url.pathname;
-// Lógica para detectar si el enlace está activo considerando el idioma
 const isActive = href === pathname || 
                  href === pathname.replace(/\/$/, '') ||
                  (href !== `/${lang}` && pathname.startsWith(String(href)));
@@ -18,13 +17,23 @@ const isActive = href === pathname ||
     href={href} 
     class:list={[
         className, 
-        'inline-block no-underline border-b-2 transition-all duration-300 py-1',
-        // Estado normal
-        'border-transparent text-mono-gray hover:text-accent hover:border-accent',
-        // Estado activo
-        { 'border-accent text-mono-black font-bold dark:text-white': isActive }
+        'inline-block no-underline border-b-2 transition-all duration-300 py-1 text-sm font-medium hover:text-accent',
+        { 'active-link border-accent font-bold': isActive },
+        { 'text-mono-gray border-transparent': !isActive }
     ]} 
     {...props}
 >
     <slot />
 </a>
+
+<style>
+    /* Link inactivo (gris) */
+    a:not(.active-link) {
+        color: var(--color-mono-gray);
+    }
+
+    /* Link activo (negro/blanco según tema) */
+    .active-link {
+        color: var(--text-main);
+    }
+</style>

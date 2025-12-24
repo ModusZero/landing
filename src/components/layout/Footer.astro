@@ -3,26 +3,37 @@ import { LAYOUT_CONFIG } from '@/config/layout';
 import { SITE_CONFIG } from '@/config/site';
 import { Icon } from 'astro-icon/components';
 import { iconMap } from '@/utils/icon-map';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
-<footer class="bg-mono-black px-4 py-16 text-white sm:px-6 lg:px-8">
+<footer class="border-t border-mono-lighter bg-white/80 backdrop-blur-md text-mono-black transition-colors duration-500 dark:border-mono-dark dark:bg-mono-black/80 dark:text-white px-4 py-16 sm:px-6 lg:px-8">
   <div class="mx-auto max-w-7xl">
     <div class="mb-12 grid grid-cols-1 gap-12 md:grid-cols-4">
       <div class="md:col-span-1">
-        <div class="mb-4 text-2xl font-bold">{SITE_CONFIG.name}</div>
-        <p class="text-mono-light text-sm leading-relaxed">
-          {LAYOUT_CONFIG.footer.tagline}
+        <div class="mb-4 text-2xl font-bold transition-colors">
+          {SITE_CONFIG.name}<span class="text-accent">.</span>
+        </div>
+        <p class="text-sm text-mono-black dark:text-white transition-colors">
+          {t('layout.footer.tagline')}
         </p>
       </div>
 
       {
         LAYOUT_CONFIG.footer.columns.map((column) => (
           <div>
-            <h4 class="mb-4 font-semibold">{column.title}</h4>
+            <h4 class="mb-4 font-semibold transition-colors">
+              {t(`layout.footer.columns.${column.title.toLowerCase()}`)}
+            </h4>
             <ul class="space-y-3 text-sm">
               {column.links.map((link) => (
                 <li>
-                  <a href={link.href} class="text-mono-light">
+                  <a 
+                    href={link.href} 
+                    class="text-mono-black dark:text-white transition-colors hover:text-accent"
+                  >
                     {link.name}
                   </a>
                 </li>
@@ -33,11 +44,9 @@ import { iconMap } from '@/utils/icon-map';
       }
     </div>
 
-    <div
-      class="border-mono-darker flex flex-col items-center justify-between border-t pt-8 md:flex-row"
-    >
-      <p class="text-mono-light mb-4 text-sm md:mb-0">
-        &copy; {LAYOUT_CONFIG.footer.copyright}
+    <div class="flex flex-col items-center justify-between border-t border-mono-lighter dark:border-mono-dark pt-8 md:flex-row transition-colors">
+      <p class="mb-4 text-sm text-mono-black dark:text-white md:mb-0 transition-colors">
+        &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {t('layout.footer.copyright')}
       </p>
 
       <div class="flex space-x-6">
@@ -45,7 +54,7 @@ import { iconMap } from '@/utils/icon-map';
           LAYOUT_CONFIG.footer.social.map((social) => (
             <a
               href={social.href}
-              class="text-mono-light"
+              class="text-mono-black dark:text-white transition-all hover:scale-110 hover:text-accent"
               aria-label={social.name}
             >
               <Icon name={iconMap[social.icon]} class="h-6 w-6" />

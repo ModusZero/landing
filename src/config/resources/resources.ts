@@ -1,46 +1,55 @@
-import type { DropMenuItem } from "@/types/drop-menu-item";
+import type { DropMenuItem } from '@/types/drop-menu-item';
+
+const prefix = 'layout.header.resource_list';
 
 export const RESOURCES_MENU: DropMenuItem[] = [
     {
-        title: "blog",
-        descriptionTranslationKey: "blog_description",
-        categoryTranslationKey: "news",
-        href: "blog",
+        title: `${prefix}.blog`,
+        descriptionTranslationKey: `${prefix}.blog_description`,
+        categoryTranslationKey: `${prefix}.news`,
+        href: 'blog',
+        icon: 'brush'
     },
     {
-        title: "changelog",
-        descriptionTranslationKey: "changelog_description",
-        categoryTranslationKey: "news",
-        href: "changelog",
+        title: `${prefix}.changelog`,
+        descriptionTranslationKey: `${prefix}.changelog_description`,
+        categoryTranslationKey: `${prefix}.news`,
+        href: 'changelog',
+        icon: 'chart'
     },
     {
-        title: "collaborate",
-        descriptionTranslationKey: "collaborate_description",
-        categoryTranslationKey: "community",
-        href: "collaborate",
+        title: `${prefix}.collaborate`,
+        descriptionTranslationKey: `${prefix}.collaborate_description`,
+        categoryTranslationKey: `${prefix}.community`,
+        href: 'collaborate',
+        icon: 'lightning'
     },
     {
-        title: "forum",
-        descriptionTranslationKey: "forum_description",
-        categoryTranslationKey: "community",
-        href: "forum",
+        title: `${prefix}.docs`,
+        descriptionTranslationKey: `${prefix}.docs_description`,
+        categoryTranslationKey: `${prefix}.learn`,
+        href: 'docs',
+        icon: 'layers'
     },
     {
-        title: "docs",
-        descriptionTranslationKey: "docs_description",
-        categoryTranslationKey: "learn",
-        href: "docs",
+        title: `${prefix}.first_steps`,
+        descriptionTranslationKey: `${prefix}.first_steps_description`,
+        categoryTranslationKey: `${prefix}.learn`,
+        href: 'first-steps',
+        icon: 'dribbble'
+    },
+     {
+        title: `${prefix}.forum`,
+        descriptionTranslationKey: `${prefix}.forum_description`,
+        categoryTranslationKey: `${prefix}.community`,
+        href: 'forum',
+        icon: 'chat'
     },
     {
-        title: "first_steps",
-        descriptionTranslationKey: "first_steps_description",
-        categoryTranslationKey: "learn",
-        href: "first_steps",
-    },
-    {
-        title: "get_product",
-        descriptionTranslationKey: "get_product_description",
-        categoryTranslationKey: "community",
-        href: "get_product",
+        title: `${prefix}.get_product`,
+        descriptionTranslationKey: `${prefix}.get_product_description`,
+        categoryTranslationKey: `${prefix}.community`,
+        href: 'get-product',
+        icon: 'heart'
     }
 ];

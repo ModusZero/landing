@@ -1,0 +1,71 @@
+{
+    "site": {
+        "title": "MyCn18 Inicio",
+        "description": "Soluciones de última generación para ingeniería moderna"
+    },
+    "layout": {
+        "header": {
+            "products": "Productos",
+            "resources": "Recursos",
+            "product_list": {
+                "canvacn18": "CanvaCn18",
+                "canvacn18_description": "Canvas de diseño avanzado para creadores",
+                "sdk_cli": "CLI para SDKs",
+                "sdk_cli_description": "Interfaz de línea de comandos potente y versátil",
+                "guardcn18": "GuardCn18",
+                "guardcn18_description": "Seguridad y monitoreo proactivo",
+                "marketplacn18": "MarketPlaCn18",
+                "marketplacn18_description": "Mercado digital integrado"
+            },
+            "resource_list": {
+                "blog": "Blog",
+                "blog_description": "Últimas noticias y artículos",
+                "changelog": "Historial de cambios",
+                "changelog_description": "Registro de actualizaciones del proyecto",
+                "collaborate": "Colabora",
+                "collaborate_description": "Únete a nuestra red de colaboradores",
+                "forum": "Foro",
+                "forum_description": "Conecta con nuestra comunidad",
+                "docs": "Documentación",
+                "docs_description": "Guías técnicas completas",
+                "first_steps": "Primeros pasos",
+                "first_steps_description": "Configuración rápida en pocos minutos",
+                "get_product": "Obtén el producto",
+                "get_product_description": "Acceso a la versión completa",
+                "learn": "Aprendizaje",
+                "community": "Comunidad",
+                "news": "Noticias"
+            },
+            "enterprise": "Versión Empresarial",
+            "help": "Ayuda",
+            "get_demo": "Obtén una Demo",
+            "login": "Iniciar sesión"
+        },
+        "footer": {
+            "tagline": "Construyendo el futuro de la ingeniería moderna.",
+            "copyright": "Todos los derechos reservados.",
+            "columns": {
+                "company": "Empresa",
+                "support": "Soporte",
+                "legal": "Legal"
+            }
+        }
+    },
+    "home": {
+        "hero": {
+            "headline": "Innova sin límites",
+            "subheadline": "Ingeniería de precisión para equipos modernos.",
+            "description": "Nuestra plataforma ofrece las herramientas necesarias para construir, escalar y asegurar tu próximo gran proyecto sin fricciones."
+        },
+        "why_use_it": {
+            "title": "¿Por qué elegir MyCn18?",
+            "subtitle": "Eficiencia y potencia combinadas en un solo ecosistema."
+        },
+        "go_see_it": {
+            "title": "¿Listo para empezar?",
+            "description": "Descubre por qué miles de desarrolladores confían en nuestra tecnología core.",
+            "primary_cta": "Comenzar ahora",
+            "secondary_cta": "Ver documentación"
+        }
+    }
+}

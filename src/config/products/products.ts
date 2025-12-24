@@ -1,24 +1,30 @@
-import type { DropMenuItem } from "@/types/drop-menu-item";
+import type { DropMenuItem } from '@/types/drop-menu-item';
+
+const prefix = 'layout.header.product_list';
 
 export const PRODUCTS_MENU: DropMenuItem[] = [
     {
-        title: "CanvaCn18",
-        descriptionTranslationKey: "Description for Product A",
-        href: "canvacn18",
+        title: `${prefix}.canvacn18`,
+        descriptionTranslationKey: `${prefix}.canvacn18_description`,
+        href: 'canvacn18',
+        icon: 'brush'
     },
     {
-        title: "Cli for SDKs",
-        descriptionTranslationKey: "Description for Product A",
-        href: "sdk-cli",
+        title: `${prefix}.sdk_cli`,
+        descriptionTranslationKey: `${prefix}.sdk_cli_description`,
+        href: 'sdk-cli',
+        icon: 'code'
     },
     {
-        title: "GuardCn18",
-        descriptionTranslationKey: "Description for Product A",
-        href: "guardcn18",
+        title: `${prefix}.guardcn18`,
+        descriptionTranslationKey: `${prefix}.guardcn18_description`,
+        href: 'guardcn18',
+        icon: 'shield'
     },
     {
-        title: "MarketPlaCn18",
-        descriptionTranslationKey: "Description for Product A",
-        href: "marketplacn18",
+        title: `${prefix}.marketplacn18`,
+        descriptionTranslationKey: `${prefix}.marketplacn18_description`,
+        href: 'marketplacn18',
+        icon: 'chart'
     },
 ];

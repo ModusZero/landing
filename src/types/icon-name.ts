@@ -20,13 +20,20 @@ export type SocialIconName =
   | 'reddit'
   | 'pinterest'
   | 'paypal'
-  | 'thanks.dev'
   | 'producthunt'
   | 'opencollective';
 
   export type FeatureIconName = 
   | 'lightning' 
-  | 'code' 
+  | 'code'
+  | 'cloud'
+  | 'lock'
+  | 'users'
+  | 'globe'
+  | 'bolt'
+  | 'shield-check'
+  | 'shield-x'
+  | 'paperplane'
   | 'chart' 
   | 'chat' 
   | 'shield' 
@@ -35,6 +42,7 @@ export type SocialIconName =
   | 'layers' 
   | 'zap'
   | 'star'
-  | 'heart';
+  | 'heart'
+  | 'chevron-right';
 
 export type IconName = CompanyIconName | SocialIconName | FeatureIconName;

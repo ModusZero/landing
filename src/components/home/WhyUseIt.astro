@@ -1,0 +1,58 @@
+---
+import { iconMap } from '@/utils/icon-map';
+import { type IconName } from '@/types/icon-name';
+import { Icon } from 'astro-icon/components';
+
+const config = {
+  title: "Why Choose Our Platform?",
+  subtitle: "We combine precision engineering with modern design.",
+  reasons: [
+    {
+      title: "Performance",
+      description: "Optimized for speed and high-load environments.",
+      icon: "bolt"
+    },
+    {
+      title: "Security",
+      description: "Enterprise-grade encryption in every layer.",
+      icon: "shield-check"
+    },
+    {
+      title: "Scalability",
+      description: "Grow from 1 to 1M users without friction.",
+      icon: "paperplane"
+    }
+  ] as {
+    title: string;
+    description: string;
+    icon: IconName;
+  }[]
+};
+---
+
+<section class="relative border-y border-mono-lighter dark:border-mono-dark bg-transparent py-24 px-4 sm:px-6 lg:px-8 transition-colors duration-500">
+  <div class="mx-auto max-w-7xl">
+    <div class="text-center mb-16 scroll-fade-up">
+      <h2 class="text-4xl font-bold sm:text-5xl mb-4 text-mono-black dark:text-white">
+        {config.title}
+      </h2>
+      <p class="text-xl text-mono-gray dark:text-mono-light max-w-2xl mx-auto">
+        {config.subtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {config.reasons.map((reason) => (
+        <div class="group flex flex-col items-center text-center p-6 rounded-2xl border border-transparent hover:border-mono-lighter dark:hover:border-mono-dark transition-all duration-300">
+          <div class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-mono-black dark:bg-white text-white dark:text-mono-black transition-colors">
+            <Icon name={iconMap[reason.icon]} class="h-8 w-8" />
+          </div>
+          <h3 class="text-2xl font-bold mb-3 text-mono-black dark:text-white">{reason.title}</h3>
+          <p class="text-mono-gray dark:text-mono-light leading-relaxed">
+            {reason.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

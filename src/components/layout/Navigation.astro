@@ -1,12 +1,12 @@
 ---
-import { NAVIGATION_CONFIG } from '@/config/navigation';
+import { Icon } from 'astro-icon/components';
 import { SITE_CONFIG } from '@/config/site';
-import { useTranslations, getLangFromUrl } from '@/i18n/utils';
+import { NAVIGATION_CONFIG } from '@/config/navigation';
 import HeaderLink from './HeaderLink.astro';
 import HeaderDropMenu from './HeaderDropMenu.astro';
 import ThemeSelector from './settings/ThemeSelector.astro';
 import LanguageSelector from './settings/LanguageSelector.astro';
-import { Icon } from 'astro-icon/components';
+import { useTranslations, getLangFromUrl } from '@/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,11 +22,11 @@ const loginConfig = {
 };
 ---
 
-<nav class="border-mono-lighter fixed top-0 z-50 w-full border-b bg-white/95 backdrop-blur-sm dark:border-mono-dark dark:bg-mono-black/95">
+<nav class="fixed top-0 z-50 w-full border-b border-mono-lighter bg-white/80 backdrop-blur-md dark:border-mono-dark dark:bg-mono-black/80 transition-colors duration-500">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
       
-      <a href={`/${lang}`} class="text-mono-black text-xl font-bold dark:text-white">
+      <a href={`/${lang}`} class="text-mono-black text-xl font-bold dark:text-white transition-colors">
         {SITE_CONFIG.name}<span class="text-accent">.</span>
       </a>
 
@@ -46,7 +46,6 @@ const loginConfig = {
         ))}
         
         <div class="h-6 w-px bg-mono-lighter dark:bg-mono-dark mx-2"></div>
-        
         <LanguageSelector />
         <ThemeSelector />
         
@@ -61,14 +60,14 @@ const loginConfig = {
 
       <div class="flex items-center gap-4 md:hidden">
         <ThemeSelector />
-        <button id="mobileMenuButton" class="text-mono-black dark:text-white p-2" aria-expanded="false" aria-controls="mobileMenu">
+        <button id="mobileMenuButton" class="text-mono-black dark:text-white p-2" aria-expanded="false">
           <Icon name="heroicons:bars-3" class="h-6 w-6" />
         </button>
       </div>
     </div>
   </div>
 
-  <div id="mobileMenu" class="hidden border-t border-mono-lighter bg-white px-4 py-6 dark:border-mono-dark dark:bg-mono-black md:hidden">
+  <div id="mobileMenu" class="hidden border-t border-mono-lighter bg-white dark:border-mono-dark dark:bg-mono-black px-4 py-6 md:hidden">
     <div class="flex flex-col space-y-4">
       {NAVIGATION_CONFIG.links.map((link) => (
         <div>
@@ -78,7 +77,7 @@ const loginConfig = {
           {link.drop && (
             <div class="ml-4 mt-1 flex flex-col space-y-3 border-l-2 border-mono-lighter pl-4 dark:border-mono-dark">
               {link.items?.map((item) => (
-                <a href={`/${lang}${item.href}`} class="text-sm text-mono-dark dark:text-mono-light hover:text-accent">
+                <a href={`/${lang}/${link.href}/${item.href}`} class="text-sm text-mono-dark dark:text-mono-light hover:text-accent transition-colors">
                   {t(item.title)}
                 </a>
               ))}

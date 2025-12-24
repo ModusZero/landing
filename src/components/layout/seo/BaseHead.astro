@@ -1,5 +1,5 @@
 ---
-import '@/styles/index.css';
+import '@/styles/globals.css';
 import { SITE_CONFIG } from '@/config/site';
 
 type Props = {
@@ -8,7 +8,10 @@ type Props = {
     image?: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = Astro.site 
+    ? new URL(Astro.url.pathname, Astro.site) 
+    : Astro.url;
+
 const { 
     title = SITE_CONFIG.title, 
     description = SITE_CONFIG.description, 
@@ -46,19 +49,37 @@ const {
 
 
 <script is:inline>
-    const getInitialTheme = () => {
-        const stored = localStorage.getItem('theme');
-        if (stored) return stored;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    };
-
-    const theme = getInitialTheme();
-    
-    document.documentElement.setAttribute('data-theme', theme);
+  function applyTheme() {
+    const theme = localStorage.getItem('theme') || 
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     
     if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
+      document.documentElement.classList.add('dark');
     } else {
-        document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
     }
+  }
+
+  applyTheme();
+  // Importante para Astro
+  document.addEventListener('astro:after-swap', applyTheme);
+</script>
+<script is:inline>
+  // Función auto-ejecutable inmediata
+  (function() {
+    const getTheme = () => {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    
+    const theme = getTheme();
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    // Sincronizar color-scheme para evitar flash de scrollbars
+    document.documentElement.style.colorScheme = theme;
+  })();
 </script>

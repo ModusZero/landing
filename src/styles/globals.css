@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Paleta MyCn18 Core */
   --color-mono-black: #000000;
   --color-mono-darker: #121212;
   --color-mono-dark: #252526;
@@ -9,11 +8,10 @@
   --color-mono-light: #a3a3a3;
   --color-mono-lighter: #e5e5e5;
   --color-mono-white: #ffffff;
-  --color-accent: #0ea5e9; /* Sky 500 para resaltar ingeniería */
+  --color-accent: #0ea5e9;
 
   --font-sans: "Geist", system-ui, -apple-system, sans-serif;
 
-  /* Animaciones del Boilerplate */
   --animate-fade-in: fade-in 1200ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-up: fade-up 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-float: float 4500ms cubic-bezier(0.45, 0, 0.55, 1) infinite;
@@ -21,25 +19,29 @@
 
 @layer base {
   :root {
-    --bg-app: 0 0% 100%;
-    --text-main: 0 0% 0%;
-    --border-color: 0 0% 90%;
+    --bg-app: #ffffff;
+    --text-main: #000000;
+    --border-main: #e5e5e5;
+    color-scheme: light;
   }
 
-  [data-theme='dark'] {
-    --bg-app: 0 0% 7%;
-    --text-main: 0 0% 98%;
-    --border-color: 0 0% 15%;
+  .dark {
+    --bg-app: #0a0a0a;
+    --text-main: #fcfcfc;
+    --border-main: #252526;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1e1e1e_1px,transparent_1px)];
-    background-color: hsl(var(--bg-app));
-    color: hsl(var(--text-main));
+    @apply bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [bg-size:16px_16px] 
+           dark:bg-[radial-gradient(#1e1e1e_1px,transparent_1px)];
+    
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    @apply antialiased transition-colors duration-500 ease-in-out;
   }
 }
 
-/* Keyframes heredados */
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(30px); }
@@ -56,3 +58,8 @@
 .scroll-fade-up.visible {
   @apply opacity-100 translate-y-0;
 }
+
+  /* Forzamos a que los encabezados sigan el color del texto principal por defecto */
+  h1, h2, h3, h4, p, span {
+    color: currentColor;
+  }

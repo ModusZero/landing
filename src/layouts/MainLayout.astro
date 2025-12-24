@@ -1,0 +1,83 @@
+---
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import BaseHead from '@/components/layout/seo/BaseHead.astro';
+import Navigation from '@/components/layout/Navigation.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Orb from '@/components/islands/Orb';
+import '@/styles/globals.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+  <head>
+    <BaseHead 
+      title={title || t('site.title')} 
+      description={description || t('site.description')} 
+    />
+    
+    <script is:inline>
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+
+    <style is:global>
+      .orb-canvas-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+      }
+      main {
+        position: relative;
+        z-index: 10;
+      }
+    </style>
+  </head>
+
+  <body class="font-sans">
+    <div class="orb-canvas-container" transition:persist="orb-main">
+      <Orb client:only="react" hue={210} hoverIntensity={0.5} />
+    </div>
+
+    <Navigation /> 
+    
+    <main>
+      <slot /> 
+    </main>
+
+    <Footer /> 
+
+    <script>
+      const initAnimations = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add('visible');
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.scroll-fade, .scroll-fade-up').forEach((el) => observer.observe(el));
+      };
+
+      document.addEventListener('astro:page-load', initAnimations);
+      initAnimations();
+    </script>
+  </body>
+</html>
