@@ -1,9 +1,9 @@
 import type { FeaturesConfig } from "@/types/features-config";
 
-export const MARKETPLACN18_FEATURES: FeaturesConfig = {
-    title: 'Key Features of Marketplacn18',
+export const MOD0_FEATURES: FeaturesConfig = {
+    title: 'Key Features of Mod0',
     subtitle:
-    'Discover the powerful features that make Marketplacn18 the ultimate solution for your needs.',
+    'Discover the powerful features that make Mod0 the ultimate solution for your needs.',
     items: [
         {
           icon: 'lightning',

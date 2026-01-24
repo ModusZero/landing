@@ -14,10 +14,10 @@ const t = useTranslations(lang);
     <div class="mb-12 grid grid-cols-1 gap-12 md:grid-cols-4">
       <div class="md:col-span-1">
         <div class="mb-4 text-2xl font-bold transition-colors">
-          {t(SITE_CONFIG.title)}<span class="text-accent">.</span>
+          {t(SITE_CONFIG.title)}
         </div>
         <p class="text-sm text-mono-black dark:text-white transition-colors">
-          {t('layout.footer.tagline')}
+          {t(LAYOUT_CONFIG.footer.tagline)}
         </p>
       </div>
 
@@ -46,7 +46,7 @@ const t = useTranslations(lang);
 
     <div class="flex flex-col items-center justify-between border-t border-mono-lighter dark:border-mono-dark pt-8 md:flex-row transition-colors">
       <p class="mb-4 text-sm text-mono-black dark:text-white md:mb-0 transition-colors">
-        &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {t('layout.footer.copyright')}
+        &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {t(LAYOUT_CONFIG.footer.copyright)}
       </p>
 
       <div class="flex space-x-6">

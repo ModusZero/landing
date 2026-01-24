@@ -1,6 +1,6 @@
 import type { PricingPlansConfig } from "@/types/pricing-plans-config";
 
-export const SDK_CLI_PRICING: PricingPlansConfig = {
+export const MOD0_PRICING: PricingPlansConfig = {
     title: 'Simple, Transparent Pricing',
     subtitle:
     'Choose the plan that fits your needs. Upgrade or downgrade anytime.',

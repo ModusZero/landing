@@ -2,10 +2,9 @@ import type { IconName } from "@/types/icon-name";
 
 export const LAYOUT_CONFIG = {
     hero: {
-        headline: 'Intelligent AI Agents',
-        subheadline: 'Built for Your Business',
-        description:
-            'Transform your workflow with autonomous AI agents that handle complex tasks, learn from your data, and deliver results 24/7. No coding required.',
+        headline: 'home.hero.headline',
+        subheadline: 'home.hero.subheadline',
+        description: 'home.hero.description',
         cta: {
             primary: {
                 text: 'Get Started Free',
@@ -24,8 +23,7 @@ export const LAYOUT_CONFIG = {
     },
 
     footer: {
-        tagline:
-            'Intelligent automation for modern teams. Transform your workflow with AI.',
+        tagline: 'layout.footer.tagline',
         columns: [
             {
                 title: 'Product',
@@ -68,6 +66,6 @@ export const LAYOUT_CONFIG = {
             href: string;
             icon: IconName;
         }[],
-        copyright: `${new Date().getFullYear()} AI Agent Platform. All rights reserved.`,
+        copyright: 'layout.footer.copyright',
     },
 }

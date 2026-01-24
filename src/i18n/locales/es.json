@@ -4,22 +4,17 @@
         "next": "Siguiente"
     },
     "site": {
-        "title": "MyCn18 Inicio",
-        "description": "Create your flow, unchained, at any level."
+        "name": "Modus Zero",
+        "title": "Modus Zero",
+        "description": "Plataforma de ingeniería de vanguardia diseñada para optimizar flujos de trabajo de desarrollo, mejorar la colaboración y acelerar la entrega de proyectos para equipos modernos."
     },
     "layout": {
         "header": {
             "products": "Productos",
             "resources": "Recursos",
             "product_list": {
-                "canvacn18": "CanvaCn18",
-                "canvacn18_description": "Canvas de diseño avanzado para creadores",
-                "sdk_cli": "CLI para SDKs",
-                "sdk_cli_description": "Interfaz de línea de comandos potente y versátil",
-                "guardcn18": "GuardCn18",
-                "guardcn18_description": "Seguridad y monitoreo proactivo",
-                "marketplacn18": "MarketPlaCn18",
-                "marketplacn18_description": "Mercado digital integrado"
+                "mod0": "Mod0",
+                "mod0_description": "Editor de código especializado para codificación auténtica asistida por IA"
             },
             "resource_list": {
                 "blog": "Blog",
@@ -58,12 +53,12 @@
     },
     "home": {
         "hero": {
-            "headline": "Innova sin límites",
+            "headline": "Plataforma de Ingeniería Next-Gen",
             "subheadline": "Ingeniería de precisión para equipos modernos.",
             "description": "Nuestra plataforma ofrece las herramientas necesarias para construir, escalar y asegurar tu próximo gran proyecto sin fricciones."
         },
         "why_use_it": {
-            "title": "¿Por qué elegir MyCn18?",
+            "title": "¿Por qué elegir nuestra plataforma?",
             "subtitle": "Eficiencia y potencia combinadas en un solo ecosistema."
         },
         "go_see_it": {

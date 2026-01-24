@@ -1,17 +1,15 @@
 import type { SiteConfig } from "@/types/site-config";
 
 export const SITE_CONFIG: SiteConfig = {
-    name: 'MyCn18',
+    name: 'site.name',
     title: 'site.title',
     description: 'site.description',
     keywords: [
-        'AI agents',
-        'automation',
-        'workflow automation',
-        'AI platform',
-        'business automation',
+        'site.keywords.new',
+        'site.keywords.fresh',
+        'site.keywords.innovative',
     ],
-    email: 'hello@aiagentplatform.com',
+    email: 'luisalbertohedzro@gmail.com',
 
     // Open Graph / Twitter
     ogTitle: 'AI Agent Platform - Intelligent Automation',

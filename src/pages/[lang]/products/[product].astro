@@ -1,13 +1,10 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
-import CanvaCn18 from "@/components/products/Canvacn18.astro";
-import GuardCn18 from "@/components/products/Guardcn18.astro";
-import MarketplaCn18 from "@/components/products/Marketplacn18.astro";
-import SdkCli from "@/components/products/SdkCli.astro";
+import Mod0 from "@/components/products/Mod0.astro";
 
 export function getStaticPaths() {
   const languages = ['en', 'es'];
-  const products = ['canvacn18', 'guardcn18', 'marketplacn18', 'sdk-cli'];
+  const products = ['mod0'];
   
   return languages.flatMap((lang) => 
     products.map((product) => ({
@@ -19,10 +16,7 @@ export function getStaticPaths() {
 const { product } = Astro.params;
 
 const productMap: Record<string, any> = {
-    'canvacn18': CanvaCn18,
-    'guardcn18': GuardCn18,
-    'marketplacn18': MarketplaCn18,
-    'sdk-cli': SdkCli,
+    'mod0': Mod0,
 };
 
 const SelectedProduct = product ? productMap[product] : null;

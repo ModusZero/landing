@@ -1,5 +1,9 @@
 ---
 import { LAYOUT_CONFIG } from "@/config/layout"
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="relative px-4 pt-32 pb-20 sm:px-6 lg:px-8 bg-transparent transition-colors duration-500">
@@ -13,14 +17,14 @@ import { LAYOUT_CONFIG } from "@/config/layout"
       <h1
         class="text-mono-black dark:text-mono-white scroll-fade-up mb-6 text-5xl leading-tight font-extrabold sm:text-6xl lg:text-7xl transition-colors duration-500"
       >
-        {LAYOUT_CONFIG.hero.headline}<br />
-        <span class="text-mono-gray dark:text-mono-light opacity-70">{LAYOUT_CONFIG.hero.subheadline}</span>
+        {t(LAYOUT_CONFIG.hero.headline)}<br />
+        <span class="text-mono-gray dark:text-mono-light opacity-70">{t(LAYOUT_CONFIG.hero.subheadline)}</span>
       </h1>
       
       <p
         class="text-mono-dark dark:text-mono-gray scroll-fade-up mb-10 text-xl leading-relaxed sm:text-2xl transition-colors duration-500 max-w-2xl mx-auto"
       >
-        {LAYOUT_CONFIG.hero.description}
+        {t(LAYOUT_CONFIG.hero.description)}
       </p>
 
       <div class="scroll-fade-up mb-16 flex flex-col justify-center gap-4 sm:flex-row">

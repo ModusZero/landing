@@ -1,6 +1,6 @@
 import type { FAQConfig } from '@/types/faq-config';
 
-export const MARKETPLACN18_FAQ: FAQConfig = {
+export const MOD0_FAQ: FAQConfig = {
   title: 'Frequently Asked Questions',
   subtitle: 'Everything you need to know about AI Agent Platform',
   items: [

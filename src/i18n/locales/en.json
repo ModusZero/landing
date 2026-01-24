@@ -4,22 +4,17 @@
         "next": "Next"
     },
     "site": {
-        "title": "MyCn18 Home",
-        "description": "Create your flow, with no attachments, at any level"
+        "name": "Modus Zero",
+        "title": "Modus Zero",
+        "description": "Cutting-edge engineering platform designed to streamline development workflows, enhance collaboration, and accelerate project delivery for modern teams."
     },
     "layout": {
         "header": {
             "products": "Products",
             "resources": "Resources",
             "product_list": {
-                "canvacn18": "CanvaCn18",
-                "canvacn18_description": "Advanced design canvas for creators",
-                "sdk_cli": "SDK CLI Tool",
-                "sdk_cli_description": "Powerful command-line interface for SDKs",
-                "guardcn18": "GuardCn18",
-                "guardcn18_description": "Next-gen security and monitoring",
-                "marketplacn18": "MarketPlaCn18",
-                "marketplacn18_description": "Integrated digital marketplace"
+                "mod0": "Mod0",
+                "mod0_description": "Specialized code editor for real vibe coding"
             },
             "resource_list": {
                 "blog": "Blog",
@@ -58,12 +53,12 @@
     },
     "home": {
         "hero": {
-            "headline": "Innovate Faster",
+            "headline": "Next-Gen Engineering Platform",
             "subheadline": "Precision engineering for modern teams.",
             "description": "Our platform provides the tools you need to build, scale, and secure your next big project without friction."
         },
         "why_use_it": {
-            "title": "Why Choose MyCn18?",
+            "title": "Why choose our platform?",
             "subtitle": "Efficiency and power combined in one ecosystem."
         },
         "go_see_it": {
