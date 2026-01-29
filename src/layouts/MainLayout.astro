@@ -3,9 +3,9 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import BaseHead from '@/components/layout/seo/BaseHead.astro';
 import Navigation from '@/components/layout/Navigation.astro';
 import Footer from '@/components/layout/Footer.astro';
-import Orb from '@/components/islands/Orb';
 import '@/styles/global.css';
 import Breadcrumbs from '@/components/layout/seo/Breadcrumbs.astro';
+import Background from '@/components/layout/Background.astro';
 
 interface Props {
   title?: string;
@@ -37,15 +37,6 @@ const t = useTranslations(lang);
     </script>
 
     <style is:global>
-      .orb-canvas-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: -1;
-        pointer-events: none;
-      }
       main {
         position: relative;
         z-index: 10;
@@ -54,9 +45,7 @@ const t = useTranslations(lang);
   </head>
 
   <body class="font-sans">
-    <div class="orb-canvas-container" transition:persist="orb-main">
-      <Orb client:only="react" hue={210} hoverIntensity={0.5} />
-    </div>
+    <Background />
 
     <Navigation /> 
     
