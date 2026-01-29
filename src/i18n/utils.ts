@@ -14,10 +14,10 @@ const ui = {
 } as const;
 
 export function getLangFromUrl(url: URL) {
-  const baseUrl = import.meta.env.BASE_URL; // "/mycn18-ui-landing/"
+  const baseUrl = import.meta.env.BASE_URL;
   
   // Paso 1: Obtener el path relativo eliminando el BASE_URL de forma estricta
-  // Si la URL es /mycn18-ui-landing/es/, queremos que quede solo "es/"
+  // Si la URL es /landing/es/, queremos que quede solo "es/"
   let relativePath = url.pathname;
   if (relativePath.startsWith(baseUrl)) {
     relativePath = relativePath.substring(baseUrl.length);

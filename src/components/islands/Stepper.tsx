@@ -4,7 +4,7 @@ import { motion, AnimatePresence, type Variants } from 'motion/react';
 export interface StepItem {
   title: string;
   description: string;
-  content?: ReactNode; // Aquí podrás poner tus <img src="gif..." /> en el futuro
+  content?: ReactNode;
 }
 
 interface StepperProps extends HTMLAttributes<HTMLDivElement> {

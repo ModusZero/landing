@@ -11,7 +11,7 @@ const base = import.meta.env.BASE_URL; // Puede ser "/" o "/repo/"
  */
 const getNewPath = (targetLang: string) => {
   // 1. Limpiamos el pathname para que sea una lista de segmentos
-  // Ejemplo: ["mycn18-ui-landing", "en", "products"] o ["en", "products"]
+  // Ejemplo: ["landing", "en", "products"] o ["en", "products"]
   const segments = pathname.split('/').filter(Boolean);
 
   // 2. Buscamos en qué posición está el idioma actual

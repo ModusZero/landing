@@ -6,6 +6,7 @@ import compress from "astro-compress";
 import react from '@astrojs/react';
 import icon from 'astro-icon';
 
+const REPO_OWNER = 'moduszero';
 const REPO_NAME = 'landing';
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -25,7 +26,7 @@ export default defineConfig({
   })],
   
   site: isProd 
-    ? `https://luke1606.github.io` 
+    ? `https://${REPO_OWNER}.github.io` 
     : `http://localhost:5000`,
   
   base: `/${REPO_NAME}`,
