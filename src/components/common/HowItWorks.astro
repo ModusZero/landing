@@ -1,17 +1,16 @@
 ---
 import type { HowItWorksConfig } from '@/types/how-it-works-config';
 import Stepper from '@/components/islands/Stepper';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 type Props = {
   howItWorksConfig: HowItWorksConfig;
-  t: any;
 };
 
-const { howItWorksConfig, t } = Astro.props;
+const { howItWorksConfig } = Astro.props;
 
-const stepsWithExtras = howItWorksConfig.steps.map(step => ({
-  ...step,
-}));
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section id="how-it-works" class="border-main bg-mono-lighter/5 relative border-t-2 px-4 py-20 sm:px-6 lg:px-8">
@@ -21,18 +20,17 @@ const stepsWithExtras = howItWorksConfig.steps.map(step => ({
   <div class="mx-auto max-w-7xl">
     <div class="scroll-fade-down mx-auto mb-16 max-w-3xl text-center">
       <h2 class="text-main mb-4 text-4xl font-bold sm:text-5xl">
-        {howItWorksConfig.title}
+        {t(howItWorksConfig.title)}
       </h2>
       <p class="opacity-70 text-xl">
-        {howItWorksConfig.subtitle}
+        {t(howItWorksConfig.subtitle)}
       </p>
     </div>
 
     <Stepper 
       client:visible 
-      steps={stepsWithExtras}
-      backButtonText={t('previous')} 
-      nextButtonText={t('next')}
+      steps={howItWorksConfig.steps}
+      lang={lang}
     />
   </div>
 </section>

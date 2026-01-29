@@ -2,97 +2,94 @@
     "common": {
         "previous": "Anterior",
         "next": "Siguiente",
+        "finish": "Desplegar",
         "changing": "Sujeto a cambios • Actualizado 2026"
     },
     "site": {
         "name": "Modus Zero",
         "title": "Modus Zero",
-        "description": "Plataforma de ingeniería de vanguardia diseñada para optimizar flujos de trabajo de desarrollo, mejorar la colaboración y acelerar la entrega de proyectos para equipos modernos."
+        "description": "Plataforma de ingeniería agéntica para la orquestación de código autónomo y visualización de razonamiento en tiempo real."
     },
     "layout": {
         "header": {
-            "products": "Productos",
-            "resources": "Recursos",
+            "products": "Ecosistema",
+            "resources": "Conocimiento",
             "product_list": {
                 "mod0": "Mod0",
-                "mod0_description": "Editor de código especializado para codificación auténtica asistida por IA"
+                "mod0_description": "Entorno autónomo para codificación auténtica (vibe coding) en tiempo real"
             },
             "resource_list": {
-                "blog": "Blog",
-                "blog_description": "Últimas noticias y artículos",
-                "changelog": "Historial de cambios",
-                "changelog_description": "Registro de actualizaciones del proyecto",
-                "collaborate": "Colabora",
-                "collaborate_description": "Únete a nuestra red de colaboradores",
-                "forum": "Foro",
-                "forum_description": "Conecta con nuestra comunidad",
-                "docs": "Documentación",
-                "docs_description": "Guías técnicas completas",
-                "first_steps": "Primeros pasos",
-                "first_steps_description": "Configuración rápida en pocos minutos",
-                "get_product": "Obtén el producto",
-                "get_product_description": "Acceso a la versión completa",
+                "blog": "Insights",
+                "blog_description": "Últimos avances en ingeniería",
+                "changelog": "Actualizaciones",
+                "changelog_description": "Historial de ejecución y parches",
+                "collaborate": "Colaborar",
+                "collaborate_description": "Únete a nuestra red de contribuidores",
+                "forum": "Foro Terminal",
+                "forum_description": "Sincroniza con la comunidad",
+                "docs": "Especificaciones",
+                "docs_description": "Guías técnicas de arquitectura",
+                "first_steps": "Fast-Track",
+                "first_steps_description": "Inicializa tu primer enjambre en minutos",
+                "get_product": "Acceso Plataforma",
+                "get_product_description": "Capacidades agénticas completas",
                 "learn": "Aprendizaje",
                 "community": "Comunidad",
-                "news": "Noticias"
+                "news": "Transmisiones"
             },
-            "enterprise": "Versión Empresarial",
-            "help": "Ayuda",
-            "get_demo": "Obtén una Demo",
-            "login": "Iniciar sesión"
+            "enterprise": "Core Enterprise",
+            "help": "Soporte",
+            "get_demo": "Solicitar Acceso",
+            "login": "Iniciar Sesión"
         },
         "footer": {
-            "tagline": "Construyendo el futuro de la ingeniería moderna.",
+            "tagline": "Arquitectando el futuro de la ingeniería autónoma.",
             "copyright": "Todos los derechos reservados.",
             "columns": {
-                "product": "Productos",
-                "company": "Empresa",
-                "support": "Soporte",
-                "legal": "Legal"
+                "product": "Ecosistema",
+                "company": "Organización",
+                "support": "Terminal",
+                "legal": "Gobernanza"
             }
         }
     },
     "home": {
         "hero": {
-            "headline": "Plataforma de Ingeniería Next-Gen",
-            "subheadline": "Ingeniería de precisión para equipos modernos.",
-            "description": "Nuestra plataforma ofrece las herramientas necesarias para construir, escalar y asegurar tu próximo gran proyecto sin fricciones."
+            "headline": "El Primer Entorno de Razonamiento Autónomo",
+            "subheadline": "Donde la intención de alto nivel se encuentra con la ejecución determinista.",
+            "description": "Despliega enjambres de agentes especializados que razonan, ejecutan y se auto-reparan mediante Grafos de Pensamiento interactivos y orquestación Kanban nativa."
         },
         "why_use_it": {
-            "title": "¿Por qué elegir nuestra plataforma?",
-            "subtitle": "Eficiencia y potencia combinadas en un solo ecosistema."
+            "title": "¿Por qué Modus Zero?",
+            "subtitle": "Más allá de la automatización. Autonomía agéntica real para equipos de ingeniería modernos."
         },
         "go_see_it": {
-            "title": "¿Listo para empezar?",
-            "description": "Descubre por qué miles de desarrolladores confían en nuestra tecnología core.",
-            "primary_cta": "Comenzar ahora",
-            "secondary_cta": "Ver documentación"
+            "title": "Inicializa tu Enjambre",
+            "description": "Únete a miles de ingenieros que orquestan lógica compleja a través de la tecnología Mod0.",
+            "primary_cta": "Comenzar",
+            "secondary_cta": "Ver Especificaciones"
         }
     },
     "products": {
         "mod0": {
             "name": "Mod0",
-            "tagline": "El editor de código definitivo.",
-            "description": "Mod0 es un editor de código especializado diseñado para mejorar la productividad y optimizar la experiencia de desarrollo. Con su interfaz intuitiva y funciones potentes, Mod0 hace que programar sea más eficiente y placentero.",
-            "get_started": "Comienza con Mod0",
-            "learn_more": "Aprende más sobre Mod0",
-            "steps": {
-                "download": {
-                    "title": "Descargar Mod0",
-                    "description": "Obtén la última versión de Mod0 para tu sistema operativo."
-                },
-                "install": {
-                    "title": "Instalar el Editor",
-                    "description": "Sigue nuestra sencilla guía de instalación para configurar Mod0 en tu equipo."
-                },
-                "start_coding": {
-                    "title": "Empieza a programar",
-                    "description": "Abre Mod0 y comienza tu viaje de desarrollo con nuestra interfaz amigable."
+            "tagline": "Codificación auditable con IA.",
+            "description": "Mod0 orquesta agentes especializados para gestionar la complejidad del desarrollo moderno. Desde Grafos de Pensamiento hasta ejecución en Kanban, proporciona la infraestructura determinista para la ingeniería de software de próxima generación.",
+            "get_started": "Inicializar Mod0",
+            "learn_more": "Documentación del Sistema",
+            "how_it_works": {
+                "title": "Flujo de Trabajo Operativo",
+                "subtitle": "Desde la inicialización por línea de comandos hasta la orquestación autónoma visual.",
+                "steps": {
+                    "step_1": { "title": "Inicializar y Definir", "description": "Comienza con `mod0 init`. Define tu objetivo y establece los límites agénticos del entorno." },
+                    "step_2": { "title": "Ingesta Contextual", "description": "Conecta tu stack. El sistema indexa tu código para construir un modelo mental multidimensional." },
+                    "step_3": { "title": "Razonamiento en Grafo", "description": "Visualiza el Thinking Graph. Revisa las ramas lógicas del agente y el desglose de tareas antes de ejecutar." },
+                    "step_4": { "title": "Orquestación Kanban", "description": "Las tareas se envían al Kanban Agéntico donde agentes especializados asumen la propiedad de cada tarjeta." },
+                    "step_5": { "title": "Ejecución Autónoma", "description": "Los agentes operan en sandboxes seguros, escribiendo y refactorizando código con protocolos de auto-reparación." },
+                    "step_6": { "title": "Trazado y Validación", "description": "Revisa el trazado completo de ejecución y los logs de razonamiento. Aprueba el resultado final y despliega." }
                 }
             },
-            "future_news": {
-                
-            }
+            "future_news": {}
         }
     }
 }

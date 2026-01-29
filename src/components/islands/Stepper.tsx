@@ -1,5 +1,6 @@
 import React, { useState, useRef, useLayoutEffect, useEffect, type HTMLAttributes, type ReactNode } from 'react';
 import { motion, AnimatePresence, type Variants } from 'motion/react';
+import { useTranslations } from '@/i18n/utils';
 
 export interface StepItem {
   title: string;
@@ -19,6 +20,7 @@ interface StepperProps extends HTMLAttributes<HTMLDivElement> {
   backButtonText?: string;
   nextButtonText?: string;
   disableStepIndicators?: boolean;
+  lang: 'es' | 'en';
 }
 
 export default function Stepper({
@@ -30,11 +32,15 @@ export default function Stepper({
   stepContainerClassName = '',
   contentClassName = '',
   footerClassName = '',
-  backButtonText = 'Anterior',
-  nextButtonText = 'Siguiente',
+  backButtonText = 'common.previous',
+  nextButtonText = 'common.next',
   disableStepIndicators = false,
+  lang,
   ...rest
 }: StepperProps) {
+
+  const t = useTranslations(lang);
+  
   const [currentStep, setCurrentStep] = useState<number>(initialStep);
   const [direction, setDirection] = useState<number>(0);
   const totalSteps = steps.length;
@@ -101,10 +107,10 @@ export default function Stepper({
                 {currentStep}
              </div>
              <h3 className="text-3xl font-black text-main leading-tight">
-                {steps[currentStep - 1]?.title}
+                {t(steps[currentStep - 1]?.title)}
              </h3>
              <p className="text-lg opacity-70 leading-relaxed max-w-prose">
-                {steps[currentStep - 1]?.description}
+                {t(steps[currentStep - 1]?.description)}
              </p>
              
              {/* Renderizado de contenido extra (GIFs, imágenes, etc) */}
@@ -124,13 +130,13 @@ export default function Stepper({
               disabled={currentStep === 1}
               className={`text-sm font-bold transition-all ${currentStep === 1 ? 'opacity-0 pointer-events-none' : 'opacity-60 hover:opacity-100 text-main'}`}
             >
-              ← {backButtonText}
+              ← {t(backButtonText)}
             </button>
             <button
               onClick={isLastStep ? () => updateStep(totalSteps + 1) : handleNext}
               className="bg-accent text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-accent/30 transition-all active:scale-95"
             >
-              {isLastStep ? 'Finalizar' : nextButtonText}
+              {isLastStep ? t('common.finish') : t(nextButtonText)}
             </button>
           </div>
         )}

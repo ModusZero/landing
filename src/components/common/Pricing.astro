@@ -1,10 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
 import type { PricingPlansConfig } from '@/types/pricing-plans-config';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 type Props = {
   pricingConfig: PricingPlansConfig;
 };
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { pricingConfig } = Astro.props;
 ---

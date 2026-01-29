@@ -9,26 +9,48 @@ const config = {
 };
 ---
 
-<section class="relative py-20 px-4 transition-colors duration-500">
-  <div class="mx-auto max-w-5xl rounded-3xl bg-mono-black dark:bg-mono-white p-8 md:p-16 text-center shadow-2xl overflow-hidden relative">
-    <div class="absolute top-0 right-0 -mt-8 -mr-8 h-32 w-32 rounded-full bg-accent/20 blur-3xl"></div>
+<section class="relative py-24 px-4 overflow-hidden">
+  <div class="cta-card mx-auto max-w-5xl rounded-[2.5rem] p-8 md:p-16 text-center relative border transition-all duration-700 ease-in-out"
+       style="background-color: var(--bg-app); border-color: var(--border-main);">
+    
+    <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-accent opacity-10 blur-[100px] pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-accent opacity-5 blur-[100px] pointer-events-none"></div>
     
     <div class="relative z-10">
-      <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white dark:text-mono-black">
+      <h2 class="text-3xl md:text-5xl font-black mb-6 tracking-tight">
         {config.title}
       </h2>
-      <p class="text-lg md:text-xl mb-10 text-mono-light dark:text-mono-dark opacity-90 max-w-2xl mx-auto">
+      
+      <p class="text-lg md:text-xl mb-10 opacity-70 max-w-2xl mx-auto leading-relaxed">
         {config.description}
       </p>
       
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={config.ctaHref} class="bg-white dark:bg-mono-black text-mono-black dark:text-white px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
+        <a href={config.ctaHref} 
+           class="bg-accent text-white px-8 py-4 rounded-xl font-bold 
+                  shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300">
           {config.ctaText}
         </a>
-        <a href={config.secondaryHref} class="border border-white/20 dark:border-mono-black/20 text-white dark:text-mono-black px-8 py-4 rounded-xl font-bold hover:bg-white/10 dark:hover:bg-black/5 transition-colors">
+        
+        <a href={config.secondaryHref} 
+           class="backdrop-blur-md px-8 py-4 rounded-xl font-bold border transition-all duration-300 hover:bg-(--text-main) hover:text-(--bg-app)"
+           style="border-color: var(--border-main); color: var(--text-main);">
           {config.secondaryText}
         </a>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Aplicamos la sombra SOLO a la tarjeta principal */
+  .cta-card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  }
+  
+  :global(.dark) .cta-card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    /* Opcional: un borde un poco más brillante en dark para que resalte */
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+</style>

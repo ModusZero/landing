@@ -2,97 +2,94 @@
     "common": {
         "previous": "Previous",
         "next": "Next",
+        "finish": "Deploy",
         "changing": "Subject to change • Updated 2026"
     },
     "site": {
         "name": "Modus Zero",
         "title": "Modus Zero",
-        "description": "Cutting-edge engineering platform designed to streamline development workflows, enhance collaboration, and accelerate project delivery for modern teams."
+        "description": "Agentic engineering platform for autonomous code orchestration and real-time reasoning visualization."
     },
     "layout": {
         "header": {
-            "products": "Products",
-            "resources": "Resources",
+            "products": "Ecosystem",
+            "resources": "Knowledge",
             "product_list": {
                 "mod0": "Mod0",
-                "mod0_description": "Specialized code editor for real vibe coding"
+                "mod0_description": "Autonomous environment for real-time vibe coding"
             },
             "resource_list": {
-                "blog": "Blog",
-                "blog_description": "Latest updates and insights",
-                "changelog": "Changelog",
-                "changelog_description": "Project history and updates",
-                "collaborate": "Collaborate",
-                "collaborate_description": "Join our contributor network",
-                "forum": "Forum",
-                "forum_description": "Discuss with the community",
-                "docs": "Documentation",
-                "docs_description": "Full technical guides",
-                "first_steps": "Quick Start",
-                "first_steps_description": "Get up and running in minutes",
-                "get_product": "Get Product",
-                "get_product_description": "Access the full version",
-                "learn": "Learn",
-                "community": "Community",
-                "news": "News"
+                "blog": "Insights",
+                "blog_description": "Latest engineering breakthroughs",
+                "changelog": "System Updates",
+                "changelog_description": "Execution history and patches",
+                "collaborate": "Contribute",
+                "collaborate_description": "Join the core contributor network",
+                "forum": "Terminal Forum",
+                "forum_description": "Sync with the community",
+                "docs": "Technical Specs",
+                "docs_description": "Full architecture guides",
+                "first_steps": "Fast-Track",
+                "first_steps_description": "Initialize your first swarm in minutes",
+                "get_product": "Access Platform",
+                "get_product_description": "Full agentic capabilities",
+                "learn": "Deep Dive",
+                "community": "Network",
+                "news": "Transmission"
             },
-            "enterprise": "Enterprise Edition",
-            "help": "Help",
-            "get_demo": "Request a Demo",
-            "login": "Sign In"
+            "enterprise": "Core Enterprise",
+            "help": "Support",
+            "get_demo": "Request Access",
+            "login": "Login"
         },
         "footer": {
-            "tagline": "Building the future of modern engineering.",
+            "tagline": "Architecting the future of autonomous engineering.",
             "copyright": "All rights reserved.",
             "columns": {
-                "product": "Products",
-                "company": "Company",
-                "support": "Support",
-                "legal": "Legal"
+                "product": "Ecosystem",
+                "company": "Organization",
+                "support": "Terminal",
+                "legal": "Governance"
             }
         }
     },
     "home": {
         "hero": {
-            "headline": "Next-Gen Engineering Platform",
-            "subheadline": "Precision engineering for modern teams.",
-            "description": "Our platform provides the tools you need to build, scale, and secure your next big project without friction."
+            "headline": "The First Autonomous Reasoning Environment",
+            "subheadline": "Where high-level intent meets deterministic execution.",
+            "description": "Deploy specialized agent swarms that reason, execute, and self-heal through interactive Thinking Graphs and native Kanban orchestration."
         },
         "why_use_it": {
-            "title": "Why choose our platform?",
-            "subtitle": "Efficiency and power combined in one ecosystem."
+            "title": "Why Modus Zero?",
+            "subtitle": "Beyond automation. True agentic autonomy for modern engineering teams."
         },
         "go_see_it": {
-            "title": "Ready to Start?",
-            "description": "Discover why thousands of developers trust our core technology.",
+            "title": "Initialize Your Swarm",
+            "description": "Join thousands of engineers orchestrating complex logic through Mod0 technology.",
             "primary_cta": "Get Started",
-            "secondary_cta": "Documentation"
+            "secondary_cta": "View Specs"
         }
     },
     "products": {
         "mod0": {
             "name": "Mod0",
-            "tagline": "The ultimate code editor for real vibe coding.",
-            "description": "Mod0 is a specialized code editor designed to enhance productivity and streamline the coding experience for developers. With its intuitive interface and powerful features, Mod0 makes coding more efficient and enjoyable.",
-            "get_started": "Get Started with Mod0",
-            "learn_more": "Learn More about Mod0",
-            "steps": {
-                "download": {
-                    "title": "Download Mod0",
-                    "description": "Get the latest version of Mod0 for your operating system."
-                },
-                "install": {
-                    "title": "Install the Editor",
-                    "description": "Follow our simple installation guide to set up Mod0 on your machine."
-                },
-                "start_coding": {
-                    "title": "Start Coding",
-                    "description": "Open Mod0 and begin your coding journey with our user-friendly interface."
+            "tagline": "AI Auditable Coding.",
+            "description": "Mod0 orchestrates specialized agents to handle the complexity of modern development. From Thinking Graphs to Kanban execution, it provides the deterministic infrastructure for next-generation software engineering.",
+            "get_started": "Initialize Mod0",
+            "learn_more": "System Documentation",
+            "how_it_works": {
+                "title": "Operational Workflow",
+                "subtitle": "From command-line initialization to visual autonomous orchestration.",
+                "steps": {
+                    "step_1": { "title": "Initialize & Define", "description": "Start with `mod0 init`. Define your objective and set the agentic boundaries for the environment." },
+                    "step_2": { "title": "Contextual Ingestion", "description": "Connect your stack. The system indexes your codebase to build a multi-dimensional mental model." },
+                    "step_3": { "title": "Graph Reasoning", "description": "Visualize the Thinking Graph. Review the agent's logic branches and task breakdown before execution." },
+                    "step_4": { "title": "Kanban Orchestration", "description": "Tasks are dispatched to the Agentic Kanban where specialized worker agents take ownership of each card." },
+                    "step_5": { "title": "Autonomous Execution", "description": "Agents operate in hardened sandboxes, writing and refactoring code with built-in self-healing protocols." },
+                    "step_6": { "title": "Trace & Validate", "description": "Review the complete execution trace and reasoning logs. Approve the final output and deploy." }
                 }
             },
-            "future_news": {
-                
-            }
+            "future_news": {}
         }
     }
 }

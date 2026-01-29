@@ -1,11 +1,13 @@
 ---
 import { contactConfig } from '@/config/contact';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { Icon } from 'astro-icon/components';
 
 type Props = {
   config?: typeof contactConfig;
 }
-
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const { config = contactConfig } = Astro.props;
 ---
 

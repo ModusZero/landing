@@ -1,63 +1,63 @@
 import type { FeaturesConfig } from "@/types/features-config";
 
 export const MOD0_FEATURES: FeaturesConfig = {
-    title: 'Key Features of Mod0',
+    title: 'Precision Core Features',
     subtitle:
-    'Discover the powerful features that make Mod0 the ultimate solution for your needs.',
+    'The first autonomous environment equipped with real-time reasoning visualization and agentic orchestration.',
     items: [
         {
-          icon: 'lightning',
-          title: 'Autonomous Execution',
+          icon: 'zap',
+          title: 'Thinking Graph Visualizer',
           description:
-            'AI agents that understand context, make decisions, and execute tasks without constant supervision.',
-        },
-        {
-          icon: 'code',
-          title: 'Smart Integration',
-          description:
-            'Seamlessly connect with your tools: Slack, email, databases, APIs, and 1000+ platforms.',
-        },
-        {
-          icon: 'chart',
-          title: 'Real-Time Analytics',
-          description:
-            'Monitor performance, track success rates, and optimize workflows with detailed insights.',
-        },
-        {
-          icon: 'chat',
-          title: 'Natural Language',
-          description:
-            'Configure agents using plain English. No complex programming or technical expertise required.',
-        },
-        {
-          icon: 'shield',
-          title: 'Enterprise Security',
-          description:
-            'Bank-level encryption, SOC 2 compliance, and complete data privacy. Your data stays secure.',
-        },
-        {
-          icon: 'clock',
-          title: '24/7 Operation',
-          description:
-            'Agents work around the clock, handling tasks while you sleep. Reliable uptime guaranteed.',
-        },
-        {
-          icon: 'brush',
-          title: 'Custom Workflows',
-          description:
-            'Build tailored automation flows that match your unique business processes and requirements.',
+            'Observe the real-time reasoning path of your agents. Monitor every decision, branch, and logic path in a live interactive graph.',
         },
         {
           icon: 'layers',
-          title: 'Multi-Agent Teams',
+          title: 'Agentic Kanban Board',
           description:
-            'Coordinate multiple specialized agents working together to solve complex, multi-step challenges.',
+            'Manage autonomous workflows with a specialized Kanban. Assign tasks to agent clusters and monitor execution progress in parallel.',
         },
         {
-          icon: 'zap',
-          title: 'Instant Scaling',
+          icon: 'code',
+          title: 'Native Code Generation',
           description:
-            'Scale from 1 to 1000+ agents instantly. Handle peak loads without infrastructure headaches.',
+            'Agents write, refactor, and deploy code directly into your repositories with technical precision and zero-supervision mode.',
+        },
+        {
+          icon: 'cpu-chip',
+          title: 'Neural Logic Engine',
+          description:
+            'Our proprietary inference layer ensures agents respond and execute complex reasoning in near real-time with low latency.',
+        },
+        {
+          icon: 'shield-check',
+          title: 'Hardened Sandbox',
+          description:
+            'Execute agentic tasks in isolated, secure environments. Bank-level encryption and SOC 2 compliance for your data privacy.',
+        },
+        {
+          icon: 'github',
+          title: 'GitHub Core Sync',
+          description:
+            'Deep integration with your repositories. Agents understand your technical debt, project history, and code standards.',
+        },
+        {
+          icon: 'wrench',
+          title: 'Autonomous Self-Healing',
+          description:
+            'Automated debugging and error correction. When a process fails, agents identify the root cause and apply an autonomous patch.',
+        },
+        {
+          icon: 'chart', 
+          title: 'Performance Analytics',
+          description:
+            'Full traceability of every thought and token spent. Visualize success rates and optimize your agentic workflows with ease.',
+        },
+        {
+          icon: 'lightning',
+          title: 'Multi-Agent Swarms',
+          description:
+            'Coordinate multiple specialized agents working together. Scale from one to hundreds of instances instantly without overhead.',
         },
     ],
 };

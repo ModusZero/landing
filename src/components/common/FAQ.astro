@@ -1,10 +1,14 @@
 ---
 import type { FAQConfig } from '@/types/faq-config';
 import AnimatedList from '@/components/islands/AnimatedList';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 type Props = {
   faqConfig: FAQConfig;
 }
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const { faqConfig } = Astro.props;
 

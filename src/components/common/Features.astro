@@ -2,16 +2,20 @@
 import { type FeaturesConfig } from '@/types/features-config';
 import { iconMap } from '@/utils/icon-map';
 import Carousel from '@/components/islands/Carousel';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 type Props = {
   featuresConfig: FeaturesConfig;
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const { featuresConfig } = Astro.props;
 
-const carouselItems = featuresConfig.items.map(f => ({
-  ...f,
-  iconName: iconMap[f.icon]
+const carouselItems = featuresConfig.items.map(feature => ({
+  ...feature,
+  iconName: iconMap[feature.icon]
 }));
 ---
 

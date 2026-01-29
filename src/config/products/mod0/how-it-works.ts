@@ -1,33 +1,35 @@
 import type { HowItWorksConfig } from "@/types/how-it-works-config";
 
+const BASE_PREFIX = "products.mod0.how_it_works";
+const STEPS_PREFIX = `${BASE_PREFIX}.steps`;
+
 export const MOD0_HOW_IT_WORKS: HowItWorksConfig = {
-  title: 'How It Works',
-  subtitle: 'Get started in minutes with our simple 5-step process',
+  title: `${BASE_PREFIX}.title`,
+  subtitle: `${BASE_PREFIX}.subtitle`,
   steps: [
-      {
-      title: 'Define Your Goal',
-      description:
-        'Describe what you want to automate in plain English. No technical jargon needed.',
+    {
+      title: `${STEPS_PREFIX}.step_1.title`,
+      description: `${STEPS_PREFIX}.step_1.description`,
     },
     {
-      title: 'Connect Your Tools',
-      description:
-        'Link your existing apps and services. We support 1000+ integrations out of the box.',
+      title: `${STEPS_PREFIX}.step_2.title`,
+      description: `${STEPS_PREFIX}.step_2.description`,
     },
     {
-      title: 'Deploy Your Agent',
-      description:
-        'Our AI configures and optimizes your agent automatically. Review and launch in one click.',
+      title: `${STEPS_PREFIX}.step_3.title`,
+      description: `${STEPS_PREFIX}.step_3.description`,
     },
     {
-      title: 'Monitor & Optimize',
-      description:
-        'Track performance in real-time and let your agents learn and improve continuously.',
+      title: `${STEPS_PREFIX}.step_4.title`,
+      description: `${STEPS_PREFIX}.step_4.description`,
     },
     {
-      title: 'Scale & Grow',
-      description:
-        "Add more agents, automate new workflows, and watch your team's productivity soar.",
+      title: `${STEPS_PREFIX}.step_5.title`,
+      description: `${STEPS_PREFIX}.step_5.description`,
+    },
+    {
+      title: `${STEPS_PREFIX}.step_6.title`,
+      description: `${STEPS_PREFIX}.step_6.description`,
     },
   ],
 };

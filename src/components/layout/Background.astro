@@ -1,5 +1,4 @@
 ---
-
 ---
 <div id="vanta-bg" class="vanta-container"></div>
 
@@ -12,6 +11,16 @@
     height: 100vh;
     z-index: -1;
     pointer-events: none;
+    transition: filter 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: filter;
+  }
+
+  :global(.is-scrolled) .vanta-container {
+    filter: blur(12px) brightness(0.8);
+  }
+
+  :global(.dark.is-scrolled) .vanta-container {
+    filter: blur(15px) brightness(0.4);
   }
 </style>
 
@@ -24,10 +33,8 @@
   function initVanta() {
     const isDark = document.documentElement.classList.contains('dark');
     
-    // Si ya existe un efecto, lo destruimos antes de recrearlo
     if (vantaEffect) vantaEffect.destroy();
 
-    // @ts-ignore
     vantaEffect = VANTA.RINGS({
       el: "#vanta-bg",
       mouseControls: true,
@@ -37,22 +44,31 @@
       minWidth: 200.00,
       scale: 1.00,
       scaleMobile: 1.00,
-      // Colores adaptables
       backgroundColor: isDark ? 0x050505 : 0xffffff,
       color: isDark ? 0x5227ff : 0x73c0fc,
+      backgroundAlpha: 1.0
     });
   }
 
-  // Inicializar
+  function handleScroll() {
+    const scrollThreshold = 60;
+    if (window.scrollY > scrollThreshold) {
+      document.body.classList.add('is-scrolled');
+    } else {
+      document.body.classList.remove('is-scrolled');
+    }
+  }
+
+  // Inicialización y eventos
   initVanta();
-
-  // Escuchar cambios de tema (el evento que configuramos en tu ThemeSwitch)
+  window.addEventListener('scroll', handleScroll, { passive: true });
   window.addEventListener('theme-changed', initVanta);
+  
+  document.addEventListener('astro:page-load', () => {
+    initVanta();
+    handleScroll();
+  });
 
-  // Reinicializar en cambios de página de Astro (View Transitions)
-  document.addEventListener('astro:page-load', initVanta);
-
-  // Limpieza al salir de la página
   document.addEventListener('astro:before-preparation', () => {
     if (vantaEffect) vantaEffect.destroy();
   });
