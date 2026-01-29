@@ -1,0 +1,70 @@
+---
+import { getTweet } from 'react-tweet/api';
+import type { Tweet } from 'react-tweet/api'; // Importamos el tipo
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+
+interface Props {
+  id: string;
+}
+
+const { id } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+let tweet: Tweet | undefined;
+
+try {
+  tweet = await getTweet(id);
+} catch (error) {
+  console.error(`❌ Error fetching tweet ${id}:`, error);
+}
+---
+
+<section class="py-24 px-6 relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-emerald-500/5 blur-[120px] -z-10"></div>
+
+  <div class="max-w-2xl mx-auto flex flex-col items-center">
+    <div class="mb-8 text-center">
+      <span class="text-emerald-500 font-mono text-xs uppercase tracking-[0.2em]">{t('home.tweet.tagline')}</span>
+      <h2 class="text-2xl font-bold text-white mt-2">{t('home.tweet.title')}</h2>
+    </div>
+
+    {tweet ? (
+      <div class="w-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm relative group transition-all hover:border-emerald-500/30">
+        <div class="flex items-center gap-3 mb-4">
+          <img 
+            src={tweet.user.profile_image_url_https} 
+            alt={tweet.user.name} 
+            class="w-12 h-12 rounded-full border border-white/10"
+          />
+          <div class="flex flex-col">
+            <span class="text-white font-bold text-sm leading-tight flex items-center gap-1">
+              {tweet.user.name}
+              {/* @ts-ignore - Algunas versiones no traen verified en el primer nivel */}
+              {(tweet.user as any).verified && <span class="text-blue-400 text-xs">✔️</span>}
+            </span>
+            <span class="text-slate-500 text-xs font-mono">@{tweet.user.screen_name}</span>
+          </div>
+          <a href={`https://twitter.com/i/web/status/${id}`} target="_blank" class="ml-auto text-slate-500 hover:text-emerald-500 transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+
+        <p class="text-slate-200 text-lg leading-relaxed mb-4 whitespace-pre-wrap">
+          {tweet.text}
+        </p>
+
+        <div class="flex gap-6 text-xs font-mono text-slate-500 border-t border-white/5 pt-4">
+          {/* Propiedades correctas en react-tweet API */}
+          <span>❤️ {(tweet as any).favorite_count ?? 0}</span>
+          <span>🔄 {(tweet as any).retweet_count ?? 0}</span>
+          <span>💬 {(tweet as any).conversation_count ?? 0}</span>
+        </div>
+      </div>
+    ) : (
+      <div class="text-slate-500 font-mono text-sm uppercase p-8 border border-dashed border-white/10 rounded-2xl">
+        Transmission Lost: Tweet ID {id} not found
+      </div>
+    )}
+  </div>
+</section>

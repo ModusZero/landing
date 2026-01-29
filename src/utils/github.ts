@@ -1,6 +1,6 @@
 import { Octokit } from "octokit";
 
-const octokit = new Octokit({ auth: import.meta.env.GITHUB_TOKEN });
+const octokit = new Octokit({ auth: import.meta.env.GITHUB_TOKEN || process.env.GITHUB_TOKEN });
 const OWNER = "ModusZero";
 const REPO = "mod0";
 

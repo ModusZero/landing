@@ -98,6 +98,10 @@
                 }
             }
         },
+        "tweet": {
+            "tagline": "The era is changing",
+            "title": "Ride the wave with us"
+        },
         "go_see_it": {
             "title": "Initialize Your Swarm",
             "description": "Join thousands of engineers orchestrating complex logic through Mod0 technology."
@@ -141,24 +145,36 @@
                 "title": "Frequently Asked Questions",
                 "subtitle": "Everything you need to know about the Mod0 intelligent editor",
                 "q1": {
-                    "q": "How is Mod0 different from Cursor or Windsurf?",
-                    "a": "Unlike other editors that just suggest code, Mod0 understands the 'why'. While others focus on autocomplete, Mod0 uses the Thinking Graph to reason about the entire architecture before writing, preventing logic errors."
+                    "q": "What makes Mod0 different from Cursor, Windsurf or other AI-powered editors?",
+                    "a": "Unlike other editors that suggest code or even make changes in the codebase, they still promote the 'use' of AI to assist in development. In reality, AI is ready to do things well, it just needs the right control for the best outcome. Mod0 doesn't promise better AI models or better thinking, but a better way to manage it for better results through total communication with the model beyond a chat."
                 },
                 "q2": {
-                    "q": "What exactly is the Thinking Graph?",
-                    "a": "It's our AI's 'mind'. It's a visual map that shows the editor's reasoning: which files it analyzes and why it made a technical decision. It's like having a Senior Dev explaining their process in real-time."
+                    "q": "Is the generated code functional and safe? How do they avoid technical debt of 'vibe coders'?",
+                    "a": "Mod0 eliminates 'vibe coding' by integrating TDD (Test Driven Development) as an optional core. Before applying any change, the AI simulates the result and generates automatic tests in an isolated environment. If the change doesn't pass regression and security tests in simulation, it doesn't enter your codebase. We don't trust the 'intuition' of the model; we trust mathematical verification of changes."
                 },
                 "q3": {
-                    "q": "How does the Visual Codebase work?",
-                    "a": "Forget reading cryptic diffs. Mod0 shows changes graphically, letting you visually understand how a new function affects other files through dependency graphs."
+                    "q": "How do the Visual Codebase and Visual Source Control work?",
+                    "a": "Files are typically viewed through a directory tree, which becomes difficult to track as file count and depth increase; similarly, codebase changes via file diffs can often be cryptic. Mod0 displays files and changes graphically, allowing you to visually understand the codebase structure, file dependencies, changed files, and staged commits. You can see how changes ripple through other files via dependency graphs—far more efficient than reviewing a 500-line pull request."
                 },
                 "q4": {
-                    "q": "Can I use my own API keys (BYOK)?",
-                    "a": "Yes. You can use our optimized infrastructure or connect your own keys from Anthropic, OpenAI, or Google. You decide which model to use and control your spending."
+                    "q": "What exactly is the Thought Graph?",
+                    "a": "It is the 'mind' of the AI. A visual map that reveals the editor's reasoning: which files it analyzes, which tools it uses, its action plan, and the technical decisions it makes. This transparency allows users to oversee and provide real-time feedback to steer the model correctly."
                 },
                 "q5": {
                     "q": "Is my code used to train models?",
-                    "a": "No. Your code is private. We do not train models on our users' data. Additionally, with Local Nodes, you can run the AI entirely privately on your own network."
+                    "a": "No. Your code is private. We do not train models with our users' data. Furthermore, with Local Nodes, you can run the AI entirely privately within your own network."
+                },
+                "q6": {
+                    "q": "Can I use my own API keys (BYOK)?",
+                    "a": "Yes. The infrastructure is designed to use self-hosted models or connect your own keys from Anthropic, OpenAI, or Google. You decide which model to use and maintain full control over your spending."
+                },
+                "q7": {
+                    "q": "How do you manage high token traffic to avoid draining my budget?",
+                    "a": "We implement an 'Inference-by-Difficulty' strategy. Mod0 deconstructs every task: trivial syntax operations are handled by ultra-efficient models (like Gemini Flash), while architectural reasoning is delegated to deep-reasoning models (like o1 or Claude Opus). This intelligent orchestration maximizes Thought Graph precision without wasting high-cost tokens on mediocre tasks."
+                },
+                "q8": {
+                    "q": "If I use my own API Key (BYOK), will my costs skyrocket?",
+                    "a": "On the contrary. Thanks to our 'Surgical Context' architecture and difficulty-based model selection, costs are lower than in a conventional chat. By sending only the necessary branches of the dependency graph and using small models for 'grunt work,' we optimize your API quota so you only pay for real intelligence, not for transferring plain text files."
                 }
             },
             "future_news": {

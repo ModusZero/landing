@@ -3,11 +3,15 @@ import MainLayout from '@/layouts/MainLayout.astro';
 import Hero from '@/components/home/Hero.astro';
 import WhyUseIt from '@/components/home/WhyUseIt.astro';
 import GoSeeIt from '@/components/home/GoSeeIt.astro';
+import TweetQuote from '@/components/home/TweetQuote.astro';
+
 export { getStaticPaths } from '@/i18n/utils';
+
 ---
 
 <MainLayout>
   <Hero /> 
   <WhyUseIt />
+  <TweetQuote id="2013280952370573666" />
   <GoSeeIt />
 </MainLayout>

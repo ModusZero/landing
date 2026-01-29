@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 import { motion, type MotionProps, useInView } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/cn";
 
 interface SequenceContextValue {
   completeItem: (index: number) => void;

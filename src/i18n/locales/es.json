@@ -98,6 +98,10 @@
                 }
             }
         },
+        "tweet": {
+            "tagline": "La era está cambiando",
+            "title": "Monta la ola con nosotros"
+        },
         "go_see_it": {
             "title": "Inicializa tu Enjambre",
             "description": "Únete a miles de ingenieros que orquestan lógica compleja a través de la tecnología Mod0.",
@@ -143,24 +147,36 @@
                 "title": "Preguntas Frecuentes",
                 "subtitle": "Todo lo que necesitas saber sobre el editor inteligente Mod0",
                 "q1": {
-                    "q": "¿En qué se diferencia Mod0 de Cursor o Windsurf?",
-                    "a": "A diferencia de otros editores que solo sugieren código, Mod0 entiende el 'por qué'. Mientras otros se enfocan en autocompletar, Mod0 utiliza el Thinking Graph para razonar sobre la arquitectura completa antes de escribir, evitando errores de lógica."
+                    "q": "¿En qué se diferencia Mod0 de Cursor, Windsurf u otros editores impulsados por IA?",
+                    "a": "A diferencia de otros editores que, aunque sugieren código o incluso hacen cambios en el codebase, siguen promoviendo el 'uso' de la IA para auxiliarse en el desarrollo, cuando en realidad la IA está preparada para hacer las cosas bien, solo necesita el control correcto para el mejor resultado. Mod0 no promete mejores modelos de IA, ni un mejor pensamiento, sino una mejor forma de gestionarlo para un mejor resultado, mediante una comunicación total con el modelo más allá de un chat."
                 },
                 "q2": {
-                    "q": "¿Qué es exactamente el Thinking Graph?",
-                    "a": "Es la 'mente' de nuestra IA. Es un mapa visual que te muestra el razonamiento del editor: qué archivos analiza y por qué tomó una decisión técnica. Es como tener un Senior explicando su proceso en tiempo real."
+                    "q": "¿El código generado es funcional y seguro? ¿Cómo evitan la deuda técnica de los 'vibe coders'?",
+                    "a": "Mod0 erradica el 'vibe coding' integrando TDD (Test Driven Development) como núcleo no opcional. Antes de aplicar cualquier cambio, la IA simula el resultado y genera tests automáticos en un entorno aislado. Si el cambio no pasa las pruebas de regresión y seguridad en la simulación, no entra en tu codebase. No confiamos en la 'intuición' del modelo; confiamos en la verificación matemática de los cambios."
                 },
                 "q3": {
-                    "q": "¿Cómo funciona el Visual Codebase?",
-                    "a": "Olvídate de leer diffs crípticos. Mod0 te muestra los cambios de forma gráfica, permitiéndote entender visualmente cómo una nueva función afecta a otros archivos mediante grafos de dependencias."
+                    "q": "¿Cómo funciona el Visual Codebase y Visual Source Control?",
+                    "a": "Normalmente se visualizan los archivos mediante un árbol de directorios, el cual se vuelve difícil de seguir a partir de cierta cantidad de archivos y cierta profundidad, por otro lado los cambios en la codebase mediante diffs de archivos que pueden llegar a ser crípticos. Mod0 muestra los archivos y cambios de forma gráfica, permitiéndote entender visualmente la estructura de la codebase, las dependencias de cada archivo, los archivos que dependen de este, los archivos cambiados, montados para el siguiente commit, cómo una los cambios afectan a otros archivos mediante grafos de dependencias, mucho más eficiente que una pull request de 500 líneas."
                 },
                 "q4": {
-                    "q": "¿Puedo usar mis propias llaves de API (BYOK)?",
-                    "a": "Sí. Puedes usar nuestra infraestructura optimizada o conectar tus propias llaves de Anthropic, OpenAI o Google. Tú decides qué modelo usar y controlas tu gasto."
+                    "q": "¿Qué es exactamente el Grafo de Pensamiento?",
+                    "a": "Es la 'mente' de la IA. Es un mapa visual que muestra el razonamiento del editor: qué archivos analiza, que habilidades utiliza, qué plan de acción tiene, por qué tomó esa decisión técnica, todo para que el usuario pueda supervisar y dar sugerencias para dirigir al modelo correctamente."
                 },
                 "q5": {
                     "q": "¿Mi código se usa para entrenar modelos?",
                     "a": "No. Tu código es privado. No entrenamos modelos con los datos de nuestros usuarios. Además, con Local Nodes, puedes ejecutar la IA de forma totalmente privada en tu propia red."
+                },
+                "q6": {
+                    "q": "¿Puedo usar mis propias llaves de API (BYOK)?",
+                    "a": "Sí. La infraestructura está pensada para usar los modelos self-hosted o conectar tus propias llaves de Anthropic, OpenAI o Google. Tú decides qué modelo usar y controlas tu gasto."
+                },
+                "q7": {
+                    "q": "¿Cómo gestionan el alto tráfico de tokens para no agotar mi presupuesto?",
+                    "a": "Implementamos una Estrategia de Inferencia por Dificultad. Mod0 descompone cada tarea: las operaciones triviales de sintaxis las resuelven modelos ultra-eficientes (como Gemini Flash), mientras que el razonamiento arquitectónico se delega a modelos de razonamiento profundo (como o1 o Claude Opus). Esta orquestación inteligente maximiza la precisión del Grafo de Pensamiento sin desperdiciar tokens de alto costo en tareas mediocres."
+                },
+                "q8": {
+                    "q": "Si uso mi propia API Key (BYOK), ¿se disparará mi gasto?",
+                    "a": "Al contrario. Gracias a nuestra arquitectura de 'Contexto Quirúrgico' y la selección de modelos por dificultad, el gasto es menor que en un chat convencional. Al enviar solo las ramas del grafo de dependencias necesarias y usar modelos pequeños para el 'trabajo sucio', optimizamos tu cuota de API para que solo pagues por inteligencia real, no por transferir archivos de texto plano."
                 }
             },
             "future_news": {

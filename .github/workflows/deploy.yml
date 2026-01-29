@@ -3,16 +3,16 @@ name: Deploy Astro to GitHub Pages
 on:
   push:
     branches: ["main"]
-  # NUEVO: Se ejecuta al crear un Release (Changelog)
+  # Se ejecuta al crear un Release (Changelog)
   release:
     types: [published, created]
-  # NUEVO: Se ejecuta al crear/editar una Discusión (Blog si lo usas ahí)
+  # Se ejecuta al crear/editar una Discusión (Blog si lo usas ahí)
   discussion:
     types: [created, edited]
   workflow_dispatch:
 
 permissions:
-  contents: read # Necesario para leer archivos y releases
+  contents: read
   pages: write
   id-token: write
 
@@ -36,13 +36,10 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # MODIFICADO: Pasamos el GITHUB_TOKEN para que Astro pueda consultar la API
       - name: Build Astro Project
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # Si tienes otras variables (como la URL del sitio), ponlas aquí
-          # SITE: https://tu-usuario.github.io 
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -54,7 +51,7 @@ jobs:
 
   deploy:
     environment:
-      name: github-pages # Asegúrate de que en Settings > Pages diga "GitHub Actions"
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
