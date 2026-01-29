@@ -6,7 +6,7 @@ import compress from "astro-compress";
 import react from '@astrojs/react';
 import icon from 'astro-icon';
 
-const REPO_NAME = 'mycn18-ui-landing';
+const REPO_NAME = 'landing';
 const isProd = process.env.NODE_ENV === 'production';
 
 // https://astro.build/config
