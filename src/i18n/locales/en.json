@@ -1,7 +1,8 @@
 {
     "common": {
         "previous": "Previous",
-        "next": "Next"
+        "next": "Next",
+        "changing": "Subject to change • Updated 2026"
     },
     "site": {
         "name": "Modus Zero",
@@ -66,6 +67,32 @@
             "description": "Discover why thousands of developers trust our core technology.",
             "primary_cta": "Get Started",
             "secondary_cta": "Documentation"
+        }
+    },
+    "products": {
+        "mod0": {
+            "name": "Mod0",
+            "tagline": "The ultimate code editor for real vibe coding.",
+            "description": "Mod0 is a specialized code editor designed to enhance productivity and streamline the coding experience for developers. With its intuitive interface and powerful features, Mod0 makes coding more efficient and enjoyable.",
+            "get_started": "Get Started with Mod0",
+            "learn_more": "Learn More about Mod0",
+            "steps": {
+                "download": {
+                    "title": "Download Mod0",
+                    "description": "Get the latest version of Mod0 for your operating system."
+                },
+                "install": {
+                    "title": "Install the Editor",
+                    "description": "Follow our simple installation guide to set up Mod0 on your machine."
+                },
+                "start_coding": {
+                    "title": "Start Coding",
+                    "description": "Open Mod0 and begin your coding journey with our user-friendly interface."
+                }
+            },
+            "future_news": {
+                
+            }
         }
     }
 }

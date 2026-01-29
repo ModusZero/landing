@@ -15,8 +15,14 @@ const t = useTranslations(lang);
 
 <div class="w-full bg-app text-main">
   <Features featuresConfig={config.features} />
+  
   <HowItWorks howItWorksConfig={config.howItWorks} t={t} />
+  
+  <!-- UIs interactivas mostrando la UI del editor -->
+
   <Pricing pricingConfig={config.pricing} />
+  
   <FAQ faqConfig={config.faq} />
+  
   <FutureNews futureNewsConfig={config.news} />
 </div>
