@@ -1,9 +1,56 @@
 ---
-import { LAYOUT_CONFIG } from '@/config/layout';
 import { SITE_CONFIG } from '@/config/site';
 import { Icon } from 'astro-icon/components';
 import { iconMap } from '@/utils/icon-map';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import type { IconName } from '@/types/icon-name';
+
+const footerConfig = {
+    tagline: 'layout.footer.tagline',
+    columns: [
+        {
+            title: 'Product',
+            links: [
+                { name: 'Features', href: '#features' },
+                { name: 'Pricing', href: '#pricing' },
+                { name: 'Integrations', href: '#' },
+                { name: 'API Docs', href: '#' },
+                { name: 'Changelog', href: '#' },
+            ],
+        },
+        {
+            title: 'Company',
+            links: [
+                { name: 'About Us', href: '#' },
+                { name: 'Blog', href: '#' },
+                { name: 'Careers', href: '#' },
+                { name: 'Press Kit', href: '#' },
+                { name: 'Contact', href: '#contact' },
+            ],
+        },
+        {
+            title: 'Legal',
+            links: [
+                { name: 'Privacy Policy', href: '#' },
+                { name: 'Terms of Service', href: '#' },
+                { name: 'Cookie Policy', href: '#' },
+                { name: 'Security', href: '#' },
+                { name: 'Compliance', href: '#' },
+            ],
+        },
+    ],
+    social: [
+        { name: 'Twitter', href: '#', icon: 'twitter' },
+        { name: 'GitHub', href: '#', icon: 'github' },
+        { name: 'Dribbble', href: '#', icon: 'dribbble' },
+        { name: 'LinkedIn', href: '#', icon: 'linkedin' },
+    ] as {
+        name: string;
+        href: string;
+        icon: IconName;
+    }[],
+    copyright: 'layout.footer.copyright',
+}
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -17,12 +64,12 @@ const t = useTranslations(lang);
           {t(SITE_CONFIG.title)}
         </div>
         <p class="text-sm text-mono-black dark:text-white transition-colors">
-          {t(LAYOUT_CONFIG.footer.tagline)}
+          {t(footerConfig.tagline)}
         </p>
       </div>
 
       {
-        LAYOUT_CONFIG.footer.columns.map((column) => (
+        footerConfig.columns.map((column) => (
           <div>
             <h4 class="mb-4 font-semibold transition-colors">
               {t(`layout.footer.columns.${column.title.toLowerCase()}`)}
@@ -46,12 +93,12 @@ const t = useTranslations(lang);
 
     <div class="flex flex-col items-center justify-between border-t border-mono-lighter dark:border-mono-dark pt-8 md:flex-row transition-colors">
       <p class="mb-4 text-sm text-mono-black dark:text-white md:mb-0 transition-colors">
-        &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. {t(LAYOUT_CONFIG.footer.copyright)}
+        &copy; {new Date().getFullYear()} {t(SITE_CONFIG.name)}. {t(footerConfig.copyright)}
       </p>
 
       <div class="flex space-x-6">
         {
-          LAYOUT_CONFIG.footer.social.map((social) => (
+          footerConfig.social.map((social) => (
             <a
               href={social.href}
               class="text-mono-black dark:text-white transition-all hover:scale-110 hover:text-accent"

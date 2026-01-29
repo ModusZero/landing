@@ -22,7 +22,7 @@ export const RESOURCES_MENU: DropMenuItem[] = [
         descriptionTranslationKey: `${prefix}.collaborate_description`,
         categoryTranslationKey: `${prefix}.community`,
         href: 'collaborate',
-        icon: 'lightning'
+        icon: 'bolt'
     },
     {
         title: `${prefix}.docs`,

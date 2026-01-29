@@ -14,7 +14,8 @@ const t = useTranslations(lang);
 const { featuresConfig } = Astro.props;
 
 const carouselItems = featuresConfig.items.map(feature => ({
-  ...feature,
+  title: t(feature.title),
+  description: t(feature.description),
   iconName: iconMap[feature.icon]
 }));
 ---
@@ -25,8 +26,8 @@ const carouselItems = featuresConfig.items.map(feature => ({
 
   <div class="mx-auto max-w-7xl">
     <div class="scroll-fade-up mx-auto mb-16 max-w-3xl text-center">
-      <h2 class="text-main mb-4 text-4xl font-bold sm:text-5xl">{featuresConfig.title}</h2>
-      <p class="opacity-70 text-xl">{featuresConfig.subtitle}</p>
+      <h2 class="text-main mb-4 text-4xl font-bold sm:text-5xl">{t(featuresConfig.title)}</h2>
+      <p class="opacity-70 text-xl">{t(featuresConfig.subtitle)}</p>
     </div>
 
     <Carousel client:visible items={carouselItems} />

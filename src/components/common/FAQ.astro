@@ -13,17 +13,17 @@ const t = useTranslations(lang);
 const { faqConfig } = Astro.props;
 
 // Formateamos los items para que se vean bien en la lista
-const faqItems = faqConfig.items.map(item => `${item.question} — ${item.answer}`);
+const faqItems = faqConfig.items.map(item => `${t(item.question)} — ${t(item.answer)}`);
 ---
 
 <section id="faq" class="relative bg-app text-main px-4 py-20 sm:px-6 lg:px-8 border-t border-main/20">
   <div class="mx-auto max-w-5xl">
     <div class="scroll-fade-up mb-16 text-center">
       <h2 class="text-main mb-4 text-4xl font-bold sm:text-5xl tracking-tight">
-        {faqConfig.title}
+        {t(faqConfig.title)}
       </h2>
       <p class="opacity-70 text-xl max-w-2xl mx-auto">
-        {faqConfig.subtitle}
+        {t(faqConfig.subtitle)}
       </p>
     </div>
 

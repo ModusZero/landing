@@ -8,7 +8,7 @@
     "site": {
         "name": "Modus Zero",
         "title": "Modus Zero",
-        "description": "Plataforma de ingeniería agéntica para la orquestación de código autónomo y visualización de razonamiento en tiempo real."
+        "description": "Ecosistema orientado al aprovechamiento máximo de la ingeniería agéntica."
     },
     "layout": {
         "header": {
@@ -25,8 +25,8 @@
                 "changelog_description": "Historial de ejecución y parches",
                 "collaborate": "Colaborar",
                 "collaborate_description": "Únete a nuestra red de contribuidores",
-                "forum": "Foro Terminal",
-                "forum_description": "Sincroniza con la comunidad",
+                "forum": "Foro",
+                "forum_description": "Sincronizado con GitHub Discussions. Comunidad de ingeniería open source.",
                 "docs": "Especificaciones",
                 "docs_description": "Guías técnicas de arquitectura",
                 "first_steps": "Fast-Track",
@@ -43,25 +43,60 @@
             "login": "Iniciar Sesión"
         },
         "footer": {
-            "tagline": "Arquitectando el futuro de la ingeniería autónoma.",
+            "tagline": "Más allá de chats y auto-completado.",
             "copyright": "Todos los derechos reservados.",
             "columns": {
                 "product": "Ecosistema",
                 "company": "Organización",
-                "support": "Terminal",
                 "legal": "Gobernanza"
             }
         }
     },
     "home": {
+        "cta": {
+            "primary_cta": "Comenzar",
+            "secondary_cta": "Ver Detalles"
+        },
         "hero": {
-            "headline": "El Primer Entorno de Razonamiento Autónomo",
-            "subheadline": "Donde la intención de alto nivel se encuentra con la ejecución determinista.",
-            "description": "Despliega enjambres de agentes especializados que razonan, ejecutan y se auto-reparan mediante Grafos de Pensamiento interactivos y orquestación Kanban nativa."
+            "headline": "Nuevo paradigma para el uso de ingeniería agéntica",
+            "subheadline": "Más allá de chats y auto-completado.",
+            "description": "La nueva era no se basa en escribir código, sino verificar y revisar de la mejor manera el trabajo de las herramientas de IA.",
+            "stats": {
+                "latency": "Latencia de Inferencia",
+                "scaling": "Escalado Contextual",
+                "autonomy": "Ciclos Autónomos",
+                "overhead": "Fricción Operativa"
+            }
         },
         "why_use_it": {
-            "title": "¿Por qué Modus Zero?",
-            "subtitle": "Más allá de la automatización. Autonomía agéntica real para equipos de ingeniería modernos."
+            "title": "Ingeniería Sin Fronteras",
+            "subtitle": "Hemos eliminado la fricción del ciclo de desarrollo heredado.",
+            "features": {
+                "offline": {
+                    "title": "Inteligencia Local-First",
+                    "description": "Autonomía total con modelos auto-hospedados. Tu código nunca abandona tu infraestructura, internet es opcional."
+                },
+                "paradigm": {
+                    "title": "Sandboxing Determinístico",
+                    "description": "Deja de hacer pruebas manuales. Los agentes validan lógica en sandboxes endurecidas antes de la implementación."
+                },
+                "no_prompt": {
+                    "title": "Orquestación Sin Prompt",
+                    "description": "Más allá de los chatbots. Mod0 infiere la intención desde tu contexto arquitectónico y grafos mentales automáticamente."
+                },
+                "token_strategy": {
+                    "title": "Eficiencia de Tokens",
+                    "description": "Estrategia inteligente que asigna modelos pequeños para tareas triviales y razonamiento profundo para lógica compleja, optimizando costes."
+                },
+                "mcp_native": {
+                    "title": "Integración Nativa MCP",
+                    "description": "Conexión directa con Model Context Protocol y extensiones de VS Code. Tus herramientas actuales, ahora con superpoderes agénticos."
+                },
+                "visual_codebase": {
+                    "title": "Codebase Visual",
+                    "description": "Navega cambios mediante grafos de archivos y tableros. Entiende evoluciones complejas sin leer miles de líneas de logs de git."
+                }
+            }
         },
         "go_see_it": {
             "title": "Inicializa tu Enjambre",
@@ -77,6 +112,21 @@
             "description": "Mod0 orquesta agentes especializados para gestionar la complejidad del desarrollo moderno. Desde Grafos de Pensamiento hasta ejecución en Kanban, proporciona la infraestructura determinista para la ingeniería de software de próxima generación.",
             "get_started": "Inicializar Mod0",
             "learn_more": "Documentación del Sistema",
+            "features": {
+                "title": "Funcionalidades de Precisión",
+                "subtitle": "El primer entorno autónomo equipado con visualización de razonamiento en tiempo real y orquestación agéntica.",
+                "items": {
+                    "f1": { "title": "Visualizador Thinking Graph", "description": "Observa la ruta de razonamiento de tus agentes en tiempo real. Monitorea cada decisión y ramificación lógica en un grafo interactivo." },
+                    "f2": { "title": "Tablero Kanban Agéntico", "description": "Gestiona flujos autónomos con un Kanban especializado. Asigna tareas a clusters de agentes y supervisa el progreso en paralelo." },
+                    "f3": { "title": "Generación de Código Nativa", "description": "Los agentes escriben, refactorizan y despliegan código directamente en tus repositorios con precisión técnica y modo sin supervisión." },
+                    "f4": { "title": "Motor de Lógica Neuronal", "description": "Nuestra capa de inferencia propia garantiza que los agentes respondan y ejecuten razonamientos complejos en tiempo casi real." },
+                    "f5": { "title": "Sandbox Endurecido", "description": "Ejecuta tareas agénticas en entornos aislados y seguros. Encriptación de nivel bancario y cumplimiento SOC 2 para tu privacidad." },
+                    "f6": { "title": "Sincronización GitHub Core", "description": "Integración profunda con tus repositorios. Los agentes entienden tu deuda técnica, historial del proyecto y estándares de código." },
+                    "f7": { "title": "Auto-Reparación Autónoma", "description": "Depuración y corrección de errores automatizada. Si un proceso falla, los agentes identifican la causa raíz y aplican un parche autónomo." },
+                    "f8": { "title": "Analítica de Rendimiento", "description": "Trazabilidad completa de cada pensamiento y token gastado. Visualiza tasas de éxito y optimiza tus flujos agénticos con facilidad." },
+                    "f9": { "title": "Enjambres Multi-Agente", "description": "Coordina múltiples agentes especializados trabajando juntos. Escala de una a cientos de instancias al instante sin fricción operativa." }
+                }
+            },
             "how_it_works": {
                 "title": "Flujo de Trabajo Operativo",
                 "subtitle": "Desde la inicialización por línea de comandos hasta la orquestación autónoma visual.",
@@ -89,7 +139,54 @@
                     "step_6": { "title": "Trazado y Validación", "description": "Revisa el trazado completo de ejecución y los logs de razonamiento. Aprueba el resultado final y despliega." }
                 }
             },
-            "future_news": {}
+            "faq": {
+                "title": "Preguntas Frecuentes",
+                "subtitle": "Todo lo que necesitas saber sobre el editor inteligente Mod0",
+                "q1": {
+                    "q": "¿En qué se diferencia Mod0 de Cursor o Windsurf?",
+                    "a": "A diferencia de otros editores que solo sugieren código, Mod0 entiende el 'por qué'. Mientras otros se enfocan en autocompletar, Mod0 utiliza el Thinking Graph para razonar sobre la arquitectura completa antes de escribir, evitando errores de lógica."
+                },
+                "q2": {
+                    "q": "¿Qué es exactamente el Thinking Graph?",
+                    "a": "Es la 'mente' de nuestra IA. Es un mapa visual que te muestra el razonamiento del editor: qué archivos analiza y por qué tomó una decisión técnica. Es como tener un Senior explicando su proceso en tiempo real."
+                },
+                "q3": {
+                    "q": "¿Cómo funciona el Visual Codebase?",
+                    "a": "Olvídate de leer diffs crípticos. Mod0 te muestra los cambios de forma gráfica, permitiéndote entender visualmente cómo una nueva función afecta a otros archivos mediante grafos de dependencias."
+                },
+                "q4": {
+                    "q": "¿Puedo usar mis propias llaves de API (BYOK)?",
+                    "a": "Sí. Puedes usar nuestra infraestructura optimizada o conectar tus propias llaves de Anthropic, OpenAI o Google. Tú decides qué modelo usar y controlas tu gasto."
+                },
+                "q5": {
+                    "q": "¿Mi código se usa para entrenar modelos?",
+                    "a": "No. Tu código es privado. No entrenamos modelos con los datos de nuestros usuarios. Además, con Local Nodes, puedes ejecutar la IA de forma totalmente privada en tu propia red."
+                }
+            },
+            "future_news": {
+                "title": "Próximamente en Mod0",
+                "subtitle": "Nuestra hoja de ruta hacia la autonomía total.",
+                "v1": {
+                    "label": "Release 1.0 - The Core",
+                    "title": "Editor de Código MVP",
+                    "description": "Entorno de edición tradicional con gestión de archivos y personalización de temas."
+                },
+                "v2": {
+                    "label": "Release 2.0 - Operations",
+                    "title": "Visual Source Control",
+                    "description": "Gestión avanzada con interfaz visual para ramas y commits en tiempo real."
+                },
+                "v3": {
+                    "label": "Release 3.0 - Intelligence",
+                    "title": "Thinking Graph & Kanban",
+                    "description": "Visualización de razonamiento, tableros Kanban agénticos y soporte para modelos locales."
+                },
+                "v4": {
+                    "label": "Release 4.0 - Ecosystem",
+                    "title": "Context, Skills & BYOK",
+                    "description": "Biblioteca de habilidades, gestión profunda de contexto y soporte para llaves propias."
+                }
+            }
         }
     }
 }

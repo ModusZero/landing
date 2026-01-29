@@ -24,11 +24,10 @@ export type SocialIconName =
   | 'opencollective';
 
   export type FeatureIconName = 
-  | 'lightning' 
   | 'code'
   | 'cloud'
+  | 'signal-slash'
   | 'lock'
-  | 'cpu-chip'
   | 'users'
   | 'globe'
   | 'bolt'
@@ -45,11 +44,15 @@ export type SocialIconName =
   | 'star'
   | 'heart'
   | 'chevron-right'
-  |'chevron-left'
+  | 'chevron-left'
   | 'chevron-up'
   | 'chevron-down'
   | 'cpu-chip'
   | 'wrench'
-  | 'question-mark';
+  | 'question-mark'
+  | 'currency-dollar'
+  | 'puzzle-piece'
+  | 'squares-plus'
+  | 'sparkles';
 
 export type IconName = CompanyIconName | SocialIconName | FeatureIconName;

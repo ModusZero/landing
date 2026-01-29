@@ -27,7 +27,10 @@ export const iconMap: Record<IconName, string> = {
   'linear': 'simple-icons:linear',
 
     // General icons
-  'lightning': 'heroicons:bolt',
+  'currency-dollar': 'heroicons:currency-dollar',
+  'puzzle-piece': 'heroicons:puzzle-piece',
+  'squares-plus': 'heroicons:squares-plus',
+  'sparkles': 'heroicons:sparkles',
   'code': 'heroicons:code-bracket',
   'chart': 'heroicons:chart-bar',
   'chat': 'heroicons:chat-bubble-left-right',
@@ -41,6 +44,7 @@ export const iconMap: Record<IconName, string> = {
   'bolt': 'heroicons:bolt',
   'users': 'heroicons:user-group',
   'cloud': 'heroicons:cloud',
+  'signal-slash': 'heroicons:signal-slash',
   'globe': 'heroicons:globe-alt',
   'lock': 'heroicons:lock-closed',
   'shield-x': 'heroicons:shield-exclamation',

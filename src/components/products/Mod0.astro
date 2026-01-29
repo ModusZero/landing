@@ -11,7 +11,6 @@ import Pricing from '@/components/common/Pricing.astro';
 import FAQ from '@/components/common/FAQ.astro';
 import FutureNews from '@/components/common/FutureNews.astro';
 
-const config = MOD0_FULL_CONFIG;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -91,15 +90,14 @@ const rotatingWords = ["Intelligent", "Agentic", "Autonomic", "Precise", "Modern
     </div>
   </section>
 
-  <Features featuresConfig={config.features} />
-  <HowItWorks howItWorksConfig={config.howItWorks} t={t} />
-  <Pricing pricingConfig={config.pricing} />
-  <FAQ faqConfig={config.faq} />
-  <FutureNews futureNewsConfig={config.news} />
+  <Features featuresConfig={MOD0_FULL_CONFIG.features} />
+  <HowItWorks howItWorksConfig={MOD0_FULL_CONFIG.howItWorks} />
+  <!-- <Pricing pricingConfig={MOD0_FULL_CONFIG.pricing} /> -->
+  <FAQ faqConfig={MOD0_FULL_CONFIG.faq} />
+  <FutureNews futureNewsConfig={MOD0_FULL_CONFIG.news} />
 </div>
 
 <style>
-  /* Shadow para el título: garantiza que destaque sobre el fondo dinámico */
   .hero-title {
     color: var(--text-main);
     text-shadow: 0 4px 24px rgba(255, 255, 255, 0.4);
@@ -109,7 +107,6 @@ const rotatingWords = ["Intelligent", "Agentic", "Autonomic", "Precise", "Modern
     text-shadow: 0 4px 32px rgba(0, 0, 0, 0.8);
   }
 
-  /* Shadow de la terminal para darle peso visual */
   .terminal-wrapper {
     box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
   }

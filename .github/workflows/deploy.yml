@@ -1,59 +1,64 @@
 name: Deploy Astro to GitHub Pages
 
 on:
-  # Se ejecuta cuando haces push a la rama principal (main)
   push:
     branches: ["main"]
-  # Permite ejecutar manualmente el workflow desde la pestaña Actions
+  # NUEVO: Se ejecuta al crear un Release (Changelog)
+  release:
+    types: [published, created]
+  # NUEVO: Se ejecuta al crear/editar una Discusión (Blog si lo usas ahí)
+  discussion:
+    types: [created, edited]
   workflow_dispatch:
 
-# Permite que las GitHub Actions escriban en la pestaña de Pages
 permissions:
-  contents: read
+  contents: read # Necesario para leer archivos y releases
   pages: write
   id-token: write
 
-# Solo permite una ejecución concurrente para evitar conflictos
 concurrency:
   cancel-in-progress: true
   group: pages
 
 jobs:
-  # 1. Tarea de Construcción (Build)
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout your repository code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (Astro necesita un entorno Node)
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm' # Usa caché para acelerar la instalación de dependencias
+          cache: 'npm'
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Build Astro Project (Genera los archivos estáticos en la carpeta 'dist')
+      # MODIFICADO: Pasamos el GITHUB_TOKEN para que Astro pueda consultar la API
+      - name: Build Astro Project
         run: npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Si tienes otras variables (como la URL del sitio), ponlas aquí
+          # SITE: https://tu-usuario.github.io 
 
-      - name: Setup Pages (Prepara el entorno para el despliegue)
+      - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact (Sube la carpeta 'dist' a GitHub)
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Asegúrate de que esta sea la carpeta de salida de tu build
+          path: './dist'
 
-  # 2. Tarea de Despliegue (Deploy)
   deploy:
     environment:
-      name: github
+      name: github-pages # Asegúrate de que en Settings > Pages diga "GitHub Actions"
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # Depende de que la tarea 'build' haya terminado con éxito
+    needs: build
     steps:
-      - name: Deploy to GitHub Pages (Publica los archivos cargados)
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

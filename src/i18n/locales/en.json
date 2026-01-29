@@ -8,7 +8,7 @@
     "site": {
         "name": "Modus Zero",
         "title": "Modus Zero",
-        "description": "Agentic engineering platform for autonomous code orchestration and real-time reasoning visualization."
+        "description": "Agentic engineering ecosystem for maximum leverage."
     },
     "layout": {
         "header": {
@@ -25,8 +25,8 @@
                 "changelog_description": "Execution history and patches",
                 "collaborate": "Contribute",
                 "collaborate_description": "Join the core contributor network",
-                "forum": "Terminal Forum",
-                "forum_description": "Sync with the community",
+                "forum": "Forum",
+                "forum_description": "Synchronized with GitHub Discussions. Open source engineering community.",
                 "docs": "Technical Specs",
                 "docs_description": "Full architecture guides",
                 "first_steps": "Fast-Track",
@@ -43,31 +43,64 @@
             "login": "Login"
         },
         "footer": {
-            "tagline": "Architecting the future of autonomous engineering.",
+            "tagline": "Beyond chats and auto-completion.",
             "copyright": "All rights reserved.",
             "columns": {
                 "product": "Ecosystem",
                 "company": "Organization",
-                "support": "Terminal",
                 "legal": "Governance"
             }
         }
     },
     "home": {
+        "cta": {
+            "primary_cta": "Get Started",
+            "secondary_cta": "View Specs"
+        },
         "hero": {
-            "headline": "The First Autonomous Reasoning Environment",
-            "subheadline": "Where high-level intent meets deterministic execution.",
-            "description": "Deploy specialized agent swarms that reason, execute, and self-heal through interactive Thinking Graphs and native Kanban orchestration."
+            "headline": "New paradigm for agentic engineering usage",
+            "subheadline": "Beyond chats and auto-completion.",
+            "description": "The new era is not about writing code, but verifying and reviewing the work of AI tools in the best way possible.",
+            "stats": {
+                "latency": "Inference Latency",
+                "scaling": "Contextual Scaling",
+                "autonomy": "Autonomous Cycles",
+                "overhead": "Operational Friction"
+            }
         },
         "why_use_it": {
-            "title": "Why Modus Zero?",
-            "subtitle": "Beyond automation. True agentic autonomy for modern engineering teams."
+            "title": "Engineering Without Borders",
+            "subtitle": "We've eliminated the friction of the legacy development cycle.",
+            "features": {
+                "offline": {
+                    "title": "Local-First Intelligence",
+                    "description": "Full autonomy with self-hosted models. Your code never leaves your infrastructure, internet is optional."
+                },
+                "paradigm": {
+                    "title": "Deterministic Sandboxing",
+                    "description": "Stop manual testing. Agents execute and validate logic in hardened sandboxes before implementation."
+                },
+                "no_prompt": {
+                    "title": "Promptless Orchestration",
+                    "description": "Beyond chatbots. Mod0 infers intent from your architectural context and mental graphs automatically."
+                },
+                "token_strategy": {
+                    "title": "Token Strategy",
+                    "description": "Smart routing that assigns small models for trivial tasks and deep reasoning for complex logic, optimizing costs."
+                },
+                "mcp_native": {
+                    "title": "Native MCP Integration",
+                    "description": "Direct connection with Model Context Protocol and VS Code extensions. Your current tools, now with agentic superpowers."
+                },
+                "visual_codebase": {
+                    "title": "Visual Codebase",
+                    "description": "Navigate changes through file graphs and boards. Understand complex evolutions without reading thousands of lines of git logs."
+                }
+            }
         },
         "go_see_it": {
             "title": "Initialize Your Swarm",
-            "description": "Join thousands of engineers orchestrating complex logic through Mod0 technology.",
-            "primary_cta": "Get Started",
-            "secondary_cta": "View Specs"
+            "description": "Join thousands of engineers orchestrating complex logic through Mod0 technology."
         }
     },
     "products": {
@@ -77,6 +110,21 @@
             "description": "Mod0 orchestrates specialized agents to handle the complexity of modern development. From Thinking Graphs to Kanban execution, it provides the deterministic infrastructure for next-generation software engineering.",
             "get_started": "Initialize Mod0",
             "learn_more": "System Documentation",
+            "features": {
+                "title": "Precision Core Features",
+                "subtitle": "The first autonomous environment equipped with real-time reasoning visualization and agentic orchestration.",
+                "items": {
+                    "f1": { "title": "Thinking Graph Visualizer", "description": "Observe the real-time reasoning path of your agents. Monitor every decision, branch, and logic path in a live interactive graph." },
+                    "f2": { "title": "Agentic Kanban Board", "description": "Manage autonomous workflows with a specialized Kanban. Assign tasks to agent clusters and monitor execution progress in parallel." },
+                    "f3": { "title": "Native Code Generation", "description": "Agents write, refactor, and deploy code directly into your repositories with technical precision and zero-supervision mode." },
+                    "f4": { "title": "Neural Logic Engine", "description": "Our proprietary inference layer ensures agents respond and execute complex reasoning in near real-time with low latency." },
+                    "f5": { "title": "Hardened Sandbox", "description": "Execute agentic tasks in isolated, secure environments. Bank-level encryption and SOC 2 compliance for your data privacy." },
+                    "f6": { "title": "GitHub Core Sync", "description": "Deep integration with your repositories. Agents understand your technical debt, project history, and code standards." },
+                    "f7": { "title": "Autonomous Self-Healing", "description": "Automated debugging and error correction. When a process fails, agents identify the root cause and apply an autonomous patch." },
+                    "f8": { "title": "Performance Analytics", "description": "Full traceability of every thought and token spent. Visualize success rates and optimize your agentic workflows with ease." },
+                    "f9": { "title": "Multi-Agent Swarms", "description": "Coordinate multiple specialized agents working together. Scale from one to hundreds of instances instantly without overhead." }
+                }
+            },
             "how_it_works": {
                 "title": "Operational Workflow",
                 "subtitle": "From command-line initialization to visual autonomous orchestration.",
@@ -89,7 +137,54 @@
                     "step_6": { "title": "Trace & Validate", "description": "Review the complete execution trace and reasoning logs. Approve the final output and deploy." }
                 }
             },
-            "future_news": {}
+            "faq": {
+                "title": "Frequently Asked Questions",
+                "subtitle": "Everything you need to know about the Mod0 intelligent editor",
+                "q1": {
+                    "q": "How is Mod0 different from Cursor or Windsurf?",
+                    "a": "Unlike other editors that just suggest code, Mod0 understands the 'why'. While others focus on autocomplete, Mod0 uses the Thinking Graph to reason about the entire architecture before writing, preventing logic errors."
+                },
+                "q2": {
+                    "q": "What exactly is the Thinking Graph?",
+                    "a": "It's our AI's 'mind'. It's a visual map that shows the editor's reasoning: which files it analyzes and why it made a technical decision. It's like having a Senior Dev explaining their process in real-time."
+                },
+                "q3": {
+                    "q": "How does the Visual Codebase work?",
+                    "a": "Forget reading cryptic diffs. Mod0 shows changes graphically, letting you visually understand how a new function affects other files through dependency graphs."
+                },
+                "q4": {
+                    "q": "Can I use my own API keys (BYOK)?",
+                    "a": "Yes. You can use our optimized infrastructure or connect your own keys from Anthropic, OpenAI, or Google. You decide which model to use and control your spending."
+                },
+                "q5": {
+                    "q": "Is my code used to train models?",
+                    "a": "No. Your code is private. We do not train models on our users' data. Additionally, with Local Nodes, you can run the AI entirely privately on your own network."
+                }
+            },
+            "future_news": {
+                "title": "Coming Soon to Mod0",
+                "subtitle": "Our roadmap towards full autonomy.",
+                "v1": {
+                    "label": "Release 1.0 - The Core",
+                    "title": "Code Editor MVP",
+                    "description": "Traditional editing environment with file management and theme customization."
+                },
+                "v2": {
+                    "label": "Release 2.0 - Operations",
+                    "title": "Visual Source Control",
+                    "description": "Advanced management with visual interface for branches and real-time commits."
+                },
+                "v3": {
+                    "label": "Release 3.0 - Intelligence",
+                    "title": "Thinking Graph & Kanban",
+                    "description": "Reasoning visualization, agentic Kanban boards, and support for local models."
+                },
+                "v4": {
+                    "label": "Release 4.0 - Ecosystem",
+                    "title": "Context, Skills & BYOK",
+                    "description": "Customizable skills library, deep context management, and BYOK support."
+                }
+            }
         }
     }
 }

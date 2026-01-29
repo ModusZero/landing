@@ -1,33 +1,132 @@
 ---
 import MainLayout from '@/layouts/MainLayout.astro';
-import Forum from "@/components/resources/Forum.astro";
-import Blog from "@/components/resources/Blog.astro";
-import Changelog from "@/components/resources/Changelog.astro";
-import Collaborate from "@/components/resources/Collaborate.astro";
-import Documentation from "@/components/resources/Documentation.astro";
-import FirstSteps from "@/components/resources/FirstSteps.astro";
-import GetProduct from "@/components/resources/GetProduct.astro";
+import Giscus from '@/components/resources/Giscus.astro';
+import { getGitHubContent } from "@/lib/github";
+import { Markdown } from '@astropub/md';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
   const languages = ['en', 'es'];
   const resources = ['blog', 'changelog', 'collaborate', 'docs', 'first-steps', 'forum', 'get-product'];
   
   return languages.flatMap((lang) => 
-    resources.map((resource) => ({
-      params: { lang, resource }
-    }))
+    resources.map((resource) => ({ params: { lang, resource } }))
   );
 }
 
 const { resource } = Astro.params;
+const content = resource !== 'forum' ? await getGitHubContent(resource) : '';
+const displayTitle = resource.replace(/-/g, ' ').toUpperCase();
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <MainLayout>
-  {resource === 'blog' && <Blog />}
-  {resource === 'changelog' && <Changelog />}
-  {resource === 'collaborate' && <Collaborate />}
-  {resource === 'docs' && <Documentation />}
-  {resource === 'first-steps' && <FirstSteps />}
-  {resource === 'forum' && <Forum />}
-  {resource === 'get-product' && <GetProduct />}
+  <section class="relative min-h-screen pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      
+      <nav class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-8">
+        <span class="text-emerald-500">Mod0</span>
+        <span>/</span>
+        <span>resources</span>
+        <span>/</span>
+        <span class="text-white lowercase">{resource}</span>
+      </nav>
+
+      {resource === 'forum' ? (
+        <div class="animate-in fade-in duration-700">
+          <header class="mb-12">
+            <h1 class="text-4xl font-bold text-white mb-4 tracking-tight">
+              {t('layout.header.resource_list.forum')}
+            </h1>
+            <p class="text-slate-400 border-l-2 border-emerald-500 pl-4 italic">
+              {t('layout.header.resource_list.forum_description')}
+            </p>
+          </header>
+          <Giscus />
+        </div>
+      ) : (
+        <div class="animate-in slide-in-from-bottom-4 duration-700">
+          <header class="mb-12 border-b border-white/5 pb-8 flex justify-between items-end">
+             <div>
+               <h1 class="text-4xl font-bold text-white mb-2 tracking-tighter">{displayTitle}</h1>
+               <p class="text-xs font-mono text-emerald-500/60 uppercase tracking-widest">
+                  Protocol: GitHub Sourced Content
+               </p>
+             </div>
+             {resource === 'changelog' && (
+               <span class="text-[10px] bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-2 py-1 rounded mb-2 animate-pulse">
+                 LIVE UPDATES ACTIVE
+               </span>
+             )}
+          </header>
+
+          <article class="prose prose-invert prose-emerald max-w-none 
+            prose-headings:font-bold prose-a:text-emerald-400 
+            prose-code:text-emerald-300 prose-pre:bg-black/40 
+            prose-pre:border prose-pre:border-white/10 prose-pre:backdrop-blur-sm
+            prose-img:rounded-xl">
+            
+            <Markdown of={content || ''} />
+          </article>
+        </div>
+      )}
+    </div>
+  </section>
 </MainLayout>
+
+<style is:global>
+  /* --- Estilos de Markdown --- */
+  .prose pre {
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+  }
+  .prose h2 {
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 0.5rem;
+    margin-top: 3.5rem;
+    color: #fff;
+    letter-spacing: -0.025em;
+  }
+  .prose code:not(pre code) {
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  /* --- Botones de Descarga Automáticos --- */
+  .prose a[href*="releases/download/"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05));
+    color: #10b981 !important;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none !important;
+    font-family: ui-monospace, monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 1rem 0;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .prose a[href*="releases/download/"]:hover {
+    background: #10b981;
+    color: #000 !important;
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .prose a[href*="releases/download/"]::before {
+    content: "↓";
+    margin-right: 12px;
+    font-size: 1.2rem;
+  }
+</style>
