@@ -1,0 +1,118 @@
+---
+import { iconMap } from '@/utils/icon-map';
+import { type IconName } from '@/types/icon-name';
+import { Icon } from 'astro-icon/components';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import TargetCursor from '@/components/islands/TargetCursor';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL;
+
+const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
+
+const supportSections = [
+  {
+    title: t('support.sections.docs.title'),
+    icon: "code" as IconName,
+    status: "v0.1.0",
+    desc: t('support.sections.docs.desc'),
+    action: t('support.sections.docs.action'),
+    href: getI18nPath('resources/docs')
+  },
+  {
+    title: t('support.sections.status.title'),
+    icon: "zap" as IconName,
+    status: "Operational",
+    desc: t('support.sections.status.desc'),
+    action: t('support.sections.status.action'),
+    href: getI18nPath('resources/releases')
+  },
+  {
+    title: t('support.sections.community.title'),
+    icon: "github" as IconName,
+    status: "Open",
+    desc: t('support.sections.community.desc'),
+    action: t('support.sections.community.action'),
+    href: getI18nPath('resources/forum')
+  }
+];
+---
+
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center px-4 py-24 overflow-hidden bg-transparent">
+  <TargetCursor client:only="react" targetSelector=".cursor-target" />
+
+  <div class="max-w-6xl w-full">
+    
+    <div class="mb-20 border-l-2 border-accent pl-6 py-2">
+      <div class="flex items-center gap-2 text-accent mb-4 font-mono text-sm tracking-tighter">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+        </span>
+        {t('support.badge')}
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black tracking-tighter mb-6 uppercase text-mono-black dark:text-mono-white">
+        {t('support.title')} <span class="text-accent">{t('support.title_highlight')}</span>
+      </h1>
+      <p class="max-w-xl text-lg text-mono-gray dark:text-mono-light leading-relaxed">
+        {t('support.description')}
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {supportSections.map((item) => (
+        <a href={item.href} class="cursor-target group relative flex flex-col md:flex-row md:items-center justify-between p-8 border-b border-mono-lighter dark:border-mono-dark hover:bg-accent/5 transition-all duration-300 overflow-hidden">
+          
+          <div class="flex items-center gap-6 z-10">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-mono-black dark:bg-mono-white text-mono-white dark:text-mono-black group-hover:bg-accent group-hover:text-mono-white! transition-colors duration-300">
+              <Icon name={iconMap[item.icon]} class="h-6 w-6" />
+            </div>
+            
+            <div>
+              <div class="flex items-center gap-3">
+                <h3 class="text-2xl font-bold text-mono-black! dark:text-mono-white!">{item.title}</h3>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded border border-mono-lighter dark:border-mono-dark text-mono-gray! dark:text-mono-light uppercase tracking-widest">
+                  {item.status}
+                </span>
+              </div>
+              <p class="text-sm text-mono-gray! dark:text-mono-light mt-1 max-w-sm">{item.desc}</p>
+            </div>
+          </div>
+
+          <div class="mt-6 md:mt-0 flex items-center gap-4 font-bold text-sm z-10 text-mono-black! dark:text-mono-white!">
+            <span class="group-hover:text-accent transition-colors">{item.action}</span>
+            <Icon name={iconMap['chevron-right']} class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </div>
+
+          <div class="absolute inset-0 bg-linear-to-r from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-20 flex flex-col md:flex-row items-center justify-between p-8 rounded-3xl bg-mono-lighter dark:bg-mono-dark transition-colors duration-300 border border-mono-lighter dark:border-mono-dark">
+        <div class="mb-6 md:mb-0">
+            <h4 class="text-mono-black! dark:text-mono-white! font-bold text-xl">{t('support.critical.title')}</h4>
+            <p class="text-mono-gray! dark:text-mono-light! text-sm">{t('support.critical.desc')}</p>
+        </div>
+        <a href="/contact" class="cursor-target px-8 py-3 rounded-full bg-accent text-mono-white! font-bold hover:scale-105 transition-transform shadow-lg shadow-accent/20">
+            {t('support.critical.cta')}
+        </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .cursor-target {
+    animation: slideUp 0.5s ease-out both;
+  }
+  .cursor-target:nth-child(1) { animation-delay: 0.1s; }
+  .cursor-target:nth-child(2) { animation-delay: 0.2s; }
+  .cursor-target:nth-child(3) { animation-delay: 0.3s; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>

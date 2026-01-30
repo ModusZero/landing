@@ -203,6 +203,34 @@
             }
         }
     },
+    "support": {
+        "badge": "HELP_CENTER // ALPHA_ACCESS",
+        "title": "Support",
+        "title_highlight": "Center",
+        "description": "If you experience deployment latency or token inconsistencies, review our knowledge base or contact the core-team.",
+        "sections": {
+            "docs": {
+                "title": "Alpha Documentation",
+                "desc": "Explore system architecture and available modules.",
+                "action": "Explore Docs"
+            },
+            "status": {
+                "title": "System Status",
+                "desc": "Real-time monitoring of our nodes and latency.",
+                "action": "View Status"
+            },
+            "community": {
+                "title": "Community & Feedback",
+                "desc": "Report bugs or suggest new features directly.",
+                "action": "Go to GitHub"
+            }
+        },
+        "critical": {
+            "title": "Critical issue in production?",
+            "desc": "Our on-call team is available for level 1 failures.",
+            "cta": "Contact Support"
+        }
+    },
     "contact": {
         "title": "Start building with Modus Zero",
         "subtitle": "Join thousands of developers using Mod0 to exploit their efficiency.",
