@@ -14,68 +14,93 @@ type Props = {
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { 
-    title = t(SITE_CONFIG.title), 
-    description = t(SITE_CONFIG.description), 
-    image = '/screenshot.jpeg' 
-} = Astro.props;
+const metaTitle = Astro.props.title || t(SITE_CONFIG.title);
+const metaDescription = Astro.props.description || t(SITE_CONFIG.description);
+const { image = '/screenshot.png' } = Astro.props;
 
-// Construcción de URLs
-const siteUrl = Astro.site ? Astro.site.toString() : `http://localhost:${import.meta.env.PORT || 5000}`;
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, ''); 
+const siteUrl = Astro.site 
+    ? Astro.site.origin 
+    : `http://localhost:${import.meta.env.PORT || 5000}`;
+
+const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
 const cleanImage = image.startsWith('/') ? image : `/${image}`;
+
 const socialImageURL = new URL(baseUrl + cleanImage, siteUrl).toString();
+
 const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
 
-// Lógica de hreflang para SEO internacional
 const languages = ['en', 'es'];
-const languageAlternates = languages.map((l) => ({
-    hrefLang: l,
-    href: new URL(`${baseUrl}/${l}${Astro.url.pathname.replace(baseUrl, '').replace(/^\/[a-z]{2}/, '')}`, siteUrl).toString(),
-}));
+const languageAlternates = languages.map((l) => {
+    const pathWithoutLang = Astro.url.pathname
+        .replace(baseUrl, '')
+        .replace(/^\/(en|es)/, '');
+    
+    return {
+        hrefLang: l,
+        href: new URL(`${baseUrl}/${l}${pathWithoutLang}`, siteUrl).toString(),
+    };
+});
+
+const translatedKeywords = SITE_CONFIG.keywords.map(k => t(k)).join(', ');
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+<link rel="icon" type="image/svg+xml" href={new URL(`${baseUrl}/favicon.svg`, siteUrl).toString()} />
 <meta name="generator" content={Astro.generator} />
 
 <SEO
-  title={title}
-  description={description}
-  canonical={canonicalURL}
-  openGraph={{
-    basic: {
-      title: title,
-      type: "website",
-      image: socialImageURL,
-      url: canonicalURL,
-    }
-  }}
-  twitter={{
-    card: "summary_large_image",
-    title: title,
-    description: description,
-    image: socialImageURL,
-  }}
-  languageAlternates={languageAlternates}
-  extend={{
-    meta: [
-      { name: "keywords", content: SITE_CONFIG.keywords.join(', ') },
-    ],
-  }}
+    title={metaTitle}
+    description={metaDescription}
+    canonical={canonicalURL}
+    openGraph={{
+        basic: {
+            title: metaTitle,
+            type: "website",
+            image: socialImageURL,
+            url: canonicalURL,
+        },
+        optional: {
+            description: metaDescription,
+            siteName: "Modus Zero",
+            locale: lang === 'es' ? 'es_ES' : 'en_US',
+        },
+        image: {
+            alt: metaTitle,
+            width: 1200,
+            height: 630,
+            type: "image/jpeg"
+        }
+    }}
+    twitter={{
+        card: "summary_large_image",
+        title: metaTitle,
+        description: metaDescription,
+        image: socialImageURL,
+        // site: "@moduszero_dev",
+    }}
+    languageAlternates={languageAlternates}
+    extend={{
+        meta: [
+            { name: "keywords", content: translatedKeywords },
+            { name: "theme-color", content: "#000000" },
+            { name: "apple-mobile-web-app-capable", content: "yes" },
+            { property: "og:image:secure_url", content: socialImageURL }
+        ],
+    }}
 />
 
 <Schema
-  item={{
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Modus Zero",
-    "description": description,
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "Web",
-    "url": siteUrl,
-  }}
+    item={{
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Modus Zero",
+        "description": metaDescription,
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "url": siteUrl + baseUrl,
+        "image": socialImageURL,
+    }}
 />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -83,19 +108,19 @@ const languageAlternates = languages.map((l) => ({
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
 
 <script is:inline>
-  (function() {
-    const getTheme = () => {
-      const saved = localStorage.getItem('theme');
-      if (saved) return saved;
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    };
-    const theme = getTheme();
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-    document.documentElement.style.colorScheme = theme;
-  })();
+    (function() {
+        const getTheme = () => {
+            const saved = localStorage.getItem('theme');
+            if (saved) return saved;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        };
+        const theme = getTheme();
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+        document.documentElement.style.colorScheme = theme;
+    })();
 
-  document.addEventListener('astro:after-swap', () => {
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.classList.toggle('dark', theme === 'dark');
-  });
+    document.addEventListener('astro:after-swap', () => {
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.classList.toggle('dark', theme === 'dark');
+    });
 </script>

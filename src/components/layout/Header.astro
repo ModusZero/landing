@@ -10,7 +10,17 @@ import { useTranslations, getLangFromUrl } from '@/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Lógica de rutas y URLs absoluta (idéntica a tu componente SEO)
 const base = import.meta.env.BASE_URL;
+const baseUrl = base.replace(/\/$/, '');
+const siteUrl = Astro.site 
+    ? Astro.site.origin 
+    : `http://localhost:${import.meta.env.PORT || 5000}`;
+
+// Construcción de la URL absoluta del favicon para evitar errores de ruta
+const faviconAbsoluteSrc = new URL(`${baseUrl}/favicon.svg`, siteUrl).toString();
+
 const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
 
 const ctaConfig = {
@@ -29,10 +39,21 @@ const ctaConfig = {
       <div class="flex flex-1 justify-start">
         <a 
           href={getI18nPath('/')} 
-          class="text-xl font-bold transition-colors hover:text-emerald-500"
-          style="color: var(--text-main);"
+          class="group flex items-center gap-3 transition-all duration-300 hover:opacity-80"
         >
-          {t(SITE_CONFIG.title)}
+          <div class="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg p-0.5 group-hover:scale-110 transition-transform duration-300">
+            <img 
+              src={faviconAbsoluteSrc} 
+              alt="Modus Zero Logo" 
+              class="h-full w-full object-contain logo-img"
+            />
+          </div>
+          <span 
+            class="text-xl font-black tracking-tighter uppercase"
+            style="color: var(--text-main);"
+          >
+            {t(SITE_CONFIG.title)}
+          </span>
         </a>
       </div>
 
@@ -122,6 +143,15 @@ const ctaConfig = {
 <style>
   .drop-trigger :global(button) {
     color: var(--text-main) !important;
+  }
+
+  /* Inversión de logo para modo oscuro si el SVG es negro */
+  .logo-img {
+    transition: filter 0.3s ease;
+  }
+
+  :global(.dark) .logo-img {
+    filter: invert(1) brightness(2);
   }
 </style>
 
