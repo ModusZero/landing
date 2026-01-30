@@ -1,11 +1,21 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL;
+
+const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
+
+const prefix = 'home.go_see_it'
+
 const config = {
-  title: "Ready to transform your workflow?",
-  description: "Join +500 companies already building with our core technology.",
-  ctaText: "Get Started Now",
-  ctaHref: "/contact",
-  secondaryText: "View Documentation",
-  secondaryHref: "/docs"
+  title: `${prefix}.title`,
+  description: `${prefix}.description`,
+  ctaText: `${prefix}.primary_cta`,
+  ctaHref: getI18nPath('/contact'),
+  secondaryText: `${prefix}.secondary_cta`,
+  secondaryHref: getI18nPath('products/mod0')
 };
 ---
 
@@ -18,24 +28,24 @@ const config = {
     
     <div class="relative z-10">
       <h2 class="text-3xl md:text-5xl font-black mb-6 tracking-tight">
-        {config.title}
+        {t(config.title)}
       </h2>
       
       <p class="text-lg md:text-xl mb-10 opacity-70 max-w-2xl mx-auto leading-relaxed">
-        {config.description}
+        {t(config.description)}
       </p>
       
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href={config.ctaHref} 
            class="bg-accent text-white px-8 py-4 rounded-xl font-bold 
                   shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300">
-          {config.ctaText}
+          {t(config.ctaText)}
         </a>
         
         <a href={config.secondaryHref} 
-           class="backdrop-blur-md px-8 py-4 rounded-xl font-bold border transition-all duration-300 hover:bg-(--text-main) hover:text-(--bg-app)"
-           style="border-color: var(--border-main); color: var(--text-main);">
-          {config.secondaryText}
+          class="backdrop-blur-md px-8 py-4 rounded-xl font-bold border transition-all duration-300 hover:bg-(--text-main)/10"
+          style="border-color: var(--border-main); color: var(--text-main);">
+          {t(config.secondaryText)}
         </a>
       </div>
     </div>
@@ -43,14 +53,12 @@ const config = {
 </section>
 
 <style>
-  /* Aplicamos la sombra SOLO a la tarjeta principal */
   .cta-card {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
   }
   
   :global(.dark) .cta-card {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    /* Opcional: un borde un poco más brillante en dark para que resalte */
     border-color: rgba(255, 255, 255, 0.1) !important;
   }
 </style>

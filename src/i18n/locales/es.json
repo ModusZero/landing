@@ -54,8 +54,8 @@
     },
     "home": {
         "cta": {
-            "primary_cta": "Comenzar",
-            "secondary_cta": "Ver Detalles"
+            "primary_cta": "Ver más",
+            "secondary_cta": "Ver en GitHub"
         },
         "hero": {
             "headline": "Nuevo paradigma para el uso de ingeniería agéntica",
@@ -103,10 +103,10 @@
             "title": "Monta la ola con nosotros"
         },
         "go_see_it": {
-            "title": "Inicializa tu Enjambre",
-            "description": "Únete a miles de desarrolladores que orquestan lógica compleja a través de la tecnología Mod0.",
-            "primary_cta": "Comenzar",
-            "secondary_cta": "Ver Especificaciones"
+            "title": "¿Listo para dar el paso a la nueva era?",
+            "description": "Únete a nosotros, mira al futuro de cerca, aprovecha el impulso.",
+            "primary_cta": "Contáctanos",
+            "secondary_cta": "Ver más..."
         }
     },
     "products": {
@@ -114,8 +114,15 @@
             "name": "Mod0",
             "tagline": "Codificación auditable con IA.",
             "description": "Mod0 orquesta agentes especializados para gestionar la complejidad del desarrollo moderno. Desde Grafos de Pensamiento hasta ejecución en Kanban, proporciona la infraestructura determinista para la ingeniería de software de próxima generación.",
-            "get_started": "Inicializar Mod0",
-            "learn_more": "Documentación del Sistema",
+            "rotating_words": {
+                "intelligent": "Inteligente",
+                "agentic": "Agéntico",
+                "autonomic": "Autónomo",
+                "precise": "Preciso",
+                "modern": "Moderno"
+            },
+            "get_started": "Descargar Mod0",
+            "learn_more": "Ver documentación",
             "features": {
                 "title": "Funcionalidades de Precisión",
                 "subtitle": "El primer entorno autónomo equipado con visualización de razonamiento en tiempo real y orquestación agéntica.",

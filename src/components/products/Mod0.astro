@@ -13,8 +13,12 @@ import FutureNews from '@/components/common/FutureNews.astro';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL;
 
-const rotatingWords = ["Intelligent", "Agentic", "Autonomic", "Precise", "Modern"];
+const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
+
+const rotatingWords = ["intelligent", "agentic", "autonomic", "precise", "modern"]
+  .map(word => t(`products.mod0.rotating_words.${word}`));
 ---
 
 <div class="w-full bg-app text-main">
@@ -48,12 +52,15 @@ const rotatingWords = ["Intelligent", "Agentic", "Autonomic", "Precise", "Modern
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <button class="bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-[0_10px_30px_rgba(14,165,233,0.3)] hover:-translate-y-1 transition-all active:scale-95">
+            <a href={getI18nPath('resources/releases')} 
+              class="bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-[0_10px_30px_rgba(14,165,233,0.3)] hover:-translate-y-1 transition-all active:scale-95">
               {t('products.mod0.get_started')}
-            </button>
-            <button class="border border-border-main backdrop-blur-sm px-8 py-4 rounded-xl font-bold hover:bg-main/5 transition-all active:scale-95">
+            </a>
+            <a href={getI18nPath('resources/docs')} 
+              class="inline-flex items-center justify-center text-center px-8 py-4 rounded-xl font-bold border backdrop-blur-md transition-all duration-300 hover:bg-(--text-main)/10 active:scale-95 shadow-lg"
+              style="border-color: var(--border-main); color: var(--text-main);">
               {t('products.mod0.learn_more')}
-            </button>
+            </a>
           </div>
         </div>
 

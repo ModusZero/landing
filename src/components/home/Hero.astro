@@ -1,6 +1,12 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL;
+
+const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
+
 const heroConfig = {
     headline: 'home.hero.headline',
     subheadline: 'home.hero.subheadline',
@@ -8,11 +14,11 @@ const heroConfig = {
     cta: {
         primary: {
             text: 'home.cta.primary_cta',
-            href: '/contact',
+            href: getI18nPath('products/mod0'),
         },
         secondary: {
             text: 'home.cta.secondary_cta',
-            href: '#how-it-works',
+            href: 'https://github.com/ModusZero',
         },
     },
     stats: [
@@ -23,8 +29,6 @@ const heroConfig = {
     ],
 }
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <section class="relative px-4 pt-32 pb-20 sm:px-6 lg:px-8 bg-transparent min-h-[90vh] flex flex-col items-center overflow-hidden">

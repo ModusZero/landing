@@ -54,8 +54,8 @@
     },
     "home": {
         "cta": {
-            "primary_cta": "Get Started",
-            "secondary_cta": "View Specs"
+            "primary_cta": "Go see it",
+            "secondary_cta": "See in GitHub"
         },
         "hero": {
             "headline": "New paradigm for agentic engineering usage",
@@ -103,8 +103,10 @@
             "title": "Ride the wave with us"
         },
         "go_see_it": {
-            "title": "Initialize Your Swarm",
-            "description": "Join thousands of developers orchestrating complex logic through Mod0 technology."
+            "title": "Ready to step up to the new era?",
+            "description": "Join us, watch future closely, use the leverage.",
+            "primary_cta": "Contact us",
+            "secondary_cta": "See more..."
         }
     },
     "products": {
@@ -112,8 +114,15 @@
             "name": "Mod0",
             "tagline": "AI Auditable Coding.",
             "description": "Mod0 orchestrates specialized agents to handle the complexity of modern development. From Thinking Graphs to Kanban execution, it provides the deterministic infrastructure for next-generation software engineering.",
-            "get_started": "Initialize Mod0",
-            "learn_more": "System Documentation",
+            "rotating_words": {
+                "intelligent": "Inteligent",
+                "agentic": "Agentic",
+                "autonomic": "Autonomic",
+                "precise": "Precise",
+                "modern": "Modern"
+            },
+            "get_started": "Download Mod0",
+            "learn_more": "See docs",
             "features": {
                 "title": "Precision Core Features",
                 "subtitle": "The first autonomous environment equipped with real-time reasoning visualization and agentic orchestration.",
