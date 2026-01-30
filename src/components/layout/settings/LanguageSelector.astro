@@ -1,10 +1,9 @@
 ---
-// src/components/layout/settings/LanguageSelector.astro
 import { languages, getLangFromUrl } from '@/i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
 const { pathname } = Astro.url;
-const base = import.meta.env.BASE_URL; // Puede ser "/" o "/repo/"
+const base = import.meta.env.BASE_URL;
 
 /**
  * Genera una nueva ruta reemplazando el idioma de forma segura
@@ -37,11 +36,10 @@ const getNewPath = (targetLang: string) => {
   return `/${segments.join('/')}/`.replace(/\/+/g, '/');
 };
 ---
-
-<div class="relative inline-block text-left group">
+<div class="relative inline-block text-left lang-container group">
   <button
-    id="lang-selector"
-    class="flex items-center gap-2 rounded-lg border border-mono-lighter bg-white px-3 py-2 text-sm font-medium text-mono-black transition-all hover:bg-mono-lighter dark:border-mono-dark dark:bg-mono-darker dark:text-mono-white dark:hover:bg-mono-dark"
+    type="button"
+    class="lang-btn flex items-center gap-2 rounded-lg border border-mono-lighter bg-white px-3 py-2 text-sm font-medium text-mono-black transition-all hover:bg-mono-lighter dark:border-mono-dark dark:bg-mono-darker dark:text-mono-white dark:hover:bg-mono-dark"
   >
     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="12" cy="12" r="10"></circle>
@@ -49,27 +47,71 @@ const getNewPath = (targetLang: string) => {
       <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
     </svg>
     <span class="uppercase font-bold">{currentLang}</span>
-    <svg class="h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <svg class="arrow h-4 w-4 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
     </svg>
   </button>
 
-  <div class="invisible absolute right-0 mt-2 w-32 origin-top-right rounded-xl border border-mono-lighter bg-white shadow-xl transition-all opacity-0 group-hover:visible group-hover:opacity-100 dark:border-mono-dark dark:bg-mono-darker z-50">
+  <div class="lang-menu invisible opacity-0 absolute right-0 mt-2 w-32 origin-top-right rounded-xl border border-mono-lighter bg-white shadow-xl transition-all duration-200 md:group-hover:visible md:group-hover:opacity-100 dark:border-mono-dark dark:bg-mono-darker z-100">
     <div class="p-1">
-      {
-        Object.entries(languages).map(([code, label]) => (
-          <a
-            href={getNewPath(code)}
-            class={`block rounded-lg px-4 py-2 text-sm transition-colors ${
-              currentLang === code
-                ? 'bg-accent/10 text-accent font-bold cursor-default'
-                : 'text-mono-dark hover:bg-mono-lighter dark:text-mono-light dark:hover:bg-mono-dark'
-            }`}
-          >
-            {label}
-          </a>
-        ))
-      }
+      {Object.entries(languages).map(([code, label]) => (
+        <a 
+          href={getNewPath(code)} 
+          class={`block rounded-lg px-4 py-2 text-sm transition-colors ${
+            currentLang === code 
+            ? 'bg-emerald-500/10 text-emerald-500 font-bold cursor-default' 
+            : 'text-mono-dark hover:bg-mono-lighter dark:text-mono-light dark:hover:bg-mono-dark'
+          }`}
+        >
+          {label}
+        </a>
+      ))}
     </div>
   </div>
 </div>
+
+<style>
+  .lang-menu.is-active {
+    visible: visible;
+    opacity: 1;
+    display: block;
+  }
+</style>
+
+<script>
+  function setupLang() {
+    const containers = document.querySelectorAll('.lang-container');
+    
+    containers.forEach(container => {
+      const btn = container.querySelector('.lang-btn') as HTMLButtonElement;
+      const menu = container.querySelector('.lang-menu') as HTMLElement;
+      const arrow = container.querySelector('.arrow') as HTMLElement;
+
+      btn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isHidden = menu.classList.contains('invisible') || !menu.classList.contains('is-active');
+        
+        if (isHidden) {
+          menu.classList.remove('invisible', 'opacity-0');
+          menu.classList.add('is-active');
+          arrow.classList.add('rotate-180');
+        } else {
+          menu.classList.add('invisible', 'opacity-0');
+          menu.classList.remove('is-active');
+          arrow.classList.remove('rotate-180');
+        }
+      });
+    });
+
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.lang-menu').forEach(m => {
+        m.classList.add('invisible', 'opacity-0');
+        m.classList.remove('is-active');
+      });
+      document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotate-180'));
+    });
+  }
+
+  document.addEventListener('astro:page-load', setupLang);
+  setupLang();
+</script>

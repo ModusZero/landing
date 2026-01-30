@@ -1,8 +1,12 @@
 ---
+import { getLangFromUrl, useTranslations } from "@/i18n/utils"
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
 ---
 
 <div class="theme-switch-wrapper">
-  <label class="switch" for="theme-input" aria-label="Cambiar tema">
+  <label class="switch" aria-label={t("common.change_theme")}>
     <span class="sun">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <g fill="#fff">
@@ -16,130 +20,59 @@
         <path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path>
       </svg>
     </span>
-    <input type="checkbox" id="theme-input" class="input" />
+    <input type="checkbox" class="theme-input-selector input" />
     <span class="slider"></span>
   </label>
 </div>
 
 <style>
-  .theme-switch-wrapper {
-    display: flex;
-    align-items: center;
-  }
+  .theme-switch-wrapper { display: flex; align-items: center; }
+  .switch { font-size: 17px; position: relative; display: inline-block; width: 64px; height: 34px; cursor: pointer; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .slider { position: absolute; inset: 0; background-color: #73C0FC; transition: .4s; border-radius: 30px; }
+  .slider:before { position: absolute; content: ""; height: 30px; width: 30px; border-radius: 50%; left: 2px; bottom: 2px; z-index: 2; background-color: #e8e8e8; transition: .4s; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+  
+  .sun svg { position: absolute; top: 5px; right: 7px; z-index: 1; width: 24px; height: 24px; animation: rotate 15s linear infinite; }
+  .moon svg { fill: #4336fd; position: absolute; top: 5px; left: 7px; z-index: 1; width: 22px; height: 22px; animation: tilt 5s linear infinite; }
+  
+  @keyframes rotate { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @keyframes tilt { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
 
-  .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 64px;
-    height: 34px;
-    cursor: pointer;
-  }
-
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #73C0FC;
-    transition: .4s;
-    border-radius: 30px;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    left: 2px;
-    bottom: 2px;
-    z-index: 2;
-    background-color: #e8e8e8;
-    transition: .4s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  }
-
-  .sun svg {
-    position: absolute;
-    top: 5px;
-    right: 7px;
-    z-index: 1;
-    width: 24px;
-    height: 24px;
-    animation: rotate 15s linear infinite;
-  }
-
-  .moon svg {
-    fill: #4336fd;
-    position: absolute;
-    top: 5px;
-    left: 7px;
-    z-index: 1;
-    width: 22px;
-    height: 22px;
-    animation: tilt 5s linear infinite;
-  }
-
-  @keyframes rotate {
-    0% { transform: rotate(0); }
-    100% { transform: rotate(360deg); }
-  }
-
-  @keyframes tilt {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
-    100% { transform: rotate(0deg); }
-  }
-
-  /* Estado Checked (Dark Mode) */
-  .input:checked + .slider {
-    background-color: #183153;
-  }
-
-  .input:checked + .slider:before {
-    transform: translateX(30px);
-  }
-
-  .input:focus + .slider {
-    box-shadow: 0 0 8px rgba(115, 192, 252, 0.5);
-  }
+  .input:checked + .slider { background-color: #183153; }
+  .input:checked + .slider:before { transform: translateX(30px); }
+  .input:focus + .slider { box-shadow: 0 0 8px rgba(115, 192, 252, 0.5); }
 </style>
 
 <script>
   function initTheme() {
-    const themeInput = document.querySelector('#theme-input') as HTMLInputElement;
-    if (!themeInput) return;
-
-    // Sincronizar checkbox con el estado actual del DOM
+    const inputs = document.querySelectorAll('.theme-input-selector') as NodeListOf<HTMLInputElement>;
     const isDark = document.documentElement.classList.contains('dark');
-    themeInput.checked = isDark;
+    
+    inputs.forEach(input => {
+      input.checked = isDark;
 
-    themeInput.addEventListener('change', () => {
-      const isNowDark = themeInput.checked;
-      const newTheme = isNowDark ? 'dark' : 'light';
+      input.onchange = null; 
+      
+      input.onchange = () => {
+        const shouldBeDark = input.checked;
+        
+        if (shouldBeDark) {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        }
 
-      if (isNowDark) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-
-      localStorage.setItem('theme', newTheme);
-      // Notificar a otros componentes (como el Orb de fondo)
-      window.dispatchEvent(new Event('theme-changed'));
+        inputs.forEach(i => { if(i !== input) i.checked = shouldBeDark });
+        
+        window.dispatchEvent(new Event('theme-changed'));
+      };
     });
   }
 
-  // Ejecutar en carga inicial y navegaciones de Astro
+  // Esto elimina el parpadeo al navegar entre páginas
   initTheme();
   document.addEventListener('astro:page-load', initTheme);
+  document.addEventListener('astro:after-swap', initTheme);
 </script>

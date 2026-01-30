@@ -15,7 +15,7 @@ export async function getGitHubContent(resource: string) {
     };
 
     // --- LÓGICA DE RELEASES (CHANGELOG) ---
-    if (resource === 'changelog') {
+    if (resource === 'releases') {
       const { data } = await octokit.rest.repos.listReleases({ owner: OWNER, repo: REPO });
       
       return data.map(r => {

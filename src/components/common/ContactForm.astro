@@ -1,0 +1,147 @@
+---
+import { contactConfig } from '@/config/contact';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { Icon } from 'astro-icon/components';
+
+type Props = {
+  config?: typeof contactConfig;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { config = contactConfig } = Astro.props;
+
+const FORMSPREE_ID = "mpwkzpee";
+---
+
+<section id="contact" class="relative bg-transparent px-4 py-24 transition-colors duration-500 sm:px-6 lg:px-8 overflow-hidden">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-accent/5 blur-[120px] -z-10 rounded-full"></div>
+
+  <div class="mx-auto max-w-7xl relative z-10">
+    <div class="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+      
+      <div class="scroll-fade-left">
+        <h2 class="mb-6 text-5xl font-extrabold tracking-tighter text-mono-black dark:text-mono-white sm:text-6xl transition-all duration-500">
+          {t(config.title)}
+        </h2>
+        <p class="text-mono-dark dark:text-mono-gray mb-10 text-xl leading-relaxed max-w-md transition-colors duration-500">
+          {t(config.subtitle)}
+        </p>
+
+        <ul class="mb-10 space-y-5">
+          {config.benefits.map((benefit) => (
+            <li class="flex items-center group">
+              <div class="mr-4 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 transition-transform group-hover:scale-110">
+                <Icon name="heroicons:check-circle-20-solid" class="h-6 w-6" />
+              </div>
+              <span class="text-lg font-medium text-mono-black dark:text-mono-lighter transition-colors">{t(benefit)}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="border-mono-black/10 dark:border-mono-white/10 border-t pt-10">
+          <p class="text-mono-gray mb-4 text-xs font-bold uppercase tracking-[0.2em] opacity-60">
+            {t('contact.email_label')}
+          </p>
+          <a href={`mailto:${config.email}`} class="text-2xl font-black text-mono-black dark:text-mono-white hover:text-accent transition-all duration-300">
+            {config.email}
+          </a>
+        </div>
+      </div>
+
+      <div class="scroll-fade-right relative group">
+        <div class="absolute -inset-1 bg-linear-to-r from-accent/20 to-emerald-500/20 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+        
+        <div class="relative rounded-3xl border border-mono-black/10 dark:border-mono-white/10 bg-white/70 dark:bg-mono-darker/70 backdrop-blur-xl p-8 shadow-2xl sm:p-12 transition-all duration-500">
+          <form 
+            action={`https://formspree.io/f/${FORMSPREE_ID}`} 
+            method="POST" 
+            id="contactForm" 
+            class="space-y-6"
+          >
+            {config.form.fields.map((field) => {
+              const fieldId = field.title.toLowerCase();
+              const fieldName = fieldId === 'email' ? '_replyto' : fieldId === 'subject' ? '_subject' : fieldId;
+              
+              const inputBaseClasses = "w-full rounded-xl border border-mono-black/10 dark:border-mono-white/10 bg-white/50 dark:bg-black/40 px-5 py-4 text-mono-black dark:text-mono-white outline-none transition-all focus:border-accent focus:ring-4 focus:ring-accent/5 placeholder:text-mono-gray/50 dark:placeholder:text-mono-light/20";
+
+              return (
+                <div class="space-y-2">
+                  <label for={fieldId} class="ml-1 block text-xs font-bold uppercase tracking-widest text-mono-black dark:text-mono-white/60 transition-colors">
+                    {t(field.label)} {!field.required && <span class="lowercase font-normal opacity-40 italic">({t('contact.form.optional')})</span>}
+                  </label>
+                  
+                  {field.title === 'Message' ? (
+                    <textarea
+                      id={fieldId}
+                      name={fieldName}
+                      rows="4"
+                      required={field.required}
+                      placeholder={t(field.placeholder)}
+                      class={`${inputBaseClasses} resize-none`}
+                    ></textarea>
+                  ) : (
+                    <input
+                      type={field.title === 'Email' ? 'email' : 'text'}
+                      id={fieldId}
+                      name={fieldName}
+                      required={field.required}
+                      placeholder={t(field.placeholder)}
+                      class={inputBaseClasses}
+                    />
+                  )}
+                </div>
+              )
+            })}
+
+            <button
+              type="submit"
+              id="submitBtn"
+              class="group/btn bg-mono-black dark:bg-accent w-full rounded-xl px-8 py-5 font-bold text-white shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 overflow-hidden relative"
+            >
+              <span id="btnText" class="relative z-10">{t(config.form.cta)}</span>
+              <div id="btnLoader" class="hidden h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white relative z-10"></div>
+            </button>
+
+            <p class="text-mono-gray text-center text-[10px] font-medium leading-relaxed uppercase tracking-tighter opacity-50">
+              {t('contact.form.terms')} 
+              <a href="#" class="underline hover:text-accent transition-colors">{t('contact.form.tos')}</a> {t('contact.form.and')} 
+              <a href="#" class="underline hover:text-accent transition-colors">{t('contact.form.privacy')}</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const setupForm = () => {
+    const contactForm = document.getElementById('contactForm') as HTMLFormElement | null;
+    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
+    const btnText = document.getElementById('btnText');
+    const btnLoader = document.getElementById('btnLoader');
+
+    if (!contactForm || !submitBtn) return;
+
+    // URL Params
+    const urlParams = new URLSearchParams(window.location.search);
+    ['subject', 'message'].forEach(id => {
+      const param = urlParams.get(id) || (id === 'message' ? urlParams.get('body') : null);
+      if (param) {
+        const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
+        if (el) el.value = decodeURIComponent(param);
+      }
+    });
+
+    // Submit state
+    contactForm.addEventListener('submit', () => {
+      submitBtn.disabled = true;
+      if (btnText) btnText.style.opacity = "0.5";
+      if (btnLoader) btnLoader.classList.remove('hidden');
+    });
+  };
+
+  setupForm();
+  document.addEventListener('astro:page-load', setupForm);
+</script>

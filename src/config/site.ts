@@ -12,9 +12,9 @@ export const SITE_CONFIG: SiteConfig = {
     email: 'luisalbertohedzro@gmail.com',
 
     // Open Graph / Twitter
-    ogTitle: 'AI Agent Platform - Intelligent Automation',
-    ogDescription: 'Transform your business with autonomous AI agents that work 24/7',
+    ogTitle: 'site.title',
+    ogDescription: 'site.description',
     twitterCard: 'summary_large_image',
-    twitterTitle: 'AI Agent Platform',
-    twitterDescription: 'Intelligent automation for modern teams',
+    twitterTitle: 'site.name',
+    twitterDescription: 'site.description',
 };

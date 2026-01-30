@@ -25,7 +25,7 @@ const footerConfig = {
                 { name: 'Blog', href: '#' },
                 { name: 'Careers', href: '#' },
                 { name: 'Press Kit', href: '#' },
-                { name: 'Contact', href: '#contact' },
+                { name: 'Contact', href: '/contact' },
             ],
         },
         {
@@ -56,14 +56,17 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<footer class="border-t border-mono-lighter bg-white/80 backdrop-blur-md text-mono-black transition-colors duration-500 dark:border-mono-dark dark:bg-mono-black/80 dark:text-white px-4 py-16 sm:px-6 lg:px-8">
+<footer 
+  class="border-t backdrop-blur-md transition-colors duration-500 px-4 py-16 sm:px-6 lg:px-8"
+  style="background-color: var(--bg-app); border-color: var(--border-main); color: var(--text-main);"
+>
   <div class="mx-auto max-w-7xl">
     <div class="mb-12 grid grid-cols-1 gap-12 md:grid-cols-4">
       <div class="md:col-span-1">
         <div class="mb-4 text-2xl font-bold transition-colors">
           {t(SITE_CONFIG.title)}
         </div>
-        <p class="text-sm text-mono-black dark:text-white transition-colors">
+        <p class="text-sm opacity-80 transition-colors">
           {t(footerConfig.tagline)}
         </p>
       </div>
@@ -79,7 +82,8 @@ const t = useTranslations(lang);
                 <li>
                   <a 
                     href={link.href} 
-                    class="text-mono-black dark:text-white transition-colors hover:text-accent"
+                    class="opacity-70 transition-all hover:opacity-100 hover:text-emerald-500"
+                    style="color: inherit;"
                   >
                     {link.name}
                   </a>
@@ -91,8 +95,11 @@ const t = useTranslations(lang);
       }
     </div>
 
-    <div class="flex flex-col items-center justify-between border-t border-mono-lighter dark:border-mono-dark pt-8 md:flex-row transition-colors">
-      <p class="mb-4 text-sm text-mono-black dark:text-white md:mb-0 transition-colors">
+    <div 
+      class="flex flex-col items-center justify-between border-t pt-8 md:flex-row transition-colors"
+      style="border-color: var(--border-main);"
+    >
+      <p class="mb-4 text-sm opacity-60 md:mb-0 transition-colors">
         &copy; {new Date().getFullYear()} {t(SITE_CONFIG.name)}. {t(footerConfig.copyright)}
       </p>
 
@@ -101,7 +108,8 @@ const t = useTranslations(lang);
           footerConfig.social.map((social) => (
             <a
               href={social.href}
-              class="text-mono-black dark:text-white transition-all hover:scale-110 hover:text-accent"
+              class="transition-all hover:scale-110 hover:text-emerald-500"
+              style="color: inherit;"
               aria-label={social.name}
             >
               <Icon name={iconMap[social.icon]} class="h-6 w-6" />

@@ -3,7 +3,8 @@
         "previous": "Previous",
         "next": "Next",
         "finish": "Deploy",
-        "changing": "Subject to change • Updated 2026"
+        "changing": "Subject to change • Updated 2026",
+        "change_theme":"Change theme"
     },
     "site": {
         "name": "Modus Zero",
@@ -13,34 +14,33 @@
     "layout": {
         "header": {
             "products": "Ecosystem",
-            "resources": "Knowledge",
+            "resources": "Resources",
             "product_list": {
                 "mod0": "Mod0",
                 "mod0_description": "Autonomous environment for real-time vibe coding"
             },
             "resource_list": {
-                "blog": "Insights",
-                "blog_description": "Latest engineering breakthroughs",
-                "changelog": "System Updates",
-                "changelog_description": "Execution history and patches",
-                "collaborate": "Contribute",
-                "collaborate_description": "Join the core contributor network",
-                "forum": "Forum",
-                "forum_description": "Synchronized with GitHub Discussions. Open source engineering community.",
-                "docs": "Technical Specs",
-                "docs_description": "Full architecture guides",
-                "first_steps": "Fast-Track",
+                "releases": "Download",
+                "releases_description": "Releases history and changelogs",
+                "first_steps": "First-Steps",
                 "first_steps_description": "Initialize your first swarm in minutes",
+                "docs": "Documentation",
+                "docs_description": "Full architecture guides",
                 "get_product": "Access Platform",
                 "get_product_description": "Full agentic capabilities",
-                "learn": "Deep Dive",
-                "community": "Network",
-                "news": "Transmission"
+                "blog": "Blog",
+                "blog_description": "Latest engineering breakthroughs",
+                "forum": "Forum",
+                "forum_description": "Synchronized with GitHub Discussions. Open source engineering community.",
+                "collaborate": "Contribute",
+                "collaborate_description": "Join the core contributor network",
+                "learn": "Learning",
+                "community": "Community",
+                "news": "News"
             },
-            "enterprise": "Core Enterprise",
+            "enterprise": "Enterprise",
             "help": "Support",
-            "get_demo": "Request Access",
-            "login": "Login"
+            "get_demo": "Contact us"
         },
         "footer": {
             "tagline": "Beyond chats and auto-completion.",
@@ -104,7 +104,7 @@
         },
         "go_see_it": {
             "title": "Initialize Your Swarm",
-            "description": "Join thousands of engineers orchestrating complex logic through Mod0 technology."
+            "description": "Join thousands of developers orchestrating complex logic through Mod0 technology."
         }
     },
     "products": {
@@ -150,7 +150,7 @@
                 },
                 "q2": {
                     "q": "Is the generated code functional and safe? How do they avoid technical debt of 'vibe coders'?",
-                    "a": "Mod0 eliminates 'vibe coding' by integrating TDD (Test Driven Development) as an optional core. Before applying any change, the AI simulates the result and generates automatic tests in an isolated environment. If the change doesn't pass regression and security tests in simulation, it doesn't enter your codebase. We don't trust the 'intuition' of the model; we trust mathematical verification of changes."
+                    "a": "Mod0 eliminates 'vibe coding' by integrating TDD (Test Driven Development) as an non optional core. Before applying any change, the AI simulates the result and generates automatic tests in an isolated environment. If the change doesn't pass regression and security tests in simulation, it doesn't enter your codebase. We don't trust the 'intuition' of the model; we trust mathematical verification of changes."
                 },
                 "q3": {
                     "q": "How do the Visual Codebase and Visual Source Control work?",
@@ -201,6 +201,35 @@
                     "description": "Customizable skills library, deep context management, and BYOK support."
                 }
             }
+        }
+    },
+    "contact": {
+        "title": "Start building with Modus Zero",
+        "subtitle": "Join thousands of developers using Mod0 to exploit their efficiency.",
+        "email_label": "Questions? Reach out to our team:",
+        "benefits": {
+            "b1": "No credit card required",
+            "b2": "Setup in under 5 minutes",
+            "b3": "Cancel anytime",
+            "b4": "24/7 customer support"
+        },
+        "form": {
+            "cta": "Get Started Free",
+            "name_label": "Full Name",
+            "name_placeholder": "John Doe",
+            "email_label": "Work Email",
+            "email_placeholder": "john@company.com",
+            "subject_label": "Subject",
+            "subject_placeholder": "How can we help?",
+            "company_label": "Company",
+            "company_placeholder": "Your Company Inc.",
+            "message_label": "What would you like to automate?",
+            "message_placeholder": "Tell us about your workflow and automation needs...",
+            "optional": "(Optional)",
+            "terms": "By submitting this form, you agree to our",
+            "tos": "Terms of Service",
+            "and": "and",
+            "privacy": "Privacy Policy"
         }
     }
 }

@@ -1,37 +1,34 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
-import { getLangFromUrl } from '@/i18n/utils';
 
 type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
 
-const base = import.meta.env.BASE_URL;
-const lang = getLangFromUrl(Astro.url);
+const base = import.meta.env.BASE_URL; // "/landing/"
+const hrefStr = String(href);
 
-// 1. Limpiamos el href de barras iniciales
-const cleanHref = String(href).startsWith('/') ? String(href).slice(1) : href;
+let finalHref: string;
 
-// 2. Construimos la URL base
-let finalHref = String(href).startsWith('http')
-  ? href 
-  : `${base}${cleanHref}`.replace(/\/+/g, '/');
+if (hrefStr.startsWith('http') || hrefStr.startsWith('mailto:')) {
+  finalHref = hrefStr;
+} else {
+  // 1. Limpiamos: Si por error viene "//" o si ya trae la base, lo normalizamos
+  // Simplemente nos aseguramos de que no empiece con la base repetida
+  const pureHref = hrefStr.replace(new RegExp(`^${base}`), '/');
+  
+  // 2. Construimos usando la base una sola vez
+  finalHref = `${base}/${pureHref}`.replace(/\/+/g, '/');
 
-// 3. Forzamos el Trailing Slash si es una ruta interna y no tiene uno
-// Solo lo añadimos si no termina en / y no parece ser un archivo (no tiene punto al final)
-if (finalHref && !(finalHref as string).startsWith('http') && !(finalHref as string).endsWith('/') && !(finalHref as string).split('/').pop()?.includes('.')) {
-  finalHref += '/';
+  // 3. Trailing slash
+  if (!finalHref.endsWith('/') && !finalHref.split('/').pop()?.includes('.')) {
+    finalHref += '/';
+  }
 }
 
 const pathname = Astro.url.pathname;
-
-// 4. Lógica de isActive:
-// Comparamos el pathname actual con el finalHref, ambos normalizados con o sin barra.
-const normalizedPathname = pathname.endsWith('/') ? pathname : `${pathname}/`;
-const normalizedFinalHref = (finalHref as string).endsWith('/') ? finalHref : `${finalHref}/`;
-
-const isActive = normalizedPathname === normalizedFinalHref || 
-                (finalHref !== `${base}${lang}/` && pathname.startsWith((finalHref as string)));
+// Comparación de rutas activas ignorando barras finales para evitar fallos
+const isActive = pathname.replace(/\/+$/, '') === finalHref.replace(/\/+$/, '');
 ---
 
 <a 

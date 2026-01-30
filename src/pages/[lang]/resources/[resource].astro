@@ -7,7 +7,7 @@ import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 export async function getStaticPaths() {
   const languages = ['en', 'es'];
-  const resources = ['blog', 'changelog', 'collaborate', 'docs', 'first-steps', 'forum', 'get-product'];
+  const resources = ['blog', 'releases', 'collaborate', 'docs', 'first-steps', 'forum', 'get-product'];
   
   return languages.flatMap((lang) => 
     resources.map((resource) => ({ params: { lang, resource } }))
@@ -55,7 +55,7 @@ const t = useTranslations(lang);
                   Protocol: GitHub Sourced Content
                </p>
              </div>
-             {resource === 'changelog' && (
+             {resource === 'releases' && (
                <span class="text-[10px] bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 px-2 py-1 rounded mb-2 animate-pulse">
                  LIVE UPDATES ACTIVE
                </span>

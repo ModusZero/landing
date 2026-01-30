@@ -1,0 +1,139 @@
+---
+import { Icon } from 'astro-icon/components';
+import { SITE_CONFIG } from '@/config/site';
+import { NAVIGATION_CONFIG } from '@/config/navigation';
+import HeaderLink from './HeaderLink.astro';
+import HeaderDropMenu from './HeaderDropMenu.astro';
+import ThemeSelector from './settings/ThemeSelector.astro';
+import LanguageSelector from './settings/LanguageSelector.astro';
+import { useTranslations, getLangFromUrl } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL;
+const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
+
+const ctaConfig = {
+  href: getI18nPath(NAVIGATION_CONFIG.cta.href),
+  label: t(NAVIGATION_CONFIG.cta.translationKey)
+};
+---
+
+<nav 
+  class="fixed top-0 z-50 w-full border-b backdrop-blur-xl transition-colors duration-500"
+  style="background-color: var(--bg-app); border-color: var(--border-main); color: var(--text-main);"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center">
+      
+      <div class="flex flex-1 justify-start">
+        <a 
+          href={getI18nPath('/')} 
+          class="text-xl font-bold transition-colors hover:text-emerald-500"
+          style="color: var(--text-main);"
+        >
+          {t(SITE_CONFIG.title)}
+        </a>
+      </div>
+
+      <div class="hidden md:flex items-center space-x-8">
+        {NAVIGATION_CONFIG.links.map((link) => (
+          link.drop ? (
+            <div class="drop-trigger">
+              <HeaderDropMenu title={t(link.translationKey)} items={link.items || []} rootPath={link.href} />
+            </div>
+          ) : (
+            <HeaderLink href={getI18nPath(link.href)}>
+              <span style="color: var(--text-main);">{t(link.translationKey)}</span>
+            </HeaderLink>
+          )
+        ))}
+      </div>
+
+      <div class="flex flex-1 items-center justify-end gap-4 sm:gap-6">
+        <div class="hidden md:flex items-center gap-4">
+          <div class="h-6 w-px opacity-20 mx-2" style="background-color: var(--text-main);"></div>
+          <LanguageSelector />
+          <ThemeSelector />
+          
+          <a 
+            href={ctaConfig.href} 
+            class="ml-4 rounded-full px-6 py-2 text-sm font-bold transition-all hover:scale-105 active:scale-95 shadow-sm"
+            style="background-color: var(--text-main); color: var(--bg-app);"
+          >
+            {ctaConfig.label}
+          </a>
+        </div>
+
+        <div class="flex items-center gap-4 md:hidden">
+          <ThemeSelector />
+          <button id="mobileMenuButton" class="p-2 transition-colors" style="color: var(--text-main);" aria-label="Toggle Menu">
+            <Icon name="heroicons:bars-3" class="h-7 w-7" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div 
+    id="mobileMenu" 
+    class="hidden border-t px-4 py-8 md:hidden transition-all duration-500"
+    style="background-color: var(--bg-app); border-color: var(--border-main);"
+  >
+    <div class="flex flex-col space-y-6">
+      {NAVIGATION_CONFIG.links.map((link) => (
+        <div class="flex flex-col gap-2">
+          <div class="text-lg font-bold" style="color: var(--text-main);">{t(link.translationKey)}</div>
+          {link.drop && (
+            <div class="ml-4 flex flex-col space-y-4 border-l-2 pl-4" style="border-color: var(--border-main);">
+              {link.items?.map((item) => (
+                <a 
+                  href={getI18nPath(`${link.href}/${item.href}`)} 
+                  class="text-base opacity-70 hover:opacity-100 hover:text-emerald-500 transition-all"
+                  style="color: var(--text-main);"
+                >
+                  {t(item.title)}
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+      
+      <hr style="border-color: var(--border-main);" />
+      
+      <div class="flex flex-col gap-8 py-4">
+        <div class="flex justify-between items-center px-2">
+             <span class="text-sm font-medium opacity-60" style="color: var(--text-main);">Settings</span>
+             <LanguageSelector />
+        </div>
+        <a 
+          href={ctaConfig.href} 
+          class="rounded-xl px-6 py-4 text-center font-bold text-lg shadow-lg transition-transform active:scale-95"
+          style="background-color: var(--text-main); color: var(--bg-app);"
+        > 
+          {ctaConfig.label} 
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  /* Solo atacamos el botón disparador del dropmenu */
+  .drop-trigger :global(button) {
+    color: var(--text-main) !important;
+  }
+</style>
+
+<script>
+  const initMenu = () => {
+    const btn = document.getElementById('mobileMenuButton');
+    const menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.onclick = () => menu.classList.toggle('hidden');
+    }
+  };
+  document.addEventListener('astro:page-load', initMenu);
+  initMenu();
+</script>

@@ -3,7 +3,8 @@
         "previous": "Anterior",
         "next": "Siguiente",
         "finish": "Desplegar",
-        "changing": "Sujeto a cambios • Actualizado 2026"
+        "changing": "Sujeto a cambios • Actualizado 2026",
+        "change_theme":"Cambiar tema"
     },
     "site": {
         "name": "Modus Zero",
@@ -13,34 +14,33 @@
     "layout": {
         "header": {
             "products": "Ecosistema",
-            "resources": "Conocimiento",
+            "resources": "Recursos",
             "product_list": {
                 "mod0": "Mod0",
                 "mod0_description": "Entorno autónomo para codificación auténtica (vibe coding) en tiempo real"
             },
             "resource_list": {
-                "blog": "Insights",
-                "blog_description": "Últimos avances en ingeniería",
-                "changelog": "Actualizaciones",
-                "changelog_description": "Historial de ejecución y parches",
-                "collaborate": "Colaborar",
-                "collaborate_description": "Únete a nuestra red de contribuidores",
-                "forum": "Foro",
-                "forum_description": "Sincronizado con GitHub Discussions. Comunidad de ingeniería open source.",
-                "docs": "Especificaciones",
-                "docs_description": "Guías técnicas de arquitectura",
-                "first_steps": "Fast-Track",
+                "releases": "Descargar",
+                "releases_description": "Historial de versiones y cambios",
+                "blog": "Últimas noticias",
+                "blog_description": "Últimos avances en el ecosistema",
+                "first_steps": "Primeros pasos",
                 "first_steps_description": "Inicializa tu primer enjambre en minutos",
+                "docs": "Documentación",
+                "docs_description": "Guías técnicas de uso",
                 "get_product": "Acceso Plataforma",
                 "get_product_description": "Capacidades agénticas completas",
+                "forum": "Foro",
+                "forum_description": "Sincronizado con GitHub Discussions. Comunidad de ingeniería open source.",
+                "collaborate": "Colaborar",
+                "collaborate_description": "Únete a nuestra red de contribuidores",
                 "learn": "Aprendizaje",
                 "community": "Comunidad",
-                "news": "Transmisiones"
+                "news": "Noticias"
             },
-            "enterprise": "Core Enterprise",
+            "enterprise": "Enterprise",
             "help": "Soporte",
-            "get_demo": "Solicitar Acceso",
-            "login": "Iniciar Sesión"
+            "get_demo": "Contáctanos"
         },
         "footer": {
             "tagline": "Más allá de chats y auto-completado.",
@@ -104,7 +104,7 @@
         },
         "go_see_it": {
             "title": "Inicializa tu Enjambre",
-            "description": "Únete a miles de ingenieros que orquestan lógica compleja a través de la tecnología Mod0.",
+            "description": "Únete a miles de desarrolladores que orquestan lógica compleja a través de la tecnología Mod0.",
             "primary_cta": "Comenzar",
             "secondary_cta": "Ver Especificaciones"
         }
@@ -203,6 +203,35 @@
                     "description": "Biblioteca de habilidades, gestión profunda de contexto y soporte para llaves propias."
                 }
             }
+        }
+    },
+    "contact": {
+        "title": "Comienza a construir con Modus Zero",
+        "subtitle": "Únete a miles de desarrolladores que usan Mod0 para explotar su eficiencia.",
+        "email_label": "¿Alguna pregunta? Contacta a nuestro equipo:",
+        "benefits": {
+            "b1": "No requiere tarjeta de crédito",
+            "b2": "Configuración en menos de 5 minutos",
+            "b3": "Cancela en cualquier momento",
+            "b4": "Soporte al cliente 24/7"
+        },
+        "form": {
+            "cta": "Comienza gratis",
+            "name_label": "Nombre completo",
+            "name_placeholder": "John Doe",
+            "email_label": "Correo electrónico de trabajo",
+            "email_placeholder": "john@company.com",
+            "subject_label": "Asunto",
+            "subject_placeholder": "¿En qué podemos ayudarte?",
+            "company_label": "Empresa",
+            "company_placeholder": "Tu Empresa S.A.",
+            "message_label": "¿Qué te gustaría automatizar?",
+            "message_placeholder": "Cuéntanos sobre tu flujo de trabajo y necesidades de automatización...",
+            "optional": "(Opcional)",
+            "terms": "Al enviar este formulario, aceptas nuestros",
+            "tos": "Términos de Servicio",
+            "and": "y",
+            "privacy": "Política de Privacidad"
         }
     }
 }

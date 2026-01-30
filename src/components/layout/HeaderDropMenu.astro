@@ -15,48 +15,99 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL;
 
-// Genera la ruta completa incluyendo el base del repo y el idioma
 const formatHref = (itemHref: string) => {
-  const path = `${base}/${lang}/${rootPath}/${itemHref}/`.replace(/\/+/g, '/');
-  return path;
+  return `${base}/${lang}/${rootPath}/${itemHref}/`.replace(/\/+/g, '/');
 };
+
+const hasCategories = items.length > 0 && !!items[0].categoryTranslationKey;
+
+const groupedItems = hasCategories 
+  ? items.reduce((acc, item) => {
+      const cat = item.categoryTranslationKey || 'other';
+      if (!acc[cat]) acc[cat] = [];
+      acc[cat].push(item);
+      return acc;
+    }, {} as Record<string, DropMenuItem[]>)
+  : null;
+
+const categories = groupedItems ? Object.keys(groupedItems) : [];
 ---
 
 <div class="group relative flex items-center">
   <button
     type="button"
-    class="flex items-center gap-1 py-1 text-mono-black dark:text-white transition-colors duration-500 hover:text-accent font-medium cursor-default"
+    class="flex items-center gap-1 py-1 text-mono-black dark:text-white transition-colors duration-500 hover:text-emerald-500 font-medium cursor-default"
   >
     {title}
     <Icon name={iconMap['chevron-down']} class="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
   </button>
 
   <div
-    class="invisible absolute -left-4 top-full z-50 mt-2 w-[400px] rounded-xl border shadow-2xl 
-           opacity-0 translate-y-2 transition-all duration-300 ease-out
-           group-hover:visible group-hover:opacity-100 group-hover:translate-y-0"
+    class:list={[
+      "invisible absolute top-full z-50 mt-2 rounded-2xl border shadow-2xl opacity-0 translate-y-2 transition-all duration-300 ease-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0",
+      hasCategories ? "w-[750px] -left-64" : "w-[350px] -left-4"
+    ]}
     style="background-color: var(--bg-app); border-color: var(--border-main);"
   >
-    <div class="grid grid-cols-1 gap-2 p-2"> 
-      {items.map((item) => (
-        <a
-          href={formatHref(item.href)}
-          class="group/item flex items-start gap-3 rounded-lg p-3 transition-all duration-300 hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40"
-        >
-          <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mono-lighter dark:bg-mono-dark transition-colors duration-500">
-            <Icon name={iconMap[item.icon] || 'heroicons:cube'} class="h-5 w-5 text-mono-black dark:text-white" />
-          </div>
-
-          <div class="flex flex-col text-left">
-            <span class="text-sm font-bold text-mono-black dark:text-white">
-              {t(item.title)}
-            </span>
-            <span class="text-xs text-mono-black/60 dark:text-white/60">
-              {t(item.descriptionTranslationKey)}
-            </span>
-          </div>
-        </a>
-      ))}
+    <div class="p-5">
+      {hasCategories ? (
+        <div class={`grid gap-10 ${categories.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+          {categories.map((catKey) => (
+            <div class="flex flex-col gap-4">
+              <h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-emerald-500 px-1 border-l-2 border-emerald-500/30 ml-2">
+                {t(catKey)}
+              </h3>
+              <div class="flex flex-col gap-2">
+                {groupedItems![catKey].map((item) => (
+                  <a href={formatHref(item.href)} class="group/item flex items-center gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mono-lighter dark:bg-mono-dark transition-colors">
+                      <Icon name={iconMap[item.icon] || 'heroicons:cube'} class="custom-icon h-5 w-5 transition-colors group-hover/item:text-emerald-500 group-hover/item:filter-none" />
+                    </div>
+                    <div class="flex flex-col text-left">
+                      <span class="text-sm font-bold text-mono-black dark:text-white group-hover/item:text-emerald-500 transition-colors">
+                        {t(item.title)}
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="flex flex-col gap-1">
+          {items.map((item) => (
+            <a href={formatHref(item.href)} class="group/item flex items-start gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mono-lighter dark:bg-mono-dark transition-colors">
+                <Icon name={iconMap[item.icon] || 'heroicons:cube'} class="custom-icon h-5 w-5 transition-colors group-hover/item:text-emerald-500 group-hover/item:filter-none" />
+              </div>
+              <div class="flex flex-col text-left">
+                <span class="text-sm font-bold text-mono-black dark:text-white group-hover/item:text-emerald-500">
+                  {t(item.title)}
+                </span>
+                <p class="text-xs text-mono-black/50 dark:text-white/50 leading-snug">
+                  {t(item.descriptionTranslationKey)}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 </div>
+
+<style>
+  .custom-icon {
+    color: white;
+    filter: drop-shadow(1px 0 0 #000) 
+            drop-shadow(-1px 0 0 #000) 
+            drop-shadow(0 1px 0 #000) 
+            drop-shadow(0 -1px 0 #000);
+  }
+
+  :global(.dark) .custom-icon {
+    color: currentColor;
+    filter: none;
+  }
+</style>

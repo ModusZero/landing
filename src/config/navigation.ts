@@ -1,5 +1,5 @@
 import { PRODUCTS_MENU } from "./products/products";
-import { RESOURCES_MENU } from "./resources/resources";
+import { RESOURCES_MENU } from "./resources";
 
 const prefix = 'layout.header';
 
@@ -31,9 +31,5 @@ export const NAVIGATION_CONFIG = {
     cta: {
         href: 'contact',
         translationKey: `${prefix}.get_demo`,
-    },
-    login: {
-        href: '#',
-        translationKey: `${prefix}.login`,
     },
 };

@@ -1,7 +1,7 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import BaseHead from '@/components/layout/seo/BaseHead.astro';
-import Navigation from '@/components/layout/Navigation.astro';
+import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import Breadcrumbs from '@/components/layout/seo/Breadcrumbs.astro';
 import Background from '@/components/layout/Background.astro';
@@ -47,7 +47,7 @@ const t = useTranslations(lang);
   <body class="font-sans">
     <Background />
 
-    <Navigation /> 
+    <Header /> 
     
     <main>
       <Breadcrumbs />
