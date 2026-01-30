@@ -5,7 +5,7 @@ import { SITE_CONFIG } from '@/config/site';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import '@/styles/global.css';
 
-type Props = {
+interface Props {
     title?: string;
     description?: string;
     image?: string;
@@ -16,37 +16,29 @@ const t = useTranslations(lang);
 
 const metaTitle = Astro.props.title || t(SITE_CONFIG.title);
 const metaDescription = Astro.props.description || t(SITE_CONFIG.description);
-const { image = '/screenshot.png' } = Astro.props;
 
-const siteUrl = Astro.site 
-    ? Astro.site.origin 
-    : `http://localhost:${import.meta.env.PORT || 5000}`;
+// 1. URL base del sitio (Asegúrate de que coincida con tu config de Astro)
+const siteOrigin = "https://moduszero.github.io";
+const basePrefix = "/landing"; // Tu subdirectorio en GitHub Pages
 
-const baseUrl = import.meta.env.BASE_URL.replace(/\/$/, '');
-const cleanImage = image.startsWith('/') ? image : `/${image}`;
+// 2. Imagen: Forzamos URL absoluta manual para evitar fallos de new URL
+const imagePath = Astro.props.image || '/screenshot.jpeg';
+const cleanImagePath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+const socialImageURL = `${siteOrigin}${basePrefix}${cleanImagePath}`;
 
-const socialImageURL = new URL(baseUrl + cleanImage, siteUrl).toString();
-
-const canonicalURL = new URL(Astro.url.pathname, siteUrl).toString();
+// 3. URL Canónica perfecta
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin).toString();
 
 const languages = ['en', 'es'];
-const languageAlternates = languages.map((l) => {
-    const pathWithoutLang = Astro.url.pathname
-        .replace(baseUrl, '')
-        .replace(/^\/(en|es)/, '');
-    
-    return {
-        hrefLang: l,
-        href: new URL(`${baseUrl}/${l}${pathWithoutLang}`, siteUrl).toString(),
-    };
-});
-
-const translatedKeywords = SITE_CONFIG.keywords.map(k => t(k)).join(', ');
+const languageAlternates = languages.map((l) => ({
+    hrefLang: l,
+    href: `${siteOrigin}${basePrefix}/${l}${Astro.url.pathname.replace(basePrefix, '').replace(/^\/(en|es)/, '')}`
+}));
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href={new URL(`${baseUrl}/favicon.svg`, siteUrl).toString()} />
+<link rel="icon" type="image/svg+xml" href={`${basePrefix}/favicon.svg`} />
 <meta name="generator" content={Astro.generator} />
 
 <SEO
@@ -57,19 +49,18 @@ const translatedKeywords = SITE_CONFIG.keywords.map(k => t(k)).join(', ');
         basic: {
             title: metaTitle,
             type: "website",
-            image: socialImageURL,
+            image: socialImageURL, // EXPLICITO AQUÍ
             url: canonicalURL,
         },
         optional: {
             description: metaDescription,
             siteName: "Modus Zero",
-            locale: lang === 'es' ? 'es_ES' : 'en_US',
         },
         image: {
             alt: metaTitle,
             width: 1200,
             height: 630,
-            type: "image/jpeg"
+            type: "image/jpeg", // Asegúrate que sea .jpeg o .png según tu archivo
         }
     }}
     twitter={{
@@ -77,15 +68,13 @@ const translatedKeywords = SITE_CONFIG.keywords.map(k => t(k)).join(', ');
         title: metaTitle,
         description: metaDescription,
         image: socialImageURL,
-        // site: "@moduszero_dev",
     }}
-    languageAlternates={languageAlternates}
     extend={{
         meta: [
-            { name: "keywords", content: translatedKeywords },
-            { name: "theme-color", content: "#000000" },
-            { name: "apple-mobile-web-app-capable", content: "yes" },
-            { property: "og:image:secure_url", content: socialImageURL }
+            { property: "og:image", content: socialImageURL },
+            { property: "og:image:width", content: "1200" },
+            { property: "og:image:height", content: "630" },
+            { name: "keywords", content: SITE_CONFIG.keywords.join(', ') },
         ],
     }}
 />
@@ -96,10 +85,7 @@ const translatedKeywords = SITE_CONFIG.keywords.map(k => t(k)).join(', ');
         "@type": "SoftwareApplication",
         "name": "Modus Zero",
         "description": metaDescription,
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Web",
-        "url": siteUrl + baseUrl,
-        "image": socialImageURL,
+        "url": canonicalURL,
     }}
 />
 
@@ -118,9 +104,4 @@ const translatedKeywords = SITE_CONFIG.keywords.map(k => t(k)).join(', ');
         document.documentElement.classList.toggle('dark', theme === 'dark');
         document.documentElement.style.colorScheme = theme;
     })();
-
-    document.addEventListener('astro:after-swap', () => {
-        const theme = localStorage.getItem('theme') || 'light';
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-    });
 </script>
