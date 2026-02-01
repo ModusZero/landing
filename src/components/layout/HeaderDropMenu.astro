@@ -67,6 +67,9 @@ const categories = groupedItems ? Object.keys(groupedItems) : [];
                       <span class="text-sm font-bold text-mono-black dark:text-white group-hover/item:text-emerald-500 transition-colors">
                         {t(item.title)}
                       </span>
+                      <p class="text-xs text-mono-black/50 dark:text-white/50 leading-snug">
+                        {t(item.descriptionTranslationKey)}
+                      </p>
                     </div>
                   </a>
                 ))}
