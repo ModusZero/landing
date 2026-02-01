@@ -9,7 +9,22 @@
     "site": {
         "name": "Modus Zero",
         "title": "Modus Zero",
-        "description": "Ecosistema orientado al aprovechamiento máximo de la ingeniería agéntica."
+        "description": "Ecosistema orientado al aprovechamiento máximo de la ingeniería agéntica.",
+        "keywords": {
+            "1": "ingeniería agéntica",
+            "2": "agentes de IA autónomos",
+            "3": "vibe coding",
+            "4": "orquestación de LLM",
+            "5": "desarrollo local-first",
+            "6": "model context protocol mcp",
+            "7": "automatización de software",
+            "8": "inteligencia artificial privada",
+            "9": "herramientas para desarrolladores IA",
+            "10": "grafo de pensamiento",
+            "11": "tablero kanban",
+            "12": "código fuente visual",
+            "13": "control de versiones"
+        }
     },
     "layout": {
         "header": {

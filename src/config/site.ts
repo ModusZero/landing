@@ -1,15 +1,18 @@
 import type { SiteConfig } from "@/types/site-config";
 
+const keyWordsPrefix = 'site.keywords';
+
 export const SITE_CONFIG: SiteConfig = {
     name: 'site.name',
     title: 'site.title',
     description: 'site.description',
-    keywords: [
-        'site.keywords.new',
-        'site.keywords.fresh',
-        'site.keywords.innovative',
-    ],
+    keywords: Array.from({ length: 13 }).map(
+        (_, index) => `${keyWordsPrefix}.${index + 1}`
+    ),
     email: 'luisalbertohedzro@gmail.com',
+    author: 'Luis Alberto Hernández Roselló',
+    siteOrigin: "https://moduszero.github.io",
+    basePrefix: "/landing",
 
     // Open Graph / Twitter
     ogTitle: 'site.title',

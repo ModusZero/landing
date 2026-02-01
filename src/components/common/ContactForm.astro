@@ -11,7 +11,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { config = contactConfig } = Astro.props;
 
-const FORMSPREE_ID = "mpwkzpee";
+const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
 ---
 
 <section id="contact" class="relative bg-transparent px-4 py-24 transition-colors duration-500 sm:px-6 lg:px-8 overflow-hidden">

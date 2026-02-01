@@ -9,7 +9,22 @@
     "site": {
         "name": "Modus Zero",
         "title": "Modus Zero",
-        "description": "Agentic engineering ecosystem for maximum leverage."
+        "description": "Agentic engineering ecosystem for maximum leverage.",
+        "keywords": [
+            "agentic engineering",
+            "autonomous AI agents",
+            "vibe coding",
+            "LLM orchestration",
+            "local-first development",
+            "model context protocol mcp",
+            "software automation",
+            "private AI",
+            "AI developer tools",
+            "thought graph",
+            "kanban board",
+            "visual codebase",
+            "source control"
+        ]
     },
     "layout": {
         "header": {

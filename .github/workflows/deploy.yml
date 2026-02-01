@@ -40,6 +40,7 @@ jobs:
         run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FORMSPREE_ID: ${{ secrets.FORMSPREE_ID }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

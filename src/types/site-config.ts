@@ -4,6 +4,13 @@ export type SiteConfig = {
     description: string;
     keywords: string[];
     email: string;
+    
+    author?: string;
+    publishDate?: string;
+    imageUrl?: string;
+    
+    siteOrigin?: string;
+    basePrefix?: string;
 
     // Open Graph / Twitter
     ogTitle: string;
