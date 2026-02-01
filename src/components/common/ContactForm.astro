@@ -116,6 +116,8 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
 </section>
 
 <script>
+  declare var gtag: Function;
+
   const setupForm = () => {
     const contactForm = document.getElementById('contactForm') as HTMLFormElement | null;
     const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
@@ -136,6 +138,13 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
 
     // Submit state
     contactForm.addEventListener('submit', () => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+          'event_category': 'contact',
+          'event_label': 'formspree_submission'
+        });
+      }
+
       submitBtn.disabled = true;
       if (btnText) btnText.style.opacity = "0.5";
       if (btnLoader) btnLoader.classList.remove('hidden');

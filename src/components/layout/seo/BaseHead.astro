@@ -2,67 +2,58 @@
 import { SEO } from "astro-seo";
 import { Schema } from "astro-seo-schema";
 import { SITE_CONFIG } from '@/config/site';
+import type { SiteConfig } from '@/types/site-config';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 import '@/styles/global.css';
 
 interface Props {
-    title?: string;
-    description?: string;
-    image?: string;
-}
+    config?: SiteConfig;
+};
 
+const config = Astro.props.config || SITE_CONFIG;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const metaTitle = Astro.props.title || t(SITE_CONFIG.title);
-const metaDescription = Astro.props.description || t(SITE_CONFIG.description);
+const metaTitle = t(config.title);
+const metaName = t(config.name);
+const metaDescription = t(config.description);
+const metaKeywords = config.keywords.map(key => t(key)).join(', ');
+const metaAuthor = config.author || "Modus Zero Team";
+const metaPublishDate = config.publishDate || new Date().toISOString().split('T')[0];
 
-// 1. URL base del sitio (Asegúrate de que coincida con tu config de Astro)
-const siteOrigin = "https://moduszero.github.io";
-const basePrefix = "/landing"; // Tu subdirectorio en GitHub Pages
+const imagePath = config.imageUrl || '/screenshot.jpeg';
+const socialImageURL = `${config.siteOrigin}${config.basePrefix}${imagePath.startsWith('/') ? imagePath : '/' + imagePath}`;
+const canonicalURL = `${config.siteOrigin}${config.basePrefix}${Astro.url.pathname.replace(config.basePrefix || '', '')}`.replace(/\/+$/, '/');
 
-// 2. Imagen: Forzamos URL absoluta manual para evitar fallos de new URL
-const imagePath = Astro.props.image || '/screenshot.jpeg';
-const cleanImagePath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
-const socialImageURL = `${siteOrigin}${basePrefix}${cleanImagePath}`;
-
-// 3. URL Canónica perfecta
-const canonicalURL = new URL(Astro.url.pathname, siteOrigin).toString();
-
-const languages = ['en', 'es'];
-const languageAlternates = languages.map((l) => ({
-    hrefLang: l,
-    href: `${siteOrigin}${basePrefix}/${l}${Astro.url.pathname.replace(basePrefix, '').replace(/^\/(en|es)/, '')}`
-}));
+const GA_ID = "G-7QFXWYM9NE"; 
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href={`${basePrefix}/favicon.svg`} />
+<link rel="icon" type="image/svg+xml" href={`${config.basePrefix}/favicon.svg`} />
 <meta name="generator" content={Astro.generator} />
+
+<meta name="google-site-verification" content="googlee6dbb69ab3f73998" />
+<meta name="author" content={metaAuthor} />
+<meta name="publish_date" property="og:publish_date" content={metaPublishDate} />
+
+<title>{metaTitle}</title>
+<meta name="description" content={metaDescription} />
+<meta property="og:title" content={metaTitle} />
+<meta property="og:description" content={metaDescription} />
+<meta property="og:image" content={socialImageURL} />
+<meta property="og:image:secure_url" content={socialImageURL} />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content={metaName} />
 
 <SEO
     title={metaTitle}
     description={metaDescription}
     canonical={canonicalURL}
-    openGraph={{
-        basic: {
-            title: metaTitle,
-            type: "website",
-            image: socialImageURL, // EXPLICITO AQUÍ
-            url: canonicalURL,
-        },
-        optional: {
-            description: metaDescription,
-            siteName: "Modus Zero",
-        },
-        image: {
-            alt: metaTitle,
-            width: 1200,
-            height: 630,
-            type: "image/jpeg", // Asegúrate que sea .jpeg o .png según tu archivo
-        }
-    }}
     twitter={{
         card: "summary_large_image",
         title: metaTitle,
@@ -71,10 +62,9 @@ const languageAlternates = languages.map((l) => ({
     }}
     extend={{
         meta: [
-            { property: "og:image", content: socialImageURL },
-            { property: "og:image:width", content: "1200" },
-            { property: "og:image:height", content: "630" },
-            { name: "keywords", content: SITE_CONFIG.keywords.join(', ') },
+            { name: "keywords", content: metaKeywords },
+            { name: "twitter:image", content: socialImageURL },
+            { name: "twitter:creator", content: "@moduszero" },
         ],
     }}
 />
@@ -83,9 +73,15 @@ const languageAlternates = languages.map((l) => ({
     item={{
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Modus Zero",
+        "name": metaName,
         "description": metaDescription,
         "url": canonicalURL,
+        "image": socialImageURL,
+        "author": {
+            "@type": "Organization",
+            "name": metaName
+        },
+        "datePublished": metaPublishDate
     }}
 />
 
@@ -93,14 +89,17 @@ const languageAlternates = languages.map((l) => ({
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet" />
 
+<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+<script is:inline define:vars={{ GA_ID }}>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', GA_ID);
+</script>
+
 <script is:inline>
     (function() {
-        const getTheme = () => {
-            const saved = localStorage.getItem('theme');
-            if (saved) return saved;
-            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        };
-        const theme = getTheme();
+        const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.classList.toggle('dark', theme === 'dark');
         document.documentElement.style.colorScheme = theme;
     })();
