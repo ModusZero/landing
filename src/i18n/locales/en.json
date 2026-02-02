@@ -277,7 +277,7 @@
             "company_placeholder": "Your Company Inc.",
             "message_label": "What would you like to automate?",
             "message_placeholder": "Tell us about your workflow and automation needs...",
-            "optional": "(Optional)",
+            "optional": "Optional",
             "terms": "By submitting this form, you agree to our",
             "tos": "Terms of Service",
             "and": "and",

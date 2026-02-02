@@ -123,31 +123,58 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
     const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement | null;
     const btnText = document.getElementById('btnText');
     const btnLoader = document.getElementById('btnLoader');
+    
+    const btnTextOriginal = btnText?.textContent || "";
 
     if (!contactForm || !submitBtn) return;
 
-    // URL Params
-    const urlParams = new URLSearchParams(window.location.search);
-    ['subject', 'message'].forEach(id => {
-      const param = urlParams.get(id) || (id === 'message' ? urlParams.get('body') : null);
-      if (param) {
-        const el = document.getElementById(id) as HTMLInputElement | HTMLTextAreaElement;
-        if (el) el.value = decodeURIComponent(param);
-      }
-    });
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    // Submit state
-    contactForm.addEventListener('submit', () => {
       if (typeof gtag !== 'undefined') {
         gtag('event', 'generate_lead', {
           'event_category': 'contact',
-          'event_label': 'formspree_submission'
+          'event_label': 'formspree_ajax'
         });
       }
 
       submitBtn.disabled = true;
-      if (btnText) btnText.style.opacity = "0.5";
+      if (btnText) btnText.textContent = '';
       if (btnLoader) btnLoader.classList.remove('hidden');
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          contactForm.reset();
+          
+          if (btnLoader) btnLoader.classList.add('hidden');
+          submitBtn.classList.replace('bg-mono-black', 'bg-emerald-500');
+          submitBtn.classList.replace('dark:bg-accent', 'dark:bg-emerald-500');
+          if (btnText) btnText.innerHTML = '✓';
+
+          setTimeout(() => {
+            submitBtn.classList.replace('bg-emerald-500', 'bg-mono-black');
+            submitBtn.classList.replace('dark:bg-emerald-500', 'dark:bg-accent');
+            if (btnText) btnText.textContent = btnTextOriginal;
+            submitBtn.disabled = false;
+          }, 3000);
+
+        } else {
+          throw new Error();
+        }
+      } catch (error) {
+        if (btnLoader) btnLoader.classList.add('hidden');
+        if (btnText) btnText.textContent = btnTextOriginal;
+        submitBtn.disabled = false;
+        alert("Error!");
+      }
     });
   };
 

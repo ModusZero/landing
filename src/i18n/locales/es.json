@@ -277,7 +277,7 @@
             "company_placeholder": "Tu Empresa S.A.",
             "message_label": "¿Qué te gustaría automatizar?",
             "message_placeholder": "Cuéntanos sobre tu flujo de trabajo y necesidades de automatización...",
-            "optional": "(Opcional)",
+            "optional": "Opcional",
             "terms": "Al enviar este formulario, aceptas nuestros",
             "tos": "Términos de Servicio",
             "and": "y",
