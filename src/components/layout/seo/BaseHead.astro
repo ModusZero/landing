@@ -21,7 +21,7 @@ const metaKeywords = config.keywords.map(key => t(key)).join(', ');
 const metaAuthor = config.author || "Modus Zero Team";
 const metaPublishDate = config.publishDate || new Date().toISOString().split('T')[0];
 
-const imagePath = config.imageUrl || '/screenshot.jpeg';
+const imagePath = config.imageUrl || '/v1-moduszero-og.jpg';
 const socialImageURL = `${config.siteOrigin}${config.basePrefix}${imagePath.startsWith('/') ? imagePath : '/' + imagePath}`;
 const canonicalURL = `${config.siteOrigin}${config.basePrefix}${Astro.url.pathname.replace(config.basePrefix || '', '')}`.replace(/\/+$/, '/');
 
