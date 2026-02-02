@@ -12,6 +12,7 @@ export const SITE_CONFIG: SiteConfig = {
     email: 'luisalbertohedzro@gmail.com',
     author: 'Luis Alberto Hernández Roselló',
     publishDate: '2025-01-16',
+    imageUrl: '/screenshot.jpeg',
     siteOrigin: "https://moduszero.github.io",
     basePrefix: "/landing",
 
