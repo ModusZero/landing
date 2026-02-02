@@ -1,58 +1,99 @@
-# `mycn18-studio-ui-landing`
+# Modus Zero Landing
 
-## Sitio Web de Marketing y Adquisición (Astro)
+<img width="1920" height="1080" alt="v1-moduszero-og" src="https://github.com/user-attachments/assets/c33ffc7d-a41f-430b-bf1d-068c7f151786" />
 
-[](https://astro.build/)
-[](https://web.dev/vitals/)
+### 🌐 Language / Idioma
 
------
+> [!IMPORTANT]
+> 
+> Esta documentación está disponible en dos idiomas.
+>
+> This documentation is available in two languages.
+> 
+> * **[Español (Actual)](#description-es)**
+> 
+> * **[English Version (Below)](#description-en)**
+>
+> * **[Manual (Al final | At the end)](#bilingual-manual)**
 
-## Descripción del Microservicio (Uso Interno)
+---
+<br id="description-es">
 
-El repositorio `mycn18-ui-landing` contiene la *landing page* pública del Studio. Este sitio está diseñado para un único propósito: ser **el sitio web más rápido posible** para maximizar la conversión y el posicionamiento en buscadores.
+# Versión en español
+## Sitio Web de Marketing y Ecosistema de Ingeniería Agéntica
 
-Utiliza el *framework* **Astro** para renderizar la mayor parte del contenido como **HTML puro** durante la fase de *build*, eliminando el JavaScript innecesario en el lado del cliente (hidratación parcial).
+---
+## Descripción del Proyecto
 
-**Funciones Clave:**
+Este repositorio contiene la *landing page* oficial de **Modus Zero**, un ecosistema profesional diseñado para el aprovechamiento máximo de la **ingeniería agéntica**. A diferencia de los asistentes de chat tradicionales, este sitio presenta una visión donde la IA no solo asiste, sino que orquesta flujos de trabajo complejos mediante herramientas como **Mod0**.
 
-* **Velocidad:** Rendimiento líder en la industria para el *Initial Load*.
-* **SEO:** Código fuente limpio y optimizado para los *crawlers* de búsqueda.
-* **Integración Parcial:** Utiliza "Islas" de React para la funcionalidad interactiva esencial (ej. formularios) sin sacrificar la velocidad del sitio estático.
+El sitio está construido con **Astro** para garantizar una carga instantánea y un SEO impecable, permitiendo a los desarrolladores explorar el nuevo paradigma de "vibe coding" y orquestación de LLMs con la menor fricción posible.
 
------
+**Puntos Clave del Ecosistema:**
 
-## Especificaciones Operacionales
+* **Ingeniería Agéntica:** Enfoque en la verificación y revisión del trabajo de IA más que en la escritura manual de código.
+* **Mod0:** Entorno autónomo con visualización de *Thinking Graphs* y tableros Kanban agénticos.
+* **Local-First:** Soporte para inteligencia privada y modelos auto-hospedados.
+* **Eficiencia:** Optimización de tokens mediante estrategias de inferencia por dificultad.
 
-| Parámetro | Valor Óptimo | Notas |
-| :--- | :--- | :--- |
-| **Framework Base** | Astro | Enfocado en contenido estático y *content-heavy* sites. |
-| **Framework UI** | React | Usado exclusivamente para componentes interactivos (*Islas*). |
-| **Filosofía** | Zero JS por Defecto | Solo se envía JS al cliente donde es estrictamente necesario. |
-| **Despliegue** | CDN / Serverless Static Host | Mínimo tiempo de respuesta global. |
+---
+## Especificaciones Técnicas
 
------
+| Parámetro | Valor | Notas |
+| --- | --- | --- |
+| **Framework Base** | Astro 5.0+ | Generación de sitios estáticos con Islas de interactividad. |
+| **Arquitectura** | Local-first Ready | Preparado para integrarse con nodos de IA locales. |
+| **UI Components** | Tailwind CSS + React | Estética minimalista con componentes interactivos de alta precisión. |
+| **I18n** | Nativo (ES / EN) | Sistema de traducción dinámico basado en la URL. |
+| **Despliegue** | GitHub Pages | Optimizado para entrega rápida vía CDN. |
 
-## Despliegue y Acceso
+---
+<br id="description-en">
 
-El producto final es un conjunto de archivos estáticos que se sirven fácilmente desde cualquier CDN.
+# English version
 
-### 1\. Variables de Entorno Clave
+## Marketing Website & Agentic Engineering Ecosystem
 
-| Variable | Propósito |
-| :--- | :--- |
-| `PUBLIC_STUDIO_APP_URL` | URL de la aplicación Studio para el botón CTA ("Launch App"). |
-| `PUBLIC_MARKETPLACE_APP_URL` | URL de la aplicación Marketplace para el botón CTA ("Go to Marketplace"). |
-| `API_SIGNUP_ENDPOINT` | URL del endpoint de registro del servicio IAM (usado por el formulario). |
+---
+## Project Description
 
-### 2\. Comandos de Compilación (Build)
+This repository hosts the official landing page for **Modus Zero**, a professional ecosystem tailored for maximizing the leverage of **agentic engineering**. Beyond simple chatbots, this platform introduces a workflow where AI orchestrates complex development tasks through tools like **Mod0**.
+
+Built with **Astro**, the site ensures industry-leading performance and SEO, allowing developers to explore the "vibe coding" paradigm and LLM orchestration with zero friction.
+
+**Ecosystem Key Features:**
+
+* **Agentic Engineering:** Focus on verifying and auditing AI-generated work rather than manual coding.
+* **Mod0:** Autonomous environment featuring *Thinking Graphs* and agentic Kanban boards.
+* **Local-First:** Support for private intelligence and self-hosted models.
+* **Token Efficiency:** Smart inference strategies to optimize costs and reasoning depth.
+
+---
+## Technical Specifications
+
+| Parameter | Value | Notes |
+| --- | --- | --- |
+| **Base Framework** | Astro 5.0+ | Static site generation with interactive "Islands." |
+| **Architecture** | Local-first Ready | Built to integrate with local AI nodes. |
+| **UI Components** | Tailwind CSS + React | Minimalist aesthetic with high-precision components. |
+| **I18n** | Native (EN / ES) | Dynamic translation system based on URL structure. |
+| **Deployment** | GitHub Pages | Optimized for fast CDN delivery. |
+
+---
+<br id="bilingual-manual">
+## Manual
 
 ```bash
-# Instalar dependencias
+# 1. Instalar dependencias | Install deps
 npm install
 
-# Iniciar servidor de desarrollo
+# 2. Iniciar servidor de desarrollo | Start dev server
 npm run dev
 
-# Generar artefactos de producción (carpeta /dist)
+# 3. Construir para producción | Build for production
 npm run build
+
+# 4. Previsualizar la construcción localmente | Preview in local
+npm run preview
+
 ```
