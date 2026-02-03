@@ -63,7 +63,7 @@
             "columns": {
                 "product": "Ecosistema",
                 "company": "Organización",
-                "legal": "Gobernanza"
+                "legal": "Legal"
             }
         }
     },
@@ -256,6 +256,7 @@
         }
     },
     "contact": {
+        "cta": "Contáctanos",
         "title": "Comienza a construir con Modus Zero",
         "subtitle": "Únete a miles de desarrolladores que usan Mod0 para explotar su eficiencia.",
         "email_label": "¿Alguna pregunta? Contacta a nuestro equipo:",
@@ -279,9 +280,20 @@
             "message_placeholder": "Cuéntanos sobre tu flujo de trabajo y necesidades de automatización...",
             "optional": "Opcional",
             "terms": "Al enviar este formulario, aceptas nuestros",
-            "tos": "Términos de Servicio",
-            "and": "y",
-            "privacy": "Política de Privacidad"
+            "and": "y"
+        }
+    },
+    "legal": {
+        "nav_label": "Legal",
+        "last_updated": "Última Actualización",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Servicio",
+        "cookies": {
+            "title": "Política de Cookies",
+            "description": "Usamos cookies para mejorar tu experiencia en nuestro sitio web. Al continuar navegando, aceptas el uso de cookies de acuerdo con nuestra ",
+            "protocol": "Consentimiento de Cookies",
+            "decline": "Rechazar Cookies",
+            "accept": "Aceptar Cookies"
         }
     }
 }

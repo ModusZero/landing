@@ -4,6 +4,7 @@ export const iconMap: Record<IconName, string> = {
   // Social media icons
   'facebook': 'simple-icons:facebook',
   'instagram': 'simple-icons:instagram',
+  'threads': 'simple-icons:threads',
   'paypal': 'simple-icons:paypal',
   'twitter': 'simple-icons:x',
   'github': 'simple-icons:github',

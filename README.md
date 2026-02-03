@@ -2,16 +2,16 @@
 
 <img width="1920" height="1080" alt="v1-moduszero-og" src="https://github.com/user-attachments/assets/c33ffc7d-a41f-430b-bf1d-068c7f151786" />
 
-### 🌐 Language / Idioma
+## 🌐 Language / Idioma
 
 > [!IMPORTANT]
-> 
+>
 > Esta documentación está disponible en dos idiomas.
 >
 > This documentation is available in two languages.
-> 
+>
 > * **[Español (Actual)](#description-es)**
-> 
+>
 > * **[English Version (Below)](#description-en)**
 >
 > * **[Manual (Al final | At the end)](#bilingual-manual)**
@@ -20,9 +20,11 @@
 <br id="description-es">
 
 # Versión en español
+
 ## Sitio Web de Marketing y Ecosistema de Ingeniería Agéntica
 
 ---
+
 ## Descripción del Proyecto
 
 Este repositorio contiene la *landing page* oficial de **Modus Zero**, un ecosistema profesional diseñado para el aprovechamiento máximo de la **ingeniería agéntica**. A diferencia de los asistentes de chat tradicionales, este sitio presenta una visión donde la IA no solo asiste, sino que orquesta flujos de trabajo complejos mediante herramientas como **Mod0**.
@@ -37,6 +39,7 @@ El sitio está construido con **Astro** para garantizar una carga instantánea y
 * **Eficiencia:** Optimización de tokens mediante estrategias de inferencia por dificultad.
 
 ---
+
 ## Especificaciones Técnicas
 
 | Parámetro | Valor | Notas |
@@ -55,6 +58,7 @@ El sitio está construido con **Astro** para garantizar una carga instantánea y
 ## Marketing Website & Agentic Engineering Ecosystem
 
 ---
+
 ## Project Description
 
 This repository hosts the official landing page for **Modus Zero**, a professional ecosystem tailored for maximizing the leverage of **agentic engineering**. Beyond simple chatbots, this platform introduces a workflow where AI orchestrates complex development tasks through tools like **Mod0**.
@@ -69,6 +73,7 @@ Built with **Astro**, the site ensures industry-leading performance and SEO, all
 * **Token Efficiency:** Smart inference strategies to optimize costs and reasoning depth.
 
 ---
+
 ## Technical Specifications
 
 | Parameter | Value | Notes |
