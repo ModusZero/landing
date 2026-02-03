@@ -55,6 +55,7 @@
             },
             "enterprise": "Enterprise",
             "help": "Soporte",
+            "about_us": "Sobre Nosotros",
             "get_demo": "Contáctanos"
         },
         "footer": {
@@ -254,6 +255,19 @@
             "desc": "Nuestro equipo de guardia está disponible para fallos de nivel 1.",
             "cta": "Contactar Soporte"
         }
+    },
+    "about_us": {
+        "title": "Nuestra Organización",
+        "subtitle": "Construyendo la infraestructura para la era agéntica.",
+        "vision_title": "La Visión",
+        "vision_text": "Modus Zero nació para resolver la fricción entre la capacidad de los LLMs y la realidad del flujo de trabajo de ingeniería. No construimos chatbots; construimos sistemas de control para inteligencia artificial.",
+        "team_title": "Principales Contribuidores",
+        "roles": {
+            "founder": "Fundador | CEO",
+            "lead_architect": "Arquitecto Principal",
+            "architect": "Arquitecto"
+        },
+        "see_more": "Ver más..."
     },
     "contact": {
         "cta": "Contáctanos",

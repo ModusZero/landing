@@ -47,13 +47,13 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
           <a 
             href={`mailto:${config.email}`}
             aria-label={`Mail to ${config.email}`}
-            class="text-2xl font-black text-mono-black dark:text-mono-white hover:text-accent transition-all duration-300">
+            class="cursor-target text-2xl font-black text-mono-black dark:text-mono-white hover:text-accent transition-all duration-300">
             {config.email}
           </a>
         </div>
       </div>
 
-      <div class="scroll-fade-right relative group">
+      <div class="scroll-fade-right relative group target-cursor">
         <div class="absolute -inset-1 bg-linear-to-r from-accent/20 to-emerald-500/20 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
         
         <div class="relative rounded-3xl border border-mono-black/10 dark:border-mono-white/10 bg-white/70 dark:bg-mono-darker/70 backdrop-blur-xl p-8 shadow-2xl sm:p-12 transition-all duration-500">
@@ -86,7 +86,7 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
                       rows="4"
                       required={field.required}
                       placeholder={t(field.placeholder)}
-                      class={`${inputBaseClasses} resize-none`}
+                      class={`${inputBaseClasses} cursor-target resize-none`}
                     ></textarea>
                   ) : (
                     <input
@@ -95,7 +95,7 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
                       name={fieldName}
                       required={field.required}
                       placeholder={t(field.placeholder)}
-                      class={inputBaseClasses}
+                      class={`${inputBaseClasses} cursor-target`}
                     />
                   )}
                 </div>
@@ -105,8 +105,8 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
             <button
               type="submit"
               id="submitBtn"
-              class="group/btn bg-mono-black dark:bg-accent w-full rounded-xl px-8 py-5 font-bold text-white shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 overflow-hidden relative"
-            >
+              class="cursor-target group/btn bg-mono-black dark:bg-accent w-full rounded-xl px-8 py-5 font-bold text-white shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-3 overflow-hidden relative"
+              >
               <span id="btnText" class="relative z-10">{t(config.form.cta)}</span>
               <div id="btnLoader" class="hidden h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white relative z-10"></div>
             </button>

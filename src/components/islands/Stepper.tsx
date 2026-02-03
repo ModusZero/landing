@@ -126,16 +126,19 @@ export default function Stepper({
         {!isCompleted && (
           <div className={`px-8 pb-8 flex items-center justify-between ${footerClassName}`}>
             <button
+              type='button'
               onClick={handleBack}
               disabled={currentStep === 1}
-              className={`text-sm font-bold transition-all ${currentStep === 1 ? 'opacity-0 pointer-events-none' : 'opacity-60 hover:opacity-100 text-main'}`}
-            >
+              className={`cursor-target text-sm font-bold transition-all ${currentStep === 1 ? 'opacity-0 pointer-events-none' : 'opacity-60 hover:opacity-100 text-main'}`}
+              >
               ← {t(backButtonText)}
             </button>
+
             <button
+              type='button'
               onClick={isLastStep ? () => updateStep(totalSteps + 1) : handleNext}
-              className="bg-accent text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-accent/30 transition-all active:scale-95"
-            >
+              className="cursor-target bg-accent text-white px-8 py-3 rounded-xl font-bold hover:shadow-lg hover:shadow-accent/30 transition-all active:scale-95"
+              >
               {isLastStep ? t('common.finish') : t(nextButtonText)}
             </button>
           </div>

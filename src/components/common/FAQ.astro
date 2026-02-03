@@ -12,7 +12,6 @@ const t = useTranslations(lang);
 
 const { faqConfig } = Astro.props;
 
-// Formateamos los items para que se vean bien en la lista
 const faqItems = faqConfig.items.map(item => `${t(item.question)} — ${t(item.answer)}`);
 ---
 

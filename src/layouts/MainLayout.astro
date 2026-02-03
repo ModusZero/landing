@@ -7,6 +7,7 @@ import Background from '@/components/layout/Background.astro';
 import Header from '@/components/layout/Header.astro';
 import Footer from '@/components/layout/Footer.astro';
 import { SITE_CONFIG } from '@/config/site';
+import TargetCursor from '@/components/islands/TargetCursor';
 import '@/styles/global.css';
 
 const lang = getLangFromUrl(Astro.url);
@@ -37,6 +38,8 @@ const lang = getLangFromUrl(Astro.url);
   </head>
 
   <body class="font-sans bg-white dark:bg-mono-darker transition-colors duration-500">
+    <TargetCursor client:only="react" targetSelector=".cursor-target" />
+    
     <Background />
 
     <Header /> 

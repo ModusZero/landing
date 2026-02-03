@@ -17,6 +17,11 @@ export const NAVIGATION_CONFIG = {
             drop: true,
             items: RESOURCES_MENU
         },
+        { 
+            href: 'about-us', 
+            translationKey: `${prefix}.about_us`,
+            drop: false
+        },
         // { 
         //     href: 'enterprise', 
         //     translationKey: `${prefix}.enterprise`,

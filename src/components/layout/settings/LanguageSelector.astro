@@ -5,41 +5,28 @@ const currentLang = getLangFromUrl(Astro.url);
 const { pathname } = Astro.url;
 const base = import.meta.env.BASE_URL;
 
-/**
- * Genera una nueva ruta reemplazando el idioma de forma segura
- */
 const getNewPath = (targetLang: string) => {
-  // 1. Limpiamos el pathname para que sea una lista de segmentos
-  // Ejemplo: ["landing", "en", "products"] o ["en", "products"]
   const segments = pathname.split('/').filter(Boolean);
-
-  // 2. Buscamos en qué posición está el idioma actual
   const langIndex = segments.findIndex(s => s === currentLang);
 
   if (langIndex !== -1) {
-    // Si encontramos el idioma (en cualquier posición), lo reemplazamos
     segments[langIndex] = targetLang;
   } else {
-    // Si NO hay idioma en la URL (raro, pero pasa), lo insertamos 
-    // después del nombre del repo si existe, o al principio.
     const baseClean = base.replace(/\//g, '');
     const baseIndex = segments.indexOf(baseClean);
-    
     if (baseIndex !== -1) {
       segments.splice(baseIndex + 1, 0, targetLang);
     } else {
       segments.unshift(targetLang);
     }
   }
-
-  // 3. Reconstruimos siempre con una barra inicial y final
   return `/${segments.join('/')}/`.replace(/\/+/g, '/');
 };
 ---
 <div class="relative inline-block text-left lang-container group">
   <button
     type="button"
-    class="lang-btn flex items-center gap-2 rounded-lg border border-mono-lighter bg-white px-3 py-2 text-sm font-medium text-mono-black transition-all hover:bg-mono-lighter dark:border-mono-dark dark:bg-mono-darker dark:text-mono-white dark:hover:bg-mono-dark"
+    class="cursor-target lang-btn flex items-center gap-2 rounded-lg border border-mono-lighter bg-white px-3 py-2 text-sm font-medium text-mono-black transition-all hover:bg-mono-lighter dark:border-mono-dark dark:bg-mono-darker dark:text-mono-white dark:hover:bg-mono-dark"
   >
     <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
       <circle cx="12" cy="12" r="10"></circle>
@@ -58,7 +45,7 @@ const getNewPath = (targetLang: string) => {
         <a 
           href={getNewPath(code)}
           aria-label={label}
-          class={`block rounded-lg px-4 py-2 text-sm transition-colors ${
+          class={`cursor-target block rounded-lg px-4 py-2 text-sm transition-colors ${
             currentLang === code 
             ? 'bg-emerald-500/10 text-emerald-500 font-bold cursor-default' 
             : 'text-mono-dark hover:bg-mono-lighter dark:text-mono-light dark:hover:bg-mono-dark'

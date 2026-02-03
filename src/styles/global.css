@@ -65,3 +65,7 @@
   h1, h2, h3, h4, p, span {
     color: currentColor;
   }
+
+  a, div, button, span, input, textarea {
+    cursor: none;
+  }

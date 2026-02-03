@@ -1,6 +1,6 @@
 ---
 import { getTweet } from 'react-tweet/api';
-import type { Tweet } from 'react-tweet/api'; // Importamos el tipo
+import type { Tweet } from 'react-tweet/api';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 interface Props {
@@ -30,7 +30,7 @@ try {
     </div>
 
     {tweet ? (
-      <div class="w-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm relative group transition-all hover:border-emerald-500/30">
+      <div class="cursor-target w-full bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm relative group transition-all hover:border-emerald-500/30">
         <div class="flex items-center gap-3 mb-4">
           <img 
             src={tweet.user.profile_image_url_https} 
@@ -40,7 +40,6 @@ try {
           <div class="flex flex-col">
             <span class="text-white font-bold text-sm leading-tight flex items-center gap-1">
               {tweet.user.name}
-              {/* @ts-ignore - Algunas versiones no traen verified en el primer nivel */}
               {(tweet.user as any).verified && <span class="text-blue-400 text-xs">✔️</span>}
             </span>
             <span class="text-slate-500 text-xs font-mono">@{tweet.user.screen_name}</span>
@@ -59,7 +58,6 @@ try {
         </p>
 
         <div class="flex gap-6 text-xs font-mono text-slate-500 border-t border-white/5 pt-4">
-          {/* Propiedades correctas en react-tweet API */}
           <span>❤️ {(tweet as any).favorite_count ?? 0}</span>
           <span>🔄 {(tweet as any).retweet_count ?? 0}</span>
           <span>💬 {(tweet as any).conversation_count ?? 0}</span>

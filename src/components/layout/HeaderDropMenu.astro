@@ -65,7 +65,7 @@ const categories = groupedItems ? Object.keys(groupedItems) : [];
                   <a 
                     href={formatHref(item.href)} 
                     aria-label={`${t(item.title)}: ${t(item.descriptionTranslationKey)}`}
-                    class="group/item flex items-center gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40"
+                    class="cursor-target group/item flex items-center gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40"
                     >
                     <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mono-lighter dark:bg-mono-dark transition-colors">
                       <Icon name={iconMap[item.icon] || 'heroicons:cube'} class="custom-icon h-5 w-5 transition-colors group-hover/item:text-emerald-500 group-hover/item:filter-none" />
@@ -90,7 +90,7 @@ const categories = groupedItems ? Object.keys(groupedItems) : [];
             <a 
               href={formatHref(item.href)} 
               aria-label={`${t(item.title)}: ${t(item.descriptionTranslationKey)}`}
-              class="group/item flex items-start gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40"
+              class="cursor-target group/item flex items-start gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40"
               >
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mono-lighter dark:bg-mono-dark transition-colors">
                 <Icon name={iconMap[item.icon]} class="custom-icon h-5 w-5 transition-colors group-hover/item:text-emerald-500 group-hover/item:filter-none" />

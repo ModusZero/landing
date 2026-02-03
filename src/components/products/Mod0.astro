@@ -53,13 +53,13 @@ const rotatingWords = ["intelligent", "agentic", "autonomic", "precise", "modern
             <a 
               href={getI18nPath(base, lang, 'resources/releases')}
               aria-label={t('products.mod0.get_started')}
-              class="bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-[0_10px_30px_rgba(14,165,233,0.3)] hover:-translate-y-1 transition-all active:scale-95">
+              class="cursor-target bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-[0_10px_30px_rgba(14,165,233,0.3)] hover:-translate-y-1 transition-all active:scale-95">
               {t('products.mod0.get_started')}
             </a>
             <a 
               href={getI18nPath(base, lang, 'resources/docs')}
               aria-label={t('products.mod0.learn_more')}
-              class="inline-flex items-center justify-center text-center px-8 py-4 rounded-xl font-bold border backdrop-blur-md transition-all duration-300 hover:bg-(--text-main)/10 active:scale-95 shadow-lg"
+              class="cursor-target inline-flex items-center justify-center text-center px-8 py-4 rounded-xl font-bold border backdrop-blur-md transition-all duration-300 hover:bg-(--text-main)/10 active:scale-95 shadow-lg"
               style="border-color: var(--border-main); color: var(--text-main);">
               {t('products.mod0.learn_more')}
             </a>
@@ -67,7 +67,7 @@ const rotatingWords = ["intelligent", "agentic", "autonomic", "precise", "modern
         </div>
 
         <div class="relative flex justify-center lg:justify-end group">
-          <div class="terminal-wrapper relative w-full max-w-[440px] transition-all duration-700">
+          <div class="cursor-target terminal-wrapper relative w-full max-w-[440px] transition-all duration-700">
             
             <div class="relative z-10 rounded-2xl border border-border-main overflow-hidden backdrop-blur-xl bg-white/5 dark:bg-black/40">
               <Terminal client:load>
@@ -101,7 +101,6 @@ const rotatingWords = ["intelligent", "agentic", "autonomic", "precise", "modern
 
   <Features featuresConfig={MOD0_FULL_CONFIG.features} />
   <HowItWorks howItWorksConfig={MOD0_FULL_CONFIG.howItWorks} />
-  <!-- <Pricing pricingConfig={MOD0_FULL_CONFIG.pricing} /> -->
   <FAQ faqConfig={MOD0_FULL_CONFIG.faq} />
   <FutureNews futureNewsConfig={MOD0_FULL_CONFIG.news} />
 </div>

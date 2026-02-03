@@ -27,10 +27,12 @@ const t = useTranslations(lang);
       </p>
     </div>
 
-    <Stepper 
-      client:visible 
-      steps={howItWorksConfig.steps}
-      lang={lang}
-    />
+    <div class="target-cursor">
+      <Stepper 
+        client:visible 
+        steps={howItWorksConfig.steps}
+        lang={lang}
+      />
+    </div>
   </div>
 </section>

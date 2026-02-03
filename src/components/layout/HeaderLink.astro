@@ -13,29 +13,24 @@ let finalHref: string;
 if (hrefStr.startsWith('http') || hrefStr.startsWith('mailto:')) {
   finalHref = hrefStr;
 } else {
-  // 1. Limpiamos: Si por error viene "//" o si ya trae la base, lo normalizamos
-  // Simplemente nos aseguramos de que no empiece con la base repetida
   const pureHref = hrefStr.replace(new RegExp(`^${base}`), '/');
   
-  // 2. Construimos usando la base una sola vez
   finalHref = `${base}/${pureHref}`.replace(/\/+/g, '/');
 
-  // 3. Trailing slash
   if (!finalHref.endsWith('/') && !finalHref.split('/').pop()?.includes('.')) {
     finalHref += '/';
   }
 }
 
 const pathname = Astro.url.pathname;
-// Comparación de rutas activas ignorando barras finales para evitar fallos
 const isActive = pathname.replace(/\/+$/, '') === finalHref.replace(/\/+$/, '');
 ---
 
 <a 
   href={finalHref} 
   class:list={[
-    className, 
-    'inline-block no-underline border-b-2 transition-all duration-300 py-1 text-sm font-medium hover:text-accent',
+    className,
+    'cursor-target inline-block no-underline border-b-2 transition-all duration-300 py-1 text-sm font-medium hover:text-accent',
     { 'active-link border-accent font-bold': isActive },
     { 'text-mono-gray border-transparent': !isActive }
   ]} 

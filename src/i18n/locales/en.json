@@ -55,6 +55,7 @@
             },
             "enterprise": "Enterprise",
             "help": "Support",
+            "about_us": "About Us",
             "get_demo": "Contact us"
         },
         "footer": {
@@ -254,6 +255,19 @@
             "desc": "Our on-call team is available for level 1 failures.",
             "cta": "Contact Support"
         }
+    },
+    "about_us": {
+        "title": "Our Organization",
+        "subtitle": "Building infrastructure for the agentic era.",
+        "vision_title": "The Vision",
+        "vision_text": "Modus Zero was born to solve the friction between LLM capabilities and the reality of engineering workflows. We don't build chatbots; we build control systems for artificial intelligence.",
+        "team_title": "Core Contributors",
+        "roles": {
+            "founder": "Founder | CEO",
+            "lead_architect": "Lead Architect",
+            "architect": "Architect"
+        },
+        "see_more": "See more..."
     },
     "contact": {
         "cta": "Contact Us",

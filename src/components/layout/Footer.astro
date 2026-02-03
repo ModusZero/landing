@@ -3,8 +3,8 @@ import { SITE_CONFIG } from '@/config/site';
 import { Icon } from 'astro-icon/components';
 import { iconMap } from '@/utils/icon-map';
 import { getI18nPath, getLangFromUrl, useTranslations } from '@/i18n/utils';
-import type { IconName } from '@/types/icon-name';
 import { RESOURCES_MENU } from '@/config/resources';
+import { SOCIAL_LINKS } from '@/config/social_links';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -23,7 +23,7 @@ const footerConfig = {
         {
             title: 'company',
             links: [
-                // { name: 'about_us', href: '#' },
+                { name: t('layout.header.about_us'), href: getI18nPath(base, lang, 'about-us') },
                 { name: t('contact.cta'), href: getI18nPath(base, lang, 'contact') },
             ],
         },
@@ -36,18 +36,7 @@ const footerConfig = {
             ],
         },
     ],
-    social: [
-        { name: 'GitHub', href: 'https://github.com/Luke1606', icon: 'github' },
-        { name: 'LinkedIn', href: 'https://linkedin.com/in/luke1060-dev', icon: 'linkedin' },
-        { name: 'Facebook', href: 'https://www.facebook.com/luis.hernandez.rosello/', icon: 'facebook' },
-        { name: 'Threads', href: 'https://x.com/LuisAlbert21854', icon: 'threads' },
-        { name: 'Instagram', href: 'https://www.instagram.com/luke1606/', icon: 'instagram' },
-        { name: 'X', href: 'https://x.com/LuisAlbert21854', icon: 'twitter' },
-    ] as {
-        name: string;
-        href: string;
-        icon: IconName;
-    }[],
+    social: SOCIAL_LINKS,
     copyright: 'layout.footer.copyright',
 }
 ---
@@ -78,7 +67,7 @@ const footerConfig = {
                 <li>
                   <a 
                     href={link.href} 
-                    class="opacity-70 transition-all hover:opacity-100 hover:text-emerald-500"
+                    class="cursor-target opacity-70 transition-all hover:opacity-100 hover:text-emerald-500"
                     style="color: inherit;"
                   >
                     {t(link.name)}
@@ -106,7 +95,7 @@ const footerConfig = {
               href={social.href}
               target="_blank"
               aria-label={social.name}
-              class="transition-all hover:scale-110 hover:text-emerald-500"
+              class="cursor-target transition-all hover:scale-110 hover:text-emerald-500"
               style="color: inherit;"
             >
               <Icon name={iconMap[social.icon]} class="h-6 w-6" />

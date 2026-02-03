@@ -1,19 +1,38 @@
 ---
 ---
-<div class="giscus-container bg-slate-900/50 p-6 rounded-xl border border-white/10">
-  <script is:inline src="https://giscus.app/client.js"
-      data-repo="ModusZero/mod0"
-      data-repo-id="R_kgDOQgrjAQ"
-      data-category="General"
-      data-category-id="DIC_kwDOQgrjAc4C1nZx"
-      data-mapping="pathname"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="bottom"
-      data-theme="preferred_color_scheme"
-      data-lang="es"
-      crossorigin="anonymous"
-      async>
-  </script>
+<div class="giscus-wrapper relative group">
+  <div class="giscus-container bg-slate-900/50 p-6 rounded-xl border border-white/10 transition-all duration-300">
+    <script is:inline src="https://giscus.app/client.js"
+        data-repo="ModusZero/mod0"
+        data-repo-id="R_kgDOQgrjAQ"
+        data-category="General"
+        data-category-id="DIC_kwDOQgrjAc4C1nZx"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="preferred_color_scheme"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </div>
 </div>
+
+<style is:global>
+  .giscus-wrapper:hover {
+    cursor: auto !important;
+  }
+
+  body:has(.giscus-wrapper:hover) div[style*="z-index: 10000"],
+  body:has(.giscus-wrapper:hover) .fixed.z-\[10000\] {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  body:has(.giscus-wrapper:hover) {
+    cursor: auto !important;
+  }
+</style>

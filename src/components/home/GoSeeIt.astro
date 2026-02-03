@@ -18,7 +18,7 @@ const config = {
 ---
 
 <section class="relative py-24 px-4 overflow-hidden">
-  <div class="cta-card mx-auto max-w-5xl rounded-[2.5rem] p-8 md:p-16 text-center relative border transition-all duration-700 ease-in-out"
+  <div class="cursor-target cta-card mx-auto max-w-5xl rounded-[2.5rem] p-8 md:p-16 text-center relative border transition-all duration-700 ease-in-out"
        style="background-color: var(--bg-app); border-color: var(--border-main);">
     
     <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-accent opacity-10 blur-[100px] pointer-events-none"></div>
@@ -37,14 +37,14 @@ const config = {
         <a 
           href={config.ctaHref}
           aria-label={t(config.ctaText)}
-          class="bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300">
+          class="cursor-target bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300">
           {t(config.ctaText)}
         </a>
         
         <a 
           href={config.secondaryHref}
           aria-label={t(config.secondaryText)}
-          class="backdrop-blur-md px-8 py-4 rounded-xl font-bold border transition-all duration-300 hover:bg-(--text-main)/10"
+          class="cursor-target backdrop-blur-md px-8 py-4 rounded-xl font-bold border transition-all duration-300 hover:bg-(--text-main)/10"
           style="border-color: var(--border-main); color: var(--text-main);">
           {t(config.secondaryText)}
         </a>
@@ -54,10 +54,7 @@ const config = {
 </section>
 
 <style>
-  .cta-card {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-  }
-  
+  .cta-card { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); }
   :global(.dark) .cta-card {
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     border-color: rgba(255, 255, 255, 0.1) !important;

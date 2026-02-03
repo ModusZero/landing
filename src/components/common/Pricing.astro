@@ -22,7 +22,7 @@ const { pricingConfig } = Astro.props;
 
     <div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
       {pricingConfig.plans.map((plan, index) => (
-        <div class={`relative rounded-4xl p-8 border-2 transition-all ${
+        <div class={`target-cursor relative rounded-4xl p-8 border-2 transition-all ${
           plan.featured 
           ? 'border-accent scale-105 shadow-2xl z-10 bg-app' 
           : 'border-main/50 bg-mono-lighter/5'

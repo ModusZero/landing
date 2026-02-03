@@ -12,21 +12,19 @@ export interface TargetCursorProps {
 /**
  * @example
  * import TargetCursor from './TargetCursor';
- * 
- * export default function App() {
- *   return (
- *     <div>
- *       <TargetCursor 
- *         spinDuration={2}
- *         hideDefaultCursor={true}
- *         parallaxOn={true}
- *       />
- *       
- *       <h1>Hover over the elements below</h1>
- *       <button className="cursor-target">Click me!</button>
- *       <div className="cursor-target">Hover target</div>
- *     </div>
- *   );
+ * * export default function App() {
+ * return (
+ * <div>
+ * <TargetCursor 
+ * spinDuration={2}
+ * hideDefaultCursor={true}
+ * parallaxOn={true}
+ * />
+ * * <h1>Hover over the elements below</h1>
+ * <button className="cursor-target">Click me!</button>
+ * <div className="cursor-target">Hover target</div>
+ * </div>
+ * );
  * }
  */
 const TargetCursor: React.FC<TargetCursorProps> = ({
@@ -47,6 +45,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   const activeStrengthRef = useRef({ current: 0 });
 
   const isMobile = useMemo(() => {
+    if (typeof window === 'undefined') return false;
     const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     const isSmallScreen = window.innerWidth <= 768;
     const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
@@ -302,28 +301,28 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[9999]"
+      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[10000]"
       style={{ willChange: 'transform' }}
     >
       <div
         ref={dotRef}
-        className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full -translate-x-1/2 -translate-y-1/2"
+        className="absolute top-1/2 left-1/2 w-1 h-1 bg-zinc-900 dark:bg-white rounded-full -translate-x-1/2 -translate-y-1/2 transition-colors duration-300"
         style={{ willChange: 'transform' }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-white -translate-x-[150%] -translate-y-[150%] border-r-0 border-b-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white -translate-x-[150%] -translate-y-[150%] border-r-0 border-b-0 transition-colors duration-300"
         style={{ willChange: 'transform' }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-white translate-x-1/2 -translate-y-[150%] border-l-0 border-b-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white translate-x-1/2 -translate-y-[150%] border-l-0 border-b-0 transition-colors duration-300"
         style={{ willChange: 'transform' }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-white translate-x-1/2 translate-y-1/2 border-l-0 border-t-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white translate-x-1/2 translate-y-1/2 border-l-0 border-t-0 transition-colors duration-300"
         style={{ willChange: 'transform' }}
       />
       <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-white -translate-x-[150%] translate-y-1/2 border-r-0 border-t-0"
+        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white -translate-x-[150%] translate-y-1/2 border-r-0 border-t-0 transition-colors duration-300"
         style={{ willChange: 'transform' }}
       />
     </div>

@@ -6,7 +6,7 @@ const t = useTranslations(lang)
 ---
 
 <div class="flex items-center">
-  <label class="group relative inline-block h-[34px] w-16 cursor-pointer text-[17px]">
+  <label class="cursor-target group relative inline-block h-[34px] w-16 cursor-pointer text-[17px]">
     <span class="sr-only">{t("common.change_theme")}</span>
 
     <input type="checkbox" class="theme-input-selector input peer opacity-0 w-0 h-0" />
@@ -31,13 +31,10 @@ const t = useTranslations(lang)
 <style>
   .slider { position: absolute; inset: 0; background-color: #73C0FC; transition: .4s; border-radius: 30px; }
   .slider:before { position: absolute; content: ""; height: 30px; width: 30px; border-radius: 50%; left: 2px; bottom: 2px; z-index: 2; background-color: #e8e8e8; transition: .4s; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-  
   .sun svg { position: absolute; top: 5px; right: 7px; z-index: 1; width: 24px; height: 24px; animation: rotate 15s linear infinite; }
   .moon svg { fill: #4336fd; position: absolute; top: 5px; left: 7px; z-index: 1; width: 22px; height: 22px; animation: tilt 5s linear infinite; }
-  
   @keyframes rotate { from { transform: rotate(0); } to { transform: rotate(360deg); } }
   @keyframes tilt { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
-
   .input:checked + .slider { background-color: #183153; }
   .input:checked + .slider:before { transform: translateX(30px); }
   .input:focus + .slider { box-shadow: 0 0 8px rgba(115, 192, 252, 0.5); }
@@ -50,12 +47,9 @@ const t = useTranslations(lang)
     
     inputs.forEach(input => {
       input.checked = isDark;
-
       input.onchange = null; 
-      
       input.onchange = () => {
         const shouldBeDark = input.checked;
-        
         if (shouldBeDark) {
           document.documentElement.classList.add('dark');
           localStorage.setItem('theme', 'dark');
@@ -63,15 +57,11 @@ const t = useTranslations(lang)
           document.documentElement.classList.remove('dark');
           localStorage.setItem('theme', 'light');
         }
-
         inputs.forEach(i => { if(i !== input) i.checked = shouldBeDark });
-        
         window.dispatchEvent(new Event('theme-changed'));
       };
     });
   }
-
-  // Esto elimina el parpadeo al navegar entre páginas
   initTheme();
   document.addEventListener('astro:page-load', initTheme);
   document.addEventListener('astro:after-swap', initTheme);

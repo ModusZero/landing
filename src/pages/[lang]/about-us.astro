@@ -1,0 +1,116 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { SOCIAL_LINKS } from '@/config/social_links';
+export { getStaticPaths } from '@/i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const team = [
+  {
+    name: "Luis Alberto Hernández Roselló",
+    role: `${t('about_us.roles.founder')} & ${t('about_us.roles.lead_architect')}`,
+    avatar: "https://0.gravatar.com/avatar/caf15645055b99ba6c6234aae6cd9089d22cd444930bb4e0fbb111c073585021?s=256",
+    bio: "Just another dev",
+    location: "Cuba",
+    links: SOCIAL_LINKS,
+    see_more_link: "https://gravatar.com/breadalmostbaf14a44bc"
+  }
+];
+---
+
+<MainLayout title={t('layout.header.about_us')}>
+  <section class="relative min-h-screen py-24 px-6 overflow-hidden">
+    
+    <div class="max-w-4xl mx-auto relative z-20">
+      
+      <div class="p-8 md:p-12 rounded-[2.5rem] bg-zinc-950/40 backdrop-blur-md border border-zinc-800/50 shadow-2xl mb-16">
+        <div class="space-y-6">
+          <h2 class="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-linear-to-r from-white via-white to-zinc-600 tracking-tighter">
+            {t('about_us.title')}
+          </h2>
+          <p class="text-xl text-blue-400/80 font-light italic leading-relaxed">
+            "{t('about_us.subtitle')}"
+          </p>
+          <div class="h-px w-32 bg-linear-to-r from-blue-500 to-transparent my-8"></div>
+          <div class="space-y-4">
+            <h3 class="text-xs font-black text-zinc-500 uppercase tracking-[0.3em]">
+              {t('about_us.vision_title')}
+            </h3>
+            <p class="text-lg text-zinc-300 leading-relaxed max-w-2xl font-light">
+              {t('about_us.vision_text')}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        <h3 class="text-2xl font-bold text-white tracking-tight px-4">
+          {t('about_us.team_title')}
+        </h3>
+        
+        <div class="flex flex-wrap gap-8">
+          {team.map((member) => (
+            <div class="flex-1 min-w-[320px] max-w-[500px] group relative p-8 rounded-3xl bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-blue-500/40 transition-all duration-500 shadow-xl">
+              <div class="flex items-center gap-6">
+                <div class="relative">
+                  <div class="absolute -inset-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                  <img 
+                    src={member.avatar} 
+                    alt={member.name} 
+                    class="relative w-20 h-20 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 border border-zinc-700 object-cover"
+                  />
+                </div>
+                <div class="space-y-1">
+                  <h4 class="text-xl font-bold text-white tracking-tight">{member.name}</h4>
+                  <p class="text-blue-400 text-sm font-medium">{member.role}</p>
+                  <div class="flex items-center gap-2 text-zinc-500 text-xs">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    {member.location}
+                  </div>
+                </div>
+              </div>
+              
+              <p class="mt-6 text-zinc-400 text-sm leading-relaxed border-l-2 border-zinc-800 pl-4 italic">
+                "{member.bio}"
+              </p>
+
+              <div class="mt-8 flex items-center justify-between gap-4">
+                <a 
+                  href={member.see_more_link}
+                  target="_blank"
+                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black text-[11px] font-bold uppercase tracking-wider hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-lg shadow-white/5"
+                >
+                  {t('about_us.see_more')}
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
+
+                <div class="flex flex-wrap items-center justify-end gap-2">
+                  {member.links.map((link) => (
+                    <a 
+                      href={link.href} 
+                      target="_blank" 
+                      class="flex items-center justify-center min-w-11 min-h-11 sm:min-w-8 sm:min-h-8 rounded-xl bg-zinc-800/50 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all active:scale-90"
+                      aria-label={link.name}
+                    >
+                      <img 
+                        src={`https://s.gravatar.com/icons/${link.icon}.svg`} 
+                        class="w-5 h-5 sm:w-4 sm:h-4 invert opacity-70 group-hover:opacity-100 shrink-0" 
+                      />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</MainLayout>
