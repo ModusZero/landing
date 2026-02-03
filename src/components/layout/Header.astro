@@ -7,21 +7,15 @@ import HeaderDropMenu from './HeaderDropMenu.astro';
 import ThemeSelector from './settings/ThemeSelector.astro';
 import LanguageSelector from './settings/LanguageSelector.astro';
 import { useTranslations, getLangFromUrl, getI18nPath } from '@/i18n/utils';
+import { Image } from 'astro:assets';
+import logoLight from '@/assets/logos/favicon.svg';
+import logoDark from '@/assets/logos/favicon-dark.svg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
-// Lógica de rutas y URLs absoluta (idéntica a tu componente SEO)
 const base = import.meta.env.BASE_URL;
-const baseUrl = base.replace(/\/$/, '');
-const siteUrl = Astro.site 
-    ? Astro.site.origin 
-    : `http://localhost:${import.meta.env.PORT || 5000}`;
 
-// Construcción de la URL absoluta del favicon para evitar errores de ruta
-const faviconAbsoluteSrc = new URL(`${baseUrl}/favicon.svg`, siteUrl).toString();
-
-  const ctaConfig = {
+const ctaConfig = {
   href: getI18nPath(base, lang, NAVIGATION_CONFIG.cta.href),
   label: t(NAVIGATION_CONFIG.cta.translationKey)
 };
@@ -40,11 +34,24 @@ const faviconAbsoluteSrc = new URL(`${baseUrl}/favicon.svg`, siteUrl).toString()
           class="group flex items-center gap-3 transition-all duration-300 hover:opacity-80"
         >
           <div class="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg p-0.5 group-hover:scale-110 transition-transform duration-300">
-            <img 
-              src={faviconAbsoluteSrc} 
-              alt="Modus Zero Logo" 
-              class="h-full w-full object-contain logo-img"
-            />
+            <div class="relative h-8 w-8">
+              <Image 
+                src={logoLight}
+                alt="Modus Zero Logo" 
+                class="absolute inset-0 h-full w-full object-contain block dark:hidden"
+                loading="eager" 
+                width={32}
+                height={32}
+              />
+              <Image 
+                src={logoDark}
+                alt="Modus Zero Logo" 
+                class="absolute inset-0 h-full w-full object-contain hidden dark:block"
+                loading="eager" 
+                width={32}
+                height={32}
+              />
+            </div>
           </div>
           <span 
             class="text-xl font-black tracking-tighter uppercase"
@@ -142,15 +149,6 @@ const faviconAbsoluteSrc = new URL(`${baseUrl}/favicon.svg`, siteUrl).toString()
   .drop-trigger :global(button) {
     color: var(--text-main) !important;
   }
-
-  /* Inversión de logo para modo oscuro si el SVG es negro */
-  .logo-img {
-    transition: filter 0.3s ease;
-  }
-
-  :global(.dark) .logo-img {
-    filter: invert(1) brightness(2);
-  }
 </style>
 
 <script>
@@ -158,9 +156,14 @@ const faviconAbsoluteSrc = new URL(`${baseUrl}/favicon.svg`, siteUrl).toString()
     const btn = document.getElementById('mobileMenuButton');
     const menu = document.getElementById('mobileMenu');
     if (btn && menu) {
-      btn.onclick = () => menu.classList.toggle('hidden');
+      // Usamos una función limpia para evitar duplicados en re-renderizados
+      btn.onclick = (e) => {
+        e.preventDefault();
+        menu.classList.toggle('hidden');
+      };
     }
   };
+
   document.addEventListener('astro:page-load', initMenu);
   initMenu();
 </script>

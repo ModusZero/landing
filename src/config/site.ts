@@ -1,4 +1,8 @@
 import type { SiteConfig } from "@/types/site-config";
+import logoLight from '@/assets/logos/favicon.svg';
+import logoDark from '@/assets/logos/favicon-dark.svg';
+import previewEs from '@/assets/previews/v1-moduszero-og-es.jpg';
+import previewEn from '@/assets/previews/v1-moduszero-og-en.jpg';
 
 const keyWordsPrefix = 'site.keywords';
 
@@ -12,9 +16,16 @@ export const SITE_CONFIG: SiteConfig = {
     email: 'luisalbertohedzro@gmail.com',
     author: 'Luis Alberto Hernández Roselló',
     publishDate: '2025-01-16',
-    imageUrl: '/v1-moduszero-og.jpg',
-    siteOrigin: "https://moduszero.github.io",
-    basePrefix: "/landing",
+    imageUrls: {
+        logos: {
+            light: logoLight.src,
+            dark: logoDark.src,
+        },
+        previews: {
+            es: previewEs.src,
+            en: previewEn.src,
+        }
+    },
 
     // Open Graph / Twitter
     ogTitle: 'site.title',

@@ -10,7 +10,6 @@ const REPO_OWNER = 'moduszero';
 const REPO_NAME = 'landing';
 const isProd = process.env.NODE_ENV === 'production';
 
-// https://astro.build/config
 export default defineConfig({
   experimental: {
     chromeDevtoolsWorkspace: true,

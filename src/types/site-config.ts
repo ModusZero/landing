@@ -7,11 +7,19 @@ export type SiteConfig = {
     
     author?: string;
     publishDate?: string;
-    imageUrl?: string;
+    imageUrls?: {
+        logos?: {
+            default?: string,
+            light?: string,
+            dark?: string,
+        },
+        previews?: {
+            default?: string,
+            es?: string,
+            en?: string,
+        }
+    };
     
-    siteOrigin?: string;
-    basePrefix?: string;
-
     // Open Graph / Twitter
     ogTitle: string;
     ogDescription: string;

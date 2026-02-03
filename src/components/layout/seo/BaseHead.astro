@@ -11,40 +11,75 @@ interface Props {
 };
 
 const config = Astro.props.config || SITE_CONFIG;
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const metaTitle: string = t(config.title);
+// Meta tags content
 const metaName: string = t(config.name);
+const metaTitle: string = t(config.title);
 const metaDescription: string = t(config.description);
 const metaKeywords: string = config.keywords.map(key => t(key)).join(', ');
 const metaAuthor: string = config.author || "Modus Zero Team";
 const metaPublishDate: string = config.publishDate || new Date().toISOString().split('T')[0];
 
-const imagePath: string = config.imageUrl || '/v1-moduszero-og.jpg';
-const socialImageURL: string = `${config.siteOrigin}${config.basePrefix}${imagePath.startsWith('/') ? imagePath : '/' + imagePath}`;
-const metaImageAlt: string = `${metaName.replace(' ', '_')}_screenshot`;
-const canonicalURL: string = `${config.siteOrigin}${config.basePrefix}${Astro.url.pathname.replace(config.basePrefix || '', '')}`.replace(/\/+$/, '/');
+// Images and logos
+const logoLight: string = config.imageUrls?.logos?.light || '';
+const logoDark: string = config.imageUrls?.logos?.dark || '';
 
-const GA_ID: string = "G-7QFXWYM9NE"; 
+const previewImageEs: string = config.imageUrls?.previews?.es || '';
+const previewImageEn: string = config.imageUrls?.previews?.en || '';
+
+const previewPath: string = lang === 'es' ? previewImageEs : previewImageEn;
+
+const previewFullURL: string = new URL(previewPath, Astro.site).toString();
+const metaImageAlt: string = `${metaName.replace(' ', '_')}_preview`;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const GA_ID: string = "G-7QFXWYM9NE";
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href={`${config.basePrefix}/favicon.svg`} />
-<meta name="generator" content={Astro.generator} />
 
+
+<!-- Iconos -->
+<link 
+  rel="icon" 
+  type="image/svg+xml" 
+  href={logoLight} 
+  media="(prefers-color-scheme: light)" 
+/>
+
+<link 
+  rel="icon" 
+  type="image/svg+xml" 
+  href={logoDark} 
+  media="(prefers-color-scheme: dark)" 
+/>
+
+<meta name="generator" content={Astro.generator} />
 <meta name="google-site-verification" content="q435vxRBWwIMVeiEoC8r8-edkuuKc3bEnwLDLty9UnA" />
+
+
+<!-- Meta Info -->
 <meta name="author" content={metaAuthor} />
 <meta name="publish_date" property="og:publish_date" content={metaPublishDate} />
 
 <title>{metaTitle}</title>
+
 <meta name="description" content={metaDescription} />
+<meta name="keywords" content={metaKeywords} />
+<meta name="image" content={previewFullURL} />
+<meta name="twitter:image" content={previewFullURL} />
+<meta name="twitter:creator" content="@moduszero" />
+
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
-<meta property="og:image" content={socialImageURL} />
+<meta property="og:image" content={previewFullURL} />
 <meta property="og:image:alt" content={metaImageAlt} />
-<meta property="og:image:secure_url" content={socialImageURL} />
+<meta property="og:image:secure_url" content={previewFullURL} />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -60,12 +95,12 @@ const GA_ID: string = "G-7QFXWYM9NE";
         card: "summary_large_image",
         title: metaTitle,
         description: metaDescription,
-        image: socialImageURL,
+        image: previewFullURL,
     }}
     extend={{
         meta: [
             { name: "keywords", content: metaKeywords },
-            { name: "twitter:image", content: socialImageURL },
+            { name: "twitter:image", content: previewFullURL },
             { name: "twitter:creator", content: "@moduszero" },
             { property: "og:image:alt", content: metaImageAlt },
         ],
@@ -79,7 +114,7 @@ const GA_ID: string = "G-7QFXWYM9NE";
         "name": metaName,
         "description": metaDescription,
         "url": canonicalURL,
-        "image": socialImageURL,
+        "image": previewFullURL,
         "author": {
             "@type": "Organization",
             "name": metaName
