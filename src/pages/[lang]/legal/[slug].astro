@@ -2,6 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import { getEntry, render } from 'astro:content';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import FormattedDate from '@/components/layout/seo/FormattedDate.astro';
 
 export async function getStaticPaths() {
   const languages = ['en', 'es'];
@@ -22,47 +23,132 @@ if (!entry) {
 }
 
 const { Content } = await render(entry);
-
-const formattedDate = entry.data.date.toLocaleDateString(lang, {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-});
 ---
 
-<MainLayout>
-  <section class="relative min-h-screen pt-32 pb-20 px-6 bg-mono-darker text-white">
-    <div class="max-w-4xl mx-auto">
+<MainLayout title={`${entry.data.title} | ${t('site.name')}`}>
+  <section class="relative min-h-screen flex flex-col items-center px-4 pt-24 pb-20 overflow-hidden bg-transparent">
+    <div class="max-w-4xl w-full">
       
-      <nav class="flex items-center gap-2 text-xs font-mono text-slate-500 mb-8 uppercase tracking-widest">
-        <span class="text-emerald-500">{t('site.name')}</span>
-        <span>/</span>
-        <span>{t('legal.nav_label')}</span>
-        <span>/</span>
-        <span class="text-white">{slug}</span>
-      </nav>
+      <header class="mb-8 border-l-2 border-accent pl-6 py-2 animate-in fade-in slide-in-from-left-4 duration-700">
+        <div class="flex items-center gap-2 text-accent mb-2 font-mono text-[10px] tracking-[0.2em] uppercase">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+          </span>
+          {t('legal.nav_label')} // {slug}
+        </div>
+        
+        <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-2 uppercase text-mono-black dark:text-mono-white">
+          {entry.data.title}
+        </h1>
+        
+        <p class="font-mono text-[10px] text-mono-gray dark:text-mono-light opacity-50 tracking-widest uppercase">
+          Document_ID: {slug}_v1.0.0
+        </p>
+      </header>
 
-      <div class="animate-in slide-in-from-bottom-4 duration-700">
-        <header class="mb-12 border-b border-white/5 pb-8">
-           <h1 class="text-5xl font-bold text-white mb-4 tracking-tighter">
-             {entry.data.title}
-           </h1>
-           <p class="text-xs font-mono text-emerald-500/60 uppercase tracking-widest">
-             {t('legal.protocol_label')}
-           </p>
-        </header>
+      <section class="cursor-target mb-10 flex flex-col md:flex-row items-center justify-between p-6 rounded-2xl bg-mono-lighter/50 dark:bg-mono-dark/50 backdrop-blur-sm transition-colors duration-300 border border-mono-lighter dark:border-mono-dark shadow-none">
+        <div class="flex items-center gap-6">
+          <div>
+            <h4 class="text-mono-gray dark:text-mono-light font-bold text-[10px] uppercase tracking-widest mb-1">
+              {t('legal.last_updated')}
+            </h4>
+            <div class="text-accent font-mono text-base font-bold">
+               <FormattedDate date={entry.data.date} />
+            </div>
+          </div>
+        </div>
+        
+        <div class="hidden md:block h-8 w-px bg-mono-lighter dark:bg-mono-dark"></div>
 
-        <article class="prose prose-invert prose-emerald max-w-none 
-          prose-headings:font-bold prose-a:text-emerald-400 
-          prose-p:text-slate-300 prose-p:leading-relaxed">
+        <div class="mt-4 md:mt-0 text-center md:text-right">
+          <p class="text-mono-gray dark:text-mono-light text-[9px] font-mono uppercase tracking-widest mb-1 opacity-60">
+            {t('legal.verification')}
+          </p>
+          <span class="text-mono-black dark:text-mono-white text-[10px] font-bold uppercase tracking-tighter">
+            {t('site.name')} <span class="text-accent">{t('legal.verified')}</span>
+          </span>
+        </div>
+      </section>
+
+      <div class="relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
+        <article class="prose prose-slate dark:prose-invert prose-emerald max-w-none 
+          prose-headings:text-current
+          prose-p:text-current prose-p:opacity-80
+          prose-strong:text-accent
+          prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+          prose-li:text-current">
           <Content />
         </article>
-
-        <footer class="mt-16 pt-8 border-t border-white/5 text-slate-500 text-xs font-mono flex justify-between">
-          <span>{t('legal.last_updated')}: {formattedDate}</span>
-          <span class="opacity-50">{t('site.name')} v1.0</span>
-        </footer>
       </div>
     </div>
+
+    <div class="absolute top-1/4 -right-1/4 w-96 h-96 bg-accent/5 blur-[120px] rounded-full -z-10"></div>
   </section>
 </MainLayout>
+
+<style>
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(.prose) {
+    color: var(--text-main) !important;
+    --tw-prose-body: var(--text-main);
+    --tw-prose-headings: var(--text-main);
+    --tw-prose-links: var(--color-accent);
+    --tw-prose-bold: var(--text-main);
+    --tw-prose-counters: var(--color-accent) !important;
+    --tw-prose-bullets: var(--color-accent) !important;
+    font-size: 0.95rem;
+  }
+
+  /* Forzar visibilidad de números y bullets */
+  :global(.prose ol > li), :global(.prose ul > li) {
+    display: list-item !important;
+    padding-left: 0.5rem;
+  }
+
+  :global(.prose ol > li::marker) {
+    color: var(--color-accent) !important;
+    font-weight: 700;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  :global(.prose ul > li::marker) {
+    color: var(--color-accent) !important;
+  }
+
+  :global(.prose h2) {
+    scroll-margin-top: 7rem;
+    border-left: 2px solid var(--color-accent, #5227ff);
+    padding-left: 1rem;
+    margin-top: 3rem !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+    text-transform: uppercase;
+  }
+
+  :global(.prose h3) {
+    scroll-margin-top: 7rem;
+    margin-top: 2rem !important;
+    color: var(--text-main) !important;
+    font-weight: 700 !important;
+  }
+
+  :global(.prose a) {
+    transition: opacity 0.2s ease;
+  }
+  
+  :global(.prose a:hover) {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  :global(.prose ol), :global(.prose ul) {
+    list-style:circle;
+    margin-left: 1.25rem;
+  }
+</style>

@@ -8,6 +8,4 @@ const legal = defineCollection({
   }),
 });
 
-export const collections = {
-  'legal': legal,
-};
+export const collections = { legal };

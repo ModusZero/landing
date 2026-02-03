@@ -300,6 +300,8 @@
     "legal": {
         "nav_label": "Legal",
         "last_updated": "Última Actualización",
+        "verification": "Verificación del sistema",
+        "verified": "Verificado",
         "privacy": "Política de Privacidad",
         "terms": "Términos de Servicio",
         "cookies": {
