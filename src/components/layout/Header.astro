@@ -6,7 +6,7 @@ import HeaderLink from './HeaderLink.astro';
 import HeaderDropMenu from './HeaderDropMenu.astro';
 import ThemeSelector from './settings/ThemeSelector.astro';
 import LanguageSelector from './settings/LanguageSelector.astro';
-import { useTranslations, getLangFromUrl } from '@/i18n/utils';
+import { useTranslations, getLangFromUrl, getI18nPath } from '@/i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -21,10 +21,8 @@ const siteUrl = Astro.site
 // Construcción de la URL absoluta del favicon para evitar errores de ruta
 const faviconAbsoluteSrc = new URL(`${baseUrl}/favicon.svg`, siteUrl).toString();
 
-const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
-
-const ctaConfig = {
-  href: getI18nPath(NAVIGATION_CONFIG.cta.href),
+  const ctaConfig = {
+  href: getI18nPath(base, lang, NAVIGATION_CONFIG.cta.href),
   label: t(NAVIGATION_CONFIG.cta.translationKey)
 };
 ---
@@ -38,7 +36,7 @@ const ctaConfig = {
       
       <div class="flex flex-1 justify-start">
         <a 
-          href={getI18nPath('/')} 
+          href={getI18nPath(base, lang, '/')} 
           class="group flex items-center gap-3 transition-all duration-300 hover:opacity-80"
         >
           <div class="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg p-0.5 group-hover:scale-110 transition-transform duration-300">
@@ -64,7 +62,7 @@ const ctaConfig = {
               <HeaderDropMenu title={t(link.translationKey)} items={link.items || []} rootPath={link.href} />
             </div>
           ) : (
-            <HeaderLink href={getI18nPath(link.href)}>
+            <HeaderLink href={getI18nPath(base, lang, link.href)}>
               <span style="color: var(--text-main);">{t(link.translationKey)}</span>
             </HeaderLink>
           )
@@ -109,7 +107,7 @@ const ctaConfig = {
             <div class="ml-4 flex flex-col space-y-4 border-l-2 pl-4" style="border-color: var(--border-main);">
               {link.items?.map((item) => (
                 <a 
-                  href={getI18nPath(`${link.href}/${item.href}`)} 
+                  href={getI18nPath(base, lang, `${link.href}/${item.href}`)} 
                   class="text-base opacity-70 hover:opacity-100 hover:text-emerald-500 transition-all"
                   style="color: var(--text-main);"
                 >

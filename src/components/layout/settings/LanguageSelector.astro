@@ -56,7 +56,8 @@ const getNewPath = (targetLang: string) => {
     <div class="p-1">
       {Object.entries(languages).map(([code, label]) => (
         <a 
-          href={getNewPath(code)} 
+          href={getNewPath(code)}
+          aria-label={label}
           class={`block rounded-lg px-4 py-2 text-sm transition-colors ${
             currentLang === code 
             ? 'bg-emerald-500/10 text-emerald-500 font-bold cursor-default' 

@@ -97,7 +97,15 @@ const GA_ID: string = "G-7QFXWYM9NE";
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', GA_ID);
+
+  if (localStorage.getItem('cookie-consent') === 'granted') {
+    gtag('config', GA_ID);
+  } else {
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied'
+    });
+    gtag('config', GA_ID);
+  }
 </script>
 
 <script is:inline>

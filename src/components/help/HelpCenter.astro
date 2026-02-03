@@ -2,14 +2,12 @@
 import { iconMap } from '@/utils/icon-map';
 import { type IconName } from '@/types/icon-name';
 import { Icon } from 'astro-icon/components';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getLangFromUrl, useTranslations, getI18nPath } from '@/i18n/utils';
 import TargetCursor from '@/components/islands/TargetCursor';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL;
-
-const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
 
 const supportSections = [
   {
@@ -18,7 +16,7 @@ const supportSections = [
     status: "v0.1.0",
     desc: t('support.sections.docs.desc'),
     action: t('support.sections.docs.action'),
-    href: getI18nPath('resources/docs')
+    href: getI18nPath(base, lang, 'resources/docs')
   },
   {
     title: t('support.sections.status.title'),
@@ -26,7 +24,7 @@ const supportSections = [
     status: "Operational",
     desc: t('support.sections.status.desc'),
     action: t('support.sections.status.action'),
-    href: getI18nPath('resources/releases')
+    href: getI18nPath(base, lang, 'resources/releases')
   },
   {
     title: t('support.sections.community.title'),
@@ -34,7 +32,7 @@ const supportSections = [
     status: "Open",
     desc: t('support.sections.community.desc'),
     action: t('support.sections.community.action'),
-    href: getI18nPath('resources/forum')
+    href: getI18nPath(base, lang, 'resources/forum')
   }
 ];
 ---
@@ -62,8 +60,11 @@ const supportSections = [
 
     <div class="space-y-4">
       {supportSections.map((item) => (
-        <a href={item.href} class="cursor-target group relative flex flex-col md:flex-row md:items-center justify-between p-8 border-b border-mono-lighter dark:border-mono-dark hover:bg-accent/5 transition-all duration-300 overflow-hidden">
-          
+        <a 
+          href={item.href}
+          aria-label={t(item.title)}
+          class="cursor-target group relative flex flex-col md:flex-row md:items-center justify-between p-8 border-b border-mono-lighter dark:border-mono-dark hover:bg-accent/5 transition-all duration-300 overflow-hidden"
+          >
           <div class="flex items-center gap-6 z-10">
             <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-mono-black dark:bg-mono-white text-mono-white dark:text-mono-black group-hover:bg-accent group-hover:text-mono-white! transition-colors duration-300">
               <Icon name={iconMap[item.icon]} class="h-6 w-6" />
@@ -95,7 +96,10 @@ const supportSections = [
             <h4 class="text-mono-black! dark:text-mono-white! font-bold text-xl">{t('support.critical.title')}</h4>
             <p class="text-mono-gray! dark:text-mono-light! text-sm">{t('support.critical.desc')}</p>
         </div>
-        <a href="/contact" class="cursor-target px-8 py-3 rounded-full bg-accent text-mono-white! font-bold hover:scale-105 transition-transform shadow-lg shadow-accent/20">
+        <a 
+          href={getI18nPath(base, lang, '/contact')}
+          aria-label={t('support.critical.cta')}
+          class="cursor-target px-8 py-3 rounded-full bg-accent text-mono-white! font-bold hover:scale-105 transition-transform shadow-lg shadow-accent/20">
             {t('support.critical.cta')}
         </a>
     </div>

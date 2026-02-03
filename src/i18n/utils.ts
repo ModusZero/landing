@@ -54,3 +54,9 @@ export function getStaticPaths() {
     { params: { lang: 'es' } },
   ];
 }
+
+export const getI18nPath = (
+    baseUrl: string, 
+    lang: string, 
+    path: string
+) => `${baseUrl}/${lang}/${path}/`.replace(/\/+/g, '/');

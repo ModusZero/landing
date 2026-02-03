@@ -1,11 +1,9 @@
 ---
-import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getI18nPath, getLangFromUrl, useTranslations } from "@/i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL;
-
-const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
 
 const prefix = 'home.go_see_it'
 
@@ -13,9 +11,9 @@ const config = {
   title: `${prefix}.title`,
   description: `${prefix}.description`,
   ctaText: `${prefix}.primary_cta`,
-  ctaHref: getI18nPath('/contact'),
+  ctaHref: getI18nPath(base, lang, '/contact'),
   secondaryText: `${prefix}.secondary_cta`,
-  secondaryHref: getI18nPath('products/mod0')
+  secondaryHref: getI18nPath(base, lang, 'products/mod0')
 };
 ---
 
@@ -36,13 +34,16 @@ const config = {
       </p>
       
       <div class="flex flex-col sm:flex-row justify-center gap-4">
-        <a href={config.ctaHref} 
-           class="bg-accent text-white px-8 py-4 rounded-xl font-bold 
-                  shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300">
+        <a 
+          href={config.ctaHref}
+          aria-label={t(config.ctaText)}
+          class="bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:brightness-110 hover:-translate-y-1 transition-all duration-300">
           {t(config.ctaText)}
         </a>
         
-        <a href={config.secondaryHref} 
+        <a 
+          href={config.secondaryHref}
+          aria-label={t(config.secondaryText)}
           class="backdrop-blur-md px-8 py-4 rounded-xl font-bold border transition-all duration-300 hover:bg-(--text-main)/10"
           style="border-color: var(--border-main); color: var(--text-main);">
           {t(config.secondaryText)}

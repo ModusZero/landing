@@ -1,12 +1,13 @@
 ---
 import { contactConfig } from '@/config/contact';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getI18nPath, getLangFromUrl, useTranslations } from '@/i18n/utils';
 import { Icon } from 'astro-icon/components';
 
 type Props = {
   config?: typeof contactConfig;
 }
 
+const base = import.meta.env.BASE_URL;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const { config = contactConfig } = Astro.props;
@@ -43,7 +44,10 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
           <p class="text-mono-gray mb-4 text-xs font-bold uppercase tracking-[0.2em] opacity-60">
             {t('contact.email_label')}
           </p>
-          <a href={`mailto:${config.email}`} class="text-2xl font-black text-mono-black dark:text-mono-white hover:text-accent transition-all duration-300">
+          <a 
+            href={`mailto:${config.email}`}
+            aria-label={`Mail to ${config.email}`}
+            class="text-2xl font-black text-mono-black dark:text-mono-white hover:text-accent transition-all duration-300">
             {config.email}
           </a>
         </div>
@@ -67,7 +71,11 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
 
               return (
                 <div class="space-y-2">
-                  <label for={fieldId} class="ml-1 block text-xs font-bold uppercase tracking-widest text-mono-black dark:text-mono-white/60 transition-colors">
+                  <label 
+                    for={fieldId} 
+                    aria-label={t(field.label)}
+                    class="ml-1 block text-xs font-bold uppercase tracking-widest text-mono-black dark:text-mono-white/60 transition-colors"
+                    >
                     {t(field.label)} {!field.required && <span class="lowercase font-normal opacity-40 italic">({t('contact.form.optional')})</span>}
                   </label>
                   
@@ -105,8 +113,21 @@ const FORMSPREE_ID = import.meta.env.FORMSPREE_ID;
 
             <p class="text-mono-gray text-center text-[10px] font-medium leading-relaxed uppercase tracking-tighter opacity-50">
               {t('contact.form.terms')} 
-              <a href="#" class="underline hover:text-accent transition-colors">{t('contact.form.tos')}</a> {t('contact.form.and')} 
-              <a href="#" class="underline hover:text-accent transition-colors">{t('contact.form.privacy')}</a>
+              <a 
+                href={getI18nPath(base, lang, 'legal/terms')}
+                aria-label={t('legal.terms')}
+                class="underline hover:text-accent transition-colors"
+                >
+                {t('legal.terms')}
+              </a>
+              {t('contact.form.and')} 
+              <a 
+                href={getI18nPath(base, lang, 'legal/privacy')}
+                aria-label={t('legal.privacy')}
+                class="underline hover:text-accent transition-colors"
+                >
+                {t('legal.privacy')}
+              </a>
             </p>
           </form>
         </div>

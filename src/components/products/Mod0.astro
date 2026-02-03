@@ -1,6 +1,6 @@
 ---
 import { MOD0_FULL_CONFIG } from '@/config/products/mod0/config';
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getI18nPath, getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 import RotatingText from '@/components/islands/RotatingText';
 import { Terminal, AnimatedSpan, TypingAnimation } from '@/components/islands/Terminal';
@@ -14,8 +14,6 @@ import FutureNews from '@/components/common/FutureNews.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL;
-
-const getI18nPath = (path: string) => `${base}/${lang}/${path}/`.replace(/\/+/g, '/');
 
 const rotatingWords = ["intelligent", "agentic", "autonomic", "precise", "modern"]
   .map(word => t(`products.mod0.rotating_words.${word}`));
@@ -52,11 +50,15 @@ const rotatingWords = ["intelligent", "agentic", "autonomic", "precise", "modern
           </p>
 
           <div class="flex flex-col sm:flex-row gap-4">
-            <a href={getI18nPath('resources/releases')} 
+            <a 
+              href={getI18nPath(base, lang, 'resources/releases')}
+              aria-label={t('products.mod0.get_started')}
               class="bg-accent text-white px-8 py-4 rounded-xl font-bold shadow-[0_10px_30px_rgba(14,165,233,0.3)] hover:-translate-y-1 transition-all active:scale-95">
               {t('products.mod0.get_started')}
             </a>
-            <a href={getI18nPath('resources/docs')} 
+            <a 
+              href={getI18nPath(base, lang, 'resources/docs')}
+              aria-label={t('products.mod0.learn_more')}
               class="inline-flex items-center justify-center text-center px-8 py-4 rounded-xl font-bold border backdrop-blur-md transition-all duration-300 hover:bg-(--text-main)/10 active:scale-95 shadow-lg"
               style="border-color: var(--border-main); color: var(--text-main);">
               {t('products.mod0.learn_more')}

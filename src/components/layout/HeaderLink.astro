@@ -5,7 +5,7 @@ type Props = HTMLAttributes<'a'>;
 
 const { href, class: className, ...props } = Astro.props;
 
-const base = import.meta.env.BASE_URL; // "/landing/"
+const base = import.meta.env.BASE_URL;
 const hrefStr = String(href);
 
 let finalHref: string;

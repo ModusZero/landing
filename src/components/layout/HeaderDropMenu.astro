@@ -54,12 +54,19 @@ const categories = groupedItems ? Object.keys(groupedItems) : [];
         <div class={`grid gap-10 ${categories.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
           {categories.map((catKey) => (
             <div class="flex flex-col gap-4">
-              <h3 class="text-[11px] font-bold uppercase tracking-[0.15em] text-emerald-500 px-1 border-l-2 border-emerald-500/30 ml-2">
+              <h3 
+                aria-label={t(catKey)}
+                class="text-[11px] font-bold uppercase tracking-[0.15em] text-emerald-500 px-1 border-l-2 border-emerald-500/30 ml-2"
+                >
                 {t(catKey)}
               </h3>
               <div class="flex flex-col gap-2">
                 {groupedItems![catKey].map((item) => (
-                  <a href={formatHref(item.href)} class="group/item flex items-center gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40">
+                  <a 
+                    href={formatHref(item.href)} 
+                    aria-label={`${t(item.title)}: ${t(item.descriptionTranslationKey)}`}
+                    class="group/item flex items-center gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40"
+                    >
                     <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mono-lighter dark:bg-mono-dark transition-colors">
                       <Icon name={iconMap[item.icon] || 'heroicons:cube'} class="custom-icon h-5 w-5 transition-colors group-hover/item:text-emerald-500 group-hover/item:filter-none" />
                     </div>
@@ -80,9 +87,13 @@ const categories = groupedItems ? Object.keys(groupedItems) : [];
       ) : (
         <div class="flex flex-col gap-1">
           {items.map((item) => (
-            <a href={formatHref(item.href)} class="group/item flex items-start gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40">
+            <a 
+              href={formatHref(item.href)} 
+              aria-label={`${t(item.title)}: ${t(item.descriptionTranslationKey)}`}
+              class="group/item flex items-start gap-4 rounded-xl p-3 transition-all hover:bg-mono-lighter/20 dark:hover:bg-mono-dark/40"
+              >
               <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-mono-lighter dark:bg-mono-dark transition-colors">
-                <Icon name={iconMap[item.icon] || 'heroicons:cube'} class="custom-icon h-5 w-5 transition-colors group-hover/item:text-emerald-500 group-hover/item:filter-none" />
+                <Icon name={iconMap[item.icon]} class="custom-icon h-5 w-5 transition-colors group-hover/item:text-emerald-500 group-hover/item:filter-none" />
               </div>
               <div class="flex flex-col text-left">
                 <span class="text-sm font-bold text-mono-black dark:text-white group-hover/item:text-emerald-500">

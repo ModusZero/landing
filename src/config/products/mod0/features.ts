@@ -21,7 +21,7 @@ export const MOD0_FEATURES: FeaturesConfig = {
     subtitle: `${featuresPrefix}.subtitle`,
     items: iconsByOrder.map((iconName, index) => ({
       icon: iconName,
-      title: `${itemsPrefix}.f${index}.title`,
-      description: `${itemsPrefix}.f${index}.description`,
+      title: `${itemsPrefix}.f${index + 1}.title`,
+      description: `${itemsPrefix}.f${index + 1}.description`,
     })),
 };
