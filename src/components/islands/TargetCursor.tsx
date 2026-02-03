@@ -54,7 +54,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;
   }, []);
 
-  const constants = useMemo(() => ({ borderWidth: 3, cornerSize: 12 }), []);
+  const constants = useMemo(() => ({ borderWidth: 6, cornerSize: 24 }), []);
 
   const moveCursor = useCallback((x: number, y: number) => {
     if (!cursorRef.current) return;
@@ -149,15 +149,17 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
     const mouseDownHandler = () => {
       if (!dotRef.current) return;
-      gsap.to(dotRef.current, { scale: 0.7, duration: 0.3 });
-      gsap.to(cursorRef.current, { scale: 0.9, duration: 0.2 });
+      gsap.to(dotRef.current, { scale: 0.7, duration: 0.2 });
+      gsap.to(".target-cursor-corner", { scale: 0.85, duration: 0.2 });
     };
+
+
 
     const mouseUpHandler = () => {
       if (!dotRef.current) return;
       gsap.to(dotRef.current, { scale: 1, duration: 0.3 });
-      gsap.to(cursorRef.current, { scale: 1, duration: 0.2 });
-    };
+      gsap.to(".target-cursor-corner", { scale: 1, duration: 0.3, ease: "back.out(2)" });
+    }; 
 
     window.addEventListener('mousedown', mouseDownHandler);
     window.addEventListener('mouseup', mouseUpHandler);
@@ -301,30 +303,37 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   return (
     <div
       ref={cursorRef}
-      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-[10000]"
+      className="fixed top-0 left-0 w-0 h-0 pointer-events-none z-10000"
       style={{ willChange: 'transform' }}
     >
       <div
         ref={dotRef}
-        className="absolute top-1/2 left-1/2 w-1 h-1 bg-zinc-900 dark:bg-white rounded-full -translate-x-1/2 -translate-y-1/2 transition-colors duration-300"
+        className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full -translate-x-1/2 -translate-y-1/2 
+                   bg-white outline-[3.5px] outline-black/40 shadow-[0_0_15px_rgba(0,0,0,0.8)]
+                   dark:bg-zinc-900 dark:outline-white/40 dark:shadow-[0_0_15px_rgba(255,255,255,0.6)] 
+                   transition-colors duration-300"
         style={{ willChange: 'transform' }}
       />
-      <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white -translate-x-[150%] -translate-y-[150%] border-r-0 border-b-0 transition-colors duration-300"
-        style={{ willChange: 'transform' }}
-      />
-      <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white translate-x-1/2 -translate-y-[150%] border-l-0 border-b-0 transition-colors duration-300"
-        style={{ willChange: 'transform' }}
-      />
-      <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white translate-x-1/2 translate-y-1/2 border-l-0 border-t-0 transition-colors duration-300"
-        style={{ willChange: 'transform' }}
-      />
-      <div
-        className="target-cursor-corner absolute top-1/2 left-1/2 w-3 h-3 border-[3px] border-zinc-900 dark:border-white -translate-x-[150%] translate-y-1/2 border-r-0 border-t-0 transition-colors duration-300"
-        style={{ willChange: 'transform' }}
-      />
+      
+      {[
+        "-translate-x-[160%] -translate-y-[160%] border-r-0 border-b-0", // Top-Left
+        "translate-x-[60%] -translate-y-[160%] border-l-0 border-b-0",  // Top-Right
+        "translate-x-[60%] translate-y-[60%] border-l-0 border-t-0",    // Bottom-Right
+        "-translate-x-[160%] translate-y-[60%] border-r-0 border-t-0"   // Bottom-Left
+      ].map((posClasses, i) => (
+        <div
+          key={i}
+          className={`target-cursor-corner absolute top-1/2 left-1/2 w-5 h-5 border-4 
+                     border-white dark:border-zinc-900 transition-colors duration-300 ${posClasses}`}
+          style={{ willChange: 'transform' }}
+        >
+          {/* Outline interno que solo sigue la forma de la L */}
+          <div className={`absolute -inset-[3px] border-[3px] border-black/30 dark:border-white/20 
+                          ${posClasses.split(' ').filter(c => c.startsWith('border-')).join(' ')}`} 
+          />
+          <div className="absolute inset-0 drop-shadow-[0_0_8px_rgba(0,0,0,1)] dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+        </div>
+      ))}
     </div>
   );
 };
