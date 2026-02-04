@@ -6,78 +6,59 @@ const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL;
 
 const heroConfig = {
-    headline: 'home.hero.headline',
-    subheadline: 'home.hero.subheadline',
-    description: 'home.hero.description',
-    cta: {
-        primary: {
-            text: 'home.cta.primary_cta',
-            href: getI18nPath(base, lang, 'products/mod0'),
-        },
-        secondary: {
-            text: 'home.cta.secondary_cta',
-            href: 'https://github.com/ModusZero',
-        },
-    },
-    stats: [
-        { value: '< 50ms', label: 'home.hero.stats.latency' },
-        { value: '∞', label: 'home.hero.stats.scaling' },
-        { value: '24/7', label: 'home.hero.stats.autonomy' },
-        { value: 'Zero', label: 'home.hero.stats.overhead' },
-    ],
+  headline: 'home.hero.headline',
+  subheadline: 'home.hero.subheadline',
+  description: 'home.hero.description',
+  cta: {
+    primary: { text: 'home.cta.primary_cta', href: getI18nPath(base, lang, 'products/mod0') },
+    secondary: { text: 'home.cta.secondary_cta', href: 'https://github.com/ModusZero' },
+  },
+  stats: [
+    { value: '< 50ms', label: 'home.hero.stats.latency' },
+    { value: '∞', label: 'home.hero.stats.scaling' },
+    { value: '24/7', label: 'home.hero.stats.autonomy' },
+    { value: 'Zero', label: 'home.hero.stats.overhead' },
+  ],
 }
 ---
 
 <section class="relative px-4 pt-32 pb-20 sm:px-6 lg:px-8 bg-transparent min-h-[90vh] flex flex-col items-center overflow-hidden">
-  <div class="mx-auto max-w-7xl relative w-full flex flex-col items-center">
-    
-    <div class="text-center mb-12 relative z-20 w-full">
-      <h1 
-        class="text-5xl leading-tight font-extrabold sm:text-6xl lg:text-8xl tracking-tighter transition-all duration-500 hero-headline"
-        style="color: var(--text-main);"
-      >
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--bg-app)_0%,transparent_100%)] opacity-40 pointer-events-none"></div>
+
+  <div class="mx-auto max-w-7xl relative w-full flex flex-col items-center z-10 animate-fade-in">
+    <div class="text-center mb-12 w-full">
+      <h1 class="text-5xl leading-tight font-extrabold sm:text-6xl lg:text-8xl tracking-tighter text-glow">
         {t(heroConfig.headline)}
       </h1>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full max-w-6xl">
-      
-      <div class="text-center lg:text-right relative z-10 flex flex-col items-center lg:items-end order-1">
-        <span class="text-accent text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 inline-block transition-all duration-500 hover:scale-105 cursor-default drop-shadow-[0_2px_10px_rgba(82,39,255,0.2)]">
+      <div class="text-center lg:text-right flex flex-col items-center lg:items-end order-1">
+        <span class="text-accent text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 inline-block transition-all duration-500 hover:scale-105 text-glow drop-shadow-[0_2px_10px_rgba(14,165,233,0.3)]">
            {t(heroConfig.subheadline)}
         </span>
         
-        <p class="mb-8 text-lg leading-relaxed sm:text-xl font-medium transition-colors duration-500 max-w-md bg-white/5 dark:bg-black/5 backdrop-blur-[2px] rounded-lg p-2"
-           style="color: var(--text-main); opacity: 0.9;">
+        <p class="mb-8 text-lg leading-relaxed sm:text-xl font-medium max-w-md text-glow-soft opacity-90">
           {t(heroConfig.description)}
         </p>
 
         <div class="flex flex-col gap-4 sm:flex-row lg:justify-end w-full sm:w-auto">
-          <a 
-            href={heroConfig.cta.primary.href}
-            aria-label={t(heroConfig.cta.primary.text)}
-            class="cursor-target bg-accent text-white px-8 py-3 rounded-xl font-bold shadow-[0_10px_30px_rgba(82,39,255,0.4)] hover:-translate-y-1 transition-all duration-300 text-center">
+          <a href={heroConfig.cta.primary.href} class="cursor-target bg-accent text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-accent/20 hover:-translate-y-1 transition-all">
             {t(heroConfig.cta.primary.text)}
           </a>
-          <a 
-            href={heroConfig.cta.secondary.href}
-            aria-label={t(heroConfig.cta.secondary.text)}
-            class="cursor-target backdrop-blur-md border border-mono-black/20 dark:border-mono-white/30 px-8 py-3 rounded-xl font-bold hover:bg-accent/10 transition-all duration-300 shadow-lg text-center"
-            style="color: var(--text-main);">
+          <a href={heroConfig.cta.secondary.href} class="cursor-target backdrop-blur-md border border-border-main px-8 py-3 rounded-xl font-bold hover:bg-accent/10 transition-all shadow-lg">
             {t(heroConfig.cta.secondary.text)}
           </a>
         </div>
       </div>
 
-      <div class="cursor-target hero-cero-container relative flex justify-center lg:justify-center order-2 lg:px-12">
-          <div class="relative w-48 h-64 md:w-64 md:h-80 border-14 border-accent dark:border-white rounded-[100px] shadow-[0_0_80px_rgba(82,39,255,0.3)] flex items-center justify-center overflow-hidden bg-white/10 dark:bg-black/40 backdrop-blur-md">
+      <div class="cursor-target relative flex justify-center order-2 lg:px-12 animate-float">
+          <div class="relative w-48 h-64 md:w-64 md:h-80 border-14 border-accent dark:border-mono-white rounded-[100px] shadow-[0_0_80px_rgba(14,165,233,0.2)] flex items-center justify-center overflow-hidden bg-white/10 dark:bg-black/40 backdrop-blur-md">
             <div class="absolute inset-4 grid grid-cols-4 grid-rows-6 gap-2 opacity-30">
-              {Array.from({ length: 24 }).map(() => (
-                <div class="bg-accent/60 rounded-sm animate-pulse" style={`animation-delay: ${Math.random() * 2}s`}></div>
-              ))}
+              {Array.from({ length: 24 }).map(() => <div class="bg-accent/60 rounded-sm animate-pulse"></div>)}
             </div>
-            <div class="absolute w-full h-[3px] bg-accent shadow-[0_0_20px_#5227ff] z-20 animate-[scan_3s_ease-in-out_infinite]"></div>
-            <div class="relative z-10 w-12 h-12 bg-accent rounded-xl rotate-45 flex items-center justify-center shadow-[0_0_40px_rgba(82,39,255,0.6)]">
+            <div class="absolute w-full h-[3px] bg-accent shadow-[0_0_20px_#0ea5e9] z-20 animate-[scan_3s_ease-in-out_infinite]"></div>
+            <div class="relative z-10 w-12 h-12 bg-accent rounded-xl rotate-45 flex items-center justify-center shadow-[0_0_40px_rgba(14,165,233,0.6)]">
               <div class="w-full h-full border border-white/50 rounded-xl animate-ping opacity-40"></div>
             </div>
           </div>
@@ -85,23 +66,18 @@ const heroConfig = {
       </div>
     </div>
 
-    <div class="flex flex-wrap justify-center gap-8 sm:gap-12 border-t mt-12 pt-8 w-full max-w-4xl transition-colors duration-500 backdrop-blur-[1px]"
-         style="border-color: var(--border-main);">
-      {
-        heroConfig.stats.map((stat) => (
-          <div class="text-center min-w-20">
-            <div class="text-3xl font-black drop-shadow-md" style="color: var(--text-main);">{stat.value}</div>
-            <div class="text-[10px] font-bold tracking-widest uppercase opacity-60" style="color: var(--text-main);">{t(stat.label)}</div>
-          </div>
-        ))
-      }
+    <div class="flex flex-wrap justify-center gap-8 sm:gap-12 border-t border-border-main mt-12 pt-8 w-full max-w-4xl">
+      {heroConfig.stats.map((stat) => (
+        <div class="text-center min-w-20 text-glow-soft">
+          <div class="text-3xl font-black">{stat.value}</div>
+          <div class="text-[10px] font-bold tracking-widest uppercase opacity-60">{t(stat.label)}</div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-  .hero-headline { text-shadow: 0 4px 20px rgba(255, 255, 255, 1); }
-  :global(.dark) .hero-headline { text-shadow: 0 4px 30px rgba(0, 0, 0, 1); }
   @keyframes scan {
     0%, 100% { top: 5%; opacity: 0.3; }
     50% { top: 95%; opacity: 1; }

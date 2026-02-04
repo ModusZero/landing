@@ -38,7 +38,7 @@ const lang = getLangFromUrl(Astro.url);
   </head>
 
   <body class="font-sans bg-white dark:bg-mono-darker transition-colors duration-500">
-    <TargetCursor client:only="react" targetSelector=".cursor-target" />
+    <TargetCursor client:only="react" targetSelector=".cursor-target" hideDefaultCursor={true} />
     
     <Background />
 

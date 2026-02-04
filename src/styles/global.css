@@ -42,30 +42,84 @@
     color: var(--text-main);
     @apply antialiased transition-colors duration-500 ease-in-out;
   }
-}
 
-@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
+  .animate-fade-in, .animate-fade-up, .animate-float, .scroll-fade-up {
+    contain: content;
+    content-visibility: auto;
+    will-change: opacity, transform;
+  }
 
-.scroll-fade-up {
-  @apply opacity-0 translate-y-8 transition-all duration-1000 ease-out;
-}
-.scroll-fade-up.visible {
-  @apply opacity-100 translate-y-0;
-}
-
-  /* Forzamos a que los encabezados sigan el color del texto principal por defecto */
   h1, h2, h3, h4, p, span {
     color: currentColor;
   }
 
-  a, div, button, span, input, textarea {
+  .text-glow {
+    text-shadow: 0 0 40px rgba(255, 255, 255, 0.5), 0 0 10px rgba(0,0,0,0.5);
+  }
+
+  :global(.dark) .text-glow {
+    text-shadow: 0 0 40px rgb(0, 0, 0), 0 0 10px rgb(0,0,0);
+  }
+
+  .text-glow-soft {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  :global(.dark) .text-glow-soft {
+    text-shadow: 0 0 15px rgb(0, 0, 0);
+  }
+
+  a, div, button, span, input, textarea, svg {
     cursor: none;
   }
+
+  .cursor-target {
+    animation: slideUp 0.5s ease-out both;
+  }
+  
+  .cursor-target:nth-child(1) { animation-delay: 0.1s; }
+  .cursor-target:nth-child(2) { animation-delay: 0.2s; }
+  .cursor-target:nth-child(3) { animation-delay: 0.3s; }
+
+  @media (max-width: 1024px), (pointer: coarse) {
+    a, div, button, span, input, textarea, svg {
+      cursor: auto !important;
+    }
+    button, a {
+      cursor: pointer !important;
+    }
+    [ref="cursorRef"], .target-cursor-corner {
+      display: none !important;
+    }
+  }
+}
+
+@keyframes fade-in { 
+  from { opacity: 0; } 
+  to { opacity: 1; } 
+}
+
+@keyframes fade-up {
+  from { 
+    opacity: 0; 
+    transform: translate3d(0, 30px, 0); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translate3d(0, 0, 0); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -12px, 0); }
+}
+
+.scroll-fade-up {
+  @apply opacity-0 transition-all duration-1000 ease-out;
+  transform: translate3d(0, 2rem, 0);
+}
+
+.scroll-fade-up.visible {
+  @apply opacity-100;
+  transform: translate3d(0, 0, 0);
+}

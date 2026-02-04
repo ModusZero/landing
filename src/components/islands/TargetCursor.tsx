@@ -46,10 +46,15 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
 
   const isMobile = useMemo(() => {
     if (typeof window === 'undefined') return false;
+
     const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    const isSmallScreen = window.innerWidth <= 768;
+    
+    const isSmallScreen = window.innerWidth <= 1024;
+    
     const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+    
     const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
+    
     const isMobileUserAgent = mobileRegex.test(userAgent.toLowerCase());
     return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;
   }, []);
@@ -62,9 +67,14 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
   }, []);
 
   useEffect(() => {
+    if (isMobile) {
+      document.body.style.cursor = 'auto';
+    }
+    
     if (isMobile || !cursorRef.current) return;
 
     const originalCursor = document.body.style.cursor;
+
     if (hideDefaultCursor) {
       document.body.style.cursor = 'none';
     }
@@ -87,7 +97,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       xPercent: -50,
       yPercent: -50,
       x: window.innerWidth / 2,
-      y: window.innerHeight / 2
+      y: window.innerHeight / 2,
     });
 
     const createSpinTimeline = () => {
@@ -152,8 +162,6 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       gsap.to(dotRef.current, { scale: 0.7, duration: 0.2 });
       gsap.to(".target-cursor-corner", { scale: 0.85, duration: 0.2 });
     };
-
-
 
     const mouseUpHandler = () => {
       if (!dotRef.current) return;
@@ -279,7 +287,7 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
         cleanupTarget(activeTarget);
       }
       spinTl.current?.kill();
-      document.body.style.cursor = originalCursor;
+      document.body.style.cursor = originalCursor || 'auto';
       isActiveRef.current = false;
       targetCornerPositionsRef.current = null;
       activeStrengthRef.current.current = 0;
@@ -309,8 +317,8 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
       <div
         ref={dotRef}
         className="absolute top-1/2 left-1/2 w-2 h-2 rounded-full -translate-x-1/2 -translate-y-1/2 
-                   bg-white outline-[3.5px] outline-black/40 shadow-[0_0_15px_rgba(0,0,0,0.8)]
-                   dark:bg-zinc-900 dark:outline-white/40 dark:shadow-[0_0_15px_rgba(255,255,255,0.6)] 
+                   bg-white outline-[3.5px] outline-black shadow-[0_0_15px_rgb(0,0,0)]
+                   dark:bg-zinc-900 dark:outline-white dark:shadow-[0_0_15px_rgb(255,255,255)] 
                    transition-colors duration-300"
         style={{ willChange: 'transform' }}
       />
@@ -327,11 +335,10 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
                      border-white dark:border-zinc-900 transition-colors duration-300 ${posClasses}`}
           style={{ willChange: 'transform' }}
         >
-          {/* Outline interno que solo sigue la forma de la L */}
-          <div className={`absolute -inset-[3px] border-[3px] border-black/30 dark:border-white/20 
+          <div className={`absolute -inset-[3px] border-[3px] border-black/50 dark:border-white/40 
                           ${posClasses.split(' ').filter(c => c.startsWith('border-')).join(' ')}`} 
           />
-          <div className="absolute inset-0 drop-shadow-[0_0_8px_rgba(0,0,0,1)] dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+          <div className="absolute inset-0 drop-shadow-[0_0_8px_rgba(0,0,0,0.5)] dark:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
         </div>
       ))}
     </div>

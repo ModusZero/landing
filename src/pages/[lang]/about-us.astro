@@ -7,102 +7,83 @@ export { getStaticPaths } from '@/i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const team = [
-  {
-    name: "Luis Alberto Hernández Roselló",
-    role: `${t('about_us.roles.founder')} & ${t('about_us.roles.lead_architect')}`,
-    avatar: "https://0.gravatar.com/avatar/caf15645055b99ba6c6234aae6cd9089d22cd444930bb4e0fbb111c073585021?s=256",
-    bio: "Just another dev",
-    location: "Cuba",
-    links: SOCIAL_LINKS,
-    see_more_link: "https://gravatar.com/breadalmostbaf14a44bc"
-  }
-];
+const team = [{
+  name: "Luis Alberto Hernández Roselló",
+  role: `${t('about_us.roles.founder')} & ${t('about_us.roles.lead_architect')}`,
+  avatar: "https://0.gravatar.com/avatar/caf15645055b99ba6c6234aae6cd9089d22cd444930bb4e0fbb111c073585021?s=256",
+  bio: "Just another dev",
+  location: "Cuba",
+  links: SOCIAL_LINKS,
+  see_more_link: "https://gravatar.com/breadalmostbaf14a44bc"
+}];
 ---
 
 <MainLayout title={t('layout.header.about_us')}>
   <section class="relative min-h-screen py-24 px-6 overflow-hidden">
-    
     <div class="max-w-4xl mx-auto relative z-20">
       
-      <div class="p-8 md:p-12 rounded-[2.5rem] bg-zinc-950/40 backdrop-blur-md border border-zinc-800/50 shadow-2xl mb-16">
-        <div class="space-y-6">
-          <h2 class="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-linear-to-r from-white via-white to-zinc-600 tracking-tighter">
-            {t('about_us.title')}
-          </h2>
-          <p class="text-xl text-blue-400/80 font-light italic leading-relaxed">
+      <div class="mb-24 space-y-10 animate-fade-up">
+        <h2 class="text-6xl md:text-8xl font-black tracking-tighter text-glow">
+          {t('about_us.title')}
+        </h2>
+
+        <div class="inline-block relative group">
+          <div class="absolute -inset-x-8 -inset-y-4 bg-accent/20 blur-2xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity"></div>
+          
+          <div class="absolute -inset-x-6 -inset-y-3 bg-white/60 dark:bg-mono-black/60 backdrop-blur-2xl rounded-2xl border border-white/20 dark:border-accent/30 -z-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)]"></div>
+          
+          <p class="text-2xl md:text-3xl text-accent font-bold italic leading-relaxed text-glow relative px-2">
             "{t('about_us.subtitle')}"
           </p>
-          <div class="h-px w-32 bg-linear-to-r from-blue-500 to-transparent my-8"></div>
-          <div class="space-y-4">
-            <h3 class="text-xs font-black text-zinc-500 uppercase tracking-[0.3em]">
-              {t('about_us.vision_title')}
-            </h3>
-            <p class="text-lg text-zinc-300 leading-relaxed max-w-2xl font-light">
-              {t('about_us.vision_text')}
-            </p>
-          </div>
+        </div>
+
+        <div class="h-px w-32 bg-linear-to-r from-accent via-accent/50 to-transparent"></div>
+
+        <div class="space-y-4">
+          <h3 class="text-xs font-black opacity-50 uppercase tracking-[0.4em] text-mono-black dark:text-mono-lighter">
+            {t('about_us.vision_title')}
+          </h3>
+          <p class="text-xl text-mono-black dark:text-mono-lighter leading-relaxed max-w-2xl font-light text-glow-soft">
+            {t('about_us.vision_text')}
+          </p>
         </div>
       </div>
 
       <div class="space-y-8">
-        <h3 class="text-2xl font-bold text-white tracking-tight px-4">
-          {t('about_us.team_title')}
+        <h3 class="text-2xl font-bold tracking-tight px-4 border-l-2 border-accent ml-2">
+            {t('about_us.team_title')}
         </h3>
         
         <div class="flex flex-wrap gap-8">
           {team.map((member) => (
-            <div class="flex-1 min-w-[320px] max-w-[500px] group relative p-8 rounded-3xl bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 hover:border-blue-500/40 transition-all duration-500 shadow-xl">
+            <div class="flex-1 min-w-[320px] max-w-[500px] group relative p-8 rounded-3xl backdrop-blur-md bg-white/5 dark:bg-mono-white/5 border border-border-main hover:border-accent transition-all duration-500 shadow-xl scroll-fade-up">
+              <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity -z-10"></div>
+              
               <div class="flex items-center gap-6">
                 <div class="relative">
-                  <div class="absolute -inset-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
-                  <img 
-                    src={member.avatar} 
-                    alt={member.name} 
-                    class="relative w-20 h-20 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 border border-zinc-700 object-cover"
-                  />
+                  <div class="absolute -inset-1 bg-accent rounded-2xl blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
+                  <img src={member.avatar} alt={member.name} class="relative w-20 h-20 rounded-2xl border border-border-main object-cover shadow-2xl" />
                 </div>
                 <div class="space-y-1">
-                  <h4 class="text-xl font-bold text-white tracking-tight">{member.name}</h4>
-                  <p class="text-blue-400 text-sm font-medium">{member.role}</p>
-                  <div class="flex items-center gap-2 text-zinc-500 text-xs">
-                    <span class="relative flex h-2 w-2">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                    </span>
-                    {member.location}
-                  </div>
+                  <h4 class="text-xl font-bold tracking-tight text-glow-soft">{member.name}</h4>
+                  <p class="text-accent text-sm font-bold tracking-wide">{member.role}</p>
+                  <div class="text-mono-gray text-xs font-medium uppercase tracking-widest opacity-70">{member.location}</div>
                 </div>
               </div>
-              
-              <p class="mt-6 text-zinc-400 text-sm leading-relaxed border-l-2 border-zinc-800 pl-4 italic">
+
+              <p class="mt-6 text-mono-gray dark:text-mono-light text-sm italic border-l-2 border-accent/30 pl-4 leading-relaxed">
                 "{member.bio}"
               </p>
 
-              <div class="mt-8 flex items-center justify-between gap-4">
-                <a 
-                  href={member.see_more_link}
-                  target="_blank"
-                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-black text-[11px] font-bold uppercase tracking-wider hover:bg-blue-500 hover:text-white transition-all duration-300 shadow-lg shadow-white/5"
-                >
+              <div class="mt-8 flex items-center justify-between">
+                <a href={member.see_more_link} target="_blank" class="cursor-target px-6 py-2.5 rounded-xl bg-mono-black dark:bg-mono-white text-mono-white dark:text-mono-black text-[11px] font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-lg active:scale-95">
                   {t('about_us.see_more')}
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
                 </a>
-
-                <div class="flex flex-wrap items-center justify-end gap-2">
+                
+                <div class="flex gap-3">
                   {member.links.map((link) => (
-                    <a 
-                      href={link.href} 
-                      target="_blank" 
-                      class="flex items-center justify-center min-w-11 min-h-11 sm:min-w-8 sm:min-h-8 rounded-xl bg-zinc-800/50 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-all active:scale-90"
-                      aria-label={link.name}
-                    >
-                      <img 
-                        src={`https://s.gravatar.com/icons/${link.icon}.svg`} 
-                        class="w-5 h-5 sm:w-4 sm:h-4 invert opacity-70 group-hover:opacity-100 shrink-0" 
-                      />
+                    <a href={link.href} target="_blank" class="cursor-target p-2.5 rounded-xl bg-border-main/20 hover:bg-accent/10 hover:text-accent transition-all border border-transparent hover:border-accent/20">
+                      <img src={`https://s.gravatar.com/icons/${link.icon}.svg`} class="w-4 h-4 dark:invert opacity-70 group-hover/icon:opacity-100" />
                     </a>
                   ))}
                 </div>
