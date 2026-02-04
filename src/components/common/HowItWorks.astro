@@ -8,26 +8,25 @@ type Props = {
 };
 
 const { howItWorksConfig } = Astro.props;
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="how-it-works" class="border-main bg-mono-lighter/5 relative border-t-2 px-4 py-20 sm:px-6 lg:px-8">
-  <div class="border-main/20 absolute bottom-8 left-8 h-16 w-16 border-b-2 border-l-2"></div>
-  <div class="border-main/20 absolute right-8 bottom-8 h-16 w-16 border-r-2 border-b-2"></div>
+<section id="how-it-works" class="border-main bg-mono-lighter/5 relative border-t-2 px-4 py-20 sm:px-6 lg:px-8 overflow-hidden">
+  <div class="border-main/20 absolute bottom-4 left-4 h-12 w-12 border-b-2 border-l-2 pointer-events-none"></div>
+  <div class="border-main/20 absolute bottom-4 right-4 h-12 w-12 border-r-2 border-b-2 pointer-events-none"></div>
 
-  <div class="mx-auto max-w-7xl">
-    <div class="scroll-fade-down mx-auto mb-16 max-w-3xl text-center">
-      <h2 class="text-main mb-4 text-4xl font-bold sm:text-5xl">
+  <div class="mx-auto max-w-7xl relative z-10">
+    <div class="scroll-fade-down mx-auto mb-16 max-w-3xl text-center px-4">
+      <h2 class="text-main mb-4 text-4xl font-black sm:text-5xl tracking-tighter">
         {t(howItWorksConfig.title)}
       </h2>
-      <p class="opacity-70 text-xl">
+      <p class="opacity-70 text-lg sm:text-xl leading-relaxed">
         {t(howItWorksConfig.subtitle)}
       </p>
     </div>
 
-    <div class="target-cursor">
+    <div class="target-cursor w-full">
       <Stepper 
         client:visible 
         steps={howItWorksConfig.steps}
