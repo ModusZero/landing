@@ -1,6 +1,9 @@
 # Modus Zero Landing
 
-<img width="1920" height="1080" alt="v1-moduszero-og" src="https://github.com/user-attachments/assets/c33ffc7d-a41f-430b-bf1d-068c7f151786" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7b93eba4-3961-4f24-9c02-c3a3f58bbadc" width="45%" />
+  <img src="https://github.com/user-attachments/assets/40a440ac-3e57-4e7c-a34c-2e3e9622043a" width="45%" />
+</p>
 
 ## 🌐 Language / Idioma
 
