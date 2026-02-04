@@ -21,56 +21,39 @@ const ctaConfig = {
 };
 ---
 
+<div 
+  id="menuOverlay" 
+  class="fixed inset-0 z-40 hidden bg-black/20 backdrop-blur-md opacity-0 transition-opacity duration-500"
+></div>
+
 <nav 
-  class="fixed top-0 z-50 w-full border-b backdrop-blur-xl transition-colors duration-500"
+  class="fixed top-0 z-50 w-full border-b backdrop-blur-xl transition-all duration-500"
   style="background-color: var(--bg-app); border-color: var(--border-main); color: var(--text-main);"
 >
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center">
       
       <div class="flex flex-1 justify-start">
-        <a 
-          href={getI18nPath(base, lang, '/')} 
-          class="cursor-target group flex items-center gap-3 transition-all duration-300 hover:opacity-80"
-        >
+        <a href={getI18nPath(base, lang, '/')} class="group flex items-center gap-3 transition-all duration-300 hover:opacity-80">
           <div class="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg p-0.5 group-hover:scale-110 transition-transform duration-300">
             <div class="relative h-8 w-8">
-              <Image 
-                src={logoLight}
-                alt="Modus Zero Logo" 
-                class="absolute inset-0 h-full w-full object-contain block dark:hidden"
-                loading="eager" 
-                width={32}
-                height={32}
-              />
-              <Image 
-                src={logoDark}
-                alt="Modus Zero Logo" 
-                class="absolute inset-0 h-full w-full object-contain hidden dark:block"
-                loading="eager" 
-                width={32}
-                height={32}
-              />
+              <Image src={logoLight} alt="Logo" class="absolute inset-0 h-full w-full object-contain block dark:hidden" loading="eager" width={32} height={32} />
+              <Image src={logoDark} alt="Logo" class="absolute inset-0 h-full w-full object-contain hidden dark:block" loading="eager" width={32} height={32} />
             </div>
           </div>
-          <span 
-            class="text-xl font-black tracking-tighter uppercase"
-            style="color: var(--text-main);"
-          >
-            {t(SITE_CONFIG.title)}
-          </span>
+          <span class="text-xl font-black tracking-tighter uppercase">{t(SITE_CONFIG.title)}</span>
         </a>
       </div>
 
       <div class="hidden md:flex items-center space-x-8">
         {NAVIGATION_CONFIG.links.map((link) => (
           link.drop ? (
-            <div class="drop-trigger cursor-target">
+            <div class="drop-trigger">
               <HeaderDropMenu title={t(link.translationKey)} items={link.items || []} rootPath={link.href} />
             </div>
           ) : (
-            <HeaderLink href={getI18nPath(base, lang, link.href)} class="cursor-target">
-              <span style="color: var(--text-main);">{t(link.translationKey)}</span>
+            <HeaderLink href={getI18nPath(base, lang, link.href)}>
+              <span>{t(link.translationKey)}</span>
             </HeaderLink>
           )
         ))}
@@ -81,19 +64,14 @@ const ctaConfig = {
           <div class="h-6 w-px opacity-20 mx-2" style="background-color: var(--text-main);"></div>
           <LanguageSelector />
           <ThemeSelector />
-          
-          <a 
-            href={ctaConfig.href} 
-            class="cursor-target ml-4 rounded-full px-6 py-2 text-sm font-bold transition-all hover:scale-105 active:scale-95 shadow-sm"
-            style="background-color: var(--text-main); color: var(--bg-app);"
-          >
+          <a href={ctaConfig.href} class="ml-4 rounded-full px-6 py-2 text-sm font-bold transition-all hover:scale-105 active:scale-95 shadow-sm" style="background-color: var(--text-main); color: var(--bg-app);">
             {ctaConfig.label}
           </a>
         </div>
 
         <div class="flex items-center gap-4 md:hidden">
           <ThemeSelector />
-          <button id="mobileMenuButton" class="cursor-target p-2 transition-colors" style="color: var(--text-main);" aria-label="Toggle Menu">
+          <button id="mobileMenuButton" class="p-2 transition-transform active:scale-90" style="color: var(--text-main);">
             <Icon name="heroicons:bars-3" class="h-7 w-7" />
           </button>
         </div>
@@ -103,42 +81,38 @@ const ctaConfig = {
 
   <div 
     id="mobileMenu" 
-    class="hidden border-t px-4 py-8 md:hidden transition-all duration-500"
+    class="max-h-0 opacity-0 overflow-hidden border-t md:hidden transition-all duration-500 ease-in-out"
     style="background-color: var(--bg-app); border-color: var(--border-main);"
   >
-    <div class="flex flex-col space-y-6">
+    <div class="flex flex-col space-y-6 px-4 py-8">
       {NAVIGATION_CONFIG.links.map((link) => (
         <div class="flex flex-col gap-2">
-          <div class="text-lg font-bold" style="color: var(--text-main);">{t(link.translationKey)}</div>
-          {link.drop && (
-            <div class="ml-4 flex flex-col space-y-4 border-l-2 pl-4" style="border-color: var(--border-main);">
-              {link.items?.map((item) => (
-                <a 
-                  href={getI18nPath(base, lang, `${link.href}/${item.href}`)} 
-                  class="cursor-target text-base opacity-70 hover:opacity-100 hover:text-emerald-500 transition-all"
-                  style="color: var(--text-main);"
-                >
-                  {t(item.title)}
-                </a>
-              ))}
-            </div>
+          {link.drop ? (
+            <>
+              <div class="text-lg font-bold" style="color: var(--text-main);">{t(link.translationKey)}</div>
+              <div class="ml-4 flex flex-col space-y-4 border-l-2 pl-4" style="border-color: var(--border-main);">
+                {link.items?.map((item) => (
+                  <a href={getI18nPath(base, lang, `${link.href}/${item.href}`)} class="mobile-link text-base opacity-70 hover:opacity-100 transition-all" style="color: var(--text-main);">
+                    {t(item.title)}
+                  </a>
+                ))}
+              </div>
+            </>
+          ) : (
+            <a href={getI18nPath(base, lang, link.href)} class="mobile-link text-lg font-bold transition-all" style="color: var(--text-main);">
+              {t(link.translationKey)}
+            </a>
           )}
         </div>
       ))}
-      
       <hr style="border-color: var(--border-main);" />
-      
       <div class="flex flex-col gap-8 py-4">
         <div class="flex justify-between items-center px-2">
-             <span class="text-sm font-medium opacity-60" style="color: var(--text-main);">Settings</span>
-             <LanguageSelector />
+          <span class="text-sm font-medium opacity-60">Settings</span>
+          <LanguageSelector />
         </div>
-        <a 
-          href={ctaConfig.href} 
-          class="cursor-target rounded-xl px-6 py-4 text-center font-bold text-lg shadow-lg transition-transform active:scale-95"
-          style="background-color: var(--text-main); color: var(--bg-app);"
-        > 
-          {ctaConfig.label} 
+        <a href={ctaConfig.href} class="mobile-link rounded-xl px-6 py-4 text-center font-bold text-lg shadow-lg active:scale-95" style="background-color: var(--text-main); color: var(--bg-app);">
+          {ctaConfig.label}
         </a>
       </div>
     </div>
@@ -146,23 +120,55 @@ const ctaConfig = {
 </nav>
 
 <style>
-  .drop-trigger :global(button) {
-    color: var(--text-main) !important;
+  #mobileMenu.is-open {
+    max-height: 100vh;
+    opacity: 1;
+    overflow-y: auto;
+  }
+  #menuOverlay.is-visible {
+    display: block !important;
+    opacity: 1;
   }
 </style>
 
 <script>
-  const initMenu = () => {
+  function initMobileMenu() {
     const btn = document.getElementById('mobileMenuButton');
     const menu = document.getElementById('mobileMenu');
-    if (btn && menu) {
-      btn.onclick = (e) => {
-        e.preventDefault();
-        menu.classList.toggle('hidden');
-      };
-    }
-  };
+    const overlay = document.getElementById('menuOverlay');
+    const body = document.body;
 
-  document.addEventListener('astro:page-load', initMenu);
-  initMenu();
+    if (!btn || !menu || !overlay) return;
+
+    btn.onclick = null;
+
+    btn.onclick = (e) => {
+      e.preventDefault();
+      const isOpen = menu.classList.toggle('is-open');
+      overlay.classList.toggle('is-visible', isOpen);
+      body.style.overflow = isOpen ? 'hidden' : '';
+    };
+
+    overlay.onclick = () => {
+      menu.classList.remove('is-open');
+      overlay.classList.remove('is-visible');
+      body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        overlay.classList.remove('is-visible');
+        body.style.overflow = '';
+      });
+    });
+  }
+
+  initMobileMenu();
+
+  document.addEventListener('astro:page-load', initMobileMenu);
+
+  document.addEventListener('astro:before-preparation', () => {
+    document.body.style.overflow = '';
+  });
 </script>
