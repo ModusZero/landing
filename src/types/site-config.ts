@@ -10,6 +10,7 @@ export type SiteConfig = {
     imageUrls?: {
         logos?: {
             default?: string,
+            google?: string,
             light?: string,
             dark?: string,
         },

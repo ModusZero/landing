@@ -8,8 +8,8 @@ import ThemeSelector from './settings/ThemeSelector.astro';
 import LanguageSelector from './settings/LanguageSelector.astro';
 import { useTranslations, getLangFromUrl, getI18nPath } from '@/i18n/utils';
 import { Image } from 'astro:assets';
-import logoLight from '@/assets/logos/favicon.svg';
-import logoDark from '@/assets/logos/favicon-dark.svg';
+import lightLogo from '@/assets/logos/favicon.svg';
+import darkLogo from '@/assets/logos/favicon-dark.svg';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -37,8 +37,8 @@ const ctaConfig = {
         <a href={getI18nPath(base, lang, '/')} class="group flex items-center gap-3 transition-all duration-300 hover:opacity-80">
           <div class="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg p-0.5 group-hover:scale-110 transition-transform duration-300">
             <div class="relative h-8 w-8">
-              <Image src={logoLight} alt="Logo" class="absolute inset-0 h-full w-full object-contain block dark:hidden" loading="eager" width={32} height={32} />
-              <Image src={logoDark} alt="Logo" class="absolute inset-0 h-full w-full object-contain hidden dark:block" loading="eager" width={32} height={32} />
+              <Image src={lightLogo} alt="Logo" class="absolute inset-0 h-full w-full object-contain block dark:hidden" loading="eager" width={32} height={32} />
+              <Image src={darkLogo} alt="Logo" class="absolute inset-0 h-full w-full object-contain hidden dark:block" loading="eager" width={32} height={32} />
             </div>
           </div>
           <span class="text-xl font-black tracking-tighter uppercase">{t(SITE_CONFIG.title)}</span>

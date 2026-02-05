@@ -1,6 +1,6 @@
 import type { SiteConfig } from "@/types/site-config";
-import logoLight from '@/assets/logos/favicon.svg';
-import logoDark from '@/assets/logos/favicon-dark.svg';
+import lightLogo from '@/assets/logos/favicon.svg';
+import darkLogo from '@/assets/logos/favicon-dark.svg';
 import previewEs from '@/assets/previews/v1-moduszero-og-es.jpg';
 import previewEn from '@/assets/previews/v1-moduszero-og-en.jpg';
 
@@ -18,8 +18,9 @@ export const SITE_CONFIG: SiteConfig = {
     publishDate: '2025-01-16',
     imageUrls: {
         logos: {
-            light: logoLight.src,
-            dark: logoDark.src,
+            light: lightLogo.src,
+            dark: darkLogo.src,
+            google: '/logo-unified-48x48.png'
         },
         previews: {
             es: previewEs.src,

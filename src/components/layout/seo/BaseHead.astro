@@ -24,14 +24,16 @@ const metaAuthor: string = config.author || "Modus Zero Team";
 const metaPublishDate: string = config.publishDate || new Date().toISOString().split('T')[0];
 
 // Images and logos
-const logoLight: string = config.imageUrls?.logos?.light || '';
-const logoDark: string = config.imageUrls?.logos?.dark || '';
+const lightLogo: string = config.imageUrls?.logos?.light || '';
+const darkLogo: string = config.imageUrls?.logos?.dark || '';
+const googleLogo: string = config.imageUrls?.logos?.google || '';
 
 const previewImageEs: string = config.imageUrls?.previews?.es || '';
 const previewImageEn: string = config.imageUrls?.previews?.en || '';
 
 const previewPath: string = lang === 'es' ? previewImageEs : previewImageEn;
 
+const googleLogoFullURL = new URL(googleLogo, Astro.site).toString();
 const previewFullURL: string = new URL(previewPath, Astro.site).toString();
 const metaImageAlt: string = `${metaName.replace(' ', '_')}_preview`;
 
@@ -48,16 +50,18 @@ const GA_ID: string = "G-7QFXWYM9NE";
 <link 
   rel="icon" 
   type="image/svg+xml" 
-  href={logoLight} 
+  href={lightLogo} 
   media="(prefers-color-scheme: light)" 
 />
 
 <link 
   rel="icon" 
   type="image/svg+xml" 
-  href={logoDark} 
+  href={darkLogo} 
   media="(prefers-color-scheme: dark)" 
 />
+
+<link rel="icon" type="image/png" sizes="48x48" href={googleLogoFullURL} />
 
 <meta name="generator" content={Astro.generator} />
 <meta name="google-site-verification" content="q435vxRBWwIMVeiEoC8r8-edkuuKc3bEnwLDLty9UnA" />
@@ -121,6 +125,16 @@ const GA_ID: string = "G-7QFXWYM9NE";
             "name": metaName
         },
         "datePublished": metaPublishDate
+    }}
+/>
+
+<Schema
+    item={{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": metaName,
+        "alternateName": metaTitle,
+        "url": Astro.site?.toString()
     }}
 />
 
