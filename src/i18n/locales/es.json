@@ -320,6 +320,7 @@
         "terms": "Términos de Servicio",
         "cookies": {
             "title": "Política de Cookies",
+            "consent": "Consentimiento de Cookies",
             "description": "Usamos cookies para mejorar tu experiencia en nuestro sitio web. Al continuar navegando, aceptas el uso de cookies de acuerdo con nuestra ",
             "protocol": "Consentimiento de Cookies",
             "decline": "Rechazar Cookies",

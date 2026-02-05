@@ -37,6 +37,11 @@ const base = import.meta.env.BASE_URL;
 <script is:inline>
   function setupCookies() {
     const banner = document.getElementById('cookie-banner');
+
+    window.addEventListener('open-cookie-banner', () => {
+      banner?.classList.remove('hidden');
+    });
+
     const acceptBtn = document.getElementById('accept-cookies');
     const declineBtn = document.getElementById('decline-cookies');
 
