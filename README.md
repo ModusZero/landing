@@ -1,6 +1,17 @@
 # Modus Zero Landing
 
-<img width="1920" height="1080" alt="v1-moduszero-og" src="https://github.com/user-attachments/assets/c33ffc7d-a41f-430b-bf1d-068c7f151786" />
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/828fd2e4-71d9-47c8-8b43-8c738ec773b5">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/7b93eba4-3961-4f24-9c02-c3a3f58bbadc">
+    <img src="https://github.com/user-attachments/assets/40a440ac-3e57-4e7c-a34c-2e3e9622043a" width="45%" />
+  </picture>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/860df986-6601-49e9-9008-94c450d2c11c">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/7b93eba4-3961-4f24-9c02-c3a3f58bbadc">
+    <img src="https://github.com/user-attachments/assets/7b93eba4-3961-4f24-9c02-c3a3f58bbadc" width="45%" />
+  </picture>
+</p>
 
 ## 🌐 Language / Idioma
 
