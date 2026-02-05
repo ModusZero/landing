@@ -60,7 +60,7 @@ const team = [{
               <div class="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity -z-10"></div>
               
               <div class="flex items-center gap-6">
-                <div class="relative">
+                <div class="relative cursor-target">
                   <div class="absolute -inset-1 bg-accent rounded-2xl blur opacity-20 group-hover:opacity-60 transition duration-500"></div>
                   <img src={member.avatar} alt={member.name} class="relative w-20 h-20 rounded-2xl border border-border-main object-cover shadow-2xl" />
                 </div>
@@ -75,15 +75,18 @@ const team = [{
                 "{member.bio}"
               </p>
 
-              <div class="mt-8 flex items-center justify-between">
-                <a href={member.see_more_link} target="_blank" class="cursor-target px-6 py-2.5 rounded-xl bg-mono-black dark:bg-mono-white text-mono-white dark:text-mono-black text-[11px] font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-lg active:scale-95">
+              <div class="mt-8 flex flex-wrap items-center justify-between gap-y-6">
+                <a href={member.see_more_link} target="_blank" class="cursor-target px-6 py-2.5 rounded-xl bg-mono-black dark:bg-mono-white text-mono-white dark:text-mono-black text-[11px] font-black uppercase tracking-widest hover:bg-accent hover:text-white transition-all shadow-lg active:scale-95 shrink-0">
                   {t('about_us.see_more')}
                 </a>
                 
-                <div class="flex gap-3">
+                <div class="flex flex-wrap justify-end gap-3 min-w-[120px]">
                   {member.links.map((link) => (
-                    <a href={link.href} target="_blank" class="cursor-target p-2.5 rounded-xl bg-border-main/20 hover:bg-accent/10 hover:text-accent transition-all border border-transparent hover:border-accent/20">
-                      <img src={`https://s.gravatar.com/icons/${link.icon}.svg`} class="w-4 h-4 dark:invert opacity-70 group-hover/icon:opacity-100" />
+                    <a href={link.href} target="_blank" class="cursor-target p-2 rounded-xl bg-border-main/20 hover:bg-accent/10 hover:text-accent transition-all border border-transparent hover:border-accent/20 shrink-0">
+                      <img 
+                        src={`https://s.gravatar.com/icons/${link.icon}.svg`} 
+                        class="w-6 h-6 md:w-8 md:h-8 dark:invert opacity-70 group-hover:opacity-100 transition-opacity" 
+                      />
                     </a>
                   ))}
                 </div>
