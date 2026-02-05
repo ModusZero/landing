@@ -58,6 +58,20 @@
             "about_us": "About Us",
             "get_demo": "Contact us"
         },
+        "breadcrumb": {
+            "home": "Home",
+            "products": "Ecosystem",
+            "mod0": "Mod0",
+            "resources": "Resources",
+            "support": "Support",
+            "about-us": "About Us",
+            "help": "Support",
+            "contact": "Contact",
+            "legal": "Legal",
+            "cookies": "Cookies Policy",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service"
+        },
         "footer": {
             "tagline": "Beyond chats and auto-completion.",
             "copyright": "All rights reserved.",

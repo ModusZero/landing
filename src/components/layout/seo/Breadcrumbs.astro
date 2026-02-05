@@ -1,40 +1,53 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { getI18nPath, getLangFromUrl, useTranslations } from '@/i18n/utils';
 import HeaderLink from '../HeaderLink.astro';
 import { Icon } from 'astro-icon/components';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const base = import.meta.env.BASE_URL
+
 const { pathname } = Astro.url;
 
-const pathWithoutLang = pathname.replace(new RegExp(`^/${lang}/?`), '').replace(/\/$/, '');
+const pathWithoutLang: string = pathname.replace(new RegExp(`^/landing/${lang}/?`), '').replace(/\/$/, '');
 
-const segments = pathWithoutLang.split('/').filter(segment => segment !== '');
+const segments: string[] = pathWithoutLang.split('/').filter(segment => segment !== '');
 
-let currentPath = `/${lang}`;
+let currentPath: string = `/landing/${lang}`;
+let isLast: boolean;
+let label: string;
+let href: string | null;
+
 const breadcrumbs = segments.map((segment, index) => {
-    currentPath += `/${segment}`;
-    const isLast = index === segments.length - 1;
-    
-    const label = segment
-        .replace(/-/g, ' ')
-        .charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ');
+    label = t(`layout.breadcrumb.${segment}`)
 
+    currentPath += `/${segment}`;
+    
+    if (segment !== 'products' && segment !== 'resources') {
+        href = currentPath;
+        isLast = index === segments.length - 1;
+    } else {
+        href = null;
+        isLast = false;
+    }
+    
     return {
-        href: currentPath,
-        label: label,
-        isLast: isLast
+        href,
+        label,
+        isLast
     };
 });
+
+if (breadcrumbs.length <= 0) return null
 ---
 
 <nav 
     class="bg-white/50 py-4 backdrop-blur-sm dark:bg-mono-black/50 border-b border-mono-lighter dark:border-mono-dark" 
     aria-label="Breadcrumb"
->
+    >
     <ol class="mx-auto flex max-w-7xl list-none items-center justify-start px-4 text-sm sm:px-6 lg:px-8">
         <li class="flex items-center">
-            <HeaderLink href={`/${lang}`} class="cursor-target text-mono-gray hover:text-accent transition-colors">
+            <HeaderLink href={getI18nPath(base, lang, '/')} class="cursor-target text-mono-gray hover:text-accent transition-colors">
                 <Icon name="heroicons:home" class="h-4 w-4" />
                 <span class="sr-only">Home</span>
             </HeaderLink>
@@ -46,7 +59,7 @@ const breadcrumbs = segments.map((segment, index) => {
                     name="heroicons:chevron-right" 
                     class="mx-2 h-4 w-4 text-mono-light dark:text-mono-gray" 
                 />
-                {crumb.isLast ? (
+                {crumb.isLast || !crumb.href ? (
                     <span 
                         aria-current="page" 
                         class="font-bold text-accent"
@@ -55,7 +68,7 @@ const breadcrumbs = segments.map((segment, index) => {
                     </span>
                 ) : (
                     <HeaderLink 
-                        href={crumb.href} 
+                        href={crumb.href}
                         class="cursor-target text-mono-gray hover:text-accent"
                     >
                         {crumb.label}

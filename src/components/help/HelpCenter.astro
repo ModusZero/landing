@@ -16,60 +16,58 @@ const supportSections = [
 ];
 ---
 
-<MainLayout title={t('support.title')}>
-  <section class="relative min-h-[90vh] flex flex-col items-center justify-center px-4 py-24 bg-transparent">
-    <div class="max-w-6xl w-full relative z-10">
+<section class="relative min-h-[90vh] flex flex-col items-center justify-center px-4 py-24 bg-transparent overflow-x-hidden">
+  <div class="max-w-6xl w-full relative z-10">
+    
+    <div class="mb-20 p-8 md:p-12 rounded-3xl bg-white/10 dark:bg-mono-white/5 backdrop-blur-2xl border border-border-main border-l-4 border-l-accent shadow-2xl animate-fade-up">
+      <div class="flex items-center gap-2 text-accent mb-6 font-mono text-xs tracking-[0.3em] font-black uppercase">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+        </span>
+        {t('support.badge')}
+      </div>
+
+      <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-6 uppercase text-glow leading-[0.9]">
+        {t('support.title')} <span class="text-accent">{t('support.title_highlight')}</span>
+      </h1>
       
-      <div class="mb-20 p-8 md:p-12 rounded-3xl bg-white/10 dark:bg-mono-white/5 backdrop-blur-2xl border border-border-main border-l-4 border-l-accent shadow-2xl animate-fade-up">
-        <div class="flex items-center gap-2 text-accent mb-6 font-mono text-xs tracking-[0.3em] font-black uppercase">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
-          </span>
-          {t('support.badge')}
-        </div>
-
-        <h1 class="text-5xl md:text-8xl font-black tracking-tighter mb-6 uppercase text-glow leading-[0.9]">
-          {t('support.title')} <span class="text-accent">{t('support.title_highlight')}</span>
-        </h1>
-        
-        <p class="max-w-2xl text-lg md:text-xl opacity-80 leading-relaxed text-glow-soft font-medium">
-          {t('support.description')}
-        </p>
-      </div>
-
-      <div class="grid gap-2">
-        {supportSections.map((item) => (
-          <a href={item.href} class="cursor-target group relative flex flex-col md:flex-row md:items-center justify-between p-8 rounded-2xl hover:bg-accent/5 transition-all duration-300 border border-transparent hover:border-border-main">
-            <div class="flex items-center gap-6 z-10">
-              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-mono-black dark:bg-mono-white text-mono-white dark:text-mono-black group-hover:bg-accent group-hover:text-white transition-colors">
-                <Icon name={iconMap[item.icon]} class="h-6 w-6" />
-              </div>
-              <div>
-                <div class="flex items-center gap-3">
-                  <h3 class="text-2xl font-bold text-glow-soft">{item.title}</h3>
-                  <span class="text-[10px] font-mono px-2 py-0.5 rounded border border-border-main opacity-50 uppercase tracking-widest">{item.status}</span>
-                </div>
-                <p class="text-sm opacity-60 mt-1 max-w-sm">{item.desc}</p>
-              </div>
-            </div>
-            <div class="mt-6 md:mt-0 flex items-center gap-4 font-bold text-sm z-10">
-              <span class="group-hover:text-accent transition-colors uppercase tracking-widest text-xs">{item.action}</span>
-              <Icon name={iconMap['chevron-right']} class="w-4 h-4 group-hover:translate-x-1 transition-transform text-accent" />
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <div class="mt-20 p-8 rounded-3xl bg-accent/5 backdrop-blur-xl border border-accent/20 flex flex-col md:flex-row items-center justify-between gap-6 scroll-fade-up">
-          <div class="text-center md:text-left">
-              <h4 class="font-black text-xl text-glow-soft uppercase tracking-tight">{t('support.critical.title')}</h4>
-              <p class="opacity-70 text-sm mt-1">{t('support.critical.desc')}</p>
-          </div>
-          <a href={getI18nPath(base, lang, '/contact')} class="cursor-target px-10 py-4 rounded-xl bg-accent text-white font-black uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] transition-all">
-              {t('support.critical.cta')}
-          </a>
-      </div>
+      <p class="max-w-2xl text-lg md:text-xl opacity-80 leading-relaxed text-glow-soft font-medium">
+        {t('support.description')}
+      </p>
     </div>
-  </section>
-</MainLayout>
+
+    <div class="grid gap-2">
+      {supportSections.map((item) => (
+        <a href={item.href} class="cursor-target group relative flex flex-col md:flex-row md:items-center justify-between p-8 rounded-2xl hover:bg-accent/5 transition-all duration-300 border border-transparent hover:border-border-main">
+          <div class="flex items-center gap-6 z-10">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-mono-black dark:bg-mono-white text-mono-white dark:text-mono-black group-hover:bg-accent group-hover:text-white transition-colors">
+              <Icon name={iconMap[item.icon]} class="h-6 w-6" />
+            </div>
+            <div>
+              <div class="flex items-center gap-3">
+                <h3 class="text-2xl font-bold text-glow-soft">{item.title}</h3>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded border border-border-main opacity-50 uppercase tracking-widest">{item.status}</span>
+              </div>
+              <p class="text-sm opacity-60 mt-1 max-w-sm">{item.desc}</p>
+            </div>
+          </div>
+          <div class="mt-6 md:mt-0 flex items-center gap-4 font-bold text-sm z-10">
+            <span class="group-hover:text-accent transition-colors uppercase tracking-widest text-xs">{item.action}</span>
+            <Icon name={iconMap['chevron-right']} class="w-4 h-4 group-hover:translate-x-1 transition-transform text-accent" />
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="mt-20 p-8 rounded-3xl bg-accent/5 backdrop-blur-xl border border-accent/20 flex flex-col md:flex-row items-center justify-between gap-6 scroll-fade-up">
+        <div class="text-center md:text-left">
+            <h4 class="font-black text-xl text-glow-soft uppercase tracking-tight">{t('support.critical.title')}</h4>
+            <p class="opacity-70 text-sm mt-1">{t('support.critical.desc')}</p>
+        </div>
+        <a href={getI18nPath(base, lang, '/contact')} class="cursor-target px-10 py-4 rounded-xl bg-accent text-white font-black uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_30px_rgba(14,165,233,0.4)] transition-all">
+            {t('support.critical.cta')}
+        </a>
+    </div>
+  </div>
+</section>
