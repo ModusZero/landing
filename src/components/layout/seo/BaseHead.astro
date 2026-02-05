@@ -120,6 +120,8 @@ const GA_ID: string = "G-7QFXWYM9NE";
         "description": metaDescription,
         "url": canonicalURL,
         "image": previewFullURL,
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web Browser",
         "author": {
             "@type": "Organization",
             "name": metaName
@@ -131,7 +133,7 @@ const GA_ID: string = "G-7QFXWYM9NE";
 <Schema
     item={{
         "@context": "https://schema.org",
-        "@type": "WebSite",
+        "@type": "WebApplication",
         "name": metaName,
         "alternateName": metaTitle,
         "url": Astro.site?.toString()
