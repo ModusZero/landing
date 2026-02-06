@@ -1,22 +1,25 @@
 import { Octokit } from "octokit";
-
+// TODO: Internacionalizar mensajes de error y fechas
 const octokit = new Octokit({ auth: import.meta.env.GITHUB_TOKEN || process.env.GITHUB_TOKEN });
 const OWNER = "ModusZero";
-const REPO = "mod0";
+const GENERAL_REPO = ".github";
+const SPECIFIC_REPO = "mod0";
+
+const general_routes: Record<string, string> = {
+  'collaborate': 'CONTRIBUTING.md',
+  'blog': 'blog/LATEST.md',
+};
+
+const specific_routes: Record<string, string> = {
+  'docs': 'docs/README.md',
+  'first-steps': 'docs/getting-started.md',
+};
 
 export async function getGitHubContent(resource: string) {
   try {
-    const routes: Record<string, string> = {
-      'docs': 'docs/README.md',
-      'collaborate': 'CONTRIBUTING.md',
-      'blog': 'blog/LATEST.md',
-      'first-steps': 'docs/getting-started.md',
-      'get-product': 'PRODUCT_SPECS.md'
-    };
-
     // --- LÓGICA DE RELEASES (CHANGELOG) ---
     if (resource === 'releases') {
-      const { data } = await octokit.rest.repos.listReleases({ owner: OWNER, repo: REPO });
+      const { data } = await octokit.rest.repos.listReleases({ owner: OWNER, repo: SPECIFIC_REPO });
       
       return data.map(r => {
         // Formatear botones de descarga para los binarios (exe, dmg, etc)
@@ -30,10 +33,13 @@ export async function getGitHubContent(resource: string) {
     }
 
     // --- LÓGICA DE ARCHIVOS (MARKDOWN) ---
-    const path = routes[resource] || 'README.md';
+    const isSpecific = Object.keys(specific_routes).includes(resource);
+
+    const path = isSpecific ? specific_routes[resource] : general_routes[resource] || 'README.md';
+
     const { data }: any = await octokit.rest.repos.getContent({
       owner: OWNER,
-      repo: REPO,
+      repo: isSpecific ? SPECIFIC_REPO : GENERAL_REPO,
       path: path,
     });
 

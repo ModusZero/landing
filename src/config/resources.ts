@@ -24,20 +24,13 @@ export const RESOURCES_MENU: DropMenuItem[] = [
         href: 'docs',
         icon: 'layers'
     },
-    {
-        title: `${prefix}.get_product`,
-        descriptionTranslationKey: `${prefix}.get_product_description`,
-        categoryTranslationKey: `${prefix}.community`,
-        href: 'get-product',
-        icon: 'heart'
-    },
-    {
-        title: `${prefix}.blog`,
-        descriptionTranslationKey: `${prefix}.blog_description`,
-        categoryTranslationKey: `${prefix}.news`,
-        href: 'blog',
-        icon: 'brush'
-    },
+    // {
+    //     title: `${prefix}.blog`,
+    //     descriptionTranslationKey: `${prefix}.blog_description`,
+    //     categoryTranslationKey: `${prefix}.news`,
+    //     href: 'blog',
+    //     icon: 'brush'
+    // },
     {
         title: `${prefix}.collaborate`,
         descriptionTranslationKey: `${prefix}.collaborate_description`,
