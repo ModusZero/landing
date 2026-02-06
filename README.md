@@ -33,7 +33,7 @@
 
 # Versión en español
 
-## Sitio Web de Marketing y Ecosistema de Ingeniería Agéntica
+## Sitio Web de Marketing de Modus Zero
 
 ---
 
@@ -46,7 +46,7 @@ El sitio está construido con **Astro** para garantizar una carga instantánea y
 **Puntos Clave del Ecosistema:**
 
 * **Ingeniería Agéntica:** Enfoque en la verificación y revisión del trabajo de IA más que en la escritura manual de código.
-* **Mod0:** Entorno autónomo con visualización de *Thinking Graphs* y tableros Kanban agénticos.
+* **Mod0:** Entorno autónomo con visualización de *Thinking Graphs* y tableros Kanban, entre otros elementos, ver más [aquí](github.com/ModusZero/mod0).
 * **Local-First:** Soporte para inteligencia privada y modelos auto-hospedados.
 * **Eficiencia:** Optimización de tokens mediante estrategias de inferencia por dificultad.
 
@@ -67,7 +67,7 @@ El sitio está construido con **Astro** para garantizar una carga instantánea y
 
 # English version
 
-## Marketing Website & Agentic Engineering Ecosystem
+## Modus Zero Marketing Website
 
 ---
 
@@ -80,7 +80,7 @@ Built with **Astro**, the site ensures industry-leading performance and SEO, all
 **Ecosystem Key Features:**
 
 * **Agentic Engineering:** Focus on verifying and auditing AI-generated work rather than manual coding.
-* **Mod0:** Autonomous environment featuring *Thinking Graphs* and agentic Kanban boards.
+* **Mod0:** Autonomous environment featuring *Thinking Graphs* and agentic Kanban boards, etc. see more [here](github.com/ModusZero/mod0).
 * **Local-First:** Support for private intelligence and self-hosted models.
 * **Token Efficiency:** Smart inference strategies to optimize costs and reasoning depth.
 
