@@ -28,10 +28,10 @@ const t = useTranslations(lang);
       {resource === 'forum' ? (
         <div class="animate-in fade-in duration-700">
           <header class="mb-12">
-            <h1 class="text-4xl font-bold text-white mb-4 tracking-tight">
+            <h1 class="text-4xl font-bold text-black dark:text-white mb-4 tracking-tight">
               {t('layout.header.resource_list.forum')}
             </h1>
-            <p class="text-slate-400 border-l-2 border-emerald-500 pl-4 italic">
+            <p class="text-slate-400 border-l-2 border-emerald-800 dark:border-emerald-300 pl-4 italic">
               {t('layout.header.resource_list.forum_description')}
             </p>
           </header>
@@ -41,8 +41,8 @@ const t = useTranslations(lang);
         <div class="animate-in slide-in-from-bottom-4 duration-700">
           <header class="mb-12 border-b border-white/5 pb-8 flex justify-between items-end">
              <div>
-               <h1 class="text-4xl font-bold text-white mb-2 tracking-tighter">{displayTitle}</h1>
-               <p class="text-xs font-mono text-emerald-500/60 uppercase tracking-widest">
+               <h1 class="text-4xl font-bold text-black dark:text-white mb-2 tracking-tighter">{displayTitle}</h1>
+               <p class="text-xs font-mono text-emerald-800 dark:text-emerald-300 uppercase tracking-widest">
                   {/* TODO: Internacionalizar textos en [resource].astro */}
                   Protocol: GitHub Sourced Content
                </p>
@@ -87,6 +87,69 @@ const t = useTranslations(lang);
     padding: 0.2rem 0.4rem;
     border-radius: 4px;
     font-size: 0.9em;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(.prose) {
+    color: var(--text-main) !important;
+    --tw-prose-body: var(--text-main);
+    --tw-prose-headings: var(--text-main);
+    --tw-prose-links: var(--color-accent);
+    --tw-prose-bold: var(--text-main);
+    --tw-prose-counters: var(--color-accent) !important;
+    --tw-prose-bullets: var(--color-accent) !important;
+    font-size: 0.95rem;
+  }
+
+  :global(.prose ol > li), :global(.prose ul > li) {
+    display: list-item !important;
+    padding-left: 0.5rem;
+  }
+
+  :global(.prose ol > li::marker) {
+    color: var(--color-accent) !important;
+    font-weight: 700;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+
+  :global(.prose ul > li::marker) {
+    color: var(--color-accent) !important;
+  }
+
+  :global(.prose h2) {
+    scroll-margin-top: 7rem;
+    border-left: 2px solid var(--color-accent, #5227ff);
+    padding-left: 1rem;
+    margin-top: 3rem !important;
+    margin-bottom: 1.5rem !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+    text-transform: uppercase;
+  }
+
+  :global(.prose h3) {
+    scroll-margin-top: 7rem;
+    margin-top: 2rem !important;
+    color: var(--text-main) !important;
+    font-weight: 700 !important;
+  }
+
+  :global(.prose a) {
+    transition: opacity 0.2s ease;
+  }
+  
+  :global(.prose a:hover) {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+
+  :global(.prose ol), :global(.prose ul) {
+    list-style:circle;
+    margin-left: 1.25rem;
   }
 
   /* --- Botones de Descarga Automáticos --- */
