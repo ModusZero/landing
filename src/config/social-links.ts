@@ -5,7 +5,7 @@ export const SOCIAL_LINKS = [
     { name: 'LinkedIn', href: 'https://linkedin.com/in/luishrosello', icon: 'linkedin' },
     { name: 'Facebook', href: 'https://www.facebook.com/luis.hernandez.rosello', icon: 'facebook' },
     { name: 'Instagram', href: 'https://www.instagram.com/luishrosello', icon: 'instagram' },
-    { name: 'Threads', href: 'https://x.com/LuisAlbert21854', icon: 'threads' },
+    { name: 'Threads', href: 'https://www.threads.com/@luishrosello', icon: 'threads' },
     { name: 'X', href: 'https://x.com/LuisAlbert21854', icon: 'twitter' },
 ] as {
     name: string;
