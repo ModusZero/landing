@@ -29,6 +29,9 @@ export default defineConfig({
   // Tailwind 4 se integra con su plugin de Vite (la ruta por PostCSS no resuelve `@import "tailwindcss"` en Vite 8).
   vite: {
     plugins: [tailwindcss()],
+    ssr: {
+      noExternal: ['@lucide/svelte'],
+    },
   },
 
   site: isProd 
