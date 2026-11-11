@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { untrack } from 'svelte';
     import { setDemoLang } from './demo-data';
     import GraphDemo from './GraphDemo.svelte';
     import IdeFrame from './IdeFrame.svelte';
@@ -23,7 +24,7 @@
     let { tabs, labels, lang }: Props = $props();
 
     // Se fija antes de pintar las pantallas hijas (también durante el render del servidor).
-    setDemoLang(lang);
+    setDemoLang(untrack(() => lang));
 
     let current = $state(0);
     const active = $derived(tabs[current]);
