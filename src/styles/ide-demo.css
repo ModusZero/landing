@@ -1,0 +1,100 @@
+/*
+ * Tokens visuales de la maqueta interactiva del IDE (landing).
+ * Son los mismos que usa la app (src/app.css del IDE), fijados al tema oscuro para que la maqueta
+ * se vea igual que las capturas reales sin depender del tema del sitio.
+ */
+.ide {
+    --bg-main: #0f1115;
+    --bg-sidebar: #14171c;
+    --bg-raised: #1a1e25;
+    --bg-hover: rgb(255 255 255 / 0.045);
+    --bg-active: rgb(255 255 255 / 0.085);
+    --border-subtle: rgb(255 255 255 / 0.07);
+    --text-main: #d3d8e0;
+    --text-muted: #8c95a5;
+    --text-faint: #5d6676;
+    --accent: oklch(0.72 0.12 255);
+    --accent-soft: oklch(0.72 0.12 255 / 0.14);
+
+    --st-working: #6aa5f7;
+    --st-waiting: #e3ad4a;
+    --st-review: #ad94f2;
+    --st-idle: #77839a;
+    --st-exited: #4b5463;
+    --ok: #55b78c;
+    --danger: #e8706a;
+
+    --f-read: #7aa7e0;
+    --f-write: #e3ad4a;
+    --f-exec: #55b78c;
+    --f-search: #ad94f2;
+    --f-web: #4fb8cf;
+    --f-agent: #e07aa8;
+    --f-plan: #c9b65a;
+    --f-think: #77839a;
+
+    --s0: #6aa5f7;
+    --s1: #55b78c;
+    --s2: #e3ad4a;
+    --s3: #ad94f2;
+    --s4: #e07aa8;
+    --s5: #4fb8cf;
+    --s6: #e0946a;
+    --s7: #b3c070;
+
+    color: var(--text-main);
+    font-family: 'Inter', ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif;
+    font-size: 13px;
+    line-height: 1.45;
+    text-shadow: none;
+}
+
+.ide *,
+.ide *::before,
+.ide *::after {
+    box-sizing: border-box;
+}
+
+.ide button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.ide .mono {
+    font-family: 'JetBrains Mono', 'Cascadia Code', ui-monospace, Consolas, monospace;
+}
+
+@keyframes ide-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ide-pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.45;
+    }
+}
+
+.ide .spin {
+    animation: ide-spin 1.8s linear infinite;
+}
+
+.ide .pulse {
+    animation: ide-pulse 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ide .spin,
+    .ide .pulse {
+        animation: none;
+    }
+}

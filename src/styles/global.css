@@ -43,11 +43,8 @@
     @apply antialiased transition-colors duration-500 ease-in-out;
   }
 
-  .animate-fade-in, .animate-fade-up, .animate-float, .scroll-fade-up {
-    contain: content;
-    content-visibility: auto;
-    will-change: opacity, transform;
-  }
+  /* Sin `will-change` ni `content-visibility` globales: promover decenas de elementos a capas propias
+     cuesta más memoria de GPU de la que ahorra. Las animaciones usan solo opacity/transform. */
 
   h1, h2, h3, h4, p, span {
     color: currentColor;
@@ -68,7 +65,14 @@
     text-shadow: 0 0 15px rgb(0, 0, 0);
   }
 
-  a, div, button, span, input, textarea, svg {
+  /* El cursor nativo solo se oculta cuando el cursor personalizado está activo (ratón/trackpad). */
+  html.has-target-cursor,
+  html.has-target-cursor a,
+  html.has-target-cursor button,
+  html.has-target-cursor input,
+  html.has-target-cursor textarea,
+  html.has-target-cursor summary,
+  html.has-target-cursor [role='button'] {
     cursor: none;
   }
 
@@ -115,7 +119,8 @@
 }
 
 .scroll-fade-up {
-  @apply opacity-0 transition-all duration-1000 ease-out;
+  @apply opacity-0 duration-1000 ease-out;
+  transition-property: opacity, transform;
   transform: translate3d(0, 2rem, 0);
 }
 

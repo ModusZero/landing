@@ -14,6 +14,17 @@
   </picture>
 </p>
 
+## 🆕 v0.2.0
+
+- **Pantalla de producto de Mod0 rehecha**: ahora explica el flujo real (mission control para sesiones de CLI con IA) con
+  maquetas **interactivas en Svelte** (`src/components/ide/`) traducidas de los componentes del IDE, y capturas reales
+  (`public/images/ide/{es,en}/`). Para regenerar las capturas: `python scripts/capture-screenshots.py` en el repo del IDE.
+- **Rendimiento**: se eliminó el fondo de Vanta + three.js (CDN) con filtro `blur` de pantalla completa, que era la causa
+  principal de la lentitud. Ahora es un `<canvas>` 2D propio que se detiene al hacer scroll, al ocultar la pestaña y con
+  `prefers-reduced-motion`. El cursor personalizado solo se activa con ratón/trackpad y usa `gsap.quickTo`.
+- **Stack**: Astro 7, `@astrojs/svelte` + React, Tailwind 4 vía `@tailwindcss/vite`, Node ≥ 22.23.4.
+- `pricing`, sus textos y su configuración **no se tocaron**: siguen listos por si algún día se retoma.
+
 ## 🌐 Idioma / Language
 
 > [!IMPORTANT]
