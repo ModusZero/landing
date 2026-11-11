@@ -2,7 +2,7 @@
 import MainLayout from '@/layouts/MainLayout.astro';
 import Giscus from '@/components/resources/Giscus.astro';
 import { getGitHubContent } from "@/utils/github";
-import { Markdown } from '@astropub/md';
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
 
 export async function getStaticPaths() {
@@ -16,6 +16,8 @@ export async function getStaticPaths() {
 
 const { resource } = Astro.params;
 const content = resource !== 'forum' ? await getGitHubContent(resource) : '';
+const processor = await createMarkdownProcessor();
+const { code: html } = await processor.render(content || '');
 const displayTitle = resource.replace(/-/g, ' ').toUpperCase();
 
 const lang = getLangFromUrl(Astro.url);
@@ -60,7 +62,7 @@ const t = useTranslations(lang);
             prose-pre:border prose-pre:border-white/10 prose-pre:backdrop-blur-sm
             prose-img:rounded-xl">
             
-            <Markdown of={content || ''} />
+            <Fragment set:html={html} />
           </article>
         </div>
       )}
