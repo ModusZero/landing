@@ -1,336 +1,489 @@
 {
-    "common": {
-        "previous": "Anterior",
-        "next": "Siguiente",
-        "finish": "Desplegar",
-        "changing": "Sujeto a cambios • Actualizado 2026",
-        "change_theme":"Cambiar tema"
-    },
-    "site": {
-        "name": "Modus Zero",
-        "title": "Modus Zero",
-        "description": "Ecosistema profesional orientado al aprovechamiento máximo de la ingeniería agéntica para optimizar flujos de trabajo con inteligencia artificial.",
-        "keywords": {
-            "1": "ingeniería agéntica",
-            "2": "agentes de IA autónomos",
-            "3": "vibe coding",
-            "4": "orquestación de LLM",
-            "5": "desarrollo local-first",
-            "6": "model context protocol mcp",
-            "7": "automatización de software",
-            "8": "inteligencia artificial privada",
-            "9": "herramientas para desarrolladores IA",
-            "10": "grafo de pensamiento",
-            "11": "tablero kanban",
-            "12": "código fuente visual",
-            "13": "control de versiones"
-        }
-    },
-    "layout": {
-        "header": {
-            "products": "Ecosistema",
-            "resources": "Recursos",
-            "product_list": {
-                "mod0": "Mod0",
-                "mod0_description": "Entorno autónomo para codificación auténtica (vibe coding) en tiempo real"
-            },
-            "resource_list": {
-                "releases": "Descargar",
-                "releases_description": "Historial de versiones y cambios",
-                "blog": "Últimas noticias",
-                "blog_description": "Últimos avances en el ecosistema",
-                "first_steps": "Primeros pasos",
-                "first_steps_description": "Inicializa tu primer enjambre en minutos",
-                "docs": "Documentación",
-                "docs_description": "Guías técnicas de uso",
-                "get_product": "Acceso Plataforma",
-                "get_product_description": "Capacidades agénticas completas",
-                "forum": "Foro",
-                "forum_description": "Sincronizado con GitHub Discussions. Comunidad de ingeniería open source.",
-                "collaborate": "Colaborar",
-                "collaborate_description": "Únete a nuestra red de contribuidores",
-                "learn": "Aprendizaje",
-                "community": "Comunidad",
-                "news": "Noticias"
-            },
-            "enterprise": "Enterprise",
-            "help": "Soporte",
-            "about_us": "Sobre Nosotros",
-            "get_demo": "Contáctanos"
-        },
-        "breadcrumb": {
-            "home": "Inicio",
-            "products": "Ecosistema",
-            "mod0": "Mod0",
-            "resources": "Recursos",
-            "releases": "Descargar",
-            "first-steps": "Primeros Pasos",
-            "docs": "Documentación",
-            "collaborate": "Colaborar",
-            "blog": "Blog",
-            "forum": "Foro",
-            "support": "Soporte",
-            "about-us": "Sobre Nosotros",
-            "help": "Soporte",
-            "contact": "Contacto",
-            "legal": "Legal",
-            "cookies": "Política de Cookies",
-            "privacy": "Política de Privacidad",
-            "terms": "Términos de Servicio"
-        },
-        "footer": {
-            "tagline": "Más allá de chats y auto-completado.",
-            "copyright": "Todos los derechos reservados.",
-            "columns": {
-                "product": "Ecosistema",
-                "company": "Organización",
-                "legal": "Legal"
-            }
-        }
-    },
-    "home": {
-        "cta": {
-            "primary_cta": "Ver más",
-            "secondary_cta": "Ver en GitHub"
-        },
-        "hero": {
-            "headline": "Nuevo paradigma para el uso de ingeniería agéntica",
-            "subheadline": "Más allá de chats y auto-completado.",
-            "description": "La nueva era no se basa en escribir código, sino verificar y revisar de la mejor manera el trabajo de las herramientas de IA.",
-            "stats": {
-                "latency": "Latencia de Inferencia",
-                "scaling": "Escalado Contextual",
-                "autonomy": "Ciclos Autónomos",
-                "overhead": "Fricción Operativa"
-            }
-        },
-        "why_use_it": {
-            "title": "Ingeniería Sin Fronteras",
-            "subtitle": "Hemos eliminado la fricción del ciclo de desarrollo heredado.",
-            "features": {
-                "offline": {
-                    "title": "Inteligencia Local-First",
-                    "description": "Autonomía total con modelos auto-hospedados. Tu código nunca abandona tu infraestructura, internet es opcional."
-                },
-                "paradigm": {
-                    "title": "Sandboxing Determinístico",
-                    "description": "Deja de hacer pruebas manuales. Los agentes validan lógica en sandboxes endurecidas antes de la implementación."
-                },
-                "no_prompt": {
-                    "title": "Orquestación Sin Prompt",
-                    "description": "Más allá de los chatbots. Mod0 infiere la intención desde tu contexto arquitectónico y grafos mentales automáticamente."
-                },
-                "token_strategy": {
-                    "title": "Eficiencia de Tokens",
-                    "description": "Estrategia inteligente que asigna modelos pequeños para tareas triviales y razonamiento profundo para lógica compleja, optimizando costes."
-                },
-                "mcp_native": {
-                    "title": "Integración Nativa MCP",
-                    "description": "Conexión directa con Model Context Protocol y extensiones de VS Code. Tus herramientas actuales, ahora con superpoderes agénticos."
-                },
-                "visual_codebase": {
-                    "title": "Codebase Visual",
-                    "description": "Navega cambios mediante grafos de archivos y tableros. Entiende evoluciones complejas sin leer miles de líneas de logs de git."
-                }
-            }
-        },
-        "tweet": {
-            "tagline": "La era está cambiando",
-            "title": "Monta la ola con nosotros"
-        },
-        "go_see_it": {
-            "title": "¿Listo para dar el paso a la nueva era?",
-            "description": "Únete a nosotros, mira al futuro de cerca, aprovecha el impulso.",
-            "primary_cta": "Contáctanos",
-            "secondary_cta": "Ver más..."
-        }
-    },
-    "products": {
-        "mod0": {
-            "name": "Mod0",
-            "tagline": "Codificación auditable con IA.",
-            "description": "Mod0 orquesta agentes especializados para gestionar la complejidad del desarrollo moderno. Desde Grafos de Pensamiento hasta ejecución en Kanban, proporciona la infraestructura determinista para la ingeniería de software de próxima generación.",
-            "rotating_words": {
-                "intelligent": "Inteligente",
-                "agentic": "Agéntico",
-                "autonomic": "Autónomo",
-                "precise": "Preciso",
-                "modern": "Moderno"
-            },
-            "get_started": "Descargar Mod0",
-            "learn_more": "Ver documentación",
-            "features": {
-                "title": "Funcionalidades de Precisión",
-                "subtitle": "El primer entorno autónomo equipado con visualización de razonamiento en tiempo real y orquestación agéntica.",
-                "items": {
-                    "f1": { "title": "Visualizador Thinking Graph", "description": "Observa la ruta de razonamiento de tus agentes en tiempo real. Monitorea cada decisión y ramificación lógica en un grafo interactivo." },
-                    "f2": { "title": "Tablero Kanban Agéntico", "description": "Gestiona flujos autónomos con un Kanban especializado. Asigna tareas a clusters de agentes y supervisa el progreso en paralelo." },
-                    "f3": { "title": "Generación de Código Nativa", "description": "Los agentes escriben, refactorizan y despliegan código directamente en tus repositorios con precisión técnica y modo sin supervisión." },
-                    "f4": { "title": "Motor de Lógica Neuronal", "description": "Nuestra capa de inferencia propia garantiza que los agentes respondan y ejecuten razonamientos complejos en tiempo casi real." },
-                    "f5": { "title": "Sandbox Endurecido", "description": "Ejecuta tareas agénticas en entornos aislados y seguros. Encriptación de nivel bancario y cumplimiento SOC 2 para tu privacidad." },
-                    "f6": { "title": "Sincronización GitHub Core", "description": "Integración profunda con tus repositorios. Los agentes entienden tu deuda técnica, historial del proyecto y estándares de código." },
-                    "f7": { "title": "Auto-Reparación Autónoma", "description": "Depuración y corrección de errores automatizada. Si un proceso falla, los agentes identifican la causa raíz y aplican un parche autónomo." },
-                    "f8": { "title": "Analítica de Rendimiento", "description": "Trazabilidad completa de cada pensamiento y token gastado. Visualiza tasas de éxito y optimiza tus flujos agénticos con facilidad." },
-                    "f9": { "title": "Enjambres Multi-Agente", "description": "Coordina múltiples agentes especializados trabajando juntos. Escala de una a cientos de instancias al instante sin fricción operativa." }
-                }
-            },
-            "how_it_works": {
-                "title": "Flujo de Trabajo Operativo",
-                "subtitle": "Desde la inicialización por línea de comandos hasta la orquestación autónoma visual.",
-                "steps": {
-                    "step_1": { "title": "Inicializar y Definir", "description": "Comienza con `mod0 init`. Define tu objetivo y establece los límites agénticos del entorno." },
-                    "step_2": { "title": "Ingesta Contextual", "description": "Conecta tu stack. El sistema indexa tu código para construir un modelo mental multidimensional." },
-                    "step_3": { "title": "Razonamiento en Grafo", "description": "Visualiza el Thinking Graph. Revisa las ramas lógicas del agente y el desglose de tareas antes de ejecutar." },
-                    "step_4": { "title": "Orquestación Kanban", "description": "Las tareas se envían al Kanban Agéntico donde agentes especializados asumen la propiedad de cada tarjeta." },
-                    "step_5": { "title": "Ejecución Autónoma", "description": "Los agentes operan en sandboxes seguros, escribiendo y refactorizando código con protocolos de auto-reparación." },
-                    "step_6": { "title": "Trazado y Validación", "description": "Revisa el trazado completo de ejecución y los logs de razonamiento. Aprueba el resultado final y despliega." }
-                }
-            },
-            "faq": {
-                "title": "Preguntas Frecuentes",
-                "subtitle": "Todo lo que necesitas saber sobre el editor inteligente Mod0",
-                "q1": {
-                    "q": "¿En qué se diferencia Mod0 de Cursor, Windsurf u otros editores impulsados por IA?",
-                    "a": "A diferencia de otros editores que, aunque sugieren código o incluso hacen cambios en el codebase, siguen promoviendo el 'uso' de la IA para auxiliarse en el desarrollo, cuando en realidad la IA está preparada para hacer las cosas bien, solo necesita el control correcto para el mejor resultado. Mod0 no promete mejores modelos de IA, ni un mejor pensamiento, sino una mejor forma de gestionarlo para un mejor resultado, mediante una comunicación total con el modelo más allá de un chat."
-                },
-                "q2": {
-                    "q": "¿El código generado es funcional y seguro? ¿Cómo evitan la deuda técnica de los 'vibe coders'?",
-                    "a": "Mod0 erradica el 'vibe coding' integrando TDD (Test Driven Development) como núcleo no opcional. Antes de aplicar cualquier cambio, la IA simula el resultado y genera tests automáticos en un entorno aislado. Si el cambio no pasa las pruebas de regresión y seguridad en la simulación, no entra en tu codebase. No confiamos en la 'intuición' del modelo; confiamos en la verificación matemática de los cambios."
-                },
-                "q3": {
-                    "q": "¿Cómo funciona el Visual Codebase y Visual Source Control?",
-                    "a": "Normalmente se visualizan los archivos mediante un árbol de directorios, el cual se vuelve difícil de seguir a partir de cierta cantidad de archivos y cierta profundidad, por otro lado los cambios en la codebase mediante diffs de archivos que pueden llegar a ser crípticos. Mod0 muestra los archivos y cambios de forma gráfica, permitiéndote entender visualmente la estructura de la codebase, las dependencias de cada archivo, los archivos que dependen de este, los archivos cambiados, montados para el siguiente commit, cómo una los cambios afectan a otros archivos mediante grafos de dependencias, mucho más eficiente que una pull request de 500 líneas."
-                },
-                "q4": {
-                    "q": "¿Qué es exactamente el Grafo de Pensamiento?",
-                    "a": "Es la 'mente' de la IA. Es un mapa visual que muestra el razonamiento del editor: qué archivos analiza, que habilidades utiliza, qué plan de acción tiene, por qué tomó esa decisión técnica, todo para que el usuario pueda supervisar y dar sugerencias para dirigir al modelo correctamente."
-                },
-                "q5": {
-                    "q": "¿Mi código se usa para entrenar modelos?",
-                    "a": "No. Tu código es privado. No entrenamos modelos con los datos de nuestros usuarios. Además, con Local Nodes, puedes ejecutar la IA de forma totalmente privada en tu propia red."
-                },
-                "q6": {
-                    "q": "¿Puedo usar mis propias llaves de API (BYOK)?",
-                    "a": "Sí. La infraestructura está pensada para usar los modelos self-hosted o conectar tus propias llaves de Anthropic, OpenAI o Google. Tú decides qué modelo usar y controlas tu gasto."
-                },
-                "q7": {
-                    "q": "¿Cómo gestionan el alto tráfico de tokens para no agotar mi presupuesto?",
-                    "a": "Implementamos una Estrategia de Inferencia por Dificultad. Mod0 descompone cada tarea: las operaciones triviales de sintaxis las resuelven modelos ultra-eficientes (como Gemini Flash), mientras que el razonamiento arquitectónico se delega a modelos de razonamiento profundo (como o1 o Claude Opus). Esta orquestación inteligente maximiza la precisión del Grafo de Pensamiento sin desperdiciar tokens de alto costo en tareas mediocres."
-                },
-                "q8": {
-                    "q": "Si uso mi propia API Key (BYOK), ¿se disparará mi gasto?",
-                    "a": "Al contrario. Gracias a nuestra arquitectura de 'Contexto Quirúrgico' y la selección de modelos por dificultad, el gasto es menor que en un chat convencional. Al enviar solo las ramas del grafo de dependencias necesarias y usar modelos pequeños para el 'trabajo sucio', optimizamos tu cuota de API para que solo pagues por inteligencia real, no por transferir archivos de texto plano."
-                }
-            },
-            "future_news": {
-                "title": "Próximamente en Mod0",
-                "subtitle": "Nuestra hoja de ruta hacia la autonomía total.",
-                "v1": {
-                    "label": "Release 1.0 - The Core",
-                    "title": "Editor de Código MVP",
-                    "description": "Entorno de edición tradicional con gestión de archivos y personalización de temas."
-                },
-                "v2": {
-                    "label": "Release 2.0 - Operations",
-                    "title": "Visual Source Control",
-                    "description": "Gestión avanzada con interfaz visual para ramas y commits en tiempo real."
-                },
-                "v3": {
-                    "label": "Release 3.0 - Intelligence",
-                    "title": "Thinking Graph & Kanban",
-                    "description": "Visualización de razonamiento, tableros Kanban agénticos y soporte para modelos locales."
-                },
-                "v4": {
-                    "label": "Release 4.0 - Ecosystem",
-                    "title": "Context, Skills & BYOK",
-                    "description": "Biblioteca de habilidades, gestión profunda de contexto y soporte para llaves propias."
-                }
-            }
-        }
-    },
-    "support": {
-        "badge": "CENTRO_AYUDA // ACCESO_ALPHA",
-        "title": "Centro de",
-        "title_highlight": "Soporte",
-        "description": "Si experimentas latencia en el despliegue o inconsistencias en los tokens, revisa nuestra base de conocimiento o contacta con el equipo central.",
-        "sections": {
-            "docs": {
-                "title": "Documentación Alpha",
-                "desc": "Explora la arquitectura del sistema y los módulos disponibles.",
-                "action": "Explorar Docs"
-            },
-            "status": {
-                "title": "Estado del Sistema",
-                "desc": "Monitorización en tiempo real de nuestros nodos y latencia.",
-                "action": "Ver Status"
-            },
-            "community": {
-                "title": "Comunidad & Feedback",
-                "desc": "Reporta errores o sugiere nuevas funciones directamente.",
-                "action": "Ir a GitHub"
-            }
-        },
-        "critical": {
-            "title": "¿Problema crítico en producción?",
-            "desc": "Nuestro equipo de guardia está disponible para fallos de nivel 1.",
-            "cta": "Contactar Soporte"
-        }
-    },
-    "about_us": {
-        "title": "Nuestra Organización",
-        "subtitle": "Construyendo la infraestructura para la era agéntica.",
-        "vision_title": "La Visión",
-        "vision_text": "Modus Zero nació para resolver la fricción entre la capacidad de los LLMs y la realidad del flujo de trabajo de ingeniería. No construimos chatbots; construimos sistemas de control para inteligencia artificial.",
-        "team_title": "Principales Contribuidores",
-        "roles": {
-            "founder": "Fundador | CEO",
-            "lead_architect": "Arquitecto Principal",
-            "architect": "Arquitecto"
-        },
-        "see_more": "Ver más..."
-    },
-    "contact": {
-        "cta": "Contáctanos",
-        "title": "Comienza a construir con Modus Zero",
-        "subtitle": "Únete a miles de desarrolladores que usan Mod0 para explotar su eficiencia.",
-        "email_label": "¿Alguna pregunta? Contacta a nuestro equipo:",
-        "benefits": {
-            "b1": "No requiere tarjeta de crédito",
-            "b2": "Configuración en menos de 5 minutos",
-            "b3": "Cancela en cualquier momento",
-            "b4": "Soporte al cliente 24/7"
-        },
-        "form": {
-            "cta": "Comienza gratis",
-            "name_label": "Nombre completo",
-            "name_placeholder": "John Doe",
-            "email_label": "Correo electrónico de trabajo",
-            "email_placeholder": "john@company.com",
-            "subject_label": "Asunto",
-            "subject_placeholder": "¿En qué podemos ayudarte?",
-            "company_label": "Empresa",
-            "company_placeholder": "Tu Empresa S.A.",
-            "message_label": "¿Qué te gustaría automatizar?",
-            "message_placeholder": "Cuéntanos sobre tu flujo de trabajo y necesidades de automatización...",
-            "optional": "Opcional",
-            "terms": "Al enviar este formulario, aceptas nuestros",
-            "and": "y"
-        }
-    },
-    "legal": {
-        "nav_label": "Legal",
-        "last_updated": "Última Actualización",
-        "verification": "Verificación del sistema",
-        "verified": "Verificado",
-        "privacy": "Política de Privacidad",
-        "terms": "Términos de Servicio",
-        "cookies": {
-            "title": "Política de Cookies",
-            "consent": "Consentimiento de Cookies",
-            "description": "Usamos cookies para mejorar tu experiencia en nuestro sitio web. Al continuar navegando, aceptas el uso de cookies de acuerdo con nuestra ",
-            "protocol": "Consentimiento de Cookies",
-            "decline": "Rechazar Cookies",
-            "accept": "Aceptar Cookies"
-        }
+  "common": {
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "finish": "Desplegar",
+    "changing": "Sujeto a cambios • Actualizado 2026",
+    "change_theme": "Cambiar tema"
+  },
+  "site": {
+    "name": "Modus Zero",
+    "title": "Modus Zero",
+    "description": "Ecosistema profesional orientado al aprovechamiento máximo de la ingeniería agéntica para optimizar flujos de trabajo con inteligencia artificial.",
+    "keywords": {
+      "1": "ingeniería agéntica",
+      "2": "agentes de IA autónomos",
+      "3": "vibe coding",
+      "4": "orquestación de LLM",
+      "5": "desarrollo local-first",
+      "6": "model context protocol mcp",
+      "7": "automatización de software",
+      "8": "inteligencia artificial privada",
+      "9": "herramientas para desarrolladores IA",
+      "10": "grafo de pensamiento",
+      "11": "tablero kanban",
+      "12": "código fuente visual",
+      "13": "control de versiones"
     }
+  },
+  "layout": {
+    "header": {
+      "products": "Ecosistema",
+      "resources": "Recursos",
+      "product_list": {
+        "mod0": "Mod0",
+        "mod0_description": "Entorno autónomo para codificación auténtica (vibe coding) en tiempo real"
+      },
+      "resource_list": {
+        "releases": "Descargar",
+        "releases_description": "Historial de versiones y cambios",
+        "blog": "Últimas noticias",
+        "blog_description": "Últimos avances en el ecosistema",
+        "first_steps": "Primeros pasos",
+        "first_steps_description": "Inicializa tu primer enjambre en minutos",
+        "docs": "Documentación",
+        "docs_description": "Guías técnicas de uso",
+        "get_product": "Acceso Plataforma",
+        "get_product_description": "Capacidades agénticas completas",
+        "forum": "Foro",
+        "forum_description": "Sincronizado con GitHub Discussions. Comunidad de ingeniería open source.",
+        "collaborate": "Colaborar",
+        "collaborate_description": "Únete a nuestra red de contribuidores",
+        "learn": "Aprendizaje",
+        "community": "Comunidad",
+        "news": "Noticias"
+      },
+      "enterprise": "Enterprise",
+      "help": "Soporte",
+      "about_us": "Sobre Nosotros",
+      "get_demo": "Contáctanos"
+    },
+    "breadcrumb": {
+      "home": "Inicio",
+      "products": "Ecosistema",
+      "mod0": "Mod0",
+      "resources": "Recursos",
+      "releases": "Descargar",
+      "first-steps": "Primeros Pasos",
+      "docs": "Documentación",
+      "collaborate": "Colaborar",
+      "blog": "Blog",
+      "forum": "Foro",
+      "support": "Soporte",
+      "about-us": "Sobre Nosotros",
+      "help": "Soporte",
+      "contact": "Contacto",
+      "legal": "Legal",
+      "cookies": "Política de Cookies",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Servicio"
+    },
+    "footer": {
+      "tagline": "Más allá de chats y auto-completado.",
+      "copyright": "Todos los derechos reservados.",
+      "columns": {
+        "product": "Ecosistema",
+        "company": "Organización",
+        "legal": "Legal"
+      }
+    }
+  },
+  "home": {
+    "cta": {
+      "primary_cta": "Ver más",
+      "secondary_cta": "Ver en GitHub"
+    },
+    "hero": {
+      "headline": "Nuevo paradigma para el uso de ingeniería agéntica",
+      "subheadline": "Más allá de chats y auto-completado.",
+      "description": "La nueva era no se basa en escribir código, sino verificar y revisar de la mejor manera el trabajo de las herramientas de IA.",
+      "stats": {
+        "latency": "Latencia de Inferencia",
+        "scaling": "Escalado Contextual",
+        "autonomy": "Ciclos Autónomos",
+        "overhead": "Fricción Operativa"
+      }
+    },
+    "why_use_it": {
+      "title": "Ingeniería Sin Fronteras",
+      "subtitle": "Hemos eliminado la fricción del ciclo de desarrollo heredado.",
+      "features": {
+        "offline": {
+          "title": "Inteligencia Local-First",
+          "description": "Autonomía total con modelos auto-hospedados. Tu código nunca abandona tu infraestructura, internet es opcional."
+        },
+        "paradigm": {
+          "title": "Sandboxing Determinístico",
+          "description": "Deja de hacer pruebas manuales. Los agentes validan lógica en sandboxes endurecidas antes de la implementación."
+        },
+        "no_prompt": {
+          "title": "Orquestación Sin Prompt",
+          "description": "Más allá de los chatbots. Mod0 infiere la intención desde tu contexto arquitectónico y grafos mentales automáticamente."
+        },
+        "token_strategy": {
+          "title": "Eficiencia de Tokens",
+          "description": "Estrategia inteligente que asigna modelos pequeños para tareas triviales y razonamiento profundo para lógica compleja, optimizando costes."
+        },
+        "mcp_native": {
+          "title": "Integración Nativa MCP",
+          "description": "Conexión directa con Model Context Protocol y extensiones de VS Code. Tus herramientas actuales, ahora con superpoderes agénticos."
+        },
+        "visual_codebase": {
+          "title": "Codebase Visual",
+          "description": "Navega cambios mediante grafos de archivos y tableros. Entiende evoluciones complejas sin leer miles de líneas de logs de git."
+        }
+      }
+    },
+    "tweet": {
+      "tagline": "La era está cambiando",
+      "title": "Monta la ola con nosotros"
+    },
+    "go_see_it": {
+      "title": "¿Listo para dar el paso a la nueva era?",
+      "description": "Únete a nosotros, mira al futuro de cerca, aprovecha el impulso.",
+      "primary_cta": "Contáctanos",
+      "secondary_cta": "Ver más..."
+    }
+  },
+  "products": {
+    "mod0": {
+      "name": "Mod0",
+      "tagline": "Mission control para tus sesiones de CLI con IA.",
+      "description": "Corre 8–15 sesiones de Claude Code en paralelo sin perder el hilo. Mod0 envuelve la CLI que ya usas y muestra qué hace cada una, qué archivo toca y qué está pensando, para que tu atención vaya a revisar y no a vigilar.",
+      "rotating_words": {
+        "intelligent": "Visible",
+        "agentic": "Paralelo",
+        "autonomic": "Observable",
+        "precise": "Sereno",
+        "modern": "Veloz"
+      },
+      "get_started": "Descargar Mod0",
+      "learn_more": "Ver documentación",
+      "features": {
+        "title": "Lo que hace por mi forma de trabajar",
+        "subtitle": "Todo gira alrededor de una pregunta: ¿qué merece mi atención ahora mismo?",
+        "items": {
+          "f1": {
+            "title": "Thinking Graph",
+            "description": "Sigue el razonamiento de cada sesión como un grafo en vivo: lecturas, ediciones, comandos y la intención detrás. Sin muros de texto de terminal."
+          },
+          "f2": {
+            "title": "Mission Control",
+            "description": "Ocho o quince sesiones en una sola cuadrícula. Estado, acción actual, tiempo en estado, contexto y cambios: solo los indicadores que merecen atención."
+          },
+          "f3": {
+            "title": "Tu CLI, envuelta",
+            "description": "Una terminal real por sesión con Claude Code, Codex, Gemini o lo que configures. Mod0 no reemplaza tu CLI, le da una cabina."
+          },
+          "f4": {
+            "title": "Cero tokens extra",
+            "description": "Lee los hooks y el transcript que Claude Code ya produce. Observar nunca cuesta una llamada a un modelo."
+          },
+          "f5": {
+            "title": "Worktrees aislados",
+            "description": "Cada sesión puede correr en su propio worktree y rama de git, así el trabajo en paralelo no choca y cada diff es contra su propia base."
+          },
+          "f6": {
+            "title": "Revisión sin fricción",
+            "description": "Diff por sesión contra el commit inicial, archivos marcados como revisados, un editor para retoques y commit desde la misma pantalla."
+          },
+          "f7": {
+            "title": "Avisos donde estés",
+            "description": "Notificaciones nativas y webhooks (WhatsApp, Telegram, ntfy) cuando una sesión se bloquea, termina o todo está listo."
+          },
+          "f8": {
+            "title": "Grafo del proyecto",
+            "description": "Carpetas como módulos, imports como flechas y anillos en vivo con qué sesión toca qué. El proyecto de un vistazo."
+          },
+          "f9": {
+            "title": "BYOK e IA local",
+            "description": "Tu clave y tu modelo siguen siendo tuyos: define variables de entorno por perfil (URL base, endpoints locales) y la CLI hace el resto."
+          }
+        }
+      },
+      "how_it_works": {
+        "title": "Mi flujo de trabajo, paso a paso",
+        "subtitle": "Desde abrir un proyecto hasta integrar lo que hicieron las sesiones.",
+        "steps": {
+          "step_1": {
+            "title": "Abre el proyecto",
+            "description": "Elige una carpeta. Mod0 lee el árbol, la rama de git y construye el grafo de módulos."
+          },
+          "step_2": {
+            "title": "Lanza sesiones en paralelo",
+            "description": "Una por tarea, cada una en su propio worktree si quieres. Lánzalas desde el Kanban o con Ctrl+Shift+N."
+          },
+          "step_3": {
+            "title": "Mira, no leas",
+            "description": "Mission Control y el panel de atención dicen quién trabaja, quién está bloqueada y quién terminó. El thinking graph muestra el porqué."
+          },
+          "step_4": {
+            "title": "Responde solo cuando importa",
+            "description": "Una sesión pide permiso y te llega un aviso. Ctrl+Shift+A salta a la siguiente que te necesita."
+          },
+          "step_5": {
+            "title": "Revisa lo que hizo",
+            "description": "Abre la revisión: diff contra el commit inicial, archivo por archivo. Corrige con el editor si algo no encaja."
+          },
+          "step_6": {
+            "title": "Haz commit y sigue",
+            "description": "Aprueba, haz commit y la tarjeta avanza. Cuando todo termina, un solo aviso en tu móvil."
+          }
+        }
+      },
+      "faq": {
+        "title": "Preguntas frecuentes",
+        "subtitle": "Qué es Mod0, qué no es y cómo funciona.",
+        "q1": {
+          "q": "¿En qué se diferencia de Cursor, VS Code o Windsurf?",
+          "a": "Esos son editores con IA dentro. Mod0 es lo contrario: la IA trabaja en la CLI que ya usas y Mod0 es la cabina para seguir, priorizar y revisar muchas sesiones a la vez. No pretende reemplazar tu editor."
+        },
+        "q2": {
+          "q": "¿Es un producto comercial?",
+          "a": "No. Empezó siéndolo, pero hoy es una herramienta personal publicada tal cual. Úsala, haz un fork o abre issues si quieres; no hay planes, SLA ni precios."
+        },
+        "q3": {
+          "q": "¿Cómo sabe qué hace una sesión?",
+          "a": "Con Claude Code lanza la CLI con un archivo de ajustes extra que envía sus hooks (HTTP) a un servidor local, y lee el transcript para el «por qué». Con otras CLI infiere el estado a partir de la actividad de la terminal."
+        },
+        "q4": {
+          "q": "¿Qué es exactamente el Thinking Graph?",
+          "a": "Un mapa de los pasos de la sesión: el prompt, cada herramienta que usó (lectura, edición, comando, búsqueda), ramas paralelas y el cierre de cada turno. Se construye con eventos que la CLI ya emite, así que no gasta tokens."
+        },
+        "q5": {
+          "q": "¿Mi código se envía a algún sitio?",
+          "a": "No. Mod0 corre en local y solo habla con la CLI que lanzas. El único tráfico de red propio es el webhook que configures para avisos, si lo hay."
+        },
+        "q6": {
+          "q": "¿Puedo usar mis propias claves o un modelo local?",
+          "a": "Sí. Cada perfil puede definir variables de entorno (por ejemplo una URL base para tu propio endpoint). Guarda los secretos en las variables de entorno del sistema y no en el perfil."
+        },
+        "q7": {
+          "q": "¿Funciona con otras CLI además de Claude Code?",
+          "a": "Sí: Codex, Gemini o cualquier comando puede ser un perfil. Obtienes la terminal, el estado inferido por actividad y la revisión; el thinking graph y los estados exactos requieren los hooks de Claude Code."
+        },
+        "q8": {
+          "q": "¿Para qué sirve el Kanban?",
+          "a": "Para convertir una tarea pendiente en una sesión en marcha con un clic y seguirla: la tarjeta pasa sola a «en curso» y «revisar» según cambia el estado de la sesión."
+        }
+      },
+      "future_news": {
+        "title": "Hoja de ruta",
+        "subtitle": "Lo que ya está y lo que viene.",
+        "v1": {
+          "label": "v0.2 · Mission Control",
+          "title": "Mission control",
+          "description": "Sesiones, terminales reales, thinking graph, grafo del proyecto, revisión, kanban y avisos."
+        },
+        "v2": {
+          "label": "v0.3 · Triggers",
+          "title": "Sesiones por eventos",
+          "description": "Lanza una sesión cuando pasa algo: un release nuevo, un CI que falla, un ticket."
+        },
+        "v3": {
+          "label": "v0.4 · Insight",
+          "title": "Costo y contexto",
+          "description": "Gasto por sesión, tendencias de contexto e historial de lo que hizo cada una."
+        },
+        "v4": {
+          "label": "v0.5 · Alcance",
+          "title": "Más allá de Claude Code",
+          "description": "Observación exacta para más CLI y un acompañante móvil para aprobaciones."
+        }
+      },
+      "philosophy": {
+        "tag": "Proyecto personal",
+        "title": "Hecho para un solo flujo: el mío.",
+        "text": "Mod0 nació como un IDE comercial. Ya no lo es. Hoy es la herramienta que construyo para correr mis propias sesiones de IA en paralelo sin quemarme, publicada tal cual: con opiniones, abierta y en cambio constante."
+      },
+      "tour": {
+        "title": "Todo lo necesario para seguirle el hilo a 15 sesiones a la vez",
+        "subtitle": "Estas pantallas están vivas: son los mismos componentes de la interfaz de la app, corriendo con datos de ejemplo.",
+        "tabs": {
+          "sessions": {
+            "title": "Mission Control",
+            "description": "Una tarjeta por sesión, legible de un vistazo: estado, qué hace ahora mismo, cuánto lleva así, cuánto contexto gastó y qué cambió.",
+            "b1": "Estados por color y forma: trabajando, esperándote, lista para revisar",
+            "b2": "Las sesiones que te necesitan suben al panel de atención",
+            "b3": "Alt+1…9 para saltar, Ctrl+Shift+A para la siguiente que espera"
+          },
+          "graph": {
+            "title": "Thinking Graph",
+            "description": "El razonamiento de cada sesión como un grafo en vez de un muro de texto. Cada paso es un nodo: qué leyó, qué editó, qué ejecutó y por qué.",
+            "b1": "Las llamadas paralelas se ramifican; los turnos viejos se colapsan solos",
+            "b2": "El «por qué» de cada paso sale del transcript: cero tokens extra",
+            "b3": "Haz clic en un nodo para ver el comando, prompt o archivo completo"
+          },
+          "project": {
+            "title": "Grafo del proyecto",
+            "description": "La forma del proyecto, no archivo por archivo. Las carpetas son módulos, los imports son flechas y cada sesión ilumina el módulo donde trabaja.",
+            "b1": "Profundidad ajustable, de carpetas raíz a módulos hoja",
+            "b2": "Anillos de color muestran qué sesión toca qué, en vivo",
+            "b3": "TS/JS, Svelte, Vue, Astro, Python y Rust"
+          },
+          "review": {
+            "title": "Revisión ágil",
+            "description": "El trabajo real es revisar. Cada sesión muestra exactamente qué cambió respecto al commit con el que empezó, archivo por archivo, con lo intacto colapsado.",
+            "b1": "Diff lado a lado y un editor para cuando quieras retocar",
+            "b2": "Marca archivos como revisados y mira tu avance",
+            "b3": "Haz commit y aprueba desde la misma pantalla"
+          },
+          "kanban": {
+            "title": "Kanban ligado a sesiones",
+            "description": "Tareas que lanzan sesiones y se mueven solas. Lanza una tarjeta en su propio worktree y sigue a la sesión: en curso, en revisión, hecha.",
+            "b1": "Un tablero por proyecto",
+            "b2": "Worktrees aislados para que las sesiones no se pisen",
+            "b3": "Arrastra y suelta; la CLI hace el trabajo"
+          }
+        },
+        "labels": {
+          "search": "Buscar o ejecutar…",
+          "sessions": "Sesiones",
+          "waitingShort": "Esperándote",
+          "all": "Todas",
+          "attention": "Te necesitan",
+          "working": "Trabajando",
+          "idle": "En reposo",
+          "waiting": "Esperando tu decisión",
+          "turn": "Turno",
+          "steps": "pasos",
+          "prompt": "Prompt",
+          "depth": "Nivel",
+          "modules": "módulos",
+          "links": "enlaces",
+          "reviewed": "revisados",
+          "approve": "Marcar revisada",
+          "commit": "Commit",
+          "commitMessage": "Mensaje del commit…",
+          "backlog": "Pendiente",
+          "doing": "En curso",
+          "reviewCol": "Revisar",
+          "done": "Hecho",
+          "start": "Lanzar sesión",
+          "add": "Añadir tarea…",
+          "files": "archivos",
+          "idleLabel": "En reposo"
+        }
+      },
+      "gallery": {
+        "title": "La app real",
+        "subtitle": "Capturas de la app real, con los mismos datos de ejemplo de la demo de arriba.",
+        "items": {
+          "sessions": "Mission Control con ocho sesiones",
+          "graph": "Thinking graph de una sesión en vivo",
+          "project": "Grafo del proyecto con las sesiones encima",
+          "review": "Revisando lo que cambió una sesión",
+          "kanban": "Kanban ligado a sesiones"
+        }
+      },
+      "observer": {
+        "title": "Observa sin gastar un solo token",
+        "subtitle": "Sin proxy ni llamadas extra a un modelo: Mod0 escucha lo que Claude Code ya reporta.",
+        "steps": {
+          "cli": {
+            "title": "Tu CLI, intacta",
+            "description": "Cada sesión es una terminal real (PTY) con la CLI que ya usas, en la misma carpeta o en su propio worktree de git."
+          },
+          "hooks": {
+            "title": "Hooks y transcript",
+            "description": "Claude Code envía sus eventos (herramientas, permisos, fin de turno) a un servidor local en 127.0.0.1. El transcript aporta el «por qué» de cada paso."
+          },
+          "ui": {
+            "title": "Una interfaz serena",
+            "description": "Colores mate, un solo movimiento por estado y nada que parpadee sin motivo. Avisos nativos y webhooks (WhatsApp, Telegram, ntfy) cuando algo te necesita."
+          }
+        }
+      },
+      "build": {
+        "title": "Compílalo desde el código",
+        "subtitle": "Tauri 2 + Svelte 5. Windows, macOS y Linux.",
+        "note": "Necesitas Node.js 22+, Rust 1.85+ y los requisitos de Tauri para tu sistema. Las versiones se publican en GitHub cuando están listas."
+      }
+    }
+  },
+  "support": {
+    "badge": "CENTRO_AYUDA // ACCESO_ALPHA",
+    "title": "Centro de",
+    "title_highlight": "Soporte",
+    "description": "Si experimentas latencia en el despliegue o inconsistencias en los tokens, revisa nuestra base de conocimiento o contacta con el equipo central.",
+    "sections": {
+      "docs": {
+        "title": "Documentación Alpha",
+        "desc": "Explora la arquitectura del sistema y los módulos disponibles.",
+        "action": "Explorar Docs"
+      },
+      "status": {
+        "title": "Estado del Sistema",
+        "desc": "Monitorización en tiempo real de nuestros nodos y latencia.",
+        "action": "Ver Status"
+      },
+      "community": {
+        "title": "Comunidad & Feedback",
+        "desc": "Reporta errores o sugiere nuevas funciones directamente.",
+        "action": "Ir a GitHub"
+      }
+    },
+    "critical": {
+      "title": "¿Problema crítico en producción?",
+      "desc": "Nuestro equipo de guardia está disponible para fallos de nivel 1.",
+      "cta": "Contactar Soporte"
+    }
+  },
+  "about_us": {
+    "title": "Nuestra Organización",
+    "subtitle": "Construyendo la infraestructura para la era agéntica.",
+    "vision_title": "La Visión",
+    "vision_text": "Modus Zero nació para resolver la fricción entre la capacidad de los LLMs y la realidad del flujo de trabajo de ingeniería. No construimos chatbots; construimos sistemas de control para inteligencia artificial.",
+    "team_title": "Principales Contribuidores",
+    "roles": {
+      "founder": "Fundador | CEO",
+      "lead_architect": "Arquitecto Principal",
+      "architect": "Arquitecto"
+    },
+    "see_more": "Ver más..."
+  },
+  "contact": {
+    "cta": "Contáctanos",
+    "title": "Comienza a construir con Modus Zero",
+    "subtitle": "Únete a miles de desarrolladores que usan Mod0 para explotar su eficiencia.",
+    "email_label": "¿Alguna pregunta? Contacta a nuestro equipo:",
+    "benefits": {
+      "b1": "No requiere tarjeta de crédito",
+      "b2": "Configuración en menos de 5 minutos",
+      "b3": "Cancela en cualquier momento",
+      "b4": "Soporte al cliente 24/7"
+    },
+    "form": {
+      "cta": "Comienza gratis",
+      "name_label": "Nombre completo",
+      "name_placeholder": "John Doe",
+      "email_label": "Correo electrónico de trabajo",
+      "email_placeholder": "john@company.com",
+      "subject_label": "Asunto",
+      "subject_placeholder": "¿En qué podemos ayudarte?",
+      "company_label": "Empresa",
+      "company_placeholder": "Tu Empresa S.A.",
+      "message_label": "¿Qué te gustaría automatizar?",
+      "message_placeholder": "Cuéntanos sobre tu flujo de trabajo y necesidades de automatización...",
+      "optional": "Opcional",
+      "terms": "Al enviar este formulario, aceptas nuestros",
+      "and": "y"
+    }
+  },
+  "legal": {
+    "nav_label": "Legal",
+    "last_updated": "Última Actualización",
+    "verification": "Verificación del sistema",
+    "verified": "Verificado",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": {
+      "title": "Política de Cookies",
+      "consent": "Consentimiento de Cookies",
+      "description": "Usamos cookies para mejorar tu experiencia en nuestro sitio web. Al continuar navegando, aceptas el uso de cookies de acuerdo con nuestra ",
+      "protocol": "Consentimiento de Cookies",
+      "decline": "Rechazar Cookies",
+      "accept": "Aceptar Cookies"
+    }
+  }
 }

@@ -1,336 +1,489 @@
 {
-    "common": {
-        "previous": "Previous",
-        "next": "Next",
-        "finish": "Deploy",
-        "changing": "Subject to change • Updated 2026",
-        "change_theme":"Change theme"
+  "common": {
+    "previous": "Previous",
+    "next": "Next",
+    "finish": "Deploy",
+    "changing": "Subject to change • Updated 2026",
+    "change_theme": "Change theme"
+  },
+  "site": {
+    "name": "Modus Zero",
+    "title": "Modus Zero",
+    "description": "Professional agentic engineering ecosystem designed for maximum leverage and optimization of advanced AI workflows.",
+    "keywords": [
+      "agentic engineering",
+      "autonomous AI agents",
+      "vibe coding",
+      "LLM orchestration",
+      "local-first development",
+      "model context protocol mcp",
+      "software automation",
+      "private AI",
+      "AI developer tools",
+      "thought graph",
+      "kanban board",
+      "visual codebase",
+      "source control"
+    ]
+  },
+  "layout": {
+    "header": {
+      "products": "Ecosystem",
+      "resources": "Resources",
+      "product_list": {
+        "mod0": "Mod0",
+        "mod0_description": "Autonomous environment for real-time vibe coding"
+      },
+      "resource_list": {
+        "releases": "Download",
+        "releases_description": "Releases history and changelogs",
+        "first_steps": "First-Steps",
+        "first_steps_description": "Initialize your first swarm in minutes",
+        "docs": "Documentation",
+        "docs_description": "Full architecture guides",
+        "get_product": "Access Platform",
+        "get_product_description": "Full agentic capabilities",
+        "blog": "Blog",
+        "blog_description": "Latest engineering breakthroughs",
+        "forum": "Forum",
+        "forum_description": "Synchronized with GitHub Discussions. Open source engineering community.",
+        "collaborate": "Contribute",
+        "collaborate_description": "Join the core contributor network",
+        "learn": "Learning",
+        "community": "Community",
+        "news": "News"
+      },
+      "enterprise": "Enterprise",
+      "help": "Support",
+      "about_us": "About Us",
+      "get_demo": "Contact us"
     },
-    "site": {
-        "name": "Modus Zero",
-        "title": "Modus Zero",
-        "description": "Professional agentic engineering ecosystem designed for maximum leverage and optimization of advanced AI workflows.",
-        "keywords": [
-            "agentic engineering",
-            "autonomous AI agents",
-            "vibe coding",
-            "LLM orchestration",
-            "local-first development",
-            "model context protocol mcp",
-            "software automation",
-            "private AI",
-            "AI developer tools",
-            "thought graph",
-            "kanban board",
-            "visual codebase",
-            "source control"
-        ]
+    "breadcrumb": {
+      "home": "Home",
+      "products": "Ecosystem",
+      "mod0": "Mod0",
+      "resources": "Resources",
+      "releases": "Download",
+      "first-steps": "First-Steps",
+      "docs": "Documentation",
+      "blog": "Blog",
+      "forum": "Forum",
+      "collaborate": "Contribute",
+      "support": "Support",
+      "about-us": "About Us",
+      "help": "Support",
+      "contact": "Contact",
+      "legal": "Legal",
+      "cookies": "Cookies Policy",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
     },
-    "layout": {
-        "header": {
-            "products": "Ecosystem",
-            "resources": "Resources",
-            "product_list": {
-                "mod0": "Mod0",
-                "mod0_description": "Autonomous environment for real-time vibe coding"
-            },
-            "resource_list": {
-                "releases": "Download",
-                "releases_description": "Releases history and changelogs",
-                "first_steps": "First-Steps",
-                "first_steps_description": "Initialize your first swarm in minutes",
-                "docs": "Documentation",
-                "docs_description": "Full architecture guides",
-                "get_product": "Access Platform",
-                "get_product_description": "Full agentic capabilities",
-                "blog": "Blog",
-                "blog_description": "Latest engineering breakthroughs",
-                "forum": "Forum",
-                "forum_description": "Synchronized with GitHub Discussions. Open source engineering community.",
-                "collaborate": "Contribute",
-                "collaborate_description": "Join the core contributor network",
-                "learn": "Learning",
-                "community": "Community",
-                "news": "News"
-            },
-            "enterprise": "Enterprise",
-            "help": "Support",
-            "about_us": "About Us",
-            "get_demo": "Contact us"
-        },
-        "breadcrumb": {
-            "home": "Home",
-            "products": "Ecosystem",
-            "mod0": "Mod0",
-            "resources": "Resources",
-            "releases": "Download",
-            "first-steps": "First-Steps",
-            "docs": "Documentation",
-            "blog": "Blog",
-            "forum": "Forum",
-            "collaborate": "Contribute",
-            "support": "Support",
-            "about-us": "About Us",
-            "help": "Support",
-            "contact": "Contact",
-            "legal": "Legal",
-            "cookies": "Cookies Policy",
-            "privacy": "Privacy Policy",
-            "terms": "Terms of Service"
-        },
-        "footer": {
-            "tagline": "Beyond chats and auto-completion.",
-            "copyright": "All rights reserved.",
-            "columns": {
-                "product": "Ecosystem",
-                "company": "Organization",
-                "legal": "Legal"
-            }
-        }
-    },
-    "home": {
-        "cta": {
-            "primary_cta": "Go see it",
-            "secondary_cta": "See in GitHub"
-        },
-        "hero": {
-            "headline": "New paradigm for agentic engineering usage",
-            "subheadline": "Beyond chats and auto-completion.",
-            "description": "The new era is not about writing code, but verifying and reviewing the work of AI tools in the best way possible.",
-            "stats": {
-                "latency": "Inference Latency",
-                "scaling": "Contextual Scaling",
-                "autonomy": "Autonomous Cycles",
-                "overhead": "Operational Friction"
-            }
-        },
-        "why_use_it": {
-            "title": "Engineering Without Borders",
-            "subtitle": "We've eliminated the friction of the legacy development cycle.",
-            "features": {
-                "offline": {
-                    "title": "Local-First Intelligence",
-                    "description": "Full autonomy with self-hosted models. Your code never leaves your infrastructure, internet is optional."
-                },
-                "paradigm": {
-                    "title": "Deterministic Sandboxing",
-                    "description": "Stop manual testing. Agents execute and validate logic in hardened sandboxes before implementation."
-                },
-                "no_prompt": {
-                    "title": "Promptless Orchestration",
-                    "description": "Beyond chatbots. Mod0 infers intent from your architectural context and mental graphs automatically."
-                },
-                "token_strategy": {
-                    "title": "Token Strategy",
-                    "description": "Smart routing that assigns small models for trivial tasks and deep reasoning for complex logic, optimizing costs."
-                },
-                "mcp_native": {
-                    "title": "Native MCP Integration",
-                    "description": "Direct connection with Model Context Protocol and VS Code extensions. Your current tools, now with agentic superpowers."
-                },
-                "visual_codebase": {
-                    "title": "Visual Codebase",
-                    "description": "Navigate changes through file graphs and boards. Understand complex evolutions without reading thousands of lines of git logs."
-                }
-            }
-        },
-        "tweet": {
-            "tagline": "The era is changing",
-            "title": "Ride the wave with us"
-        },
-        "go_see_it": {
-            "title": "Ready to step up to the new era?",
-            "description": "Join us, watch future closely, use the leverage.",
-            "primary_cta": "Contact us",
-            "secondary_cta": "See more..."
-        }
-    },
-    "products": {
-        "mod0": {
-            "name": "Mod0",
-            "tagline": "AI Auditable Coding.",
-            "description": "Mod0 orchestrates specialized agents to handle the complexity of modern development. From Thinking Graphs to Kanban execution, it provides the deterministic infrastructure for next-generation software engineering.",
-            "rotating_words": {
-                "intelligent": "Inteligent",
-                "agentic": "Agentic",
-                "autonomic": "Autonomic",
-                "precise": "Precise",
-                "modern": "Modern"
-            },
-            "get_started": "Download Mod0",
-            "learn_more": "See docs",
-            "features": {
-                "title": "Precision Core Features",
-                "subtitle": "The first autonomous environment equipped with real-time reasoning visualization and agentic orchestration.",
-                "items": {
-                    "f1": { "title": "Thinking Graph Visualizer", "description": "Observe the real-time reasoning path of your agents. Monitor every decision, branch, and logic path in a live interactive graph." },
-                    "f2": { "title": "Agentic Kanban Board", "description": "Manage autonomous workflows with a specialized Kanban. Assign tasks to agent clusters and monitor execution progress in parallel." },
-                    "f3": { "title": "Native Code Generation", "description": "Agents write, refactor, and deploy code directly into your repositories with technical precision and zero-supervision mode." },
-                    "f4": { "title": "Neural Logic Engine", "description": "Our proprietary inference layer ensures agents respond and execute complex reasoning in near real-time with low latency." },
-                    "f5": { "title": "Hardened Sandbox", "description": "Execute agentic tasks in isolated, secure environments. Bank-level encryption and SOC 2 compliance for your data privacy." },
-                    "f6": { "title": "GitHub Core Sync", "description": "Deep integration with your repositories. Agents understand your technical debt, project history, and code standards." },
-                    "f7": { "title": "Autonomous Self-Healing", "description": "Automated debugging and error correction. When a process fails, agents identify the root cause and apply an autonomous patch." },
-                    "f8": { "title": "Performance Analytics", "description": "Full traceability of every thought and token spent. Visualize success rates and optimize your agentic workflows with ease." },
-                    "f9": { "title": "Multi-Agent Swarms", "description": "Coordinate multiple specialized agents working together. Scale from one to hundreds of instances instantly without overhead." }
-                }
-            },
-            "how_it_works": {
-                "title": "Operational Workflow",
-                "subtitle": "From command-line initialization to visual autonomous orchestration.",
-                "steps": {
-                    "step_1": { "title": "Initialize & Define", "description": "Start with `mod0 init`. Define your objective and set the agentic boundaries for the environment." },
-                    "step_2": { "title": "Contextual Ingestion", "description": "Connect your stack. The system indexes your codebase to build a multi-dimensional mental model." },
-                    "step_3": { "title": "Graph Reasoning", "description": "Visualize the Thinking Graph. Review the agent's logic branches and task breakdown before execution." },
-                    "step_4": { "title": "Kanban Orchestration", "description": "Tasks are dispatched to the Agentic Kanban where specialized worker agents take ownership of each card." },
-                    "step_5": { "title": "Autonomous Execution", "description": "Agents operate in hardened sandboxes, writing and refactoring code with built-in self-healing protocols." },
-                    "step_6": { "title": "Trace & Validate", "description": "Review the complete execution trace and reasoning logs. Approve the final output and deploy." }
-                }
-            },
-            "faq": {
-                "title": "Frequently Asked Questions",
-                "subtitle": "Everything you need to know about the Mod0 intelligent editor",
-                "q1": {
-                    "q": "What makes Mod0 different from Cursor, Windsurf or other AI-powered editors?",
-                    "a": "Unlike other editors that suggest code or even make changes in the codebase, they still promote the 'use' of AI to assist in development. In reality, AI is ready to do things well, it just needs the right control for the best outcome. Mod0 doesn't promise better AI models or better thinking, but a better way to manage it for better results through total communication with the model beyond a chat."
-                },
-                "q2": {
-                    "q": "Is the generated code functional and safe? How do they avoid technical debt of 'vibe coders'?",
-                    "a": "Mod0 eliminates 'vibe coding' by integrating TDD (Test Driven Development) as an non optional core. Before applying any change, the AI simulates the result and generates automatic tests in an isolated environment. If the change doesn't pass regression and security tests in simulation, it doesn't enter your codebase. We don't trust the 'intuition' of the model; we trust mathematical verification of changes."
-                },
-                "q3": {
-                    "q": "How do the Visual Codebase and Visual Source Control work?",
-                    "a": "Files are typically viewed through a directory tree, which becomes difficult to track as file count and depth increase; similarly, codebase changes via file diffs can often be cryptic. Mod0 displays files and changes graphically, allowing you to visually understand the codebase structure, file dependencies, changed files, and staged commits. You can see how changes ripple through other files via dependency graphs—far more efficient than reviewing a 500-line pull request."
-                },
-                "q4": {
-                    "q": "What exactly is the Thought Graph?",
-                    "a": "It is the 'mind' of the AI. A visual map that reveals the editor's reasoning: which files it analyzes, which tools it uses, its action plan, and the technical decisions it makes. This transparency allows users to oversee and provide real-time feedback to steer the model correctly."
-                },
-                "q5": {
-                    "q": "Is my code used to train models?",
-                    "a": "No. Your code is private. We do not train models with our users' data. Furthermore, with Local Nodes, you can run the AI entirely privately within your own network."
-                },
-                "q6": {
-                    "q": "Can I use my own API keys (BYOK)?",
-                    "a": "Yes. The infrastructure is designed to use self-hosted models or connect your own keys from Anthropic, OpenAI, or Google. You decide which model to use and maintain full control over your spending."
-                },
-                "q7": {
-                    "q": "How do you manage high token traffic to avoid draining my budget?",
-                    "a": "We implement an 'Inference-by-Difficulty' strategy. Mod0 deconstructs every task: trivial syntax operations are handled by ultra-efficient models (like Gemini Flash), while architectural reasoning is delegated to deep-reasoning models (like o1 or Claude Opus). This intelligent orchestration maximizes Thought Graph precision without wasting high-cost tokens on mediocre tasks."
-                },
-                "q8": {
-                    "q": "If I use my own API Key (BYOK), will my costs skyrocket?",
-                    "a": "On the contrary. Thanks to our 'Surgical Context' architecture and difficulty-based model selection, costs are lower than in a conventional chat. By sending only the necessary branches of the dependency graph and using small models for 'grunt work,' we optimize your API quota so you only pay for real intelligence, not for transferring plain text files."
-                }
-            },
-            "future_news": {
-                "title": "Coming Soon to Mod0",
-                "subtitle": "Our roadmap towards full autonomy.",
-                "v1": {
-                    "label": "Release 1.0 - The Core",
-                    "title": "Code Editor MVP",
-                    "description": "Traditional editing environment with file management and theme customization."
-                },
-                "v2": {
-                    "label": "Release 2.0 - Operations",
-                    "title": "Visual Source Control",
-                    "description": "Advanced management with visual interface for branches and real-time commits."
-                },
-                "v3": {
-                    "label": "Release 3.0 - Intelligence",
-                    "title": "Thinking Graph & Kanban",
-                    "description": "Reasoning visualization, agentic Kanban boards, and support for local models."
-                },
-                "v4": {
-                    "label": "Release 4.0 - Ecosystem",
-                    "title": "Context, Skills & BYOK",
-                    "description": "Customizable skills library, deep context management, and BYOK support."
-                }
-            }
-        }
-    },
-    "support": {
-        "badge": "HELP_CENTER // ALPHA_ACCESS",
-        "title": "Support",
-        "title_highlight": "Center",
-        "description": "If you experience deployment latency or token inconsistencies, review our knowledge base or contact the core-team.",
-        "sections": {
-            "docs": {
-                "title": "Alpha Documentation",
-                "desc": "Explore system architecture and available modules.",
-                "action": "Explore Docs"
-            },
-            "status": {
-                "title": "System Status",
-                "desc": "Real-time monitoring of our nodes and latency.",
-                "action": "View Status"
-            },
-            "community": {
-                "title": "Community & Feedback",
-                "desc": "Report bugs or suggest new features directly.",
-                "action": "Go to GitHub"
-            }
-        },
-        "critical": {
-            "title": "Critical issue in production?",
-            "desc": "Our on-call team is available for level 1 failures.",
-            "cta": "Contact Support"
-        }
-    },
-    "about_us": {
-        "title": "Our Organization",
-        "subtitle": "Building infrastructure for the agentic era.",
-        "vision_title": "The Vision",
-        "vision_text": "Modus Zero was born to solve the friction between LLM capabilities and the reality of engineering workflows. We don't build chatbots; we build control systems for artificial intelligence.",
-        "team_title": "Core Contributors",
-        "roles": {
-            "founder": "Founder | CEO",
-            "lead_architect": "Lead Architect",
-            "architect": "Architect"
-        },
-        "see_more": "See more..."
-    },
-    "contact": {
-        "cta": "Contact Us",
-        "title": "Start building with Modus Zero",
-        "subtitle": "Join thousands of developers using Mod0 to exploit their efficiency.",
-        "email_label": "Questions? Reach out to our team:",
-        "benefits": {
-            "b1": "No credit card required",
-            "b2": "Setup in under 5 minutes",
-            "b3": "Cancel anytime",
-            "b4": "24/7 customer support"
-        },
-        "form": {
-            "cta": "Get Started Free",
-            "name_label": "Full Name",
-            "name_placeholder": "John Doe",
-            "email_label": "Work Email",
-            "email_placeholder": "john@company.com",
-            "subject_label": "Subject",
-            "subject_placeholder": "How can we help?",
-            "company_label": "Company",
-            "company_placeholder": "Your Company Inc.",
-            "message_label": "What would you like to automate?",
-            "message_placeholder": "Tell us about your workflow and automation needs...",
-            "optional": "Optional",
-            "terms": "By submitting this form, you agree to our",
-            "and": "and"
-        }
-    },
-    "legal": {
-        "nav_label": "Legal",
-        "last_updated": "Last Updated",
-        "verification": "System Verification",
-        "verified": "Verified",
-        "privacy": "Privacy Policy",
-        "terms": "Terms of Service",
-        "cookies": {
-            "title": "Cookies Policy",
-            "consent": "Cookies Consent",
-            "description": "We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies in accordance with our ",
-            "protocol": "Cookie Consent",
-            "decline": "Decline Cookies",
-            "accept": "Accept Cookies"
-        }
+    "footer": {
+      "tagline": "Beyond chats and auto-completion.",
+      "copyright": "All rights reserved.",
+      "columns": {
+        "product": "Ecosystem",
+        "company": "Organization",
+        "legal": "Legal"
+      }
     }
+  },
+  "home": {
+    "cta": {
+      "primary_cta": "Go see it",
+      "secondary_cta": "See in GitHub"
+    },
+    "hero": {
+      "headline": "New paradigm for agentic engineering usage",
+      "subheadline": "Beyond chats and auto-completion.",
+      "description": "The new era is not about writing code, but verifying and reviewing the work of AI tools in the best way possible.",
+      "stats": {
+        "latency": "Inference Latency",
+        "scaling": "Contextual Scaling",
+        "autonomy": "Autonomous Cycles",
+        "overhead": "Operational Friction"
+      }
+    },
+    "why_use_it": {
+      "title": "Engineering Without Borders",
+      "subtitle": "We've eliminated the friction of the legacy development cycle.",
+      "features": {
+        "offline": {
+          "title": "Local-First Intelligence",
+          "description": "Full autonomy with self-hosted models. Your code never leaves your infrastructure, internet is optional."
+        },
+        "paradigm": {
+          "title": "Deterministic Sandboxing",
+          "description": "Stop manual testing. Agents execute and validate logic in hardened sandboxes before implementation."
+        },
+        "no_prompt": {
+          "title": "Promptless Orchestration",
+          "description": "Beyond chatbots. Mod0 infers intent from your architectural context and mental graphs automatically."
+        },
+        "token_strategy": {
+          "title": "Token Strategy",
+          "description": "Smart routing that assigns small models for trivial tasks and deep reasoning for complex logic, optimizing costs."
+        },
+        "mcp_native": {
+          "title": "Native MCP Integration",
+          "description": "Direct connection with Model Context Protocol and VS Code extensions. Your current tools, now with agentic superpowers."
+        },
+        "visual_codebase": {
+          "title": "Visual Codebase",
+          "description": "Navigate changes through file graphs and boards. Understand complex evolutions without reading thousands of lines of git logs."
+        }
+      }
+    },
+    "tweet": {
+      "tagline": "The era is changing",
+      "title": "Ride the wave with us"
+    },
+    "go_see_it": {
+      "title": "Ready to step up to the new era?",
+      "description": "Join us, watch future closely, use the leverage.",
+      "primary_cta": "Contact us",
+      "secondary_cta": "See more..."
+    }
+  },
+  "products": {
+    "mod0": {
+      "name": "Mod0",
+      "tagline": "Mission control for your AI CLI sessions.",
+      "description": "Run 8–15 Claude Code sessions in parallel without losing the thread. Mod0 wraps the CLI you already use and shows what each one is doing, which file it's touching and what it's thinking, so your attention goes to reviewing instead of babysitting.",
+      "rotating_words": {
+        "intelligent": "Glanceable",
+        "agentic": "Parallel",
+        "autonomic": "Observable",
+        "precise": "Calm",
+        "modern": "Fast"
+      },
+      "get_started": "Download Mod0",
+      "learn_more": "See docs",
+      "features": {
+        "title": "What it does for the way I work",
+        "subtitle": "Everything is built around one question: what deserves my attention right now?",
+        "items": {
+          "f1": {
+            "title": "Thinking Graph",
+            "description": "Follow each session's reasoning as a live graph: reads, edits, commands and the intent behind them. No wall of terminal text."
+          },
+          "f2": {
+            "title": "Mission Control",
+            "description": "Eight or fifteen sessions in one grid. State, current action, time in state, context and changes: only the indicators that deserve attention."
+          },
+          "f3": {
+            "title": "Your CLI, wrapped",
+            "description": "A real terminal per session running Claude Code, Codex, Gemini or whatever you configure. Mod0 doesn't replace your CLI, it gives it a cockpit."
+          },
+          "f4": {
+            "title": "Zero extra tokens",
+            "description": "It reads the hooks and transcript Claude Code already produces. Observing never costs a model call."
+          },
+          "f5": {
+            "title": "Isolated worktrees",
+            "description": "Each session can run in its own git worktree and branch, so parallel work doesn't collide, and every diff is against its own base."
+          },
+          "f6": {
+            "title": "Review without friction",
+            "description": "Per-session diff against the starting commit, files marked as reviewed, an editor for quick fixes and commit from the same screen."
+          },
+          "f7": {
+            "title": "Alerts where you are",
+            "description": "Native notifications and webhooks (WhatsApp, Telegram, ntfy) when a session is blocked, finishes or everything is done."
+          },
+          "f8": {
+            "title": "Project graph",
+            "description": "Folders as modules, imports as arrows and live rings showing which session is touching what. The project at a glance."
+          },
+          "f9": {
+            "title": "BYOK and local AI",
+            "description": "Your key and your model stay yours: set environment variables per profile (base URL, local endpoints) and the CLI does the rest."
+          }
+        }
+      },
+      "how_it_works": {
+        "title": "My workflow, step by step",
+        "subtitle": "From opening a project to merging what the sessions did.",
+        "steps": {
+          "step_1": {
+            "title": "Open the project",
+            "description": "Pick a folder. Mod0 reads the tree, the git branch and builds the module graph."
+          },
+          "step_2": {
+            "title": "Launch sessions in parallel",
+            "description": "One per task, each in its own worktree if you want. Start them from the Kanban or with Ctrl+Shift+N."
+          },
+          "step_3": {
+            "title": "Glance, don't read",
+            "description": "Mission Control and the attention panel tell you who is working, who is blocked and who is done. The thinking graph shows the why."
+          },
+          "step_4": {
+            "title": "Answer only when it matters",
+            "description": "A session asks for permission and you get an alert. Ctrl+Shift+A jumps to the next one that needs you."
+          },
+          "step_5": {
+            "title": "Review what it did",
+            "description": "Open the review: diff against the starting commit, file by file. Fix with the editor if something's off."
+          },
+          "step_6": {
+            "title": "Commit and move on",
+            "description": "Approve, commit and the card moves on. When everything is done, one alert on your phone."
+          }
+        }
+      },
+      "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "What Mod0 is, what it isn't and how it works.",
+        "q1": {
+          "q": "How is it different from Cursor, VS Code or Windsurf?",
+          "a": "Those are editors with AI inside. Mod0 is the opposite: the AI works in the CLI you already use and Mod0 is the cockpit to follow, triage and review many sessions at once. It isn't meant to replace your editor."
+        },
+        "q2": {
+          "q": "Is it a commercial product?",
+          "a": "No. It started as one, but today it's a personal tool published as it is. Use it, fork it and send issues if you like; there are no plans, SLAs or pricing."
+        },
+        "q3": {
+          "q": "How does it know what a session is doing?",
+          "a": "For Claude Code it launches the CLI with an extra settings file that sends its hooks (HTTP) to a local server, and reads the transcript for the 'why'. For other CLIs it infers the state from terminal activity."
+        },
+        "q4": {
+          "q": "What exactly is the Thinking Graph?",
+          "a": "A map of the session's steps: the prompt, every tool it used (read, edit, command, search), parallel branches and the end of each turn. It's built from events the CLI already emits, so it costs no tokens."
+        },
+        "q5": {
+          "q": "Is my code sent anywhere?",
+          "a": "No. Mod0 runs locally and only talks to the CLI you launch. The only network traffic it makes itself is the webhook you configure for alerts, if any."
+        },
+        "q6": {
+          "q": "Can I use my own API keys or a local model?",
+          "a": "Yes. Each profile can define environment variables (for example a base URL for your own endpoint). Keep secrets in your system's environment variables rather than in the profile."
+        },
+        "q7": {
+          "q": "Does it work with CLIs other than Claude Code?",
+          "a": "Yes: Codex, Gemini or any command can be a profile. You get the terminal, status inferred from activity and review; the thinking graph and exact states need Claude Code hooks."
+        },
+        "q8": {
+          "q": "What is the Kanban for?",
+          "a": "To turn a to-do into a running session in one click and follow it: the card moves to 'in progress' and 'review' on its own as the session changes state."
+        }
+      },
+      "future_news": {
+        "title": "Roadmap",
+        "subtitle": "What's built and what comes next.",
+        "v1": {
+          "label": "v0.2 · Mission Control",
+          "title": "Mission control",
+          "description": "Sessions, real terminals, thinking graph, project graph, review, kanban and alerts."
+        },
+        "v2": {
+          "label": "v0.3 · Triggers",
+          "title": "Event-driven sessions",
+          "description": "Start a session when something happens: a new release, a failing CI, a ticket."
+        },
+        "v3": {
+          "label": "v0.4 · Insight",
+          "title": "Cost and context",
+          "description": "Per-session spend, context trends and a history of what each session did."
+        },
+        "v4": {
+          "label": "v0.5 · Reach",
+          "title": "Beyond Claude Code",
+          "description": "Exact observation for more CLIs and a mobile companion for approvals."
+        }
+      },
+      "philosophy": {
+        "tag": "Personal project",
+        "title": "Built for one workflow: mine.",
+        "text": "Mod0 started as a commercial IDE. It isn't one anymore. Today it's the tool I build to run my own parallel AI sessions without burning out, published as it is: opinionated, open and in constant change."
+      },
+      "tour": {
+        "title": "Everything you need to follow 15 sessions at once",
+        "subtitle": "These screens are live: they're the same interface components as the app, running on sample data.",
+        "tabs": {
+          "sessions": {
+            "title": "Mission Control",
+            "description": "One card per session, readable at a glance: state, what it's doing right now, how long it's been in that state, how much context it has burned and what it changed.",
+            "b1": "States by color and shape: working, waiting for you, ready to review",
+            "b2": "Sessions that need you rise to the top of the attention panel",
+            "b3": "Alt+1…9 to jump, Ctrl+Shift+A for the next one that's waiting"
+          },
+          "graph": {
+            "title": "Thinking Graph",
+            "description": "The reasoning of each session as a graph instead of a wall of text. Every step is a node: what it read, what it edited, what it ran and why.",
+            "b1": "Parallel calls branch out; old turns collapse on their own",
+            "b2": "The 'why' of each step comes from the transcript: zero extra tokens",
+            "b3": "Click a node to see the full command, prompt or file"
+          },
+          "project": {
+            "title": "Project graph",
+            "description": "The shape of the project, not file by file. Folders become modules, imports become arrows and every session lights up the module it's working in.",
+            "b1": "Adjustable depth, from top-level folders to leaf modules",
+            "b2": "Colored rings show which session touches what, live",
+            "b3": "TS/JS, Svelte, Vue, Astro, Python and Rust"
+          },
+          "review": {
+            "title": "Fast review",
+            "description": "The real work is reviewing. Each session shows exactly what it changed against the commit it started from, file by file, with the untouched parts collapsed.",
+            "b1": "Side-by-side diff, plus an editor when you want to tweak",
+            "b2": "Mark files as reviewed and watch your progress",
+            "b3": "Commit and approve from the same screen"
+          },
+          "kanban": {
+            "title": "Kanban linked to sessions",
+            "description": "Tasks that start sessions and move on their own. Launch a card into its own worktree and it follows the session: in progress, in review, done.",
+            "b1": "One board per project",
+            "b2": "Isolated worktrees so sessions don't step on each other",
+            "b3": "Drag and drop; the CLI does the work"
+          }
+        },
+        "labels": {
+          "search": "Search or run…",
+          "sessions": "Sessions",
+          "waitingShort": "Waiting for you",
+          "all": "All",
+          "attention": "Need you",
+          "working": "Working",
+          "idle": "Idle",
+          "waiting": "Waiting for your decision",
+          "turn": "Turn",
+          "steps": "steps",
+          "prompt": "Prompt",
+          "depth": "Depth",
+          "modules": "modules",
+          "links": "links",
+          "reviewed": "reviewed",
+          "approve": "Mark reviewed",
+          "commit": "Commit",
+          "commitMessage": "Commit message…",
+          "backlog": "Backlog",
+          "doing": "In progress",
+          "reviewCol": "Review",
+          "done": "Done",
+          "start": "Start session",
+          "add": "Add task…",
+          "files": "files",
+          "idleLabel": "Idle"
+        }
+      },
+      "gallery": {
+        "title": "The real thing",
+        "subtitle": "Screenshots of the actual app, with the same sample data as the demo above.",
+        "items": {
+          "sessions": "Mission Control with eight sessions",
+          "graph": "Thinking graph of a live session",
+          "project": "Project graph with sessions overlaid",
+          "review": "Reviewing what a session changed",
+          "kanban": "Kanban linked to sessions"
+        }
+      },
+      "observer": {
+        "title": "It watches without spending a single token",
+        "subtitle": "No proxy, no extra model calls: Mod0 listens to what Claude Code already reports.",
+        "steps": {
+          "cli": {
+            "title": "Your CLI, untouched",
+            "description": "Each session is a real terminal (PTY) running the CLI you already use, in the same folder or in its own git worktree."
+          },
+          "hooks": {
+            "title": "Hooks and transcript",
+            "description": "Claude Code sends its events (tool calls, permission requests, end of turn) to a local server on 127.0.0.1. The transcript gives the 'why' of each step."
+          },
+          "ui": {
+            "title": "A calm interface",
+            "description": "Matte colors, one motion per state and nothing that blinks without a reason. Native alerts and webhooks (WhatsApp, Telegram, ntfy) when something needs you."
+          }
+        }
+      },
+      "build": {
+        "title": "Build it from source",
+        "subtitle": "Tauri 2 + Svelte 5. Windows, macOS and Linux.",
+        "note": "You need Node.js 22+, Rust 1.85+ and the Tauri prerequisites for your system. Releases are published on GitHub when they're ready."
+      }
+    }
+  },
+  "support": {
+    "badge": "HELP_CENTER // ALPHA_ACCESS",
+    "title": "Support",
+    "title_highlight": "Center",
+    "description": "If you experience deployment latency or token inconsistencies, review our knowledge base or contact the core-team.",
+    "sections": {
+      "docs": {
+        "title": "Alpha Documentation",
+        "desc": "Explore system architecture and available modules.",
+        "action": "Explore Docs"
+      },
+      "status": {
+        "title": "System Status",
+        "desc": "Real-time monitoring of our nodes and latency.",
+        "action": "View Status"
+      },
+      "community": {
+        "title": "Community & Feedback",
+        "desc": "Report bugs or suggest new features directly.",
+        "action": "Go to GitHub"
+      }
+    },
+    "critical": {
+      "title": "Critical issue in production?",
+      "desc": "Our on-call team is available for level 1 failures.",
+      "cta": "Contact Support"
+    }
+  },
+  "about_us": {
+    "title": "Our Organization",
+    "subtitle": "Building infrastructure for the agentic era.",
+    "vision_title": "The Vision",
+    "vision_text": "Modus Zero was born to solve the friction between LLM capabilities and the reality of engineering workflows. We don't build chatbots; we build control systems for artificial intelligence.",
+    "team_title": "Core Contributors",
+    "roles": {
+      "founder": "Founder | CEO",
+      "lead_architect": "Lead Architect",
+      "architect": "Architect"
+    },
+    "see_more": "See more..."
+  },
+  "contact": {
+    "cta": "Contact Us",
+    "title": "Start building with Modus Zero",
+    "subtitle": "Join thousands of developers using Mod0 to exploit their efficiency.",
+    "email_label": "Questions? Reach out to our team:",
+    "benefits": {
+      "b1": "No credit card required",
+      "b2": "Setup in under 5 minutes",
+      "b3": "Cancel anytime",
+      "b4": "24/7 customer support"
+    },
+    "form": {
+      "cta": "Get Started Free",
+      "name_label": "Full Name",
+      "name_placeholder": "John Doe",
+      "email_label": "Work Email",
+      "email_placeholder": "john@company.com",
+      "subject_label": "Subject",
+      "subject_placeholder": "How can we help?",
+      "company_label": "Company",
+      "company_placeholder": "Your Company Inc.",
+      "message_label": "What would you like to automate?",
+      "message_placeholder": "Tell us about your workflow and automation needs...",
+      "optional": "Optional",
+      "terms": "By submitting this form, you agree to our",
+      "and": "and"
+    }
+  },
+  "legal": {
+    "nav_label": "Legal",
+    "last_updated": "Last Updated",
+    "verification": "System Verification",
+    "verified": "Verified",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": {
+      "title": "Cookies Policy",
+      "consent": "Cookies Consent",
+      "description": "We use cookies to improve your experience on our website. By continuing to browse, you agree to our use of cookies in accordance with our ",
+      "protocol": "Cookie Consent",
+      "decline": "Decline Cookies",
+      "accept": "Accept Cookies"
+    }
+  }
 }
