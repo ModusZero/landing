@@ -16,7 +16,7 @@
 
 ## 🆕 v0.2.0
 
-- **Pantalla de producto de Mod0 rehecha**: ahora explica el flujo real (mission control para sesiones de CLI con IA) con
+- **Pantalla de producto de MOD0 rehecha**: ahora explica el flujo real (mission control para sesiones de CLI con IA) con
   maquetas **interactivas en Svelte** (`src/components/ide/`) traducidas de los componentes del IDE, y capturas reales
   (`public/images/ide/{es,en}/`). Para regenerar las capturas: `python scripts/capture-screenshots.py` en el repo del IDE.
 - **Rendimiento**: se eliminó el fondo de Vanta + three.js (CDN) con filtro `blur` de pantalla completa, que era la causa
@@ -50,14 +50,14 @@
 
 ## Descripción del Proyecto
 
-Este repositorio contiene la *landing page* oficial de **Modus Zero**, un ecosistema profesional diseñado para el aprovechamiento máximo de la **ingeniería agéntica**. A diferencia de los asistentes de chat tradicionales, este sitio presenta una visión donde la IA no solo asiste, sino que orquesta flujos de trabajo complejos mediante herramientas como **Mod0**.
+Este repositorio contiene la *landing page* oficial de **Modus Zero**, un ecosistema profesional diseñado para el aprovechamiento máximo de la **ingeniería agéntica**. A diferencia de los asistentes de chat tradicionales, este sitio presenta una visión donde la IA no solo asiste, sino que orquesta flujos de trabajo complejos mediante herramientas como **MOD0**.
 
 El sitio está construido con **Astro** para garantizar una carga instantánea y un SEO impecable, permitiendo a los desarrolladores explorar el nuevo paradigma de "vibe coding" y orquestación de LLMs con la menor fricción posible.
 
 **Puntos Clave del Ecosistema:**
 
 * **Ingeniería Agéntica:** Enfoque en la verificación y revisión del trabajo de IA más que en la escritura manual de código.
-* **Mod0:** Entorno autónomo con visualización de *Thinking Graphs* y tableros Kanban, entre otros elementos, ver más [aquí](github.com/ModusZero/mod0).
+* **MOD0:** Entorno autónomo con visualización de *Thinking Graphs* y tableros Kanban, entre otros elementos, ver más [aquí](github.com/ModusZero/mod0).
 * **Local-First:** Soporte para inteligencia privada y modelos auto-hospedados.
 * **Eficiencia:** Optimización de tokens mediante estrategias de inferencia por dificultad.
 
@@ -84,14 +84,14 @@ El sitio está construido con **Astro** para garantizar una carga instantánea y
 
 ## Project Description
 
-This repository hosts the official landing page for **Modus Zero**, a professional ecosystem tailored for maximizing the leverage of **agentic engineering**. Beyond simple chatbots, this platform introduces a workflow where AI orchestrates complex development tasks through tools like **Mod0**.
+This repository hosts the official landing page for **Modus Zero**, a professional ecosystem tailored for maximizing the leverage of **agentic engineering**. Beyond simple chatbots, this platform introduces a workflow where AI orchestrates complex development tasks through tools like **MOD0**.
 
 Built with **Astro**, the site ensures industry-leading performance and SEO, allowing developers to explore the "vibe coding" paradigm and LLM orchestration with zero friction.
 
 **Ecosystem Key Features:**
 
 * **Agentic Engineering:** Focus on verifying and auditing AI-generated work rather than manual coding.
-* **Mod0:** Autonomous environment featuring *Thinking Graphs* and agentic Kanban boards, etc. see more [here](github.com/ModusZero/mod0).
+* **MOD0:** Autonomous environment featuring *Thinking Graphs* and agentic Kanban boards, etc. see more [here](github.com/ModusZero/mod0).
 * **Local-First:** Support for private intelligence and self-hosted models.
 * **Token Efficiency:** Smart inference strategies to optimize costs and reasoning depth.
 
