@@ -5,13 +5,16 @@
         FolderTree,
         LayoutGrid,
         Network,
+        Pause,
+        Play,
+        RotateCcw,
         Search,
         Settings,
         SquareKanban,
     } from '@lucide/svelte';
     import type { Snippet } from 'svelte';
     import { onMount } from 'svelte';
-    import { tr } from './demo-data';
+    import { tr, u } from './demo-data';
     import { demo } from './demo-store.svelte';
     import StatusIcon from './StatusIcon.svelte';
 
@@ -64,7 +67,10 @@
             <span class="act bottom"><Settings size={16} strokeWidth={1.75} /></span>
         </nav>
 
-        <main class="main">{@render children()}</main>
+        <main class="main">
+            {@render children()}
+            {#if demo.toast}<div class="toast"><span class="pulse">🔔</span>{demo.toast}</div>{/if}
+        </main>
 
         <aside class="rail">
             <div class="rail-title">{labels.sessions}</div>
@@ -73,7 +79,7 @@
                     class="row"
                     class:focus={demo.focused === s.id}
                     class:alert={s.status === 'waiting'}
-                    onclick={() => (demo.focused = s.id)}
+                    onclick={() => demo.focus(s.id)}
                 >
                     <span class="bar" style="background:var(--s{s.color})"></span>
                     <span class="line"
@@ -86,6 +92,15 @@
             {/each}
         </aside>
     </div>
+
+    <footer class="story">
+        <button class="ctl" title={demo.playing ? u('pause') : u('play')} onclick={() => demo.togglePlay()}>
+            {#if demo.playing}<Pause size={12} />{:else}<Play size={12} />{/if}
+        </button>
+        <button class="ctl" title={u('restart')} onclick={() => demo.restart()}><RotateCcw size={12} /></button>
+        <span class="tag">{u('story')}</span>
+        <span class="caption">{demo.caption}</span>
+    </footer>
 </div>
 
 <style>
@@ -186,6 +201,7 @@
         margin-top: auto;
     }
     .main {
+        position: relative;
         flex: 1;
         min-width: 0;
         min-height: 0;
@@ -258,6 +274,68 @@
     }
     .sub.review {
         color: var(--st-review);
+    }
+    .toast {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        z-index: 5;
+        display: flex;
+        gap: 8px;
+        padding: 7px 14px;
+        font-size: 12px;
+        white-space: nowrap;
+        transform: translateX(-50%);
+        background: var(--bg-raised);
+        border: 1px solid color-mix(in srgb, var(--st-waiting) 55%, transparent);
+        border-radius: 999px;
+        box-shadow: 0 12px 30px rgb(0 0 0 / 0.4);
+        animation: drop 0.3s ease-out;
+    }
+    @keyframes drop {
+        from {
+            opacity: 0;
+            transform: translate(-50%, 8px);
+        }
+    }
+    .story {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        height: 30px;
+        padding: 0 10px;
+        font-size: 11px;
+        background: var(--bg-sidebar);
+        border-top: 1px solid var(--border-subtle);
+    }
+    .ctl {
+        display: inline-flex;
+        width: 22px;
+        height: 22px;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        border-radius: 6px;
+    }
+    .ctl:hover {
+        color: var(--text-main);
+        background: var(--bg-hover);
+    }
+    .tag {
+        padding: 1px 7px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: var(--accent-soft);
+        border-radius: 4px;
+    }
+    .caption {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: var(--text-muted);
     }
     @media (max-width: 760px) {
         .rail {
