@@ -31,7 +31,7 @@
       "products": "Ecosistema",
       "resources": "Recursos",
       "product_list": {
-        "mod0": "Mod0",
+        "mod0": "MOD0",
         "mod0_description": "Entorno autónomo para codificación auténtica (vibe coding) en tiempo real"
       },
       "resource_list": {
@@ -61,7 +61,7 @@
     "breadcrumb": {
       "home": "Inicio",
       "products": "Ecosistema",
-      "mod0": "Mod0",
+      "mod0": "MOD0",
       "resources": "Recursos",
       "releases": "Descargar",
       "first-steps": "Primeros Pasos",
@@ -118,7 +118,7 @@
         },
         "no_prompt": {
           "title": "Orquestación Sin Prompt",
-          "description": "Más allá de los chatbots. Mod0 infiere la intención desde tu contexto arquitectónico y grafos mentales automáticamente."
+          "description": "Más allá de los chatbots. MOD0 infiere la intención desde tu contexto arquitectónico y grafos mentales automáticamente."
         },
         "token_strategy": {
           "title": "Eficiencia de Tokens",
@@ -147,9 +147,9 @@
   },
   "products": {
     "mod0": {
-      "name": "Mod0",
+      "name": "MOD0",
       "tagline": "Mission control para tus sesiones de CLI con IA.",
-      "description": "Corre 8–15 sesiones de Claude Code en paralelo sin perder el hilo. Mod0 envuelve la CLI que ya usas y muestra qué hace cada una, qué archivo toca y qué está pensando, para que tu atención vaya a revisar y no a vigilar.",
+      "description": "Corre 8–15 sesiones de Claude Code en paralelo sin perder el hilo. MOD0 envuelve la CLI que ya usas y muestra qué hace cada una, qué archivo toca y qué está pensando, para que tu atención vaya a revisar y no a vigilar.",
       "rotating_words": {
         "intelligent": "Visible",
         "agentic": "Paralelo",
@@ -157,7 +157,7 @@
         "precise": "Sereno",
         "modern": "Veloz"
       },
-      "get_started": "Descargar Mod0",
+      "get_started": "Descargar MOD0",
       "learn_more": "Ver documentación",
       "features": {
         "title": "Lo que hace por mi forma de trabajar",
@@ -173,7 +173,7 @@
           },
           "f3": {
             "title": "Tu CLI, envuelta",
-            "description": "Una terminal real por sesión con Claude Code, Codex, Gemini o lo que configures. Mod0 no reemplaza tu CLI, le da una cabina."
+            "description": "Una terminal real por sesión con Claude Code, Aider, OpenCode, Codex, Gemini o lo que configures. MOD0 no reemplaza tu CLI, le da una cabina."
           },
           "f4": {
             "title": "Cero tokens extra",
@@ -196,8 +196,8 @@
             "description": "Carpetas como módulos, imports como flechas y anillos en vivo con qué sesión toca qué. El proyecto de un vistazo."
           },
           "f9": {
-            "title": "BYOK e IA local",
-            "description": "Tu clave y tu modelo siguen siendo tuyos: define variables de entorno por perfil (URL base, endpoints locales) y la CLI hace el resto."
+            "title": "Cualquier proveedor",
+            "description": "Claude Code acepta endpoints compatibles (OpenRouter, Z.ai, Qwen, DeepSeek o tu propio gateway), así conservas toda la observación con otros modelos. Las claves quedan en el entorno del sistema, referenciadas como $NOMBRE."
           }
         }
       },
@@ -207,7 +207,7 @@
         "steps": {
           "step_1": {
             "title": "Abre el proyecto",
-            "description": "Elige una carpeta. Mod0 lee el árbol, la rama de git y construye el grafo de módulos."
+            "description": "Elige una carpeta. MOD0 lee el árbol, la rama de git y construye el grafo de módulos."
           },
           "step_2": {
             "title": "Lanza sesiones en paralelo",
@@ -233,10 +233,10 @@
       },
       "faq": {
         "title": "Preguntas frecuentes",
-        "subtitle": "Qué es Mod0, qué no es y cómo funciona.",
+        "subtitle": "Qué es MOD0, qué no es y cómo funciona.",
         "q1": {
           "q": "¿En qué se diferencia de Cursor, VS Code o Windsurf?",
-          "a": "Esos son editores con IA dentro. Mod0 es lo contrario: la IA trabaja en la CLI que ya usas y Mod0 es la cabina para seguir, priorizar y revisar muchas sesiones a la vez. No pretende reemplazar tu editor."
+          "a": "Esos son editores con IA dentro. MOD0 es lo contrario: la IA trabaja en la CLI que ya usas y MOD0 es la cabina para seguir, priorizar y revisar muchas sesiones a la vez. No pretende reemplazar tu editor."
         },
         "q2": {
           "q": "¿Es un producto comercial?",
@@ -252,15 +252,15 @@
         },
         "q5": {
           "q": "¿Mi código se envía a algún sitio?",
-          "a": "No. Mod0 corre en local y solo habla con la CLI que lanzas. El único tráfico de red propio es el webhook que configures para avisos, si lo hay."
+          "a": "No. MOD0 corre en local y solo habla con la CLI que lanzas. El único tráfico de red propio es el webhook que configures para avisos, si lo hay."
         },
         "q6": {
-          "q": "¿Puedo usar mis propias claves o un modelo local?",
-          "a": "Sí. Cada perfil puede definir variables de entorno (por ejemplo una URL base para tu propio endpoint). Guarda los secretos en las variables de entorno del sistema y no en el perfil."
+          "q": "¿Puedo usar otros proveedores o un modelo local?",
+          "a": "Sí. Claude Code puede apuntar a cualquier endpoint compatible con Anthropic (OpenRouter, Z.ai, Qwen/DashScope, DeepSeek o tu propio gateway) y MOD0 mantiene toda la observación. Para modelos sin ese endpoint, usa Aider, OpenCode o Qwen Code. Las claves viven en las variables de entorno del sistema y los perfiles las referencian como $NOMBRE."
         },
         "q7": {
           "q": "¿Funciona con otras CLI además de Claude Code?",
-          "a": "Sí: Codex, Gemini o cualquier comando puede ser un perfil. Obtienes la terminal, el estado inferido por actividad y la revisión; el thinking graph y los estados exactos requieren los hooks de Claude Code."
+          "a": "Sí: Aider, OpenCode, Qwen Code, Codex, Gemini o cualquier comando puede ser un perfil. Obtienes la terminal, el estado inferido por actividad y la revisión; el thinking graph, el plan y los estados exactos requieren los hooks de Claude Code."
         },
         "q8": {
           "q": "¿Para qué sirve el Kanban?",
@@ -269,32 +269,37 @@
       },
       "future_news": {
         "title": "Hoja de ruta",
-        "subtitle": "Lo que ya está y lo que viene.",
+        "subtitle": "Lo que ya está, lo que está en marcha y lo que viene.",
         "v1": {
           "label": "v0.2 · Mission Control",
           "title": "Mission control",
           "description": "Sesiones, terminales reales, thinking graph, grafo del proyecto, revisión, kanban y avisos."
         },
         "v2": {
-          "label": "v0.3 · Triggers",
+          "label": "v0.3 · Cualquier CLI",
+          "title": "Cualquier CLI, cualquier proveedor",
+          "description": "Plan de la sesión, diagramas jerárquicos, un mapa del proyecto explorable con análisis de impacto y plantillas de perfiles para Claude Code con otros proveedores, Aider, OpenCode, Qwen Code, Codex y Gemini."
+        },
+        "v3": {
+          "label": "v0.4 · Triggers",
           "title": "Sesiones por eventos",
           "description": "Lanza una sesión cuando pasa algo: un release nuevo, un CI que falla, un ticket."
         },
-        "v3": {
-          "label": "v0.4 · Insight",
+        "v4": {
+          "label": "v0.5 · Insight",
           "title": "Costo y contexto",
           "description": "Gasto por sesión, tendencias de contexto e historial de lo que hizo cada una."
         },
-        "v4": {
-          "label": "v0.5 · Alcance",
-          "title": "Más allá de Claude Code",
-          "description": "Observación exacta para más CLI y un acompañante móvil para aprobaciones."
+        "v5": {
+          "label": "v0.6 · Alcance",
+          "title": "Remoto y conectores",
+          "description": "Sesiones que sobreviven a un corte de conexión (Codespaces/SSH), conectores MCP (Jira, Notion) para planear fuera del IDE y un acompañante móvil para aprobaciones."
         }
       },
       "philosophy": {
         "tag": "Proyecto personal",
         "title": "Hecho para un solo flujo: el mío.",
-        "text": "Mod0 nació como un IDE comercial. Ya no lo es. Hoy es la herramienta que construyo para correr mis propias sesiones de IA en paralelo sin quemarme, publicada tal cual: con opiniones, abierta y en cambio constante."
+        "text": "MOD0 nació como un IDE comercial. Ya no lo es. Hoy es la herramienta que construyo para correr mis propias sesiones de IA en paralelo sin quemarme, publicada tal cual: con opiniones, abierta y en cambio constante."
       },
       "tour": {
         "title": "Todo lo necesario para seguirle el hilo a 15 sesiones a la vez",
@@ -309,31 +314,31 @@
           },
           "graph": {
             "title": "Thinking Graph",
-            "description": "El razonamiento de cada sesión como un grafo en vez de un muro de texto. Cada paso es un nodo: qué leyó, qué editó, qué ejecutó y por qué.",
-            "b1": "Las llamadas paralelas se ramifican; los turnos viejos se colapsan solos",
-            "b2": "El «por qué» de cada paso sale del transcript: cero tokens extra",
-            "b3": "Haz clic en un nodo para ver el comando, prompt o archivo completo"
+            "description": "El razonamiento de cada sesión como un diagrama en vez de un muro de texto: fases encadenadas con flechas (explorar → editar → verificar → reintentar → listo) y el plan que la IA se va marcando.",
+            "b1": "Diagrama o cronología; las llamadas paralelas se ramifican y los turnos viejos se colapsan",
+            "b2": "Los reintentos tras un fallo se dibujan como tales y el plan muestra el avance",
+            "b3": "El «por qué» de cada paso sale del transcript: cero tokens extra"
           },
           "project": {
             "title": "Grafo del proyecto",
-            "description": "La forma del proyecto, no archivo por archivo. Las carpetas son módulos, los imports son flechas y cada sesión ilumina el módulo donde trabaja.",
-            "b1": "Profundidad ajustable, de carpetas raíz a módulos hoja",
-            "b2": "Anillos de color muestran qué sesión toca qué, en vivo",
+            "description": "La forma del proyecto al zoom que elijas: carpetas raíz, carpetas de segundo nivel o archivos sueltos. Ve dónde trabaja cada sesión y qué afecta un cambio.",
+            "b1": "Doble clic en una carpeta para abrirla; los archivos cambiados muestran M/U/A/D",
+            "b2": "Impacto: resalta lo que depende de lo que cambió la sesión",
             "b3": "TS/JS, Svelte, Vue, Astro, Python y Rust"
           },
           "review": {
             "title": "Revisión ágil",
             "description": "El trabajo real es revisar. Cada sesión muestra exactamente qué cambió respecto al commit con el que empezó, archivo por archivo, con lo intacto colapsado.",
             "b1": "Diff lado a lado y un editor para cuando quieras retocar",
-            "b2": "Marca archivos como revisados y mira tu avance",
-            "b3": "Haz commit y aprueba desde la misma pantalla"
+            "b2": "Archivos cambiados en lista plana o agrupados por carpeta, como el control de versiones de tu editor",
+            "b3": "Marca archivos como revisados, haz commit y aprueba desde la misma pantalla"
           },
           "kanban": {
             "title": "Kanban ligado a sesiones",
             "description": "Tareas que lanzan sesiones y se mueven solas. Lanza una tarjeta en su propio worktree y sigue a la sesión: en curso, en revisión, hecha.",
             "b1": "Un tablero por proyecto",
             "b2": "Worktrees aislados para que las sesiones no se pisen",
-            "b3": "Arrastra y suelta; la CLI hace el trabajo"
+            "b3": "Arrastra y suelta tarjetas; lanza una sesión desde cualquier tarea"
           }
         },
         "labels": {
@@ -378,7 +383,7 @@
       },
       "observer": {
         "title": "Observa sin gastar un solo token",
-        "subtitle": "Sin proxy ni llamadas extra a un modelo: Mod0 escucha lo que Claude Code ya reporta.",
+        "subtitle": "Sin proxy ni llamadas extra a un modelo: MOD0 escucha lo que Claude Code ya reporta.",
         "steps": {
           "cli": {
             "title": "Tu CLI, intacta",
@@ -445,7 +450,7 @@
   "contact": {
     "cta": "Contáctanos",
     "title": "Comienza a construir con Modus Zero",
-    "subtitle": "Únete a miles de desarrolladores que usan Mod0 para explotar su eficiencia.",
+    "subtitle": "Únete a miles de desarrolladores que usan MOD0 para explotar su eficiencia.",
     "email_label": "¿Alguna pregunta? Contacta a nuestro equipo:",
     "benefits": {
       "b1": "No requiere tarjeta de crédito",
