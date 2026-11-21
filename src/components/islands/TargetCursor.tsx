@@ -47,19 +47,14 @@ const TargetCursor: React.FC<TargetCursorProps> = ({
     const isMobile = useMemo(() => {
         if (typeof window === 'undefined') return false;
 
-        const hasTouchScreen = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-
-        // Solo punteros precisos con hover (ratón/trackpad): en táctiles no tiene sentido ni se paga su costo.
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return true;
-
-        const isSmallScreen = window.innerWidth <= 1024;
+        // Solo se activa si hay un puntero preciso con hover (ratón o trackpad). `any-*` cubre portátiles 2 en 1 y
+        // pantallas táctiles con ratón conectado, donde el puntero "principal" puede ser el dedo.
+        // Ya no se usa el ancho de ventana: con DevTools acoplado la ventana se estrecha y el cursor desaparecía
+        // en local aunque en el deploy (ventana completa) sí se veía.
+        if (!window.matchMedia('(any-hover: hover) and (any-pointer: fine)').matches) return true;
 
         const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-
-        const mobileRegex = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i;
-
-        const isMobileUserAgent = mobileRegex.test(userAgent.toLowerCase());
-        return (hasTouchScreen && isSmallScreen) || isMobileUserAgent;
+        return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
     }, []);
 
     const constants = useMemo(() => ({ borderWidth: 6, cornerSize: 24 }), []);

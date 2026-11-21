@@ -228,7 +228,7 @@ export const Terminal = ({
             <div className="h-2.5 w-2.5 rounded-full bg-green-500/80 shadow-[0_0_10px_rgba(34,197,94,0.2)]"></div>
           </div>
           <div className="flex-1 text-center">
-             <span className="text-[10px] font-mono opacity-40 uppercase tracking-widest font-bold">Mod0 Session</span>
+             <span className="text-[10px] font-mono opacity-40 uppercase tracking-widest font-bold">MOD0 Session</span>
           </div>
         </div>
         
