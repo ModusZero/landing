@@ -1,0 +1,18 @@
+# MOD0 (ModusZero)
+
+> Mission control para sesiones de CLI con IA (Claude Code y otras): ve qué hace cada sesión, en qué archivo trabaja,
+> qué piensa y cuál te necesita. Herramienta personal, abierta y no comercial. App de escritorio (Tauri + Svelte).
+
+## Documentación
+
+- [Guía para personas](https://github.com/ModusZero/mod0/blob/main/docs/README.md): índice de la documentación.
+- [Primeros pasos](https://github.com/ModusZero/mod0/blob/main/docs/getting-started.md): instalar, abrir un proyecto y lanzar la primera sesión.
+- [Proveedores y CLI](https://github.com/ModusZero/mod0/blob/main/docs/guide/providers.md): cómo conectar Claude Code con otros modelos, Aider, OpenCode, Qwen Code, Codex, Gemini.
+- [Arquitectura](https://github.com/ModusZero/mod0/blob/main/docs/guide/architecture.md): cómo funciona por dentro (hooks, transcript, grafos).
+- [Contexto del proyecto](https://github.com/ModusZero/mod0/blob/main/docs/CONTEXT.md): visión, decisiones y convenciones (pensado para IA).
+- [Plan actual](https://github.com/ModusZero/mod0/blob/main/docs/PLAN.md): tareas y registro de releases.
+
+## Opcional
+
+- [Código fuente](https://github.com/ModusZero/mod0)
+- [Landing](https://moduszero.github.io/landing/)
